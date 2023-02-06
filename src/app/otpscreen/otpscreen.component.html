@@ -1,0 +1,25 @@
+<div class="container-content ">
+    <div class="otp-screen go-right active-box">
+        <h6 class="verify-number text text-center">Verify Number</h6>
+        <div class="security-code">
+            <p>We sent a one-time security code to<span><h6 class="mobile-number">{{senderdata.mobile}}</h6></span>
+            <p>Please enter the code below</p>
+        </div>
+        
+        <div class="otp-box">
+            <div class="form-input">
+                <input class="otp-input mb-2 " type="text" autocomplete="off" id="otp-number" value="{{otpdata.otp}}"/>
+                <h6 class="text text-center"><a class="otp-resend" href="#">Re-send via text</a></h6>
+                <h6 class="text text-center"><a class="otp-resend" href="#">Re-send via phone call</a></h6>
+            </div>
+        </div>
+        <button [routerLink]="['/confirmation']" (click)="verify()"class="btn btn-verify">Verify</button>
+        <button [routerLink]="['/makeapayment']" class="btn btn-cancel text-primary"><a class="cancel" href="#" >Cancel</a></button>
+       
+    </div>      
+</div>
+   
+    
+    
+
+

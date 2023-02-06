@@ -1,0 +1,89 @@
+@import '../../styles.scss';
+
+.container{
+    padding: 6px 6px 6px 6px;   
+}
+.image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.amount{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #d1dee6;
+    width:400px; height:200px;
+}
+.dollar{
+    padding: 60px 30px 30px 30px;
+    font-weight:600px;
+    color: blue;
+}
+.card{
+    padding: 10px 10px 10px 10px;
+}
+.confirm{
+    font-weight: 400;
+}
+.done{
+    width: 100%;
+    color: rgb(255, 255, 255);
+    background-color: #29479e;
+    margin-bottom: 15px;
+    border-radius: 1px;
+    cursor: pointer;
+    box-shadow: none;
+    transition: all 0.2s linear;
+    &:hover,
+    &.active{
+        background-color:#899cc9 ;
+    }box-shadow: none;
+    border: none;
+}
+.cancel{
+    width: 100%;
+    background-color:#d1dee6 ;
+    margin-bottom: 15px;
+    border-radius: 1px;
+    cursor: pointer;
+    box-shadow: none;
+    transition: all 0.2s linear;
+    &:hover,
+    &.active{
+        background-color:#edf2f5;
+    }
+    border: none;
+}
+.amounttype{
+    font-size: 25px;
+}
+.accountNumber,.name{
+    font-size: smaller;
+}
+
+
+
+
+.ng-valid[required], .ng-valid.required  {
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-left: 10px solid rgb(218, 200, 43); /* yellow */
+}
+
+.ng-invalid:not(form)  {
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-left: 10px solid #e94646; /* red */
+}
+
+.backdrop {
+    background-color:rgba(0,0,0,0.6);
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+}

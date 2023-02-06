@@ -1,0 +1,58 @@
+{
+  "biller": {
+  "account": "*89999999999999",
+  "amount": "50.00",
+  "accountList": [
+    {
+      "accountType": "Credit card(2.3% fee)",
+      "balance" : "$365.27 available"
+    },
+    {
+      "accountType": "main checking(*4738)",
+      "balance" : "$5,164.98 available"
+    }
+  ],
+  "deliveryby": "1-3-2023",
+  "recipient": "AT&T_biller",
+  "mobile": "718-555-1234",
+  "imagePath": "../../assets/images/logo2.png"
+},
+"sender": {
+  "account": "*890000000000000000000000",
+  "amount": "16.00",
+  "accountList": [
+    {
+      "accountType": "Credit card(2.3% fee)",
+      "balance" : "$365.27 available"
+    },
+    {
+      "accountType": "main checking(*4738)",
+      "balance" : "$5,164.98 available"
+    }
+  ],
+  "deliveryby": "1-3-2023",
+  "recipient": "Kat-simmons",
+  "mobile": "718-555-1234",
+  "imagePath": ""
+},
+"requester": {
+  "account": "*890076",
+  "amount": "$50.00",
+  "accountList": [
+    {
+      "accountType": "Credit card(2.3% fee)",
+      "balance" : "$365.27 available"
+    },
+    {
+      "accountType": "main checking(*4738)",
+      "balance" : "$5,164.98 available"
+    }
+  ],
+  "deliveryby": "1-3-2023",
+  "recipient": "AT&T",
+  "mobile": "718-555-1234"
+},
+"security-code":{
+  "otp":303635
+}
+}

@@ -1,0 +1,97 @@
+@import '../../styles.scss';
+
+.container{
+  margin: auto;
+}
+.picture{
+  @include important-style; 
+  border-radius: 100px;
+  width: 50px;
+  margin-bottom: 0;
+ }
+
+.accountno{
+    text-align: center;
+}
+ 
+.form{
+   @include important-style;
+  
+  }
+
+  input[type=number],select,textarea,.form-control,.form-select{
+    border: 1px solid rgb(6, 5, 5);
+    border-radius: 4px;
+    box-shadow: none;
+  }
+  input[type=date]{
+    border: 1px solid rgb(6, 5, 5);
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: none
+  }
+
+
+ 
+#otp{
+  @include button-verify-pay;
+}
+.link{
+  text-decoration: none;
+}
+a{
+  color: #29479e;
+}
+.label{
+  font-weight: bold;
+}
+
+@media (min-width:150px) and (max-width:575px){
+  #otp{
+    width: 100%;
+  }
+}
+@media (min-width:576px) and (max-width:768px){
+  #otp{
+    // width: 40%;
+    width: 100%;
+  }
+}
+
+@media (min-width:769px) and (max-width:1281px){
+  .image{
+    width: 40px;
+    border-radius: 100px;
+    display: flex;
+   }
+   .navbar-brand{
+    border-radius: 100px;
+   }
+   .title{
+    display: none;
+   }
+   #otp{
+    width: 42%;
+  }
+  .make{
+    display: none;
+  }
+
+  
+  }
+
+@media (min-width:150px) and (max-width:768px){
+  
+  .navbar{
+      display: none;
+   }
+   .image{
+    display: none;
+   }
+   .form{
+    @include important-style;
+    width: auto;
+  }
+}
+
+

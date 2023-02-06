@@ -1,7 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AmounttopayComponent } from './amounttopay/amounttopay.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { MakeapaymentComponent } from './makeapayment/makeapayment.component';
+import { OtpscreenComponent } from './otpscreen/otpscreen.component';
+import { HomeComponent } from './home/home.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:'home' , component:HomeComponent},
+  {path:'', redirectTo:'/home', pathMatch:'full'},
+  {path:'amounttopay' , component:AmounttopayComponent},
+  {path:'makeapayment',  component:MakeapaymentComponent},
+  {path:'otp', redirectTo:'/otpscreen', pathMatch:'full'},
+  {path:'otpscreen',component:OtpscreenComponent},
+  {path:'confirmation', redirectTo:'/confirmation', pathMatch:'full'},
+  {path:'makeapayment', redirectTo:'/makepayment', pathMatch:'full'},
+  {path:'confirmation', component:ConfirmationComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

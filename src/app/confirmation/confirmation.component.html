@@ -1,0 +1,78 @@
+<div class="container">
+    <img class="image" src="https://cdn3.iconfinder.com/data/icons/social-messaging-ui-color-line/254000/39-512.png" width="50" height="50">
+    <h1 class="text text-center ">confirmation</h1>
+    <h1 class="dollar text text-center">confirmation</h1>
+
+    <!-----------card------>
+    <div class="bg-light mb-3 d-flex ">
+        <div>
+        <img src="https://media.istockphoto.com/id/934869826/vector/bank-building-circle-icon-with-long-shadow-flat-design-style.jpg?s=1024x1024&w=is&k=20&c=KmFEztS-dWG60zKP4UhNC_m5UhNk4VqQReB_KPKxl9Y=" width="40px" height="40px">
+        </div>
+        <div>
+            <h6 class="name">confirmation</h6>
+            <h6 class="accountType">accountList</h6>
+        </div>
+        
+    </div>
+
+    <div class="bg-light mb-5 d-flex">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFvNAnXOYNE1JQ9trMZDjCmRO9RR7OQoomKlDhsnr0_bkXir1FO707_WfFf1LdijHCGPc&usqp=CAU"  alt="" width="33px" height=" 33px" >
+        <div>
+            <h6 class="accounttype">confirmation</h6>
+            <h6 class="accountNumber">92385927</h6>
+        </div>
+    </div>  
+
+    <hr>
+    <nav class="navbar ">
+        <div class="container sticky-top">
+            <div>
+               <h5>Arrives</h5>
+                <h6><span>769o6-87-7</span></h6>
+            </div>
+            <h3 class="text" style="float:right;font-size:20px;margin-top:4px">Confirmation<br><span class="confirm">868667</span></h3>
+        </div>
+    </nav>
+
+    <div>
+        <button type="submit" class="done btn btn-lg">Done</button>
+        <button type="reset" class="cancel btn btn-lg">cancel</button>
+    </div>
+    
+   
+    <h3>Please click on the below button open popup</h3>
+    <hr />
+    <button
+    style="margin: 50px; padding: 10px"
+    type="button"
+    class="btn btn-primary"
+    (click)="openPopup()">Show Data
+    </button>
+    <div
+    class="modal"
+    tabindex="-1"
+    role="dialog"
+    [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">GeeksForGeeks</h4>
+        </div>
+        <div class="modal-body">
+            <p>One Stop Solution for all CS problems</p>
+    
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger"
+                    (click)="closePopup()">
+            Close
+            </button>
+        </div>
+        </div>
+    </div>
+    </div>
+    
+   
+
+ 
+        

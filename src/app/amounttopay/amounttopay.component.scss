@@ -1,0 +1,57 @@
+@import '../../styles.scss';
+.screen{
+    font-family: 'Calibr';
+    width: 450px;
+    height: 530px;
+    margin: auto;
+    background-color:#d1dee6;
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+    border-radius: 70px;
+    
+}
+h5{
+    text-align: center;
+}
+h6{
+    text-align: left;
+}
+
+
+
+h4{
+    text-align: center;
+}
+
+p{
+    text-align: center;
+    color: rgb(12, 12, 15);
+}
+
+
+.inputpay{
+   border: none; 
+    margin: auto;
+    display: block;
+    background-color: #EBF1F6;
+    margin-bottom: 50px;
+    
+    
+}
+
+
+
+.keypad{
+   
+    justify-content: space-around;
+    text-align: center;
+}
+.num{
+    background-color: white;
+    padding: 20px;
+    margin: 5px;
+}
