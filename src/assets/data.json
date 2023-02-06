@@ -33,7 +33,7 @@
   "deliveryby": "1-3-2023",
   "recipient": "Kat-simmons",
   "mobile": "718-555-1234",
-  "imagePath": ""
+  "imagePath": "../../assets/images/send image.jpeg"
 },
 "requester": {
   "account": "*890076",
@@ -54,5 +54,8 @@
 },
 "security-code":{
   "otp":303635
+},
+"literals":{
+
 }
 }
