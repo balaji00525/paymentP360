@@ -4,6 +4,7 @@ body{
     font-family: sans-serif;
 }
 
+
 @mixin important-style{
     display: block;
     margin-left: auto;
@@ -36,4 +37,31 @@ body{
     &.active{
         background-color:#edf2f5;
     }
+}
+
+@mixin child-container{
+    text-align: center;
+    height: 40px;
+}
+@mixin parent-container {
+  
+    width: 100%;
+    color: rgb(255, 255, 255);
+    background-color: #29479e;
+    margin-bottom: 15px;
+    // border-radius: 1px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    &:hover,
+    &.active{
+        background-color:#899cc9 ;
+    }
+    
+}
+@mixin important-part{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+    border-radius: 70px;
 }

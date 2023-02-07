@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataserviceService } from '../service/dataservice.service';
 import { Router } from '@angular/router';
+import { ConnectionService } from '../service/connection.service';
 @Component({
   selector: 'app-otpscreen',
   templateUrl: './otpscreen.component.html',
@@ -8,20 +9,24 @@ import { Router } from '@angular/router';
 })
 export class OtpscreenComponent implements OnInit {
 
-  billerdata:any
-  senderdata:any
-  requesterdata:any
-  otpdata:any
-  status:true
+ 
+  data:any
 
-  constructor(private service:DataserviceService,private router:Router) { }
+  constructor(private service:DataserviceService,private router:Router,private cService: ConnectionService) { }
+
 
   ngOnInit(): void {
-    this.service.getBillerData().subscribe(data=>this.billerdata=data)
-    this.service.getSenderData().subscribe(data=>this.senderdata=data)
-    this.service.getRequesterData().subscribe(data=>this.requesterdata=data)
-    this.service.getOtpData().subscribe(data=>this.otpdata=data)
+    let paymentMode = this.cService.user;
+    switch (paymentMode) {
+      case "biller": this.service.getBillerData().subscribe(data => this.data = data);
+        break;
+      case "sender": this.service.getSenderData().subscribe(data => this.data = data);
+        break;
+      case "requester": this.service.getRequesterData().subscribe(data => this.data = data)
+    }
+    
   }
+
 
   onsubmit(){
     this.router.navigate(['/confirmation'])

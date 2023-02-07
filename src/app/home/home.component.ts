@@ -14,14 +14,14 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onPaymentClick(val:string) {
+  onPaymentClick(val: string) {
 
-   this.service.user=val
-   
-    this.router.navigate(['/makeapayment']);
-  
+    this.service.user = val
 
-    }
+    this.router.navigate(['/amounttopay']);
+
+
+  }
 
 
 

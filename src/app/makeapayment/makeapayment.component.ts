@@ -9,17 +9,13 @@ import { Router } from '@angular/router';
 })
 export class MakeapaymentComponent implements OnInit {
 
-
-
   data: any
-  status = true
+
   constructor(private service: DataserviceService, private cService: ConnectionService, private router: Router) { }
 
   onsubmit() {
     this.router.navigate(['/otpscreen']);
   }
-
-
   accountlist = '';
   accounts = [
     { accountType: 'Credit card(2.3% fee)', balance: '$365.27' },
@@ -32,15 +28,20 @@ export class MakeapaymentComponent implements OnInit {
         break;
       case "sender": this.service.getSenderData().subscribe(data => this.data = data);
         break;
-      case "requester": this.service.getRequesterData().subscribe(data => this.data = data)
+      case "requester": this.service.getRequesterData().subscribe(data => this.data = data);
     }
-
-  }
-
-  pay() {
-    this.status = false
+    
   }
 
 
+
+  displayStyle = "none";
+
+  openPopup() {
+    this.displayStyle = "block";
+  }
+  closePopup() {
+    this.displayStyle = "none";
+  }
 
 }

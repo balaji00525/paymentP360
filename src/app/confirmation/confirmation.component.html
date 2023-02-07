@@ -1,10 +1,136 @@
 <div class="container">
+    
+    
     <img class="image" src="https://cdn3.iconfinder.com/data/icons/social-messaging-ui-color-line/254000/39-512.png" width="50" height="50">
-    <h1 class="text text-center ">confirmation</h1>
-    <h1 class="dollar text text-center">confirmation</h1>
+    <h1 class="text text-center ">Payment Sent</h1>
+    <h1 class="dollar text text-center">{{data.amount}}</h1>
+   
 
     <!-----------card------>
     <div class="bg-light mb-3 d-flex ">
+        <div class="img">
+            <img src="https://media.istockphoto.com/id/934869826/vector/bank-building-circle-icon-with-long-shadow-flat-design-style.jpg?s=1024x1024&w=is&k=20&c=KmFEztS-dWG60zKP4UhNC_m5UhNk4VqQReB_KPKxl9Y=" width="40px" height="40px">
+        </div>
+        <div>
+            <h6 class="name">{{data.name}}</h6>
+            <h6 class="accountType">{{data.account}}</h6>
+        </div>
+
+    </div>
+
+    <div class="bg-light mb-5 d-flex">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFvNAnXOYNE1JQ9trMZDjCmRO9RR7OQoomKlDhsnr0_bkXir1FO707_WfFf1LdijHCGPc&usqp=CAU"
+            alt="" width="33px" height=" 33px">
+        <div>
+            <h6 class="accounttype">{{data.recipient}}</h6>
+            <h6 class="accountNumber">{{data.account}}</h6>
+        </div>
+    </div>
+
+    <hr>
+    <nav class="navbar ">
+        <div class="container sticky-top">
+            <div>
+                <h5 class="text">Arrives</h5>
+                <h6><span>{{data.date}}</span></h6>
+            </div>
+            <h5 class="text">Confirmation<br><span
+                    class="confirm">0123456789</span></h5>
+        </div>
+    </nav>
+
+    <div>
+        <button type="submit" class="done btn btn-lg">Done</button>
+        <button type="reset" class="cancel btn btn-lg">cancel</button>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="title">
+    <img class="picture" src="../../assets/images/logo1.jfif" width="50">
+    <h6 class="text text-center">AT&T &nbsp;986998</h6>
+</div>
+<div class="navbar">
+    <div class="container">
+        <div>
+            <img class="image" src="../../assets/images/logo1.jfif" alt="" height="50" >
+            <h6><span>AT&T</span><br>6987997</h6>
+        </div>
+        <h3 class="account text text-center">Make a Payment</h3>
+        <h3 class="account-mobile text">374-347234</h3>
+    </div>
+</div><hr>
+<h3 class="title text-center">Make a Payment</h3> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<div class="container">
+    <img class="image" src="https://cdn3.iconfinder.com/data/icons/social-messaging-ui-color-line/254000/39-512.png" width="50" height="50">
+    <h1 class="text text-center ">confirmation</h1>
+    <h1 class="dollar text text-center">confirmation</h1> -->
+
+    <!-----------card------>
+    <!-- <div class="bg-light mb-3 d-flex ">
         <div>
         <img src="https://media.istockphoto.com/id/934869826/vector/bank-building-circle-icon-with-long-shadow-flat-design-style.jpg?s=1024x1024&w=is&k=20&c=KmFEztS-dWG60zKP4UhNC_m5UhNk4VqQReB_KPKxl9Y=" width="40px" height="40px">
         </div>
@@ -13,17 +139,17 @@
             <h6 class="accountType">accountList</h6>
         </div>
         
-    </div>
+    </div> -->
 
-    <div class="bg-light mb-5 d-flex">
+    <!-- <div class="bg-light mb-5 d-flex">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFvNAnXOYNE1JQ9trMZDjCmRO9RR7OQoomKlDhsnr0_bkXir1FO707_WfFf1LdijHCGPc&usqp=CAU"  alt="" width="33px" height=" 33px" >
         <div>
             <h6 class="accounttype">confirmation</h6>
             <h6 class="accountNumber">92385927</h6>
         </div>
-    </div>  
+    </div>   -->
 
-    <hr>
+    <!-- <hr>
     <nav class="navbar ">
         <div class="container sticky-top">
             <div>
@@ -32,45 +158,37 @@
             </div>
             <h3 class="text" style="float:right;font-size:20px;margin-top:4px">Confirmation<br><span class="confirm">868667</span></h3>
         </div>
-    </nav>
+    </nav> -->
 
-    <div>
+    <!-- <div>
         <button type="submit" class="done btn btn-lg">Done</button>
         <button type="reset" class="cancel btn btn-lg">cancel</button>
-    </div>
+    </div> -->
     
    
-    <h3>Please click on the below button open popup</h3>
-    <hr />
-    <button
-    style="margin: 50px; padding: 10px"
-    type="button"
-    class="btn btn-primary"
-    (click)="openPopup()">Show Data
-    </button>
-    <div
-    class="modal"
-    tabindex="-1"
-    role="dialog"
-    [ngStyle]="{'display':displayStyle}">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title">GeeksForGeeks</h4>
+    <!-- <h3>Please click on the below button open popup</h3>
+    <hr /> -->
+    <!-- <button style="margin: 50px; padding: 10px" type="button" class="btn btn-primary" (click)="openPopup()">Show Data</button> -->
+    <!-- <div class="modal" tabindex="-1"role="dialog"[ngStyle]="{'display':displayStyle}">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img class="header" src="../../assets/images/send image.jpeg" alt="">
+                </div>
+                <div class="modal-body">
+                    <p>You're Sending money to the recipient<br>you added as Kat Simmons</p>
+                    <p>718-555-1234 is enrolled with Zelle as Katherine</p>
+                    <p>If this looks right to you, select Continue</p>
+                </div> -->
+                <!-- <button type="button" class="btn1"(click)="closePopup()">Close</button>
+                <button type="button" class="btn" [routerLink]="['/otpscreen']">Continue</button> -->
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-white border text text-primary" (click)="closePopup()">Cancel</button>
+                    <button type="button" class="btn btn-primary" [routerLink]="['/otpscreen']" >Continue</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-            <p>One Stop Solution for all CS problems</p>
-    
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger"
-                    (click)="closePopup()">
-            Close
-            </button>
-        </div>
-        </div>
-    </div>
-    </div>
+    </div> -->
     
    
 

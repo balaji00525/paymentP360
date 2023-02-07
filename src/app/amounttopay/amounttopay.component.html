@@ -1,77 +1,46 @@
-<div class="screen">
+<div>
     <div *ngIf="status">
-     <div class="logo">
+        <app-header [data]="data"></app-header>
+        
 
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFvNAnXOYNE1JQ9trMZDjCmRO9RR7OQoomKlDhsnr0_bkXir1FO707_WfFf1LdijHCGPc&usqp=CAU"  alt="" class="center">
-        
-        <h5> AT&T8900076</h5>
-        <h5>718-555-12345</h5>
-        
-     </div>
+        <h6 class="amount">Amount due <br>
+            <p> Imported from Statement</p> <br><span>{{data.amount}}</span>
+        </h6>
+
         <hr>
-        <!-- <h4>Amount due{{senderdata?.amountdue}}</h4> -->
-        <h5>important from statement</h5>
+        <div class="due">
+            <div>
+                <h6 class="accountno">Due date </h6>
+            </div>
+
+            <!-- <br> -->
+            <div>
+                <h6 class="date">{{data.date}}</h6>
+            </div>
+
+
+            <button type="button" class="btn btn-danger btn-tom">Tomorrow</button>
+
+
+        </div>
         <hr>
-        <!-- <h6>Due date {{senderdata?.duedate}}</h6> -->
-        <hr>
-        <!-- <h6>Account no {{senderdata?.accountno}}</h6> -->
+
+
+        <h6 class="accountno"> Account number</h6>
+        <!-- <br> -->
+        <h6 class="accountnum">{{data.account}}</h6>
         <hr>
         <p>view current statement</p>
 
-        <p>click to start selection for payment method</p>
+        <p class="click">click to start selection for payment method</p>
 
-        
-      <button class="makebtn" (click)="amounttopay()">make a payment</button>
+
+        <button [routerLink]="['/makeapayment']" class="makebtn" >Make a Payment</button>
     </div>
 
 
-        <div *ngIf="!status">
-            
-            <img src="https://i.pinimg.com/originals/81/c0/9d/81c09d9aeb9635ef70e89828956827e1.jpg" alt="">
-            <!-- <h5>{{receiverdata.receiverName}}</h5>
-            <p> {{receiverdata.enrolledName}}</p> -->
-
-            <div  class="">
-            <input type="text "placeholder="enter a amount to pay " value={{amount}} class="inputpay">
-            </div>
-            <button class="paybtn mx-auto d-block mb-2 col-lg-2">pay</button>
-            <div class="keypad">
-                <div >
-                    <!-- <button class="num">1</button> -->
-                    <input  class="num" type="button" value="1" (click)="display(1)"  />
-                    <input  class="num" type="button" value="2" (click)="display(2)"  />
-                    <input  class="num" type="button" value="3" (click)="display(3)"  />
-                    
-
-                </div>
-                <div>
-                    <input  class="num" type="button" value="4" (click)="display(4)"  />
-                    <input  class="num" type="button" value="5" (click)="display(5)"  />
-                    <input  class="num" type="button" value="6" (click)="display(6)"  />
-                    
-                </div>
-                <div>
-                    <input  class="num" type="button" value="7" (click)="display(7)"  />
-                    <input  class="num" type="button" value="8" (click)="display(8)"  />
-                    <input  class="num" type="button" value="9" (click)="display(9)"  />
-                    
-
-                </div>
-                <div>
-                    <button>*+#</button>
-                    <input  class="num" type="button" value="0" (click)="display(0)"  />
-                   
-                    <button (click)="backbtn()">back</button>
-
-                </div>
-               
-            </div>
-        </div>
-        
-
+    
 
 
 
 </div>
-    
-    
