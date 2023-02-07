@@ -39,6 +39,12 @@ body {
     width: 50px;
     border-radius: 70px;
 }
-
-// /* Importing Bootstrap SCSS file. */
-// @import '~bootstrap/scss/bootstrap';
+ @mixin color-container{
+    color: gray;
+ }
+ @mixin color{
+    background-color: #d1dee6;
+ }
+ @mixin special-text{
+     color: blue;
+ }

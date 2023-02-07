@@ -1,12 +1,12 @@
-<!-- / user profile inside a height for image
+<!-- / user profile inside a height for image////////done
     
     create a object for headertitle in json
     AMOUNTFILED Should be use input for biller and sender as read only
     use dollar symbol $ prefix
 
-    use mixin colour in style.scss
-    2,4,8 mutlipe num
-    firefox 
+    use mixin colour in style.scss//done
+    2,4,8 mutlipe num /////////////done
+    firefox /////////////done
     
 
 
@@ -15,7 +15,7 @@
 <app-header [data]="literals.headerAmountTitle"></app-header>
 <div class="navbar" *ngIf="literals">
     <div class="user-details">
-        <img class="user-profile" [src]="getImage()" alt="" height="50"> 
+        <img class="user-profile" [src]="getImage()" alt="" > 
         <h4>{{bill?.recipient}} {{getAccountNo()}}</h4>
         <h5 class="text text-center">{{bill?.enrolledAs}}</h5>
         <h5 class="user-number">{{getMobile()}}</h5>
@@ -24,21 +24,21 @@
     <h6 [ngClass]="paymentMode=== paymentType.BILLER  ? 'amount' : 'amount amount-padding'">
         <ng-container *ngIf="paymentMode===paymentType.BILLER ">
             <h6 class="title">{{literals.headerAmountTitle}}</h6> 
-            <p>{{literals.amountSubTitle}}</p>
+            <div class="subtitle">{{literals.amountSubTitle}}</div>
         </ng-container>
         <h4  *ngIf="paymentMode !== paymentType.BILLER">{{literals.amountPayButton}}</h4>
         <h1 class="amount-input">
-            <span>$</span>
-            <input *ngIf="paymentMode !== paymentType.BILLER" class="input-outline" type="number"
+            <!-- <span>$</span> -->
+            <input class="input-outline" type="number"
                 [(ngModel)]="bill.amount" placeholder="{{literals.inputPlaceHolder}}" />
-            <span *ngIf="paymentMode === paymentType.BILLER">{{bill?.amount}}</span>
+            <!-- <span *ngIf="paymentMode === paymentType.BILLER">{{bill?.amount}}</span> -->
         </h1>
     </h6>
 </div>
 <ng-container *ngIf="paymentMode===paymentType.BILLER">
     <hr class="line-break">
     <div class="due navbar">
-        <div>
+        <div class="user-date">
             <h6 class="account-type">{{literals.due}} </h6>
             <h6 class="date">{{bill?.dueDate | dateFormat}}</h6>
         </div>
@@ -49,8 +49,8 @@
         </div>
     </div>
     <hr>
-    <p class="view">{{literals.viewStatement}}</p>
-    <p class="click">{{literals.selectionMethod}}</p>
+    <div class="view">{{literals.viewStatement}}</div>
+    <div class="click">{{literals.selectionMethod}}</div>
 </ng-container>
 <div class="text text-center">
     <p360-button [type]="buttonType.SUBMIT" *ngIf="paymentMode === paymentType.BILLER" [data]="literals.makeaPayment"
