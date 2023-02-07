@@ -10,7 +10,7 @@ import { ConnectionService } from '../service/connection.service';
 export class OtpscreenComponent implements OnInit {
 
  
-  data:any
+  data:any={};
 
   constructor(private service:DataserviceService,private router:Router,private cService: ConnectionService) { }
 

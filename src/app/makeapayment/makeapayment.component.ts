@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MakeapaymentComponent implements OnInit {
 
-  data: any
+  data: any={};
 
   constructor(private service: DataserviceService, private cService: ConnectionService, private router: Router) { }
 

@@ -1,10 +1,12 @@
 <div>
-    <div *ngIf="status">
+    <div>
         <app-header [data]="data"></app-header>
         
 
         <h6 class="amount">Amount due <br>
-            <p> Imported from Statement</p> <span>{{data.amount}}</span>
+            <p> Imported from Statement</p>
+           
+             <span>${{data.amount}}</span>
         </h6>
 
         <hr>
@@ -13,7 +15,7 @@
                 <h6 class="accountno">Due date </h6>
                  
             
-                <h6 class="date">{{data.date}}</h6>
+                <h6 class="date">{{myDate}}</h6>
             </div>
 
             

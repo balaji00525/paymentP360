@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./confirmation.component.scss']
 })
 export class ConfirmationComponent implements OnInit {
-  data: any
+  data: any={};
   constructor(private service: DataserviceService, private cService: ConnectionService, private router: Router) { }
 
   onsubmit() {
@@ -21,34 +21,9 @@ export class ConfirmationComponent implements OnInit {
         break;
       case "sender": this.service.getSenderData().subscribe(data => this.data = data);
         break;
-      case "requester": this.service.getRequesterData().subscribe(data => this.data = data)
+      case "requester": this.service.getRequesterData().subscribe(data => this.data = data);
+    }
     }
 
 
-
-    // this.service.getConfirmation().subscribe({ 
-    //   next:(data)=>
-    //   { this.data=data;
-    //     this.accountList=this.data.accountList
-    //     console.log (this.accountList)
-    //      },
-    //     error:(error)=>{ 
-    //       console.log(error)
-    //       alert('error in reading')
-    //      } })
-
-
-    // this.service.getBillerData().subscribe(data=>this.data=data)
-
-
   }
-
-  // displayStyle = "none";
-
-  // openPopup() {
-  //   this.displayStyle = "block";
-  // }
-  // closePopup() {
-  //   this.displayStyle = "none";
-  // }
-}
