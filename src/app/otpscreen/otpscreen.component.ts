@@ -34,7 +34,7 @@ export class OtpscreenComponent implements OnInit {
 
   onsubmit(){
     this.router.navigate(['/confirmation'])
-    this.router.navigate(['/makeapayment'])
+    this.router.navigate(['/home'])
   }
 
   verify(){

@@ -12,6 +12,7 @@ import { DatePipe } from '@angular/common';
 export class ConfirmationComponent implements OnInit {
   data: any={};
   myDate: any = new Date();
+  literals:any={};
 
   constructor(private service:ApiService, 
     private dService: DataService,
@@ -21,10 +22,13 @@ export class ConfirmationComponent implements OnInit {
       let paymentMode = this.dService.user;
     switch (paymentMode) {
       case "biller": this.service.getBillerData().subscribe(data => this.data = data);
+      this.service.getBillerLiteralData().subscribe(data=> this.literals=data);
         break;
       case "sender": this.service.getSenderData().subscribe(data => this.data = data);
+      this.service.getSenderLiteralData().subscribe(data=> this.literals=data);
         break;
       case "requester": this.service.getRequesterData().subscribe(data => this.data = data);
+      this.service.getRequesterLiteralData().subscribe(data=> this.literals=data);
     }
      }
 
