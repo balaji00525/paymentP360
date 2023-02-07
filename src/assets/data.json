@@ -25,7 +25,7 @@
   },
   "sender": {
     "accountNo": "*890076",
-    "amount": "16.00",
+    "amount": 16.00,
     "accountList": [
       {
         "accountType": "Credit card(2.3% fee)",
