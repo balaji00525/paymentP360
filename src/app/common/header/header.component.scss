@@ -17,7 +17,11 @@
   font-size: 20px;
   margin-top: 4px;
 }
-
+.mobile{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
 
 
 @media (min-width:769px) and (max-width:1281px) {
@@ -48,4 +52,10 @@
   }
 
 
+}
+.logo{
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
