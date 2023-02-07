@@ -10,4 +10,10 @@ export default class Utils {
         : date + 'th';
     return date;
   }
+  static getMobile(mobile): string { //move this to util
+    return mobile
+      .toString()
+      .replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+  }
 }
+

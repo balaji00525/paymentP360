@@ -1,6 +1,14 @@
 {
+  "headerTitle": {
+    "title1":"Amount To Pay",
+    "title2":"Make a Payment",
+    "title3":"OTP Screen",
+    "title4":"Confirmation"
+  
+  },
+
   "biller": {
-    "accountNo": 890076,
+    "accountNo": "*890076",
     "amount": 50.00,
     "accountList": [
       {
@@ -24,7 +32,7 @@
     "dueDate":"Thu Mar 10 2023 12:59:32 GMT+0530 (India Standard Time)"
   },
   "sender": {
-    "accountNo": 890076,
+    "accountNo":"*890076",
     "amount": 88,
     "accountList": [
       {
@@ -48,7 +56,7 @@
     "bankLogo":"Banklogo.jpg"
   },
   "Requestor": {
-    "accountNo": 890076,
+    "accountNo": "*890076",
     "amount": 99,
     "accountList": [
       {
@@ -193,6 +201,7 @@
     "done":"Done",
     "cancel":"Cancel"
   }
+  
   
 
   

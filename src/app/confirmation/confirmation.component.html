@@ -21,7 +21,7 @@
             <img src="{{userLogo}}" alt="" width="45px" height=" 45px">
         </div>
         <div>
-            <h6 class="accounttype"><b>{{accountDetails.recipientName}}</b></h6>
+            <h6 class="accounttype"><b>{{accountDetails.recipient}}</b></h6>
             <h6 *ngIf="paymentMode=='biller';" class="accountNumber">
                 {{literals.account}}:{{accountDetails.accountNumber}}</h6>
             <h6 *ngIf="paymentMode!=='biller';" class="accountNumber">{{mobile}}</h6>

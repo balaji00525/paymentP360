@@ -5,7 +5,7 @@
     <!--------Account Details--------->
     <div class="title">
         <img class="picture" src="{{userLogo}}" width="50">
-        <h6 class="text text-center">{{accountDetails.recipientName}} {{accountDetails.accountNumber}}</h6>
+        <h6 class="text text-center">{{accountDetails.recipient}} {{accountDetails.accountNumber}}</h6>
         <h5 class="text text-center">{{accountDetails.enroller}}</h5>
         <h6 class="mobile text">{{mobile}}</h6>
     </div>
@@ -125,7 +125,7 @@
 
     <!------------Pay Button--------------->
     <div class="text text-center">
-        <p360-button [type]="'submit'" [data]="literals.makePayButton" [recipient]="accountDetails.recipientName" [amount]="amount "
+        <p360-button [type]="'submit'" [data]="literals.makePayButton" [recipient]="accountDetails.recipient" [amount]="amount "
             (click)="openPopup()"></p360-button>
     </div>
 

@@ -14,4 +14,5 @@ export class ApiService {
   getBillerLiteralData() { return this.http.get("http://localhost:3000/billerliterals") }
   getSenderLiteralData() { return this.http.get("http://localhost:3000/senderliterals") }
   getRequestorLiteralData() { return this.http.get("http://localhost:3000/requestorliterals") }
+  getHeaderTitle(){return this.http.get("http://localhost:3000/headerTitle")}
 }
