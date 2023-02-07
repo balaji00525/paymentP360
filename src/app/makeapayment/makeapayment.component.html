@@ -1,49 +1,5 @@
-<<<<<<< HEAD
-<app-header [data]="'Make a Payment'"></app-header><div class="container">
-    <div class="logo">
-        <!-- <app-header [data]="data"></app-header> -->
-       
-        <div class="title">
-            <img class="picture" src="{{data.imagePath}}" width="50">
-            <h6 class="text text-center">AT&T{{data.Paymentmode}} {{data.account}}</h6>
-            <h6 class="mobile text">{{data.mobile}}</h6>
-        </div>
-        <div class="navbar">
-            <div class="snail">
-                <div class="brand">
-                    <img class="image" src="{{data.imagePath}}" alt="" height="50">
-                    <h6>AT&T {{data.account}}</h6>
-                    <h3 class="account-mobile text">{{data.mobile}}</h3>
-                </div>
-            </div>
-        </div>
-        <hr>
-       
-     <form>
-            <div class="rows">
-                <!--amount-->
-                <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-                    <label for="amount" class="label form-label">Amount($)</label>
-                    <input type="name" class="form-control" id="amount" placeholder="Enter amount"
-                        title="Enter the amount " value="{{data.amount}}">
-                </div>
-                <!--account dropdown-->
-                <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-                    <label for="amount" class="label form-label">Withdraw From</label>
-                    <form novalidate #form="ngForm">
-                        <!-- <select class="form-select" name="name" [(ngModel)]="SelectedAmount"> -->
-                            <!-- <option selected>Choose how you'd like to pay</option> -->
-                            <!-- <option *ngFor="let user of accounts" [value]="{ Available:user.balance}" (click)="selectedValue(user)">
-                                {{user.accountType}} </option> -->
-                        <!-- </select> -->
-                    </form>
-                    <h6 class="text text-primary">{{ accountlist | json }}</h6>
-                </div>
-            </div>
-=======
 <div class="logo">
     <app-header [data]="literals.makeaPayment"></app-header>
->>>>>>> 8d63a996bb78c039555335603ac3f77911cfb4a6
 
     <div class="title">
         <img class="picture" src="{{data.imagePath}}" width="50">
