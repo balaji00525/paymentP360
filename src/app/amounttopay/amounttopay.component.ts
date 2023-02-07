@@ -8,11 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./amounttopay.component.scss']
 })
 export class AmounttopayComponent implements OnInit {
-  data:any
-  billerdata:any
-  senderdata:any
-  requesterdata:any
-  status=true
+  data:any={};
   amount:number
   constructor(private service:DataserviceService, private cService: ConnectionService, private router: Router) { }
 
