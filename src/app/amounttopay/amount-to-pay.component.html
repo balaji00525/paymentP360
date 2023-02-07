@@ -1,7 +1,21 @@
+<!-- / user profile inside a height for image
+    
+    create a object for headertitle in json
+    AMOUNTFILED Should be use input for biller and sender as read only
+    use dollar symbol $ prefix
+
+    use mixin colour in style.scss
+    2,4,8 mutlipe num
+    firefox 
+    
+
+
+ -->
+
 <app-header [data]="literals.headerAmountTitle"></app-header>
 <div class="navbar" *ngIf="literals">
     <div class="user-details">
-        <img class="user-profile" [src]="getImage()" alt="" height="50">
+        <img class="user-profile" [src]="getImage()" alt="" height="50"> 
         <h4>{{bill?.recipient}} {{getAccountNo()}}</h4>
         <h5 class="text text-center">{{bill?.enrolledAs}}</h5>
         <h5 class="user-number">{{getMobile()}}</h5>
