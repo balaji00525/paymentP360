@@ -30,11 +30,11 @@
                 <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
                     <label for="amount" class="label form-label">Withdraw From</label>
                     <form novalidate #form="ngForm">
-                        <select class="form-select" name="name" [(ngModel)]="SelectedAmount">
-                            <option selected>Choose how you'd like to pay</option>
-                            <option *ngFor="let user of accounts" [value]="{ Available:user.balance}" (click)="selectedValue(user)">
-                                {{user.accountType}} </option>
-                        </select>
+                        <!-- <select class="form-select" name="name" [(ngModel)]="SelectedAmount"> -->
+                            <!-- <option selected>Choose how you'd like to pay</option> -->
+                            <!-- <option *ngFor="let user of accounts" [value]="{ Available:user.balance}" (click)="selectedValue(user)">
+                                {{user.accountType}} </option> -->
+                        <!-- </select> -->
                     </form>
                     <h6 class="text text-primary">{{ accountlist | json }}</h6>
                 </div>

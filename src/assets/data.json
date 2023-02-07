@@ -62,7 +62,7 @@
   },
   "requester": {
     "account": "*890076",
-    "amount": 70.00,
+    "amount": "70.00",
     "accountList": [
       {
         "accountType": "Credit card(2.3% fee)",
@@ -90,7 +90,54 @@
     "paymentliteral":"Request a payment",
     "otpliteral":"OTP Screen"
  
+  },
+  "billerliterals": {
+    "amountDue":"Amount Due ",
+    "makeaPayment":"Make a Payment",
+    "amount":"Amount($)",
+    "withdrawFrom":"Withdraw from",
+    "deliveryBy":"Delivery by",
+    "memo":"Memo(optional)",
+    "choose":"Choose how you'd like to pay",
+    "pay":"Pay",
+    "modalRecipient": "You are sending money to the recipient you assed as AT&T ",
+    "enrolledAs": "is enrolled with Zelle as AT&T",
+    "continue": "If this looks right to you, select continue",
+    "paymentSent":"Payment sent",
+    "arrives":"Arrives"
+  },
+  "senderliterals": {
+    "amountDue":"Amount to pay ",
+    "makeaPayment":"Make a Payment",
+    "amount":"Amount($)",
+    "withdrawFrom":"Withdraw from",
+    "deliveryBy":"Delivery by",
+    "memo":"Memo(optional)",
+    "choose":"Choose how you'd like to pay",
+    "pay":"Pay",
+    "modalRecipient": "You are sending money to the recipient you assed as Kat Simmons ",
+    "enrolledAs": "is enrolled with Zelle as Katherine",
+    "continue": "If this looks right to you, select continue",
+    "paymentSent":"Payment sent",
+    "arrives":"Arrives"
+  },
+  "requesterliterals": {
+    "amountDue":"Amount to Request",
+    "makeaPayment":"Request a Payment",
+    "amount":"Amount($)",
+    "withdrawFrom":"Deposit to",
+    "deliveryBy":"Request on",
+    "memo":"Memo(optional)",
+    "choose":"Choose how you'd like to Receive",
+    "pay":"Request",
+    "modalRecipient": "You are requesting money to the recipient you added as Kat Simmons ",
+    "enrolledAs": "is enrolled with Zelle as Katherine",
+    "continue": "If this looks right to you, select continue",
+    "paymentSent":"Requested",
+    "arrives":"Arrives"
   }
+  
+
   
   
 }

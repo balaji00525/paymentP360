@@ -1,4 +1,4 @@
-<app-header [data]="'Amount to Pay'"></app-header>
+<app-header [data]="literals.amountDue"></app-header>
 <!----checking---->
 <div class="navbar">
 
@@ -29,14 +29,14 @@
 
             <div>
 
-                <h6  class="accountno">Due date </h6>
+                <h5  class="accountno">Due date </h5>
                 <h6 class="date">{{myDate}}</h6>
                
             </div>
             <hr class="width">
             <div class="account">
 
-                <h6 *ngIf="paymentMode==='biller';" class="accountno"> Account number</h6>
+                <h5 *ngIf="paymentMode==='biller';" class="accountno"> Account number</h5>
                 <h6 *ngIf="paymentMode==='biller';" class="accountnum">{{data.account}}</h6>
             </div>
            
