@@ -4,14 +4,14 @@
 
         <form>
             <!--Amount-->
-            <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
+            <div class="form mb-3 col-sm-5 col-md-7 col-lg-7">
                 <label for="amount" class="label form-label">Amount($)</label>
                 <input type="number" class="form-control" id="amount" placeholder="Enter amount"
                     title="Enter the amount " value="{{data.amount}}">
             </div>
 
             <!--withdraw from-->
-            <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
+            <div class="form mb-3 col-sm-5 col-md-7 col-lg-7">
                 <label for="amount" class="label form-label">Withdraw From</label>
                 <form novalidate #form="ngForm">
                     <select class="form-select" name="name" [(ngModel)]="accountlist">
@@ -24,7 +24,7 @@
             </div>
 
             <!--Delivery Date-->
-            <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
+            <div class="form mb-3 col-sm-5 col-md-7 col-lg-7">
                 <label for="start" class="label">Delivery By</label><br>
                 <input type="date" id="start" name="trip-start" class="form-control w3-border w3-hover-border-cyan"
                     value="2021-09-27" min="2021-27-04" max="2018-12-31">
@@ -32,7 +32,7 @@
             </div>
 
             <!--memo-->
-            <div class="form mb-2 col-sm-5 col-md-5 col-lg-5">
+            <div class="form mb-2 col-sm-5 col-md-7 col-lg-7">
                 <label for="memo" class="label">Memo(Optional)</label>
                 <textarea class="form-control" id="memo" rows="1" placeholder="Reason for..."></textarea>
             </div>
@@ -44,7 +44,7 @@
             </div>
             
             <!--pay button-->
-            <button type="button" id="otp" class="form btn btn-primary btn-lgtn-block"
+            <button type="button" id="otp" class="form btn"
                 (click)="openPopup()">{{data.recipient}} {{data.amount}}</button>
             <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
                 <div class="modal-dialog" role="document">
