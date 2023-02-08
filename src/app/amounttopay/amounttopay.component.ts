@@ -13,7 +13,10 @@ import { DatePipe } from '@angular/common';
 export class AmounttopayComponent implements OnInit {
   data:any={};
   amount:number
-  constructor(private service:DataserviceService, private cService: ConnectionService, private router: Router) { }
+  myDate: any =new Date();
+  constructor(private service:DataserviceService, private cService: ConnectionService, private router: Router, private datepipe:DatePipe) {
+    this.myDate = this.datepipe.transform(this.myDate, 'MMM d');
+   }
 
   onsubmit() {
     this.router.navigate(['/makeapayment']);
@@ -27,8 +30,5 @@ export class AmounttopayComponent implements OnInit {
         break;
       case "requester": this.service.getRequesterData().subscribe(data => this.data = data);
     }
-
-
-
   }
 }
