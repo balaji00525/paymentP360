@@ -74,15 +74,6 @@ a {
 }
 
 @media (min-width:150px) and (max-width:768px) {
-
-  // .navbar {
-  //   display: none;
-  // }
-
-  // .image {
-  //   display: none;
-  // }
-
   .form {
     @include important-style;
     width: auto;
