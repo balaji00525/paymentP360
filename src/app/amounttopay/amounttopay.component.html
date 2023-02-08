@@ -2,7 +2,8 @@
     <div>
         <app-header [data]="data"></app-header>
         <h6 class="amount">Amount due <br>
-            <p> Imported from Statement {{data.amount}}</p>
+            <p> Imported from Statement</p>
+                 <h1>${{data.amount}}</h1>
         </h6>
         <hr>
         <div class="due">

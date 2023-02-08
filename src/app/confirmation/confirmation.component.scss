@@ -1,7 +1,7 @@
 @import '../../styles.scss';
 
 .container{
-  padding: 6px 6px 6px 6px;   
+  padding: 8px;   
 }
 .image{
   display: block;
@@ -9,10 +9,22 @@
   margin-right: auto;
  
 }
-.img{
-  padding: 6px;
+.image-container{
+  
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 8px;
 
 }
+.image-width{
+  display: flex;
+    width: 10%;
+    align-items: center;
+    justify-content: center;
+
+}
+
 .amount{
   display: block;
   margin-left: auto;
