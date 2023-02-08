@@ -40,8 +40,8 @@ h5 {
 .date{
     text-align: left;
     // justify-content: flex-start;
-    padding: 5px;
-    margin-right: auto;
+    
+    // margin-right: auto;
    
     
 
@@ -69,14 +69,15 @@ p {
 
 .click {
     text-align: center;
-    color: black
+    color: black;
+   
 }
-
+.view{
+    padding: 20px;
+}
 .makebtn{
-    border-top: none;
-    border-bottom: none;
-    border-left: none;
-    border-right: none;
+    
+    border-radius: inherit;
     @include  parent-container
 }
 .paybtn {

@@ -1,4 +1,4 @@
-<div class="container">
+<div>
 
 
     <img class="image" src="https://cdn3.iconfinder.com/data/icons/social-messaging-ui-color-line/254000/39-512.png"
@@ -7,11 +7,12 @@
     <h1 class="dollar">${{data.amount}}</h1>
 
 
-    <div class="bg-light mb-3 d-flex ">
-        <div class="img">
+    <div class="bg-light image-container">
+        <div class="image-width">
             <img src="https://media.istockphoto.com/id/934869826/vector/bank-building-circle-icon-with-long-shadow-flat-design-style.jpg?s=1024x1024&w=is&k=20&c=KmFEztS-dWG60zKP4UhNC_m5UhNk4VqQReB_KPKxl9Y="
                 width="40px" height="40px">
-        </div>
+        </div>        
+        
         <div>
             <h6 class="name">{{data.name}}</h6>
             <h6 class="accountType">{{data.accountType}}</h6>
@@ -19,9 +20,11 @@
 
     </div>
 
-    <div class="bg-light mb-5 d-flex">
+    <div class="bg-light image-container">
+        <div class="image-width">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFvNAnXOYNE1JQ9trMZDjCmRO9RR7OQoomKlDhsnr0_bkXir1FO707_WfFf1LdijHCGPc&usqp=CAU"
             alt="" width="33px" height=" 33px">
+        </div>
         <div>
             <h6 class="accounttype">{{data.recipient}}</h6>
             <h6 class="accountNumber">{{data.accountNumber}}</h6>
@@ -33,9 +36,9 @@
         <div class="container sticky-top">
             <div>
                 <h5 class="text">Arrives</h5>
-                <!-- <h6><span>{{myDate}}</span></h6> -->
+                <h6><span>{{myDate}}</span></h6>
             </div>
-            <h5 class="text">Confirmation<br><span class="confirm">{{data.Number}}</span></h5>
+            <h5 class="text">Confirmation<br><span class="confirm">{{data.number}}</span></h5>
         </div>
     </nav>
 
