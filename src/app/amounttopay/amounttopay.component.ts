@@ -24,7 +24,5 @@ export class AmounttopayComponent implements OnInit {
       break;
       case "requester":this.service.getRequesterData().subscribe(data=>this.data=data)
     }
-
- 
-  
-  }}
+  }
+}

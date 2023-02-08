@@ -1,7 +1,5 @@
 @import '../../styles.scss';
 
-
-
 .accountno {
   text-align: center;
 }
@@ -54,16 +52,16 @@ a {
 
 @media (min-width:576px) and (max-width:768px) {
   #otp {
-    // width: 40%;
+
     width: 100%;
   }
 }
 
 @media (min-width:769px) and (max-width:1281px) {
-  
+
 
   #otp {
-    width: 42%;
+    width: 58%;
   }
 
   .make {
@@ -107,4 +105,3 @@ btn {
     background-color: #1c44a2;
   }
 }
-

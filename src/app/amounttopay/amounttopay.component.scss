@@ -73,11 +73,9 @@ p {
 }
 
 .makebtn{
-    border-top: none;
-    border-bottom: none;
-    border-left: none;
-    border-right: none;
-    @include  parent-container
+    width: 100%;
+   border: none;
+    @include button-verify-pay;
 }
 .paybtn {
     border-top: none;

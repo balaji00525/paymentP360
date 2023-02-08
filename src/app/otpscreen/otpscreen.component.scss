@@ -1,76 +1,172 @@
 @import '../../styles.scss';
-.container-content {
-    position: relative;
-    padding-top: 400px;
-    padding-bottom: 100px;
-    width: 300px;
-    margin: auto;
-}
-.otp-screen {
-    .verify-number{
-        font-size: larger;
-        font-weight: bolder;
-    }
-    top: 0; 
-    left: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+// .container-content {
+//     position: relative;
+//     padding-top: 400px;
+//     padding-bottom: 100px;
+//     width: 300px;
+//     margin: auto;
+// }
+// .otp-screen {
+//     .verify-number{
+//         font-size: larger;
+//         font-weight: bolder;
+//     }
+//     top: 0; 
+//     left: 0;
+//     position: absolute;
+//     width: 100%;
+//     height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     padding-top: 100px;
+//     background-color:#d1dee6;
+//     .security-code {
+//         p {
+//             margin-bottom: 10px;
+//             text-align: center;
+//             font-weight: 500;
+//         }
+//     }
+//     .mobile-number{
+//         font-weight: 600;
+//         font-weight: bold
+//     }
+//     .otp-box {
+//         display: flex;
+//         align-items: center;
+//         margin-bottom: 14px;
+//         .form-input {
+//             input {
+//                 width: 100%;
+//                 outline: none;
+//                 padding: 5px 10px;
+//                 background-color: #d1dee6;
+//                 border: 2px solid #cbcbcc;
+//                 text-align: center;
+//                 border-right:  #544b4b;
+//                 border-left:  #544b4b;
+//                 border-top:  #544b4b;
+//             }
+//             .otp-input{
+//                 font-size: 50px;
+//             }
+//             .otp-resend{
+//                 text-decoration: none;
+//             }       
+//         }
+//     }
+// }
+// .btn-verify{
+//    @include button-verify-pay;
+// }
+// .btn-cancel {
+//     @include button-cancel;
+// }
+// .cancel{
+//     font-weight: 600;
+//     text-decoration: none;
+// }
+
+// @media (min-width:480px) and (max-width:1281px){
+//    .otp-screen{
+//     justify-content: center;
+//    }
+
+// }
+
+
+.container{
     padding-top: 100px;
-    background-color:#d1dee6;
-    .security-code {
-        p {
-            margin-bottom: 10px;
-            text-align: center;
-            font-weight: 500;
-        }
-    }
-    .mobile-number{
-        font-weight: 600;
-        font-weight: bold
-    }
-    .otp-box {
-        display: flex;
-        align-items: center;
-        margin-bottom: 14px;
-        .form-input {
-            input {
-                width: 100%;
-                outline: none;
-                padding: 5px 10px;
-                background-color: #d1dee6;
-                border: 2px solid #cbcbcc;
-                text-align: center;
-                border-right:  #544b4b;
-                border-left:  #544b4b;
-                border-top:  #544b4b;
-            }
-            .otp-input{
-                font-size: 50px;
-            }
-            .otp-resend{
-                text-decoration: none;
-            }       
-        }
-    }
 }
-.btn-verify{
-   @include button-verify-pay;
+.number{
+   color: #000;
+   font-weight: 600;
 }
-.btn-cancel {
-    @include button-cancel;
-}
-.cancel{
+.number-1{
+    color: #000;
     font-weight: 600;
+ }
+a{
     text-decoration: none;
+    color:#29479e;
+    &:hover,
+    &.active{
+        color: #899cc9;
+    }
 }
 
-@media (min-width:480px) and (max-width:1281px){
-   .otp-screen{
-    justify-content: center;
-   }
- 
+.otp{
+    .otp-input{
+        width: 70%;
+        font-size: 50px;
+        font-weight: 100;
+        text-align: center;
+        outline: none;
+        background-color: #d1dee6;
+        border: 2px solid #cbcbcc;
+        border-right: #544b4b;
+        border-left: #544b4b;
+        border-top: #544b4b;
+    }
+}
+.hyperlink{
+    display: contents;
+    justify-content: space-evenly;
+   
 }
 
+.done{
+    width: 50%;
+    color: rgb(255, 255, 255);
+    background-color: #29479e;
+    border-radius: 1px;
+    box-shadow: none;
+    transition: all 0.2s linear;
+    &:hover,
+    &.active{
+        background-color: #899cc9;
+    }
+}
+
+.cancel{
+    width: 50%;
+    color: rgb(48, 36, 215);
+    background-color:#d1dee6 ;
+    border-radius: 1px;
+    box-shadow: none;
+    transition: all 0.2s linear;
+    &:hover,
+    &.active{
+        background-color:#edf2f5;
+    }
+}
+
+
+@media (min-width:320px) and (max-width:700px){
+    .hyperlink{
+        display: contents;
+        margin-bottom: 20%;
+    }
+    .done{
+        width: 100%;
+    }
+    .cancel{
+        width: 100%;
+    }
+    .otp{
+        .otp-input{
+            width: 90%;      
+        }
+    }
+}
+
+@media (min-width:150px) and (max-width:410px){
+    .number{
+        display: none;
+    }
+}
+@media (min-width:411px) and (max-width:1281px){
+    .number-1{
+        display: none;
+    }
+}
