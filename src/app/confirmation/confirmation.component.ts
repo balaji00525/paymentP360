@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./confirmation.component.scss']
 })
 export class ConfirmationComponent implements OnInit {
-  data: any={};
+  data:any={};
   constructor(private service: DataserviceService, private cService: ConnectionService, private router: Router) { }
 
   onsubmit() {

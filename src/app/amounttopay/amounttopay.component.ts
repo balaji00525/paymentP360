@@ -11,20 +11,9 @@ import { DatePipe } from '@angular/common';
   providers: [DatePipe]
 })
 export class AmounttopayComponent implements OnInit {
-
-  data: any={};
-  
-
-
-  myDate: any = new Date();
-
-  constructor(private service: DataserviceService,
-     private cService: ConnectionService,
-      private router: Router,
-       private datepipe: DatePipe) {
-    this.myDate = this.datepipe.transform(this.myDate, 'MMMM d');
-
-  }
+  data:any={};
+  amount:number
+  constructor(private service:DataserviceService, private cService: ConnectionService, private router: Router) { }
 
   onsubmit() {
     this.router.navigate(['/makeapayment']);

@@ -1,10 +1,7 @@
 <div class="container align-items-center">
     <div class="logo">
-        
         <app-header [data]="data"></app-header>
-        <!-- <hr> -->
 
-        
         <form>
             <!--Amount-->
             <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
@@ -19,8 +16,7 @@
                 <form novalidate #form="ngForm">
                     <select class="form-select" name="name" [(ngModel)]="accountlist">
                         <option selected>Choose how you'd like to pay</option>
-                        <option *ngFor="let user of accounts" [ngValue]="{ Available:user.balance}">{{ user.accountType
-                            }} </option>
+                        <option *ngFor="let user of accounts" [ngValue]="{ Available:user.balance}">{{user.accountType}} </option>
                     </select>
                 </form>
                 <!-- <a class="link" href="#"> ⚡ Faster Options Available</a>&nbsp;-->
@@ -33,7 +29,6 @@
                 <input type="date" id="start" name="trip-start" class="form-control w3-border w3-hover-border-cyan"
                     value="2021-09-27" min="2021-27-04" max="2018-12-31">
                 <a class="link" href="#">Withdraws Today</a>&nbsp;<a>Arrives in 1-3 days</a>
-
             </div>
 
             <!--memo-->
@@ -47,14 +42,8 @@
                 <input class="form-check-input" type="checkbox" id="recurring">
                 <label class="label form-check-label" for="recurring">Make Recurring Payment</label>
             </div>
-
-
-
+            
             <!--pay button-->
-            <!-- <button type="button" [routerLink]="['/otpscreen']" id="otp"
-                class="form  btn btn-primary btn-lg btn-block"><a routerActiveLink="#otpscreen"></a>Pay
-                {{data.recipient}} {{data.amount}}</button> -->
-
             <button type="button" id="otp" class="form btn btn-primary btn-lgtn-block"
                 (click)="openPopup()">{{data.recipient}} {{data.amount}}</button>
             <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
@@ -65,11 +54,9 @@
                         </div>
                         <div class="modal-body">
                             <p>You're Sending money to the recipient<br>you added as Kat Simmons</p>
-                            <p>718-555-1234 is enrolled with Zelle as Katherine</p>
+                            <p>718-555-1234 {{data.modalrecipient}}</p>
                             <p>If this looks right to you, select Continue</p>
                         </div>
-                        <!-- <button type="button" class="btn1"(click)="closePopup()">Close</button>
-                <button type="button" class="btn" [routerLink]="['/otpscreen']">Continue</button> -->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-white border text text-primary"
                                 (click)="closePopup()">Cancel</button>

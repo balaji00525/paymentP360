@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DataserviceService } from '../service/dataservice.service';
 import { ConnectionService } from '../service/connection.service';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MakeapaymentComponent implements OnInit {
 
-  data: any={};
+  data:any={};
 
   constructor(private service: DataserviceService, private cService: ConnectionService, private router: Router) { }
 
@@ -28,9 +28,9 @@ export class MakeapaymentComponent implements OnInit {
         break;
       case "sender": this.service.getSenderData().subscribe(data => this.data = data);
         break;
-      case "requester": this.service.getRequesterData().subscribe(data => this.data = data);
+      case "requester": this.service.getRequesterData().subscribe(data => this.data = data)
     }
-    
+
   }
 
 

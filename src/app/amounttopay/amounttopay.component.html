@@ -1,49 +1,23 @@
 <div>
     <div>
         <app-header [data]="data"></app-header>
-        
-
         <h6 class="amount">Amount due <br>
-            <p> Imported from Statement</p>
-           
-             <span>${{data.amount}}</span>
+            <p> Imported from Statement {{data.amount}}</p>
         </h6>
-
         <hr>
         <div class="due">
             <div>
-                <h6 class="accountno">Due date </h6>
-                 
-            
-                <h6 class="date">{{myDate}}</h6>
+                <h6 class="accountno">Due date </h6>              
+                <h6 class="date">{{data.date}}</h6>
             </div>
-
-            
-           
-
-
             <button type="button" class="btn btn-danger btn-tom">Tomorrow</button>
-
-
         </div>
         <hr>
-
-
         <h6 class="accountno"> Account number</h6>
-        <!-- <br> -->
         <h6 class="accountnum">{{data.account}}</h6>
         <hr>
         <p>view current statement</p>
-
         <p class="click">click to start selection for payment method</p>
-
-
         <button [routerLink]="['/makeapayment']" class="makebtn" >Make a Payment</button>
     </div>
-
-
-    
-
-
-
 </div>
