@@ -9,6 +9,10 @@
   margin-right: auto;
  
 }
+.img{
+  padding: 6px;
+
+}
 .amount{
   display: block;
   margin-left: auto;
@@ -66,11 +70,22 @@
 .amountType{
   font-size: smaller;
   color: black;
+  
 
 }
-.accountNumber,.name{
+.accountNumber{
   font-size: smaller;
-  color: grey
+  color: grey;
+  padding: 3px;
+  margin-top: 5px;
+ 
+  
+}
+.name{
+  font-size: smaller;
+  color: grey;
+  padding: 3px
+  
 }
 h1{
   @include child-container; 
@@ -80,6 +95,9 @@ h1{
 }
 .text{
   color: black;
+}
+.accounttype{
+  padding:6px;
 }
 
 

@@ -18,13 +18,17 @@
         "accountType":"CREDITCARD.*2246(2.3%fee)",
         "accountNumber":"Account Number:*890076"
       },
+      "accountType":"CREDITCARD.*2246(2.3%fee)",
+      "accountNumber":"Account Number:*890076",
+
+
     "recipient": "AT&T ",
-    "name":"you",
+    "name":"YOU",
     "mobile": "718-555-1234",
     "imagePath": "../../assets/images/logo2.png",
     "date":"September 24th",
     "otp": 303635,
-    "Number": "0123456789"
+    "number": "0123456789"
   },
   "sender": {
     "account": "*890076",
@@ -48,7 +52,7 @@
   },
   "requester": {
     "account": "*890076",
-    "amount": 50.00,
+    "amount": 70.00,
     "accountList": [
       {
         "accountType": "Credit card(2.3% fee)",
