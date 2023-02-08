@@ -21,10 +21,12 @@
   align-items: center;
   justify-content: center;
   display: flex;
+  color: gray;
+  font-size: smaller;
 }
 
 
-@media (min-width:769px) and (max-width:1281px) {
+@media (min-width:769px) and (max-width:2560px) {
   .image {
     width: 50px;
     border-radius: 100px;

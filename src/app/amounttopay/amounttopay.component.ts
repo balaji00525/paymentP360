@@ -2,10 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { DataserviceService } from '../service/dataservice.service';
 import { ConnectionService } from '../service/connection.service';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'app-amounttopay',
   templateUrl: './amounttopay.component.html',
-  styleUrls: ['./amounttopay.component.scss']
+  styleUrls: ['./amounttopay.component.scss'],
+  providers: [DatePipe]
 })
 export class AmounttopayComponent implements OnInit {
   data:any={};
@@ -16,13 +19,16 @@ export class AmounttopayComponent implements OnInit {
     this.router.navigate(['/makeapayment']);
   }
   ngOnInit(): void {
-    let paymentMode=this.cService.user;
-    switch(paymentMode){
-      case "biller":this.service.getBillerData().subscribe(data=>this.data=data);
-      break;
-      case "sender":this.service.getSenderData().subscribe(data=>this.data=data);
-      break;
-      case "requester":this.service.getRequesterData().subscribe(data=>this.data=data)
+    let paymentMode = this.cService.user;
+    switch (paymentMode) {
+      case "biller": this.service.getBillerData().subscribe(data => this.data = data);
+        break;
+      case "sender": this.service.getSenderData().subscribe(data => this.data = data);
+        break;
+      case "requester": this.service.getRequesterData().subscribe(data => this.data = data);
     }
+
+
+
   }
 }

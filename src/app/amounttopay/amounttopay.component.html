@@ -2,7 +2,8 @@
     <div>
         <app-header [data]="data"></app-header>
         <h6 class="amount">Amount due <br>
-            <p> Imported from Statement {{data.amount}}</p>
+            <p> Imported from Statement</p>
+                 <h1>${{data.amount}}</h1>
         </h6>
         <hr>
         <div class="due">
@@ -16,8 +17,11 @@
         <h6 class="accountno"> Account number</h6>
         <h6 class="accountnum">{{data.account}}</h6>
         <hr>
-        <p>view current statement</p>
+        <p class="view">view current statement</p>
+
         <p class="click">click to start selection for payment method</p>
-        <button [routerLink]="['/makeapayment']" class="makebtn btn " >Make a Payment</button>
+
+
+        <button [routerLink]="['/makeapayment']" class="makebtn  btn btn-lg" >Make a Payment</button>
     </div>
 </div>

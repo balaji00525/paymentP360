@@ -1,29 +1,33 @@
-<div class="container">
-    
-    
-    <img class="image" src="https://cdn3.iconfinder.com/data/icons/social-messaging-ui-color-line/254000/39-512.png" width="50" height="50">
-    <h1 class="text text-center ">Payment Sent</h1>
-    <h1 class="dollar text text-center">{{data.amount}}</h1>
-   
+<div>
 
-    <!-----------card------>
-    <div class="bg-light mb-3 d-flex ">
-        <div class="img">
-            <img src="https://media.istockphoto.com/id/934869826/vector/bank-building-circle-icon-with-long-shadow-flat-design-style.jpg?s=1024x1024&w=is&k=20&c=KmFEztS-dWG60zKP4UhNC_m5UhNk4VqQReB_KPKxl9Y=" width="40px" height="40px">
-        </div>
+
+    <img class="image" src="https://cdn3.iconfinder.com/data/icons/social-messaging-ui-color-line/254000/39-512.png"
+        width="50" height="50">
+    <h1 class="text text-center ">Payment Sent</h1>
+    <h1 class="dollar">${{data.amount}}</h1>
+
+
+    <div class="bg-light image-container">
+        <div class="image-width">
+            <img src="https://media.istockphoto.com/id/934869826/vector/bank-building-circle-icon-with-long-shadow-flat-design-style.jpg?s=1024x1024&w=is&k=20&c=KmFEztS-dWG60zKP4UhNC_m5UhNk4VqQReB_KPKxl9Y="
+                width="40px" height="40px">
+        </div>        
+        
         <div>
             <h6 class="name">{{data.name}}</h6>
-            <h6 class="accountType">{{data.account}}</h6>
+            <h6 class="accountType">{{data.accountType}}</h6>
         </div>
 
     </div>
 
-    <div class="bg-light mb-5 d-flex">
+    <div class="bg-light image-container">
+        <div class="image-width">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFvNAnXOYNE1JQ9trMZDjCmRO9RR7OQoomKlDhsnr0_bkXir1FO707_WfFf1LdijHCGPc&usqp=CAU"
             alt="" width="33px" height=" 33px">
+        </div>
         <div>
             <h6 class="accounttype">{{data.recipient}}</h6>
-            <h6 class="accountNumber">{{data.account}}</h6>
+            <h6 class="accountNumber">{{data.accountNumber}}</h6>
         </div>
     </div>
 
@@ -32,52 +36,15 @@
         <div class="container sticky-top">
             <div>
                 <h5 class="text">Arrives</h5>
-                <h6><span>{{data.date}}</span></h6>
+                <h6><span>{{myDate}}</span></h6>
             </div>
-            <h5 class="text">Confirmation<br><span
-                    class="confirm">0123456789</span></h5>
+            <h5 class="text">Confirmation<br><span class="confirm">{{data.number}}</span></h5>
         </div>
     </nav>
 
     <div>
-        <button [routerLink]="['/home']" type="submit" class="done btn btn-lg">Done</button>
-        <button [routerLink]="['/otpscreen']" type="reset" class="cancel btn btn-lg">cancel</button>
+        <button type="submit" class="done btn btn-lg">Done</button>
+        <button type="reset" class="cancel btn btn-lg">cancel</button>
     </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
