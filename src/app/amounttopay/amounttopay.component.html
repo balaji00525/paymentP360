@@ -1,10 +1,51 @@
-<div>
-    <div>
-        <app-header [data]="data"></app-header>
+
+<app-header [data]="'Amount to Pay'"></app-header>
+<div class="title">
+    <img class="picture" src="{{data.imagePath}}" width="50">
+    <h6 class="text text-center">AT&T{{data.Paymentmode}} {{data.account}}</h6>
+    <h6 class="mobile text">{{data.mobile}}</h6>
+    <hr>
         <h6 class="amount">Amount due <br>
             <p> Imported from Statement</p>
-                 <h1>${{data.amount}}</h1>
+                 
+                 
+ <h1 class="dollar ">$
+	<input *ngIf="paymentMode !== 'biller'" type="number" [(ngModel)]="data.amount" placeholder="Enter an amount to pay"/> 
+	<span *ngIf="paymentMode === 'biller'">{{data.amount}}</span>
+ </h1>
+
         </h6>
+    
+    
+</div>
+
+
+<div class="navbar">
+    <div class="container">
+        <div class="logo">
+            <img class="image" src="{{data.imagePath}}" alt="" height="50">
+            <h6>AT&T {{data.account}}</h6>
+            <h3 class="account-mobile text">{{data.mobile}}</h3>
+        </div>
+        <div>
+            <h6 class="amount">Amount due <br>
+                <p> Imported from Statement</p>
+                     <!-- <h1 class="dollar">${{data.amount}}</h1> -->
+                     <h1 class="dollar "><span>$</span>
+                        <input *ngIf="paymentMode !== 'biller'" type="number" [(ngModel)]="data.amount" placeholder="Enter an amount to pay"/> 
+                        <span *ngIf="paymentMode === 'biller'">{{data.amount}}</span>
+                     </h1>
+            </h6>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div>
+    <div>
+       
         <hr>
         <div class="due">
             <div>

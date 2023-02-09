@@ -11,6 +11,7 @@ body{
     margin-right: auto;
 }
 
+
 @mixin child-container{
     text-align: center;
     height: 40px;
@@ -21,7 +22,6 @@ body{
     color: rgb(255, 255, 255);
     background-color: #29479e;
     margin-bottom: 15px;
-    // border-radius: 1px;
     cursor: pointer;
     transition: all 0.2s linear;
     &:hover,

@@ -1,6 +1,83 @@
 @import '../../styles.scss';
 
 
+// .container {
+//   margin: auto;
+// }
+
+.picture {
+  @include important-style;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 8px;
+}
+
+.account-mobile {
+  float: right;
+  font-size: 20px;
+  margin-top: 4px;
+}
+.mobile{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: gray;
+  font-size: smaller;
+}
+
+
+@media (min-width:769px) and (max-width:2500px) {
+  .image {
+    width: 50px;
+    border-radius: 100px;
+    display: flex;
+  }
+
+  .navbar-brand {
+    border-radius: 100px;
+  }
+
+  .title {
+    display: none;
+  }
+
+}
+
+@media (min-width:150px) and (max-width:768px) {
+  
+  .navbar {
+    display: none;
+  }
+
+  .image {
+    display: none;
+  }
+  
+
+}
+.logo{
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.dollar{
+  padding-bottom: 70px;
+  font-size: 55px;
+  display: flex;
+  justify-content: center;
+
+  input {
+    width: 130px;
+    height: 70px;
+    border: none;
+    background-color: #d1dee6;
+  }
+  input::placeholder {
+    font-size: 12px;
+}
+}
 
 
 .screen{
@@ -63,6 +140,7 @@ h6 {
 }
 
 p {
+  
     text-align: center;
     color: blue
 }
@@ -112,15 +190,6 @@ input[type=number] {
   appearance: textfield;
 }
 
-
-.amount {
-
-    span {
-        font-size: 60px;
-        font-weight: 400;
-    }
-
-}
 
 .name {
     text-align: center;

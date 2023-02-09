@@ -12,23 +12,26 @@ import { DatePipe } from '@angular/common';
 })
 export class AmounttopayComponent implements OnInit {
   data:any={};
+  myDate: any = new Date();
   amount:number
-  myDate: any =new Date();
-  constructor(private service:ApiService, private cService: DataService, private router: Router, private datepipe:DatePipe) {
-    this.myDate = this.datepipe.transform(this.myDate, 'MMM d');
-   }
-
+  paymentMode: string;
+  constructor(private services:ApiService, 
+    private dService: DataService, 
+    private router: Router,
+    private datepipe: DatePipe) { 
+      this.myDate = this.datepipe.transform(this.myDate, 'MMMM d');
+    
+    this.paymentMode = this.dService.user;
+    switch (this.paymentMode) {
+      case "biller": this.services.getBillerData().subscribe(data => this.data = data);
+        break;
+      case "sender": this.services.getSenderData().subscribe(data => this.data = data);
+        break;
+      case "requester": this.services.getRequesterData().subscribe(data => this.data = data);
+    }
+  }
   onsubmit() {
     this.router.navigate(['/makeapayment']);
   }
-  ngOnInit(): void {
-    let paymentMode = this.cService.user;
-    switch (paymentMode) {
-      case "biller": this.service.getBillerData().subscribe(data => this.data = data);
-        break;
-      case "sender": this.service.getSenderData().subscribe(data => this.data = data);
-        break;
-      case "requester": this.service.getRequesterData().subscribe(data => this.data = data);
-    }
-  }
-}
+  ngOnInit(): void {} }
+

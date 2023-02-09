@@ -24,6 +24,11 @@ export class OtpscreenComponent implements OnInit {
         break;
       case "requester": this.service.getRequesterData().subscribe(data => this.data = data)
     }
+     }
+
+
+  ngOnInit(): void {
+    
     
   }
 
