@@ -11,34 +11,6 @@ body{
     margin-right: auto;
 }
 
-@mixin button-verify-pay{
-    color: rgb(255, 255, 255);
-    background-color: #29479e;
-    margin-bottom: 15px;
-    border-radius: 1px;
-    width: 60%;
-    
-    cursor: pointer;
-    box-shadow: none;
-    transition: all 0.2s linear;
-    &:hover,
-    &.active{
-        background-color:#899cc9 ;
-    }
-}
-
-@mixin button-cancel{
-    background-color:#d1dee6 ;
-    margin-bottom: 15px;
-    border-radius: 1px;
-    cursor: pointer;
-    box-shadow: none;
-    transition: all 0.2s linear;
-    &:hover,
-    &.active{
-        background-color:#edf2f5;
-    }
-}
 
 @mixin child-container{
     text-align: center;
@@ -50,7 +22,6 @@ body{
     color: rgb(255, 255, 255);
     background-color: #29479e;
     margin-bottom: 15px;
-    // border-radius: 1px;
     cursor: pointer;
     transition: all 0.2s linear;
     &:hover,

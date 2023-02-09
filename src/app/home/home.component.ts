@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
     this.service.user = val
 
-    this.router.navigate(['/amounttopay']);
+    this.router.navigate(['/makeapayment']);
 
 
   }

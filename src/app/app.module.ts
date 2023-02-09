@@ -9,9 +9,9 @@ import { OtpscreenComponent } from './otpscreen/otpscreen.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './common/header/header.component';
-import { VerifyComponent } from './common/verify/verify.component';
-import { CancelComponent } from './common/cancel/cancel.component';
 import { HomeComponent } from './home/home.component';
+import { BtndoneComponent } from './common/btndone/btndone.component';
+import { BtncancelComponent } from './common/btncancel/btncancel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,9 +20,9 @@ import { HomeComponent } from './home/home.component';
     OtpscreenComponent,
     ConfirmationComponent,
     HeaderComponent,
-    VerifyComponent,
-    CancelComponent,
-    HomeComponent
+    HomeComponent,
+    BtndoneComponent,
+    BtncancelComponent
   ],
   imports: [
     BrowserModule,

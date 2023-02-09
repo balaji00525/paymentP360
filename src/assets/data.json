@@ -28,7 +28,9 @@
     "imagePath": "../../assets/images/logo2.png",
     "date":"September 24th",
     "otp": 303635,
-    "number": "0123456789"
+    "number": "0123456789",
+    "paymentliteral":"Bill a payment",
+    "otpliteral":"OTP Screen"
   },
   "sender": {
     "account": "*890076",
@@ -48,7 +50,9 @@
     "mobile": "718-555-1234",
     "imagePath": "../../assets/images/send image.jpeg",
     "date":"September 24th",
-    "otp": 63807
+    "otp": 63807,
+    "paymentliteral":"Make a payment",
+    "otpliteral":"OTP Screen"
   },
   "requester": {
     "account": "*890076",
@@ -68,7 +72,9 @@
     "mobile": "718-555-1234",
     "date":"September 24th",
     "imagePath": "../../assets/images/send image.jpeg",
-    "otp":55382
+    "otp":55382,
+    "paymentliteral":"Request a payment",
+    "otpliteral":"OTP Screen"
   },
   
   "billerliterals": {

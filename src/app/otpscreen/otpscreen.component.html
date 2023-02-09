@@ -1,29 +1,9 @@
-<!-- <div class="container-content ">
-    <div class="otp-screen go-right active-box">
-        <h6 class="verify-number text text-center">Verify Number</h6>
-        <div class="security-code">
-            <p>We sent a one-time security code to<span><h6 class="mobile-number">{{data.mobile}}</h6></span>
-            <p>Please enter the code below</p>
-        </div>
-        
-        <div class="otp-box">
-            <div class="form-input">
-                <input class="otp-input mb-2 " type="text" autocomplete="off" id="otp-number" value="{{data.otp}}"/>
-                <h6 class="text text-center"><a class="otp-resend" href="#">Re-send via text</a></h6>
-                <h6 class="text text-center"><a class="otp-resend" href="#">Re-send via phone call</a></h6>
-            </div>
-        </div>
-        <button [routerLink]="['/confirmation']" (click)="verify()"class="btn btn-verify">Verify</button>
-        <button [routerLink]="['/makeapayment']" class="btn btn-cancel text-primary"><a class="cancel" href="#" >Cancel</a></button>
-       
-    </div>      
-</div> -->
-
+<app-header [data]="data"></app-header>
 
 <div class="container">
     <h3 class="text text-center mb-3 ">Verify number</h3>
-    <h6 class="text text-center">We sent a one-time security code to <span class="number">231-213-324-2223</span></h6>
-    <h6 class="number-1 text text-center mb-3">231-213-324-2223</h6>
+    <h6 class="text text-center">We sent a one-time security code to <span class="number">{{data.mobile}}</span></h6>
+    <h6 class="number-1 text text-center mb-3">{{data.mobile}}</h6>
     <h6 class="text text-center">Please Enter the code below</h6>
     <div class="otp text text-center mb-3">
         <input class="otp-input mb-2" type="text" autocomplete="off" value="{{data.otp}}" />
@@ -34,10 +14,10 @@
         <h6 class="text text-center"><a class="otp-resend" href="#">Re-send via phone call</a></h6>
     </div>
     <div class="text text-center mb-3">
-        <button [routerLink]="['/confirmation']" type="submit" class="done btn">Verify</button>
+        <app-btndone [routerLink]="['/confirmation']" [data]="'Verify'"></app-btndone>
     </div>
     
     <div class="text text-center">
-        <button [routerLink]="['/makeapayment']" type="submit" class="cancel btn">Cancel</button>
+        <app-btncancel [routerLink]="['/makeapayment']" [data]="'Cancel'"></app-btncancel>
     </div>
 </div>

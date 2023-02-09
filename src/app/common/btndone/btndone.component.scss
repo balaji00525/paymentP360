@@ -1,0 +1,26 @@
+.done{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btndone{
+    width: 50%;
+    color: rgb(255, 255, 255);
+    background-color: #29479e;
+    margin-bottom: 15px;
+    border-radius: 1px;
+    cursor: pointer;
+    box-shadow: none;
+    transition: all 0.2s linear;
+    &:hover,
+    &.active{
+        background-color:#899cc9 ;
+    }
+}
+
+@media (min-width:150px) and (max-width:575px) {
+    .btndone{
+        width: 100%;
+    }
+}
