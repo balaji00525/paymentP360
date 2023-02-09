@@ -1,3 +1,4 @@
+<app-header [data]="'Confirmation'"></app-header>
 <div>
 
 
@@ -10,7 +11,7 @@
     <div class="bg-light image-container">
         <div class="image-width">
             <img src="https://media.istockphoto.com/id/934869826/vector/bank-building-circle-icon-with-long-shadow-flat-design-style.jpg?s=1024x1024&w=is&k=20&c=KmFEztS-dWG60zKP4UhNC_m5UhNk4VqQReB_KPKxl9Y="
-                width="40px" height="40px">
+                width="55px" height="55px">
         </div>        
         
         <div>
@@ -23,7 +24,7 @@
     <div class="bg-light image-container">
         <div class="image-width">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFvNAnXOYNE1JQ9trMZDjCmRO9RR7OQoomKlDhsnr0_bkXir1FO707_WfFf1LdijHCGPc&usqp=CAU"
-            alt="" width="33px" height=" 33px">
+            alt="" width="45px" height=" 45px">
         </div>
         <div>
             <h6 class="accounttype">{{data.recipient}}</h6>
@@ -38,13 +39,13 @@
                 <h5 class="text">Arrives</h5>
                 <h6><span>{{myDate}}</span></h6>
             </div>
-            <h5 class="text">Confirmation<br><span class="confirm">{{data.number}}</span></h5>
+            <h5 class="text text-end">Confirmation<br>{{data.number}}</h5>
         </div>
     </nav>
 
     <div>
-        <button type="submit" class="done btn btn-lg">Done</button>
-        <button type="reset" class="cancel btn btn-lg">cancel</button>
+        <button type="submit" class="done btn btn-lg" [routerLink]="['/home']">Done</button>
+        <button type="reset" class="cancel btn btn-lg" [routerLink]="['/otpscreen']">cancel</button>
     </div>
 
 </div>

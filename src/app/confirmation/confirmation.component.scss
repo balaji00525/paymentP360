@@ -36,11 +36,15 @@
 .dollar{
   padding: 60px 30px 30px 30px;
   font-weight:600px;
-  color: blue;
+  color: #29479e;
   text-align: center;
   padding: 5px;
   margin-top: 50px;
   margin-bottom: 70px;
+  
+  
+  font-size: 55px;
+  // padding-bottom: 70px;
 }
 
 .card{
@@ -88,15 +92,17 @@
 .accountNumber{
   font-size: smaller;
   color: grey;
-  padding: 3px;
-  margin-top: 5px;
+  // padding: 3px;
+  // margin-top:auto;
  
   
 }
+
 .name{
   font-size: smaller;
   color: grey;
-  padding: 3px
+  padding: 3px;
+  margin:0px;
   
 }
 h1{
@@ -110,6 +116,11 @@ h1{
 }
 .accounttype{
   padding:6px;
+  margin: 0;
+  font-weight: bold;
+}
+.accountType{
+  font-weight: bold;
 }
 
 

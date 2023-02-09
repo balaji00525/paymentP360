@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ConnectionService {
+export class DataService {
   private header: string;
   constructor() { }
 
@@ -15,4 +15,3 @@ export class ConnectionService {
   }
 
 }
-
