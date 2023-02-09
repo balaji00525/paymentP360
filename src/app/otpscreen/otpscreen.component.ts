@@ -12,10 +12,7 @@ export class OtpscreenComponent implements OnInit {
  
   data:any={};
 
-  constructor(private service:ApiService,private router:Router,private cService: DataService) { }
-
-
-  ngOnInit(): void {
+  constructor(private service:ApiService,private router:Router,private cService: DataService) { 
     let paymentMode = this.cService.user;
     switch (paymentMode) {
       case "biller": this.service.getBillerData().subscribe(data => this.data = data);
@@ -24,13 +21,15 @@ export class OtpscreenComponent implements OnInit {
         break;
       case "requester": this.service.getRequesterData().subscribe(data => this.data = data)
     }
-     }
+  }
 
 
   ngOnInit(): void {
     
-    
-  }
+     }
+
+
+ 
 
 
   onsubmit(){
