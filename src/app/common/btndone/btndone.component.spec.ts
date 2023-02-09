@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CancelComponent } from './cancel.component';
+import { BtndoneComponent } from './btndone.component';
 
-describe('CancelComponent', () => {
-  let component: CancelComponent;
-  let fixture: ComponentFixture<CancelComponent>;
+describe('BtndoneComponent', () => {
+  let component: BtndoneComponent;
+  let fixture: ComponentFixture<BtndoneComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CancelComponent ]
+      declarations: [ BtndoneComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CancelComponent);
+    fixture = TestBed.createComponent(BtndoneComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

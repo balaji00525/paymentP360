@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { DataserviceService } from '../service/dataservice.service';
+import { Component,Input, OnInit } from '@angular/core';
+import { ApiService } from '../service/api.service';
 import { Router } from '@angular/router';
-import { ConnectionService } from '../service/connection.service';
+import { DataService } from '../service/data.service';
 @Component({
   selector: 'app-otpscreen',
   templateUrl: './otpscreen.component.html',
@@ -12,7 +12,7 @@ export class OtpscreenComponent implements OnInit {
  
   data:any={};
 
-  constructor(private service:DataserviceService,private router:Router,private cService: ConnectionService) { }
+  constructor(private service:ApiService,private router:Router,private cService: DataService) { }
 
 
   ngOnInit(): void {

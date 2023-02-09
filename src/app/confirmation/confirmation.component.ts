@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataserviceService } from '../service/dataservice.service';
-import { ConnectionService } from '../service/connection.service';
+import { ApiService } from '../service/api.service';
+import { DataService } from '../service/data.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 @Component({
@@ -13,8 +13,8 @@ export class ConfirmationComponent implements OnInit {
   data: any={};
   myDate: any = new Date();
 
-  constructor(private service: DataserviceService, 
-    private cService: ConnectionService,
+  constructor(private service: ApiService, 
+    private cService: DataService,
      private router: Router,
      private datepipe: DatePipe) { 
       this.myDate = this.datepipe.transform(this.myDate, 'MMMM d');

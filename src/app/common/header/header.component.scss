@@ -1,63 +1,67 @@
 @import '../../../styles.scss';
-
-.container {
-  margin: auto;
-}
-
-.picture {
-  @include important-style;
-  border-radius: 50px;
-  width: 50px;
-  height: 50px;
-  margin-bottom: 0;
-}
-
-.account-mobile {
-  float: right;
-  font-size: 20px;
-  margin-top: 4px;
-}
-.mobile{
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  color: gray;
-  font-size: smaller;
+.head{
+  height: 40px;
 }
 
 
-@media (min-width:769px) and (max-width:2560px) {
-  .image {
-    width: 50px;
-    border-radius: 100px;
-    display: flex;
-  }
+// .snail {
+//   margin: auto;
+// }
 
-  .navbar-brand {
-    border-radius: 100px;
-  }
+// .picture {
+//   @include important-style;
+//   border-radius: 50px;
+//   width: 50px;
+//   height: 50px;
+//   margin-bottom: 0;
+// }
 
-  .title {
-    display: none;
-  }
-
-}
-
-@media (min-width:150px) and (max-width:768px) {
-
-  .navbar {
-    display: none;
-  }
-
-  .image {
-    display: none;
-  }
+// .account-mobile {
+//   float: right;
+//   font-size: 17px;
+//   color: grey;
+// }
+// .mobile{
+//   align-items: center;
+//   justify-content: center;
+//   display: flex;
+//   color: gray;
+//   font-size: smaller;
+// }
 
 
-}
-.logo{
-  display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+// @media (min-width:769px) and (max-width:2560px) {
+//   .image {
+//     width: 50px;
+//     border-radius: 100px;
+//     display: flex;
+//   }
+
+//   .navbar-brand {
+//     border-radius: 100px;
+//   }
+
+//   .title {
+//     display: none;
+//   }
+
+// }
+
+// @media (min-width:150px) and (max-width:768px) {
+
+//   .navbar {
+//     display: none;
+//   }
+
+//   .image {
+//     display: none;
+//   }
+
+
+// }
+// .logo{
+//   display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+// }

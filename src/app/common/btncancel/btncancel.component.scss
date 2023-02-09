@@ -1,0 +1,18 @@
+.cancel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btncancel{
+    width: 50%;
+    background-color:#d1dee6 ;
+    margin-bottom: 15px;
+    border-radius: 1px;
+    cursor: pointer;
+    box-shadow: none;
+    transition: all 0.3s linear;
+    &:hover,
+    &.active{
+        background-color:#edf2f5;
+    }
+}

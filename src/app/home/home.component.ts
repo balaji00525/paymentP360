@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ConnectionService } from '../service/connection.service';
+import { DataService } from '../service/data.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
 
-  constructor(private service: ConnectionService, private router: Router) { }
+  constructor(private service: DataService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
     this.service.user = val
 
-    this.router.navigate(['/amounttopay']);
+    this.router.navigate(['/makeapayment']);
 
 
   }
