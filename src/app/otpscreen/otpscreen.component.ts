@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataserviceService } from '../service/dataservice.service';
+import { ApiService } from '../service/api.service';
 import { Router } from '@angular/router';
-import { ConnectionService } from '../service/connection.service';
+import { DataService } from '../service/data.service';
 @Component({
   selector: 'app-otpscreen',
   templateUrl: './otpscreen.component.html',
@@ -12,11 +12,10 @@ export class OtpscreenComponent implements OnInit {
  
   data:any={};
 
-  constructor(private service:DataserviceService,private router:Router,private cService: ConnectionService) { }
-
-
-  ngOnInit(): void {
-    let paymentMode = this.cService.user;
+  constructor(private service:ApiService,
+    private router:Router,
+    private dService: DataService) {
+      let paymentMode = this.dService.user;
     switch (paymentMode) {
       case "biller": this.service.getBillerData().subscribe(data => this.data = data);
         break;
@@ -24,6 +23,11 @@ export class OtpscreenComponent implements OnInit {
         break;
       case "requester": this.service.getRequesterData().subscribe(data => this.data = data)
     }
+     }
+
+
+  ngOnInit(): void {
+    
     
   }
 

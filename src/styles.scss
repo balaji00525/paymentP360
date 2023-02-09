@@ -1,7 +1,7 @@
 
 body{
     background-color: #d1dee6;
-    font-family: sans-serif;
+    font-family: 'Calibri', 'sans-serif';
 }
 
 
@@ -16,6 +16,8 @@ body{
     background-color: #29479e;
     margin-bottom: 15px;
     border-radius: 1px;
+    width: 60%;
+    
     cursor: pointer;
     box-shadow: none;
     transition: all 0.2s linear;

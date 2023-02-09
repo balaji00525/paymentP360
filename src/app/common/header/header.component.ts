@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   
-  @Input() data:any={}
+  @Input() data:any=""
   constructor() { }
 
   ngOnInit(): void {
