@@ -94,7 +94,7 @@ a {
 
 .modal-footer { 
 display: flex;
-justify-content: space-between;
+flex-wrap: nowrap;
 }
 
 .radio {
@@ -126,6 +126,9 @@ justify-content: space-between;
   font-size: smaller;
 }
 
+.form-check-input{
+margin-right: 4px;
+}
 
 @media (min-width:769px) and (max-width:2560px) {
   .image {

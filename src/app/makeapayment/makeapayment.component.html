@@ -64,8 +64,10 @@
                 <label class="label form-check-label" for="recurring">Make Recurring Payment</label>
             </div>
 
+            <div class="text text-center">
+                <app-btndone [data]="data.recipient" [amount]="data.amount" (click)="openPopup()"></app-btndone>
+            </div>
             
-            <app-btndone [data]="data.recipient" [amount]="data.amount" (click)="openPopup()"></app-btndone>
           
             
             <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
@@ -81,8 +83,8 @@
                         </div>
 
                         <div class="modal-footer">
-                            <app-btncancel style="width: 48%;" [data]="'Cancel'" (click)="closePopup()"></app-btncancel>
-                            <app-btndone style="width: 48%;" [data]="'Continue'" [routerLink]="['/otpscreen']"></app-btndone>
+                            <app-btncancel style="width: 50%;display:flex; justify-content: center;" [data]="'Cancel'" (click)="closePopup()"></app-btncancel>
+                            <app-btndone style="width: 50%; display:flex; justify-content: center;" [data]="'Continue'" [routerLink]="['/otpscreen']"></app-btndone>
                         </div>
                     </div>
                 </div>
