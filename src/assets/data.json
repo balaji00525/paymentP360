@@ -1,7 +1,7 @@
 {
   "biller": {
     "account": "*890076",
-    "amount": 50.00,
+    "amount": "50.00",
     "accountList": [
       {
         "accountType": "Credit card(2.3% fee)",
@@ -22,7 +22,7 @@
       "accountNumber":"Account Number:*890076",
 
 
-    "recipient": "AT&T ",
+    "recipient": " Pay AT&T $ ",
     "name":"YOU",
     "mobile": "718-555-1234",
     "imagePath": "../../assets/images/logo2.png",
@@ -34,7 +34,7 @@
   },
   "sender": {
     "account": "*890076",
-    "amount": 16.00,
+    "amount": "16.00",
     "accountList": [
       {
         "accountType": "Credit card(2.3% fee)",
@@ -46,7 +46,7 @@
       }
     ],
     "deliveryby": "1-3-2023",
-    "recipient": "Kat-simmons",
+    "recipient": "Kat-simmons $",
     "mobile": "718-555-1234",
     "imagePath": "../../assets/images/send image.jpeg",
     "date":"September 24th",

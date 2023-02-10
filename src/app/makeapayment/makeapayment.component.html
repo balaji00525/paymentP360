@@ -25,16 +25,16 @@
                 <!--amount-->
                 <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
                     <label for="amount" class="label form-label">Amount($)</label>
-                    <input type="number" class="form-control" id="amount" placeholder="Enter amount"
+                    <input type="name" class="form-control" id="amount" placeholder="Enter amount"
                         title="Enter the amount " value="{{data.amount}}">
                 </div>
                 <!--account dropdown-->
                 <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
                     <label for="amount" class="label form-label">Withdraw From</label>
                     <form novalidate #form="ngForm">
-                        <select class="form-select" name="name" [(ngModel)]="accountlist">
+                        <select class="form-select" name="name" [(ngModel)]="SelectedAmount">
                             <option selected>Choose how you'd like to pay</option>
-                            <option *ngFor="let user of accounts" [ngValue]="{ Available:user.balance}">
+                            <option *ngFor="let user of accounts" [value]="{ Available:user.balance}" (click)="selectedValue(user)">
                                 {{user.accountType}} </option>
                         </select>
                     </form>
@@ -81,8 +81,8 @@
                         </div>
 
                         <div class="modal-footer">
-                            <app-btncancel [data]="'Cancel'" (click)="closePopup()"></app-btncancel>
-                            <app-btndone [data]="'Continue'" [routerLink]="['/otpscreen']"></app-btndone>
+                            <app-btncancel style="width: 48%;" [data]="'Cancel'" (click)="closePopup()"></app-btncancel>
+                            <app-btndone style="width: 48%;" [data]="'Continue'" [routerLink]="['/otpscreen']"></app-btndone>
                         </div>
                     </div>
                 </div>
