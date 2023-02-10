@@ -1,4 +1,4 @@
-
+<!----------mobile view-------->
 <app-header [data]="'Amount to Pay'"></app-header>
 <div class="title">
     <img class="picture" src="{{data.imagePath}}" width="50">
@@ -19,7 +19,7 @@
     
 </div>
 
-
+<!--------------web view--------------------------->
 <div class="navbar">
     <div class="container">
         <div class="logo">
@@ -30,7 +30,7 @@
         <div>
             <h6 class="amount">Amount due <br>
                 <p> Imported from Statement</p>
-                     <!-- <h1 class="dollar">${{data.amount}}</h1> -->
+                    
                      <h1 class="dollar "><span>$</span>
                         <input *ngIf="paymentMode !== 'biller'" type="number" [(ngModel)]="data.amount" placeholder="Enter an amount to pay"/> 
                         <span *ngIf="paymentMode === 'biller'">{{data.amount}}</span>
@@ -63,6 +63,7 @@
         <p class="click">click to start selection for payment method</p>
 
 
-        <button [routerLink]="['/makeapayment']" class="makebtn  btn btn-lg" >Make a Payment</button>
+       
+        <app-btndone [data]="'Make a Payment'" [routerLink]="['/makeapayment']"></app-btndone>
     </div>
 </div>
