@@ -44,8 +44,8 @@
     </nav>
 
     <div>
-        <button type="submit" class="done btn btn-lg" [routerLink]="['/home']">Done</button>
-        <button type="reset" class="cancel btn btn-lg" [routerLink]="['/otpscreen']">cancel</button>
+        <app-btndone [data]="'Done'" [routerLink]="['/home']"></app-btndone>
+        <app-btncancel [data]="'Cancel'" [routerLink]="['/otpscreen']"></app-btncancel>
     </div>
 
 </div>
