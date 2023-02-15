@@ -38,6 +38,7 @@ export class MakeapaymentComponent implements OnInit {
       { accountType: 'main checking(*4738)', balance: '$5,164.98' }
     ]
     
+    
     ngOnInit(): void {
      
     }
