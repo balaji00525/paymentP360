@@ -1,71 +1,55 @@
-<!----------mobile view-------->
 <app-header [data]="'Amount to Pay'"></app-header>
-<div class="title">
-    <img class="picture" src="{{data.imagePath}}" width="50">
-    <h6 class="text text-center">AT&T{{data.Paymentmode}} {{data.account}}</h6>
-    <h6 class="mobile text">{{data.mobile}}</h6>
-    <hr>
-        <h6 class="amount">Amount due <br>
-            <p> Imported from Statement</p>
-                 
-                 
- <h1 class="dollar ">$
-	<input *ngIf="paymentMode !== 'biller'" type="number" [(ngModel)]="data.amount" placeholder="Enter an amount to pay"/> 
-	<span *ngIf="paymentMode === 'biller'">{{data.amount}}</span>
- </h1>
-
-        </h6>
-    
-    
-</div>
-
-<!--------------web view--------------------------->
+<!----checking---->
 <div class="navbar">
-    <div class="container">
-        <div class="logo">
-            <img class="image" src="{{data.imagePath}}" alt="" height="50">
-            <h6>AT&T {{data.account}}</h6>
-            <h3 class="account-mobile text">{{data.mobile}}</h3>
-        </div>
-        <div>
-            <h6 class="amount">Amount due <br>
-                <p> Imported from Statement</p>
-                    
-                     <h1 class="dollar "><span>$</span>
-                        <input *ngIf="paymentMode !== 'biller'" type="number" [(ngModel)]="data.amount" placeholder="Enter an amount to pay"/> 
-                        <span *ngIf="paymentMode === 'biller'">{{data.amount}}</span>
-                     </h1>
-            </h6>
-        </div>
-        
+
+    <div class="logo">
+        <img class="image" src="{{data.imagePath}}" alt="" height="50">
+        <h4>AT&T {{data.account}}</h4>
+        <h5 class="mobile">{{data.mobile}}</h5>
     </div>
+    <hr class="width">
+    <h6 class="amount"  [ngClass]="paymentMode==='biller'  ? '' : 'amount-padding'"><span *ngIf="paymentMode==='biller';">Amount due</span> <br>
+        <p *ngIf="paymentMode==='biller';"> Imported from Statement</p>
+        <h4 *ngIf="paymentMode !== 'biller'">Amount to {{selectedPaymentMode}}</h4>
+        <h1 class="dollar"><span>$</span>
+            <input  *ngIf="paymentMode !== 'biller'" class="input-outline" type="number" [(ngModel)]="data.amount"
+                placeholder="Enter an amount to pay" />
+            <span *ngIf="paymentMode === 'biller'">{{data.amount}}</span>
+        </h1>
+    </h6>
+
 </div>
-
-
+<hr *ngIf="paymentMode==='biller';">
 
 <div>
     <div>
-       
-        <hr>
-        <div class="due">
+
+
+        <div *ngIf="paymentMode==='biller';" class="due navbar">
+
             <div>
-                <h6 class="accountno">Due date </h6>              
+
+                <h6  class="accountno">Due date </h6>
                 <h6 class="date">{{myDate}}</h6>
+               
             </div>
-            <button type="button" class="btn btn-danger btn-tom">Tomorrow</button>
+            <hr class="width">
+            <div class="account">
+
+                <h6 *ngIf="paymentMode==='biller';" class="accountno"> Account number</h6>
+                <h6 *ngIf="paymentMode==='biller';" class="accountnum">{{data.account}}</h6>
+            </div>
+           
         </div>
-        <hr>
-        <h6 class="accountno"> Account number</h6>
-        <h6 class="accountnum">{{data.account}}</h6>
-        <hr>
-        <p class="view">view current statement</p>
+        
+        
+        <hr *ngIf="paymentMode==='biller';">
+        <p *ngIf="paymentMode==='biller';" class="view">View current statement</p>
+       
 
-        <p class="click">click to start selection for payment method</p>
-
-
-        <div class="text text-center">
-            <app-btndone [data]="'Make a Payment'" [routerLink]="['/makeapayment']"></app-btndone>
-        </div>
+        <p  *ngIf="paymentMode==='biller';" class="click">Click to start selection for Payment method</p>
+        <app-btndone [data]="paymentMode==='biller' ? 'Make a Payment' : paymentMode==='sender'? 'Pay':'Request' "[routerLink]="['/makeapayment']"></app-btndone>
+        <app-btncancel [data]="'Back'" [routerLink]="['/home']"></app-btncancel>
         
     </div>
 </div>
