@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../service/api.service';
 import { DataService } from '../service/data.service';
 import { Router } from '@angular/router';
@@ -11,27 +11,45 @@ import { DatePipe } from '@angular/common';
   providers: [DatePipe]
 })
 export class AmounttopayComponent implements OnInit {
-  data:any={};
+  data: any = {};
   myDate: any = new Date();
-  amount:number
+  amount: number
   paymentMode: string;
-  constructor(private services:ApiService, 
-    private dService: DataService, 
+  selectedPaymentMode:string
+  constructor(private services: ApiService,
+    private dService: DataService,
     private router: Router,
-    private datepipe: DatePipe) { 
-      this.myDate = this.datepipe.transform(this.myDate, 'MMMM d');
-    
+    private datepipe: DatePipe) {
+    this.myDate = this.datepipe.transform(this.myDate, 'MMMM d');
+
     this.paymentMode = this.dService.user;
     switch (this.paymentMode) {
-      case "biller": this.services.getBillerData().subscribe(data => this.data = data);
+      case "biller": {
+
+        this.services.getBillerData().subscribe(data => this.data = data);
         break;
-      case "sender": this.services.getSenderData().subscribe(data => this.data = data);
+      }
+      case "sender": {
+
+        this.services.getSenderData().subscribe(data => this.data = data);
+        this.selectedPaymentMode='Pay';
+
         break;
-      case "requester": this.services.getRequesterData().subscribe(data => this.data = data);
+      }
+      case "requester": {
+
+        this.services.getRequesterData().subscribe(data => this.data = data);
+        this.selectedPaymentMode='Request';
+      }
     }
+
+    console.log(this.data)
   }
   onsubmit() {
     this.router.navigate(['/makeapayment']);
+    // this.router.navigate(['/home']);
+
   }
-  ngOnInit(): void {} }
+  ngOnInit(): void { }
+}
 

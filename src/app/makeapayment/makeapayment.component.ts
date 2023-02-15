@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class MakeapaymentComponent implements OnInit {
   data:any={};
   amount: any;
-  
+
+
   constructor(private service: ApiService, 
     private cService: DataService, 
     private router: Router) {

@@ -1,9 +1,7 @@
-<div class="container">
+<app-header [data]="'Make a Payment'"></app-header><div class="container">
     <div class="logo">
         <!-- <app-header [data]="data"></app-header> -->
-        <div class="head text text-center">
-            <h2>Make a Payment</h2>
-        </div>
+       
         <div class="title">
             <img class="picture" src="{{data.imagePath}}" width="50">
             <h6 class="text text-center">AT&T{{data.Paymentmode}} {{data.account}}</h6>
@@ -48,7 +46,7 @@
                 <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
                     <label for="start" class="label mb-2">Delivery By</label>
                     <input type="date" id="start" name="trip-start" class="form-control w3-border w3-hover-border-cyan"
-                        value="2021-09-27" min="2021-27-04" max="2018-12-31">
+                        value="2021-09-27" min="2018-27-04" max="2023-12-31">
                     <a class="link" href="#">Withdraws Today</a>&nbsp;<a>Arrives in 1-3 days</a>
                 </div>
                 <!--memo-->
@@ -75,7 +73,8 @@
                             <img class="header" src="../../assets/images/send image.jpeg" alt="">
                         </div>
                         <div class="modal-body">
-                            <p>You're Sending money to the recipient<br>you added as Kat Simmons</p>
+                            <!-- <p>You're Sending money to the recipient<br>you added as Kat Simmons</p> -->
+                            <!-- <p>{{dataliteral.modalrecipient}}</p> -->
                             <p>{{data.mobile}} is enrolled with Zelle as Kathrine {{data.modalrecipient}}</p>
                             <p>If this looks right to you, select Continue</p>
                         </div>
