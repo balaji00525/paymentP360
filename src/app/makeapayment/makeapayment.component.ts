@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 export class MakeapaymentComponent implements OnInit {
   data:any={};
   amount: any;
-  SelectedAmount: number;
-  
+
+
   constructor(private service: ApiService, 
     private cService: DataService, 
     private router: Router) {
@@ -37,9 +37,7 @@ export class MakeapaymentComponent implements OnInit {
       { accountType: 'Credit card(2.3% fee)', balance: '$365.27' },
       { accountType: 'main checking(*4738)', balance: '$5,164.98' }
     ]
-    selectedValue(user){
-      this.SelectedAmount=user.balance
-    }
+    
     
     ngOnInit(): void {
      
