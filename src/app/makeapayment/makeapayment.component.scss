@@ -3,9 +3,7 @@
 .accountno {
   text-align: center;
 }
-.form {
-  @include important-style;
-}
+
 
 input[type=number],
 select,
@@ -67,21 +65,7 @@ a {
 
 }
 
-@media (min-width:769px) and (max-width:1281px) {
 
-  .make {
-    display: none;
-  }
-
-
-}
-
-@media (min-width:150px) and (max-width:768px) {
-  .form {
-    @include important-style;
-    
-  }
-}
 
 
 .header {
@@ -89,9 +73,6 @@ a {
   width: 70px;
   border-radius: 100%;
 }
-
-
-
 .modal-footer { 
 display: flex;
 flex-wrap: nowrap;
@@ -102,8 +83,6 @@ flex-wrap: nowrap;
   display: flex;
   justify-content: center;
 }
-
-
 
 .picture {
   @include important-style;
@@ -140,28 +119,28 @@ margin-right: 4px;
   .navbar-brand {
     border-radius: 100px;
   }
-
-  .title {
-    display: none;
-  }
-
 }
 
-@media (min-width:150px) and (max-width:768px) {
 
-  .navbar {
-    display: none;
-  }
-
-  .image {
-    display: none;
-  }
-
-
-}
 .brand{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.modal-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-header{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.bold{
+  text-decoration: black ;
+  font-weight: bold;
 }

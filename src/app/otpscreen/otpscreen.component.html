@@ -9,15 +9,15 @@
         <input class="otp-input mb-2" type="text" autocomplete="off" value="{{data.otp}}" />
     </div>
     
-    <div class="hyperlink mb-2">
+    <div class="hyperlink mb-1">
         <h6 class="text text-center"><a class="otp-resend" href="#">Re-send via text</a></h6>
         <h6 class="text text-center"><a class="otp-resend" href="#">Re-send via phone call</a></h6>
     </div>
-    <div class="text text-center mb-3">
+    <div class="text text-center">
         <app-btndone [routerLink]="['/confirmation']" [data]="'Verify'"></app-btndone>
     </div>
     
     <div class="text text-center">
-        <app-btncancel [routerLink]="['/makeapayment']" [data]="'Cancel'"></app-btncancel>
+        <app-btncancel [routerLink]="['/home']" [data]="'Cancel'"></app-btncancel>
     </div>
 </div>
