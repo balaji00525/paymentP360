@@ -66,16 +66,6 @@
     "mobile": "718-555-1234",
     "date":"September 24th",
     "imagePath": "../../assets/images/send image.jpeg",
-<<<<<<< HEAD
-    "otp":55382,
-    "paymentliteral":"Request a payment",
-    "otpliteral":"OTP Screen"
- 
-  },
-  "billerliterals": {
-    "amountDue":"Amount Due ",
-    "makeaPayment":"Make a Payment",
-=======
     "enrolledAs":"Enrolled as Katherine"
   },
   
@@ -89,7 +79,6 @@
     "amountDue":"Amount Due ",
     "makeaPayment":"Make a Payment",
     "amountPayButton":"Make a Payment",
->>>>>>> 8d63a996bb78c039555335603ac3f77911cfb4a6
     "amount":"Amount($)",
     "withdrawFrom":"Withdraw from",
     "deliveryBy":"Delivery by",
@@ -99,24 +88,16 @@
     "modalRecipient": "You are sending money to the recipient you assed as AT&T ",
     "enrolledAs": "is enrolled with Zelle as AT&T",
     "continue": "If this looks right to you, select continue",
-<<<<<<< HEAD
-    "paymentSent":"Payment sent",
-    "arrives":"Arrives"
-=======
     "makePayButton":"Pay",
     "paymentSent":"Payment sent",
     "arrives":"Arrive",
     "you":"You",
     "imagePath":""
->>>>>>> 8d63a996bb78c039555335603ac3f77911cfb4a6
   },
   "senderliterals": {
     "amountDue":"Amount to pay ",
     "makeaPayment":"Make a Payment",
-<<<<<<< HEAD
-=======
     "amountPayButton":"Pay",
->>>>>>> 8d63a996bb78c039555335603ac3f77911cfb4a6
     "amount":"Amount($)",
     "withdrawFrom":"Withdraw from",
     "deliveryBy":"Delivery by",
@@ -126,37 +107,21 @@
     "modalRecipient": "You are sending money to the recipient you assed as Kat Simmons ",
     "enrolledAs": "is enrolled with Zelle as Katherine",
     "continue": "If this looks right to you, select continue",
-<<<<<<< HEAD
-    "paymentSent":"Payment sent",
-    "arrives":"Arrives"
-=======
     "makePayButton":"Pay ",
     "paymentSent":"Payment sent",
     "arrives":"Arrive",
     "you":"You",
     "imagePath":"../../assets/images/zelle.png"
->>>>>>> 8d63a996bb78c039555335603ac3f77911cfb4a6
   },
   "requesterliterals": {
     "amountDue":"Amount to Request",
     "makeaPayment":"Request a Payment",
-<<<<<<< HEAD
-=======
     "amountPayButton":"Request",
->>>>>>> 8d63a996bb78c039555335603ac3f77911cfb4a6
     "amount":"Amount($)",
     "withdrawFrom":"Deposit to",
     "deliveryBy":"Request on",
     "memo":"Memo(optional)",
     "choose":"Choose how you'd like to Receive",
-<<<<<<< HEAD
-    "pay":"Request",
-    "modalRecipient": "You are requesting money to the recipient you added as Kat Simmons ",
-    "enrolledAs": "is enrolled with Zelle as Katherine",
-    "continue": "If this looks right to you, select continue",
-    "paymentSent":"Requested",
-    "arrives":"Arrives"
-=======
     "makePayButton":"Request ",
     "modalRecipient": "You are requesting money to the recipient you added as Kat Simmons ",
     "enrolledAs": "is enrolled with Zelle as Katherine",
@@ -165,7 +130,6 @@
     "arrives":"Requested",
     "you":"You",
     "imagePath":"../../assets/images/zelle.png"
->>>>>>> 8d63a996bb78c039555335603ac3f77911cfb4a6
   }
   
 

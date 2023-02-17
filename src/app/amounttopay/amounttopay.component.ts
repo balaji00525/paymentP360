@@ -16,8 +16,8 @@ export class AmounttopayComponent implements OnInit {
   amount: number
   paymentMode: string;
   literals:any={};
-  selectedPaymentMode:string
-  literals:any={};
+  selectedPaymentMode:string;
+
 
   constructor(private services: ApiService,
     private dService: DataService,
