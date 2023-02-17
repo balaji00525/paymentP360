@@ -12,6 +12,7 @@ import { DatePipe } from '@angular/common';
 export class MakeapaymentComponent implements OnInit {
   data:any={};
   amount: any;
+  recipient: any;
   SelectedAmount: number;
   // prevDate = new Date();
   literals:any={};

@@ -16,6 +16,8 @@ export class AmounttopayComponent implements OnInit {
   amount: number
   paymentMode: string;
   selectedPaymentMode:string
+  literals:any={};
+
   constructor(private services: ApiService,
     private dService: DataService,
     private router: Router,
@@ -27,11 +29,13 @@ export class AmounttopayComponent implements OnInit {
       case "biller": {
 
         this.services.getBillerData().subscribe(data => this.data = data);
+        this.services.getBillerLiteralData().subscribe(data=> this.literals=data);
         break;
       }
       case "sender": {
 
         this.services.getSenderData().subscribe(data => this.data = data);
+        this.services.getSenderLiteralData().subscribe(data=>this.literals=data);
         this.selectedPaymentMode='Pay';
 
         break;
@@ -39,6 +43,7 @@ export class AmounttopayComponent implements OnInit {
       case "requester": {
 
         this.services.getRequesterData().subscribe(data => this.data = data);
+        this.services.getRequesterLiteralData().subscribe(data=>this.literals=data);
         this.selectedPaymentMode='Request';
       }
     }

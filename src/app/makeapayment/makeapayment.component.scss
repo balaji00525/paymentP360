@@ -4,16 +4,20 @@
   text-align: center;
 }
 
-
 input[type=number],
 select,
 textarea,
 .form-control,
 .form-select {
   border: 1px solid grey;
-  border-radius: 4px;
   box-shadow: none;
   border-radius: 1px ;
+}
+.dollar{
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 1px;
+  border-right: none;
 }
 
 input[type=date] {
@@ -55,6 +59,10 @@ a {
   .form{
     width: 100%;
   }
+  
+.select{
+  margin: 20px 20px 20px 20px;
+}
 }
 
 @media (min-width:576px) and (max-width:768px) {
@@ -143,4 +151,13 @@ margin-right: 4px;
 .bold{
   text-decoration: black ;
   font-weight: bold;
+}
+.multi{
+  background-color:white;
+  border: 1px solid grey;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: none;
+  border-radius: 1px;
+  
 }
