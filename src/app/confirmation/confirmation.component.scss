@@ -1,8 +1,8 @@
 @import '../../styles.scss';
 
-.container{
-  padding: 8px;   
-}
+// .container{
+//   padding: 8px;   
+// }
 .image{
   display: block;
   margin-left: auto;
@@ -125,8 +125,12 @@ h1{
   font-weight: bold;
 }
 
+.btncontainer{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 
-
+}
 
 
 

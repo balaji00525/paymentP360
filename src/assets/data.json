@@ -4,7 +4,7 @@
     "amount": "50.00",
     "accountList": [
       {
-        "accountType": "Credit card(2.3% fee)",
+        "accountType": "Credit card **4009 (2.3% fee)",
         "balance": "$365.27 available"
       },
       {
@@ -13,21 +13,15 @@
       }
     ],
     "deliveryby": "27-09-2023",
-    
-      "accountType":"CREDITCARD.*2246(2.3%fee)",
-      "accountNumber":"Account Number:*890076",
+    "accountType":"CREDITCARD.*2246(2.3%fee)",
+     "accountNumber":"Account Number:*890076",
 
-
-    "recipient": " Pay AT&T $ ",
+    "recipient":"AT&T",
     "name":"YOU",
     "mobile": "718-555-1234",
     "imagePath": "../../assets/images/logo2.png",
-    "date":"September 24th",
-    "otp": 303635,
     "number": "0123456789",
-    "paymentliteral":"Bill a payment",
-    "otpliteral":"OTP Screen"
-  
+    "enrolledAs":""
   },
   "sender": {
     "account": "*890076",
@@ -43,22 +37,13 @@
       }
     ],
     "deliveryby": "1-3-2023",
-    "accountList1":
-      {
-        "accountType":"CREDITCARD.*2246(2.3%fee)",
-        "accountNumber":"Account Number:*890076"
-      },
-      "accountType":"CREDITCARD.*2246(2.3%fee)",
-      "accountNumber":"Account Number:*890076",
-
-    "recipient": "Kat-simmons $",
+    "accountType":"CREDITCARD.*2246(2.3%fee)","accountNumber":"Account Number:*890076",
+    "recipient": "Kat Simmons  ",
+    "name":"YOU",
     "mobile": "718-555-1234",
     "imagePath": "../../assets/images/send image.jpeg",
     "date":"September 24th",
-    "otp": 63807,
-    "paymentliteral":"Make a payment",
-    "otpliteral":"OTP Screen"
-  
+    "enrolledAs":"Enrolled as Katherine"
   },
   "requester": {
     "account": "*890076",
@@ -74,22 +59,77 @@
       }
     ],
     "deliveryby": "1-3-2023",
-    "accountList1":
-      {
-        "accountType":"CREDITCARD.*2246(2.3%fee)",
-        "accountNumber":"Account Number:*890076"
-      },
-      "accountType":"CREDITCARD.*2246(2.3%fee)",
-      "accountNumber":"Account Number:*890076",
-
-    "recipient": "AT&T",
+    "accountType":"CREDITCARD.*2246(2.3%fee)",
+     "accountNumber":"Account Number:*890076",
+    "recipient": "Kat Simmons  ",
+    "name":"YOU",
     "mobile": "718-555-1234",
     "date":"September 24th",
     "imagePath": "../../assets/images/send image.jpeg",
-    "otp":55382,
-    "paymentliteral":"Request a payment",
-    "otpliteral":"OTP Screen"
- 
+    "enrolledAs":"Enrolled as Katherine"
+  },
+  
+
+
+
+
+
+
+  "billerliterals": {
+    "amountDue":"Amount Due ",
+    "makeaPayment":"Make a Payment",
+    "amountPayButton":"Make a Payment",
+    "amount":"Amount($)",
+    "withdrawFrom":"Withdraw from",
+    "deliveryBy":"Delivery by",
+    "memo":"Memo(optional)",
+    "choose":"Choose how you'd like to pay",
+    "pay":"Pay",
+    "modalRecipient": "You are sending money to the recipient you assed as AT&T ",
+    "enrolledAs": "is enrolled with Zelle as AT&T",
+    "continue": "If this looks right to you, select continue",
+    "makePayButton":"Pay",
+    "paymentSent":"Payment sent",
+    "arrives":"Arrive",
+    "you":"You",
+    "imagePath":""
+  },
+  "senderliterals": {
+    "amountDue":"Amount to pay ",
+    "makeaPayment":"Make a Payment",
+    "amountPayButton":"Pay",
+    "amount":"Amount($)",
+    "withdrawFrom":"Withdraw from",
+    "deliveryBy":"Delivery by",
+    "memo":"Memo(optional)",
+    "choose":"Choose how you'd like to pay",
+    "pay":"Pay",
+    "modalRecipient": "You are sending money to the recipient you assed as Kat Simmons ",
+    "enrolledAs": "is enrolled with Zelle as Katherine",
+    "continue": "If this looks right to you, select continue",
+    "makePayButton":"Pay ",
+    "paymentSent":"Payment sent",
+    "arrives":"Arrive",
+    "you":"You",
+    "imagePath":"../../assets/images/zelle.png"
+  },
+  "requesterliterals": {
+    "amountDue":"Amount to Request",
+    "makeaPayment":"Request a Payment",
+    "amountPayButton":"Request",
+    "amount":"Amount($)",
+    "withdrawFrom":"Deposit to",
+    "deliveryBy":"Request on",
+    "memo":"Memo(optional)",
+    "choose":"Choose how you'd like to Receive",
+    "makePayButton":"Request ",
+    "modalRecipient": "You are requesting money to the recipient you added as Kat Simmons ",
+    "enrolledAs": "is enrolled with Zelle as Katherine",
+    "continue": "If this looks right to you, select continue",
+    "paymentSent":"Payment Requested",
+    "arrives":"Requested",
+    "you":"You",
+    "imagePath":"../../assets/images/zelle.png"
   }
   
   

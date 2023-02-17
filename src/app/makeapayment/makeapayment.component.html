@@ -1,93 +1,104 @@
-<app-header [data]="'Make a Payment'"></app-header><div class="container">
-    <div class="logo">
-        <!-- <app-header [data]="data"></app-header> -->
-       
-        <div class="title">
-            <img class="picture" src="{{data.imagePath}}" width="50">
-            <h6 class="text text-center">AT&T{{data.Paymentmode}} {{data.account}}</h6>
-            <h6 class="mobile text">{{data.mobile}}</h6>
-        </div>
-        <div class="navbar">
-            <div class="snail">
-                <div class="brand">
-                    <img class="image" src="{{data.imagePath}}" alt="" height="50">
-                    <h6>AT&T {{data.account}}</h6>
-                    <h3 class="account-mobile text">{{data.mobile}}</h3>
-                </div>
-            </div>
-        </div>
-        <hr>
-       
-     <form>
-            <div class="rows">
-                <!--amount-->
-                <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-                    <label for="amount" class="label form-label">Amount($)</label>
-                    <input type="name" class="form-control" id="amount" placeholder="Enter amount"
-                        title="Enter the amount " value="{{data.amount}}">
-                </div>
-                <!--account dropdown-->
-                <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-                    <label for="amount" class="label form-label">Withdraw From</label>
-                    <form novalidate #form="ngForm">
-                        <select class="form-select" name="name" [(ngModel)]="SelectedAmount">
-                            <option selected>Choose how you'd like to pay</option>
-                            <option *ngFor="let user of accounts" [value]="{ Available:user.balance}" (click)="selectedValue(user)">
-                                {{user.accountType}} </option>
-                        </select>
-                    </form>
-                    <h6 class="text text-primary">{{ accountlist | json }}</h6>
-                </div>
-            </div>
+<div class="logo">
+    <app-header [data]="literals.makeaPayment"></app-header>
 
-
-            <div class="rows1">
-                <!--date-->
-                <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-                    <label for="start" class="label mb-2">Delivery By</label>
-                    <input type="date" id="start" name="trip-start" class="form-control w3-border w3-hover-border-cyan"
-                        value="2021-09-27" min="2018-27-04" max="2023-12-31">
-                    <a class="link" href="#">Withdraws Today</a>&nbsp;<a>Arrives in 1-3 days</a>
-                </div>
-                <!--memo-->
-                <div class="form mb-2 col-sm-5 col-md-5 col-lg-5">
-                    <label for="memo" class="label mb-2">Memo(Optional)</label>
-                    <textarea class="form-control" id="memo" rows="1" placeholder="Reason for..."></textarea>
-                </div>
-            </div>
-
-            <!--radio-->
-            <div class="radio form-check form-switch mb-3">
-                <input class="form-check-input" type="checkbox" id="recurring">
-                <label class="label form-check-label" for="recurring">Make Recurring Payment</label>
-            </div>
-
-            <div class="text text-center">
-                <app-btndone [data]="data.recipient" [amount]="data.amount" (click)="openPopup()"></app-btndone>
-            </div>
-            
-          
-            
-            <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <img class="header" src="../../assets/images/send image.jpeg" alt="">
-                        </div>
-                        <div class="modal-body">
-                            <!-- <p>You're Sending money to the recipient<br>you added as Kat Simmons</p> -->
-                            <!-- <p>{{dataliteral.modalrecipient}}</p> -->
-                            <p>{{data.mobile}} is enrolled with Zelle as Kathrine {{data.modalrecipient}}</p>
-                            <p>If this looks right to you, select Continue</p>
-                        </div>
-
-                        <div class="modal-footer">
-                            <app-btncancel style="width: 50%;display:flex; justify-content: center;" [data]="'Cancel'" (click)="closePopup()"></app-btncancel>
-                            <app-btndone style="width: 50%; display:flex; justify-content: center;" [data]="'Continue'" [routerLink]="['/otpscreen']"></app-btndone>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
+    <div class="title">
+        <img class="picture" src="{{data.imagePath}}" width="50">
+        <h6 class="text text-center">{{data.recipient}} {{data.account}}</h6>
+        <h5 class="text text-center">{{data.enrolledAs}}</h5>
+        <h6 class="mobile text">{{data.mobile}}</h6>
     </div>
-    <!-- <app-header [data]="billerdata"></app-header> -->
+    <hr>
+
+   <div class="text text-center">
+    <img   src="{{literals.imagePath}}" width="70">
+   </div>
+
+
+    <div class="rows">
+        <!--amount-->
+
+        <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
+            <label for="amount" class="label form-label">{{literals.amount}}</label>
+
+           
+            <div class="col-auto">
+                <div class="input-group mb-1">
+                    <div class="dollar input-group-text">$</div>
+                    <input type="text" class="form-control" id="amount" placeholder="Enter Amount" autocomplete="off"
+                        value="{{data.amount}}" />
+                </div>
+            </div>
+        </div>
+
+        <!--account dropdown-->
+
+
+        <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
+            <label for="amount" class="label form-label">{{literals.withdrawFrom}}</label>
+            <form novalidate #form="ngForm">
+                <select class="form-select" name="name" [(ngModel)]="accountlist">
+                    <option class="select" selected>{{literals.choose}}</option>
+                    <option *ngFor="let user of data.accountList" [ngValue]="{ Available:user.balance}">
+                        {{user.accountType}} {{user.balance}}</option>
+                </select>
+            </form>
+            <a class="link" href="#"> ⚡ Faster Options Available</a>
+        </div>
+    </div>
+
+
+    <div class="rows1">
+        <!--date-->
+        <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
+            <label for="start" class="label mb-2">{{literals.deliveryBy}}</label>
+            <input type="date" id="start" name="trip-start" class="form-control w3-border w3-hover-border-cyan"
+                value="2023-02-17" min="2023-02-14" max="2023-05-14">
+            <a class="link" href="#">Withdraws Today</a>&nbsp;<a>Arrives in 1-3 days</a>
+        </div>
+        <!--memo-->
+        <div class="form mb-2 col-sm-5 col-md-5 col-lg-5">
+            <label for="memo" class="label mb-2">{{literals.memo}}</label>
+            <div class="form-control" contenteditable="true">Reason for...</div> 
+        </div>
+    </div>
+    
+    <!--radio-->
+    <div class="radio form-check form-switch mb-3">
+        <input class="form-check-input" type="checkbox" id="recurring">
+        <label class="label form-check-label" for="recurring">Make Recurring Payment</label>
+    </div>
+
+    <!------------Pay Button--------------->
+    <div class="text text-center">
+        <app-btndone [data]="literals.makePayButton  " [recipient]="data.recipient" [amount]="data.amount"
+            (click)="openPopup()"></app-btndone>
+    </div>
+
+
+
+    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img class="header" src="{{data.imagePath}}" alt="">
+                </div>
+                <div class="modal-body">
+                    <!-- <p>You're Sending money to the recipient you added as Kat Simmons</p> -->
+                    <p>{{literals.modalRecipient}}</p>
+                    <p><span class="bold">{{data.mobile}}</span> {{literals.enrolledAs}}</p>
+                    <p>{{literals.continue}}</p>
+                </div>
+
+                <div class="modal-footer">
+                    <app-btncancel style="width: 50%;display:flex; justify-content: center;" [data]="'Cancel'"
+                        (click)="closePopup()"></app-btncancel>
+                    <app-btndone style="width: 50%; display:flex; justify-content: center;" [data]="'Continue'"
+                        [routerLink]="['/otpscreen']"></app-btndone>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text text-center">
+        <app-btncancel [routerLink]="['/amounttopay']" [data]="'Back'"></app-btncancel>
+    </div>
+</div>

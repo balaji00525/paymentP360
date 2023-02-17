@@ -1,4 +1,4 @@
-<app-header [data]="'Amount to Pay'"></app-header>
+<app-header [data]="literals.amountDue"></app-header>
 <!----checking---->
 <div class="navbar">
 
@@ -48,8 +48,16 @@
        
 
         <p  *ngIf="paymentMode==='biller';" class="click">Click to start selection for Payment method</p>
-        <app-btndone [data]="paymentMode==='biller' ? 'Make a Payment' : paymentMode==='sender'? 'Pay':'Request' "[routerLink]="['/makeapayment']"></app-btndone>
-        <app-btncancel [data]="'Back'" [routerLink]="['/home']"></app-btncancel>
+
+        <div class="text text-center">
+            <app-btndone [data]="paymentMode==='biller' ? 'Make a Payment' : paymentMode==='sender'? 'Pay':'Request' "[routerLink]="['/makeapayment']"></app-btndone>
+        </div>
+        <div class="text text-center">
+            <app-btncancel [data]="'Back'" [routerLink]="['/home']"></app-btncancel>
+        </div>
+        
+        
+       
         
     </div>
 </div>
