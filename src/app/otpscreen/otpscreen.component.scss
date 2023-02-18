@@ -36,47 +36,13 @@ a{
 }
 .hyperlink{
     display: contents;
-    justify-content: space-evenly;
-   
+    justify-content: space-evenly;   
 }
-
-.done{
-    width: 50%;
-    color: rgb(255, 255, 255);
-    background-color: #29479e;
-    border-radius: 1px;
-    box-shadow: none;
-    transition: all 0.2s linear;
-    &:hover,
-    &.active{
-        background-color: #899cc9;
-    }
-}
-
-.cancel{
-    width: 50%;
-    color: rgb(48, 36, 215);
-    background-color:#d1dee6 ;
-    border-radius: 1px;
-    box-shadow: none;
-    transition: all 0.2s linear;
-    &:hover,
-    &.active{
-        background-color:#edf2f5;
-    }
-}
-
 
 @media (min-width:320px) and (max-width:700px){
     .hyperlink{
         display: contents;
         margin-bottom: 20%;
-    }
-    .done{
-        width: 100%;
-    }
-    .cancel{
-        width: 100%;
     }
     .otp{
         .otp-input{

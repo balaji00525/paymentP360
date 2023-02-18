@@ -1,36 +1,37 @@
-
-body{
+body {
     background-color: #d1dee6;
     font-family: 'Calibri', 'sans-serif';
 }
 
-
-@mixin important-style{
+@mixin important-style {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
 
-@mixin child-container{
+@mixin child-container {
     text-align: center;
     height: 40px;
 }
+
 @mixin parent-container {
-  
+
     width: 100%;
     color: rgb(255, 255, 255);
     background-color: #29479e;
     margin-bottom: 15px;
     cursor: pointer;
     transition: all 0.2s linear;
+
     &:hover,
-    &.active{
-        background-color:#899cc9 ;
+    &.active {
+        background-color: #899cc9;
     }
-    
+
 }
-@mixin important-part{
+
+@mixin important-part {
     display: block;
     margin-left: auto;
     margin-right: auto;

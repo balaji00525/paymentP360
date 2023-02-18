@@ -12,6 +12,7 @@ import { HeaderComponent } from './common/header/header.component';
 import { HomeComponent } from './home/home.component';
 import { BtndoneComponent } from './common/btndone/btndone.component';
 import { BtncancelComponent } from './common/btncancel/btncancel.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { BtncancelComponent } from './common/btncancel/btncancel.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

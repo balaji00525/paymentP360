@@ -10,76 +10,76 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./makeapayment.component.scss'],
 })
 export class MakeapaymentComponent implements OnInit {
-  data:any={};
+  data: any = {};
   amount: any;
   recipient: any;
   SelectedAmount: number;
   // prevDate = new Date();
-  literals:any={};
+  literals: any = {};
 
-  
+
   // datePipe = new DatePipe();
 
-  constructor(private service: ApiService, 
-    private cService: DataService, 
+  constructor(private service: ApiService,
+    private cService: DataService,
     private router: Router) {
-      let paymentMode = this.cService.user;
-      
-      switch (paymentMode) {
-        case "biller": {
-          this.service.getBillerData().subscribe(data => this.data = data);
-          this.service.getBillerLiteralData().subscribe(data => this.literals = data);
-        break;
-        }
+    let paymentMode = this.cService.user;
 
-        case "sender":{
-         this.service.getSenderData().subscribe(data => this.data = data);
-         this.service.getSenderLiteralData().subscribe(data => this.literals = data);
+    switch (paymentMode) {
+      case "biller": {
+        this.service.getBillerData().subscribe(data => this.data = data);
+        this.service.getBillerLiteralData().subscribe(data => this.literals = data);
         break;
-        }
-        case "requester":{
+      }
+
+      case "sender": {
+        this.service.getSenderData().subscribe(data => this.data = data);
+        this.service.getSenderLiteralData().subscribe(data => this.literals = data);
+        break;
+      }
+      case "requester": {
 
         this.service.getRequesterData().subscribe(data => this.data = data);
         this.service.getRequesterLiteralData().subscribe(data => this.literals = data);
-        }
       }
+    }
 
-      
-     
-      
-      
 
-      // this.prevDate.setDate(this.prevDate.getDate() - 2);
-      
+
+
+
+
+    // this.prevDate.setDate(this.prevDate.getDate() - 2);
+
     // this.setDob = datePipe.transform(userdate, 'dd/MM/yyyy');
-    }
-    
-
-    ngOnInit(): void {
-      
-    }
-    onsubmit() {
-      this.router.navigate(['/otpscreen']);
-      this.router.navigate(['/amounttopay']);
-    }
-    
-   
-    
-
-    accountlist = '';
-    accounts = [
-      { accountType: 'Credit card(2.3% fee)', balance: '$365.27' },
-      { accountType: 'main checking(*4738)', balance: '$5,164.98' }
-    ]
-  
-    
-    displayStyle = "none";
-    
-    openPopup() {
-      this.displayStyle = "block";
-    }
-    
-    closePopup() {
-      this.displayStyle = "none";
-    }
   }
+
+
+  ngOnInit(): void {
+
+  }
+  onsubmit() {
+    this.router.navigate(['/otpscreen']);
+    this.router.navigate(['/amounttopay']);
+  }
+
+
+
+
+  accountlist = '';
+  accounts = [
+    { accountType: 'Credit card(2.3% fee)', balance: '$365.27' },
+    { accountType: 'main checking(*4738)', balance: '$5,164.98' }
+  ]
+
+
+  displayStyle = "none";
+
+  openPopup() {
+    this.displayStyle = "block";
+  }
+
+  closePopup() {
+    this.displayStyle = "none";
+  }
+}

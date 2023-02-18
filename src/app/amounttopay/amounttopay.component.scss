@@ -1,57 +1,31 @@
 @import '../../styles.scss';
 
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+.image {
+  @include important-part;
+  height: "40";
+}
+
+.mobile {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: gray;
+}
 
 .amount {
   font-weight: bold;
 }
-.amount-padding{
+
+.amount-padding {
   padding: 48px 0px;
 }
-@media (min-width:769px) and (max-width:2500px) {
-  .image {
-    width: 50px;
-    border-radius: 100px;
-    display: flex;
-  }
-.account{
-  
-    align-items: flex-end;
-    display: flex;
-    flex-direction: column;
-}
-}
-@media (min-width:320px) and (max-widht:570px){
- .navbar{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
- 
- }
- .due{
-  align-items: flex-start;
- }
- .width{
-  width: 100%!important;
-
- }
-}
-
-.input-outline:focus {
-  outline: none;
-
-}
-
-.input-inline:focus {
-  outline: none;
-  background-color: #d1dee6;
-  border: none;
-  padding: 50px;
-  text-align: center;
-}
-
-
 
 .dollar {
   padding-bottom: 70px;
@@ -72,86 +46,6 @@
   }
 }
 
-
-.screen {
-  display: flex;
-  justify-content: space-between;
-  margin: 40px 0px;
-  align-items: center;
-}
-
-h1 {
-  @include child-container;
-}
-
-
-img {
-  @include important-part;
-  height: "40";
-}
-
-h5 {
-  text-align: center;
-}
-
-.phoneno {
-  text-align: center;
-
-}
-
-.accountno {
-  text-align: left;
-  padding: 5px;
-  color: grey;
-  // font-size: small;
-}
-
-
-.date {
-  text-align: left;
-  padding: 4px;
-
-
-
-
-}
-
-.accountnum {
-  
-  padding: 4px;
-
-
-}
-
-h4 {
-  text-align: center;
-
-
-}
-
-h6 {
-  text-align: center;
-}
-
-p {
-
-  text-align: center;
-  color: blue
-}
-
-.click {
-  text-align: center;
-  color: grey;
-
-}
-
-.view {
-  padding: 20px;
-}
-
-
-
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -163,35 +57,90 @@ input[type=number] {
   appearance: textfield;
 }
 
+.input-outline:focus {
+  outline: none;
+}
 
-@media (min-width:320px) and (max-width:570px){
-  .navbar{
+.due {
+  align-items: flex-start;
+}
+
+.accountno {
+  text-align: left;
+  padding: 5px;
+  color: grey;
+}
+
+.accountnum {
+  padding: 4px;
+}
+
+.click {
+  text-align: center;
+  color: grey;
+}
+
+.view {
+  padding: 20px;
+}
+
+.date {
+  text-align: left;
+  padding: 4px;
+}
+
+h1 {
+  @include child-container;
+}
+
+h5 {
+  text-align: center;
+}
+
+h4 {
+  text-align: center;
+}
+
+h6 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  color: blue
+}
+
+@media (min-width:320px) and (max-width:570px) {
+  .navbar {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  .due{
+
+  .due {
     align-items: flex-start;
   }
-  .width{
-    width: 100%;
+
+  .width {
+    width: 100% !important;
   }
-  .accountnum{
+
+  .accountnum {
     text-align: left;
   }
 }
 
-.logo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.mobile {
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  color: gray;
-}
+@media (min-width:769px) and (max-width:2500px) {
+  .image {
+    width: 50px;
+    border-radius: 100px;
+    display: flex;
+  }
 
+  .account {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+  }
+}

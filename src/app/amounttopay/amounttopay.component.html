@@ -1,63 +1,49 @@
 <app-header [data]="literals.amountDue"></app-header>
-<!----checking---->
 <div class="navbar">
-
     <div class="logo">
         <img class="image" src="{{data.imagePath}}" alt="" height="50">
-        <h4>AT&T {{data.account}}</h4>
+        <h4>{{data.recipient}} {{data.account}}</h4>
+        <h5 class="text text-center">{{data.enrolledAs}}</h5>
         <h5 class="mobile">{{data.mobile}}</h5>
     </div>
     <hr class="width">
-    <h6 class="amount"  [ngClass]="paymentMode==='biller'  ? '' : 'amount-padding'"><span *ngIf="paymentMode==='biller';">Amount due</span> <br>
+    <h6 class="amount" [ngClass]="paymentMode==='biller'  ? '' : 'amount-padding'">
+        <span *ngIf="paymentMode==='biller';">Amount due</span> <br>
         <p *ngIf="paymentMode==='biller';"> Imported from Statement</p>
         <h4 *ngIf="paymentMode !== 'biller'">Amount to {{selectedPaymentMode}}</h4>
         <h1 class="dollar"><span>$</span>
-            <input  *ngIf="paymentMode !== 'biller'" class="input-outline" type="number" [(ngModel)]="data.amount"
+            <input *ngIf="paymentMode !== 'biller'" class="input-outline" type="number" [(ngModel)]="data.amount"
                 placeholder="Enter an amount to pay" />
             <span *ngIf="paymentMode === 'biller'">{{data.amount}}</span>
         </h1>
     </h6>
-
 </div>
 <hr *ngIf="paymentMode==='biller';">
 
 <div>
     <div>
-
-
         <div *ngIf="paymentMode==='biller';" class="due navbar">
-
             <div>
-
-                <h6  class="accountno">Due date </h6>
+                <h6 class="accountno">Due date </h6>
                 <h6 class="date">{{myDate}}</h6>
-               
             </div>
             <hr class="width">
             <div class="account">
-
                 <h6 *ngIf="paymentMode==='biller';" class="accountno"> Account number</h6>
                 <h6 *ngIf="paymentMode==='biller';" class="accountnum">{{data.account}}</h6>
             </div>
-           
         </div>
-        
-        
+
         <hr *ngIf="paymentMode==='biller';">
         <p *ngIf="paymentMode==='biller';" class="view">View current statement</p>
-       
-
-        <p  *ngIf="paymentMode==='biller';" class="click">Click to start selection for Payment method</p>
+        <p *ngIf="paymentMode==='biller';" class="click">Click to start selection for Payment method</p>
 
         <div class="text text-center">
-            <app-btndone [data]="paymentMode==='biller' ? 'Make a Payment' : paymentMode==='sender'? 'Pay':'Request' "[routerLink]="['/makeapayment']"></app-btndone>
+            <app-btndone [data]="paymentMode==='biller' ? 'Make a Payment' : paymentMode==='sender'? 'Pay':'Request' "
+                [routerLink]="['/makeapayment']"></app-btndone>
         </div>
         <div class="text text-center">
             <app-btncancel [data]="'Back'" [routerLink]="['/home']"></app-btncancel>
         </div>
-        
-        
-       
-        
     </div>
 </div>
