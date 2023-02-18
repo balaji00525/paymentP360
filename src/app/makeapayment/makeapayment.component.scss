@@ -1,7 +1,57 @@
 @import '../../styles.scss';
 
-.accountno {
-  text-align: center;
+.picture {
+  @include important-style;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+
+}
+
+.mobile {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: gray;
+  font-size: smaller;
+}
+
+.rows {
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.dollar {
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 1px;
+  border-right: none;
+}
+
+.link {
+  text-decoration: none;
+
+  a {
+    color: #29479e;
+  }
+}
+
+.rows1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.radio {
+  display: flex;
+  justify-content: center;
+}
+
+.form-check-input {
+  margin-right: 4px;
 }
 
 input[type=number],
@@ -11,13 +61,7 @@ textarea,
 .form-select {
   border: 1px solid grey;
   box-shadow: none;
-  border-radius: 1px ;
-}
-.dollar{
-  background-color: white;
-  border: 1px solid grey;
   border-radius: 1px;
-  border-right: none;
 }
 
 input[type=date] {
@@ -28,136 +72,49 @@ input[type=date] {
   border-radius: 1px;
 }
 
-.rows{
+.modal-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
 }
-.rows1{
-  display: flex;
-  justify-content: space-between;
-}
-
-.link {
-  text-decoration: none;
-}
-
-a {
-  color: #29479e;
-}
-
-.label {
-  font-weight: bold;
-}
-
-@media (min-width:150px) and (max-width:575px) {
-  .rows{
-    flex-direction: column;
-  }
-  .rows1{
-    flex-direction: column;
-  }
-  .form{
-    width: 100%;
-  }
-  
-.select{
-  margin: 20px 20px 20px 20px;
-}
-}
-
-@media (min-width:576px) and (max-width:768px) {
-  #otp {
-    width: 100%;
-  }
-
-
-}
-
-
-
 
 .header {
   height: 70px;
   width: 70px;
   border-radius: 100%;
 }
-.modal-footer { 
-display: flex;
-flex-wrap: nowrap;
-}
 
-.radio {
-
-  display: flex;
-  justify-content: center;
-}
-
-.picture {
-  @include important-style;
-  border-radius: 50px;
-  width: 50px;
-  height: 50px;
-  margin-bottom: 0;
-}
-
-.account-mobile {
-  float: right;
-  font-size: 17px;
-  color: grey;
-}
-.mobile{
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  color: gray;
-  font-size: smaller;
-}
-
-.form-check-input{
-margin-right: 4px;
-}
-
-@media (min-width:769px) and (max-width:2560px) {
-  .image {
-    width: 50px;
-    border-radius: 100px;
-    display: flex;
-  }
-
-  .navbar-brand {
-    border-radius: 100px;
-  }
-}
-
-
-.brand{
+.modal-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.modal-body{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.modal-header{
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-.bold{
-  text-decoration: black ;
+.bold {
+  text-decoration: black;
   font-weight: bold;
 }
-.multi{
-  background-color:white;
-  border: 1px solid grey;
-  border-radius: 4px;
-  cursor: pointer;
-  box-shadow: none;
-  border-radius: 1px;
-  
+
+.modal-footer {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+@media (min-width:150px) and (max-width:575px) {
+  .rows {
+    flex-direction: column;
+  }
+
+  .rows1 {
+    flex-direction: column;
+  }
+
+  .form {
+    width: 100%;
+  }
+
+  .select {
+    margin: 20px 20px 20px 20px;
+  }
 }
