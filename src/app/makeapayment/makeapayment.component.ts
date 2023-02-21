@@ -2,28 +2,43 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from '../service/api.service';
 import { DataService } from '../service/data.service';
 import { Router } from '@angular/router';
+import { FormBuilder, FormControl } from '@angular/forms';
+import {FormGroup} from '@angular/forms';
 import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-makeapayment',
   templateUrl: './makeapayment.component.html',
   styleUrls: ['./makeapayment.component.scss'],
+  providers: [DatePipe]
 })
+
+
 export class MakeapaymentComponent implements OnInit {
   data: any = {};
   amount: any;
-  recipient: any;
+ 
   SelectedAmount: number;
-  // prevDate = new Date();
   literals: any = {};
 
+  recipient:string;
+  cardNumber:number;
+  userForm:FormGroup;
+  paymentList=[];
 
-  // datePipe = new DatePipe();
+  todayDate=this.datepipe.transform(new Date(), 'yyyy-MM-dd');
+ 
+  isOpen=false
 
   constructor(private service: ApiService,
-    private cService: DataService,
-    private router: Router) {
-    let paymentMode = this.cService.user;
+    private dService: DataService,
+    private router: Router,
+    private fb:FormBuilder,
+    private datepipe: DatePipe) {
+     
+      
+    let paymentMode = this.dService.user;
 
     switch (paymentMode) {
       case "biller": {
@@ -43,27 +58,39 @@ export class MakeapaymentComponent implements OnInit {
         this.service.getRequesterLiteralData().subscribe(data => this.literals = data);
       }
     }
-
-
-
-
-
-
-    // this.prevDate.setDate(this.prevDate.getDate() - 2);
-
-    // this.setDob = datePipe.transform(userdate, 'dd/MM/yyyy');
   }
 
 
   ngOnInit(): void {
-
+    this.userForm=this.fb.group({
+    inputamount: '',
+    dateValidity: ''
+    });
+    this.recipient= this.dService.recipientName;
+      this.cardNumber=this.dService.cardNo;
   }
+
+
   onsubmit() {
     this.router.navigate(['/otpscreen']);
     this.router.navigate(['/amounttopay']);
+
   }
+  onFormSubmit(){
+    console.log(this.userForm.value);
+    this.service.createBillerData(this.userForm.value).subscribe({
+      next:(Response)=>{
+        // console.log("Added to the Payment List")
+        console.log(this.paymentList)
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })
+  }
+  
 
-
+ 
 
 
   accountlist = '';
