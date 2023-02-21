@@ -1,6 +1,6 @@
 {
   "biller": {
-    "account": "*890076",
+    "accountNo": "*890076",
     "amount": "50.00",
     "accountList": [
       {
@@ -24,7 +24,7 @@
     "enrolledAs":""
   },
   "sender": {
-    "account": "*890076",
+    "accountNo": "*890076",
     "amount": "16.00",
     "accountList": [
       {
@@ -47,7 +47,7 @@
     "enrolledAs":"Enrolled as Katherine"
   },
   "requester": {
-    "account": "*890076",
+    "accountNo": "*890076",
     "amount": 70.00,
     "accountList": [
       {
