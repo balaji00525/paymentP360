@@ -119,3 +119,47 @@ input[type=date] {
     margin: 20px 20px 20px 20px;
   }
 }
+
+.dropdown {
+  width: 100%;
+    height: 40px;
+}
+::ng-deep .cdk-overlay-pane {
+  background-color: whitesmoke;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+::ng-deep .cdk-overlay-container {
+  width: 100%;
+}
+.list-container {
+  display: flex;
+justify-content: space-between;
+}
+.border-bottom{
+  border-bottom: 1px solid gray;
+}
+.cross-button {
+  font-size:16px;
+  border: none;
+}
+.list {
+  li {
+    border-bottom: 1px solid gray;
+    padding: 8px;
+  }
+
+  li:last-child { border-bottom: none; }
+  li.selected {
+    background-color:red;
+   }
+  list-style-type:none;
+  width: 100%;
+    padding: 8px;
+    
+    .margin-bottom {
+      margin-bottom: 8px;
+
+    }
+}
