@@ -2,7 +2,7 @@
 <div class="navbar">
     <div class="logo">
         <img class="image" src="{{data.imagePath}}" alt="" height="50">
-        <h4>{{data.recipient}} {{data.account}}</h4>
+        <h4>{{data.recipient}} {{data.accountNo}}</h4>
         <h5 class="text text-center">{{data.enrolledAs}}</h5>
         <h5 class="mobile">{{data.mobile}}</h5>
     </div>
@@ -40,10 +40,10 @@
 
         <div class="text text-center">
             <app-btndone [data]="paymentMode==='biller' ? 'Make a Payment' : paymentMode==='sender'? 'Pay':'Request' "
-                [routerLink]="['/makeapayment']"></app-btndone>
+            (click)="onButtonClick('/makeapayment')"></app-btndone>
         </div>
         <div class="text text-center">
-            <app-btncancel [data]="'Back'" [routerLink]="['/home']"></app-btncancel>
+            <app-btncancel [data]="'Back'" (click)="onButtonClick('/home')" ></app-btncancel>
         </div>
     </div>
 </div>

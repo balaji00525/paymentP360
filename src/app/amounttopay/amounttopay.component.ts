@@ -47,14 +47,21 @@ export class AmounttopayComponent implements OnInit {
         this.selectedPaymentMode='Request';
       }
     }
+    
 
     console.log(this.data)
   }
-  onsubmit() {
-    this.router.navigate(['/makeapayment']);
-    // this.router.navigate(['/home']);
+ 
+  onButtonClick(routeLink) {
+    this.dService.recipientName=this.data.recipient;
+    this.dService.cardNo=this.data.accountNo;
+
+    this.router.navigate([routeLink]);
+    
 
   }
-  ngOnInit(): void { }
-}
+  ngOnInit(): void { 
+    
+  }
 
+}
