@@ -13,21 +13,25 @@ export class ConfirmationComponent implements OnInit {
   data: any={};
   myDate: any = new Date();
   literals:any={};
+  accountDetails: DataService;
+
 
   constructor(private service:ApiService, 
     private dService: DataService,
      private router: Router,
      private datepipe: DatePipe) { 
       this.myDate = this.datepipe.transform(this.myDate, 'MMMM d');
+      
+      
       let paymentMode = this.dService.user;
     switch (paymentMode) {
-      case "biller": this.service.getBillerData().subscribe(data => this.data = data);
+      case "biller":  
       this.service.getBillerLiteralData().subscribe(data=> this.literals=data);
         break;
-      case "sender": this.service.getSenderData().subscribe(data => this.data = data);
+      case "sender":   
       this.service.getSenderLiteralData().subscribe(data=> this.literals=data);
         break;
-      case "requester": this.service.getRequesterData().subscribe(data => this.data = data);
+      case "requester": 
       this.service.getRequesterLiteralData().subscribe(data=> this.literals=data);
     }
      }
@@ -39,7 +43,7 @@ export class ConfirmationComponent implements OnInit {
   
 
   ngOnInit(): void {
-    
+    this.accountDetails=this.dService;
     }
 
 

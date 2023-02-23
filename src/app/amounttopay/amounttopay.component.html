@@ -1,7 +1,7 @@
 <app-header [data]="literals.amountDue"></app-header>
 <div class="navbar">
     <div class="logo">
-        <img class="image" src="{{data.imagePath}}" alt="" height="50">
+        <img class="image" src="{{imagePath}}" alt="" height="50">
         <h4>{{data.recipient}} {{data.accountNo}}</h4>
         <h5 class="text text-center">{{data.enrolledAs}}</h5>
         <h5 class="mobile">{{data.mobile}}</h5>
@@ -30,7 +30,7 @@
             <hr class="width">
             <div class="account">
                 <h6 *ngIf="paymentMode==='biller';" class="accountno"> Account number</h6>
-                <h6 *ngIf="paymentMode==='biller';" class="accountnum">{{data.account}}</h6>
+                <h6 *ngIf="paymentMode==='biller';" class="accountnum">{{data.accountNo}}</h6>
             </div>
         </div>
 
