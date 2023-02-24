@@ -1,12 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from '../service/api.service';
 import { DataService } from '../service/data.service';
-import { Router } from '@angular/router';
-import { FormBuilder, FormControl } from '@angular/forms';
-import {FormGroup} from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
-
-
+import { environment } from 'src/environments/environment';
+import {NgbDateStruct, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-makeapayment',
   templateUrl: './makeapayment.component.html',
@@ -14,83 +12,92 @@ import { DatePipe } from '@angular/common';
   providers: [DatePipe]
 })
 
-
 export class MakeapaymentComponent implements OnInit {
+  private _model: NgbDate;
   data: any = {};
-  amount: any;
- 
   SelectedAmount: number;
   literals: any = {};
+  paymentMode: string;
+  recipient: string;
+  accountNo: number;
+  mobile: string;
+  amount: string;
+  acountType: string;
+  enrolledAs: string;
+  imagePath: string = environment.imagePath;
+  date=new Date();
+  todayDate = this.datepipe.transform(new Date(), 'MMMM-dd-yy');
 
-  recipient:string;
-  cardNumber:number;
-  userForm:FormGroup;
-  paymentList=[];
-
-  todayDate=this.datepipe.transform(new Date(), 'yyyy-MM-dd');
- 
-  isOpen=false
+  isOpen = false;
+  isOpenDateTime=false;
 
   constructor(private service: ApiService,
     private dService: DataService,
     private router: Router,
-    private fb:FormBuilder,
-    private datepipe: DatePipe) {
-     
-      
-    let paymentMode = this.dService.user;
+    private datepipe: DatePipe,
+    private calender:NgbCalendar) {
 
-    switch (paymentMode) {
+    this.paymentMode = this.dService.user;
+
+    switch (this.paymentMode) {
       case "biller": {
-        this.service.getBillerData().subscribe(data => this.data = data);
         this.service.getBillerLiteralData().subscribe(data => this.literals = data);
         break;
       }
 
       case "sender": {
-        this.service.getSenderData().subscribe(data => this.data = data);
+
         this.service.getSenderLiteralData().subscribe(data => this.literals = data);
+
         break;
       }
       case "requester": {
 
-        this.service.getRequesterData().subscribe(data => this.data = data);
+        
         this.service.getRequesterLiteralData().subscribe(data => this.literals = data);
+
       }
     }
   }
 
-
   ngOnInit(): void {
-    this.userForm=this.fb.group({
-    inputamount: '',
-    dateValidity: ''
-    });
-    this.recipient= this.dService.recipientName;
-      this.cardNumber=this.dService.cardNo;
+    this.selectToday();
+    this.recipient = this.dService.recipientName;
+    this.accountNo = this.dService.accountNumber;
+    this.mobile = this.dService.mobileNumber.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3')
+    this.amount = '$'+ this.dService.payAmount;
+    this.acountType = this.dService.accType;
+    this.enrolledAs = this.dService.enroller;
+    this.imagePath += this.dService.imagePicture;
   }
 
-
-  onsubmit() {
-    this.router.navigate(['/otpscreen']);
-    this.router.navigate(['/amounttopay']);
-
+  onButtonClick(routerLink): void {
+    this.router.navigate([routerLink]);
   }
-  onFormSubmit(){
-    console.log(this.userForm.value);
-    this.service.createBillerData(this.userForm.value).subscribe({
-      next:(Response)=>{
-        // console.log("Added to the Payment List")
-        console.log(this.paymentList)
-      },
-      error:(err)=>{
-        console.log(err)
-      }
-    })
-  }
-  
 
- 
+  weekDays = {
+    1: 'Monday',
+    2: 'Tuesday',
+    3: 'Wednesday',
+    4: 'Thursday',
+    5: 'Friday',
+    6: 'Satarday',
+    7: 'Sunday'
+  }
+
+  selectedDay: string = '';
+  set model(val) {
+    this._model = val;
+    this.selectedDay = this.weekDays[this.calender.getWeekday(this.model)]
+  }
+
+  get model() {
+    return this._model;
+  }
+
+  selectToday() {
+    this.model = this.calender.getToday();
+  }
 
 
   accountlist = '';
@@ -98,7 +105,6 @@ export class MakeapaymentComponent implements OnInit {
     { accountType: 'Credit card(2.3% fee)', balance: '$365.27' },
     { accountType: 'main checking(*4738)', balance: '$5,164.98' }
   ]
-
 
   displayStyle = "none";
 

@@ -4,10 +4,10 @@
 
     <!--------Account Details--------->
     <div class="title">
-        <img class="picture" src="{{data.imagePath}}" width="50">
-        <h6 class="text text-center">{{recipient}} {{cardNumber}}</h6>
-        <h5 class="text text-center">{{data.enrolledAs}}</h5>
-        <h6 class="mobile text">{{data.mobile}}</h6>
+        <img class="picture" src="{{imagePath}}" width="50">
+        <h6 class="text text-center">{{recipient}} {{accountNo}}</h6>
+        <h5 class="text text-center">{{enrolledAs}}</h5>
+        <h6 class="mobile text">{{mobile}}</h6>
     </div>
     <hr class="mb-1" />
 
@@ -17,7 +17,7 @@
     </div>
 
     <!------------Input-1--------------->
-    <form [formGroup]="userForm" (ngSubmit)="onFormSubmit">
+    <form>
         <div class="rows">
 
             <!------------Amount--------------->
@@ -27,7 +27,7 @@
                     <div class="input-group mb-1">
                         <div class="dollar input-group-text">$</div>
                         <input type="text" class="form-control" style="border-left: white; padding-left: 2px;"
-                            id="amount" placeholder="Enter Amount" autocomplete="off" value="{{data.amount}}" />
+                            id="amount" placeholder="Enter Amount" autocomplete="off" value="{{amount}}" />
                     </div>
                 </div>
             </div>
@@ -49,8 +49,8 @@
                 <label for="amount" class="label form-label">{{literals.withdrawFrom}}</label>
                 <div class="col-auto ">
                     <div class="input-group mb-1">
-                        <input type="text" class="form-control" id="amount" (click)="isOpen = !isOpen" value="test"
-                            cdkOverlayOrigin #trigger="cdkOverlayOrigin" />
+                        <input type="text" class="form-control" id="amount" (click)="isOpen = !isOpen"
+                            value="Choose how you'd like to pay" cdkOverlayOrigin #trigger="cdkOverlayOrigin" />
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                 </div>
                 <ul class="list">
                     <li>
-                        <div class="list-container margin-bottom">
+                        <div class="list-container margin-bottom ">
                             <div><a class="link" href="#"> <small>⚡ Fastest option</small></a></div>
                             <div><small>Arrives in minutes</small></div>
                         </div>
@@ -78,7 +78,7 @@
                     </li>
                     <li>
                         <div class="list-container margin-bottom">
-                            <div> <small>Currently selected</small></div>
+                            <div><small>Currently selected</small></div>
                             <div><small>Arrives in 1-3 days</small></div>
                         </div>
                         <div class="list-container">
@@ -93,23 +93,38 @@
 
                 </ul>
             </ng-template>
-
-
-
         </div>
 
         <!------------Input-2--------------->
         <div class="rows1">
             <!------------Date--------------->
-            <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
+            <!-- <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
                 <label for="start" class="label mb-2">{{literals.deliveryBy}}</label>
-                <input type="date" class="form-control" [min]="todayDate" value="{{todayDate}}"
-                    formControlName="dateValidity">
-
-
-
-                <a class="link" href="#">Withdraws Today</a>&nbsp;<a>Arrives in 1-3 days</a>
+                <input type="date" class="form-control" [min]="todayDate" value="{{todayDate}}">
+            </div> -->
+            <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
+                <label for="dateTimePicker" class="label form-label">literals.withdrawFrom</label>
+                <div class="col-auto ">
+                    <div class="input-group mb-1">
+                        <div class="form-control" id="dateTimePicker" (click)="isOpenDateTime = !isOpenDateTime"
+                            contenteditable="false" cdkOverlayOrigin #dateTime="cdkOverlayOrigin">{{selectedDay}} {{
+                            model.day }}-{{ model.month }}-{{ model.year }}
+                            <button id="calenderButton" class="calender-icon-button" title="calender"><i
+                                    class="fa-regular fa-calendar" style="color:rgb(101, 101, 201)"></i></button>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!-- <h1 (click)="isOpenDateTime = false"></h1> -->
+
+            <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="dateTime"
+                [cdkConnectedOverlayOpen]="isOpenDateTime">
+                <div>
+                    <button class="cross-button" (click)="isOpenDateTime = false">&#10005;</button>
+                    <ngb-datepicker #dp [(ngModel)]="model"></ngb-datepicker>
+                </div>
+
+            </ng-template>
             <!------------Memo--------------->
             <div class="form mb-2 col-sm-5 col-md-5 col-lg-5">
                 <label for="memo" class="label mb-2">{{literals.memo}}</label>
@@ -125,7 +140,7 @@
 
         <!------------Pay Button--------------->
         <div class="text text-center">
-            <app-btndone [data]="literals.makePayButton  " [recipient]="recipient" [amount]="data.amount"
+            <app-btndone [data]="literals.makePayButton" [recipient]="recipient" [amount]="amount"
                 (click)="openPopup()"></app-btndone>
         </div>
 
@@ -134,18 +149,20 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <img class="header" src="{{data.imagePath}}" alt="">
+                        <img class="header" src="{{imagePath}}" alt="">
                     </div>
                     <div class="modal-body">
-                        <p>{{literals.modalRecipient}}</p>
-                        <p> {{literals.enrolledAs}}</p>
+                        <p>{{literals.modalRecipient}} <span class="modal-mobile">{{recipient}}</span></p>
+                        <p *ngIf="paymentMode!=='biller';"><span class="modal-mobile">{{mobile}}</span>&nbsp;
+                            {{literals.enrolledAs}}</p>
                         <p>{{literals.continue}}</p>
                     </div>
                     <div class="modal-footer">
                         <app-btncancel style="width: 50%;display:flex; justify-content: center;" [data]="'Cancel'"
                             (click)="closePopup()"></app-btncancel>
+
                         <app-btndone style="width: 50%; display:flex; justify-content: center;" [data]="'Continue'"
-                            [routerLink]="['/otpscreen']"></app-btndone>
+                            (click)="onButtonClick('/otpscreen')"></app-btndone>
                     </div>
                 </div>
             </div>

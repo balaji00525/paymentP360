@@ -14,6 +14,7 @@ import { BtndoneComponent } from './common/btndone/btndone.component';
 import { BtncancelComponent } from './common/btncancel/btncancel.component';
 import { DatePipe } from '@angular/common';
 import { OverlayModule } from "@angular/cdk/overlay";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { OverlayModule } from "@angular/cdk/overlay";
     FormsModule,
     ReactiveFormsModule,
     DatePipe,
-    OverlayModule
+    OverlayModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
