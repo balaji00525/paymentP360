@@ -98,30 +98,26 @@
         <!------------Input-2--------------->
         <div class="rows1">
             <!------------Date--------------->
-            <!-- <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-                <label for="start" class="label mb-2">{{literals.deliveryBy}}</label>
-                <input type="date" class="form-control" [min]="todayDate" value="{{todayDate}}">
-            </div> -->
             <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
                 <label for="dateTimePicker" class="label form-label">literals.withdrawFrom</label>
                 <div class="col-auto ">
                     <div class="input-group mb-1">
-                        <div class="form-control" id="dateTimePicker" (click)="isOpenDateTime = !isOpenDateTime"
-                            contenteditable="false" cdkOverlayOrigin #dateTime="cdkOverlayOrigin">{{selectedDay}} {{
-                            model.day }}-{{ model.month }}-{{ model.year }}
-                            <button id="calenderButton" class="calender-icon-button" title="calender"><i
-                                    class="fa-regular fa-calendar" style="color:rgb(101, 101, 201)"></i></button>
+                        <div class="form-control" id="dateTimePicker" contenteditable="false" cdkOverlayOrigin
+                            #dateTime="cdkOverlayOrigin">{{selectedDay}}, {{selectedMonth}} {{
+                            model.day }}, {{ model.year }}
+                            <button id="calenderButton" (click)="isOpenDateTime = !isOpenDateTime"
+                                class="calender-icon-button" title="calender"><i class="fa-regular fa-calendar"
+                                    style="color:rgb(101, 101, 201)"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <h1 (click)="isOpenDateTime = false"></h1> -->
-
             <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="dateTime"
                 [cdkConnectedOverlayOpen]="isOpenDateTime">
                 <div>
-                    <button class="cross-button" (click)="isOpenDateTime = false">&#10005;</button>
-                    <ngb-datepicker #dp [(ngModel)]="model"></ngb-datepicker>
+                    <!-- <button class="cross-button" (click)="isOpenDateTime = false">&#10005;</button> -->
+                    <ngb-datepicker #dp [(ngModel)]="model" [ngModelOptions]="{standalone: true}"
+                        [minDate]="minPickerDate"></ngb-datepicker>
                 </div>
 
             </ng-template>
