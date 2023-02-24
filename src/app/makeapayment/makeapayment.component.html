@@ -99,11 +99,29 @@
         <!------------Input-2--------------->
         <div class="rows1">
             <!------------Date--------------->
-            <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
+            <!-- <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
                 <label for="start" class="label mb-2">{{literals.deliveryBy}}</label>
-                <input type="date" class="form-control" [min]="todayDate" value="{{date | date:'fullDate'}}">
-                <a class="link" href="#">Withdraws Today</a>&nbsp;<a>Arrives in 1-3 days</a>
+                <input type="date" class="form-control" [min]="todayDate" value="{{todayDate}}">
+            </div> -->
+            <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
+                <label for="dateTimePicker" class="label form-label">literals.withdrawFrom</label>
+                <div class="col-auto ">
+                    <div class="input-group mb-1">
+                        <div class="form-control"   id="dateTimePicker" (click)="isOpenDateTime = !isOpenDateTime" contenteditable="false" cdkOverlayOrigin #dateTime="cdkOverlayOrigin">{{selectedDay}} {{ model.day }}-{{ model.month }}-{{ model.year }} 
+                            <button id="calenderButton" class="calender-icon-button" title="calender"><i class="fa-regular fa-calendar" style="color:rgb(101, 101, 201)"></i></button>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!-- <h1 (click)="isOpenDateTime = false"></h1> -->
+                    
+            <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="dateTime" [cdkConnectedOverlayOpen]="isOpenDateTime">
+                <div>
+                    <button class="cross-button" (click)="isOpenDateTime = false">&#10005;</button>
+                    <ngb-datepicker #dp [(ngModel)]="model"  ></ngb-datepicker>
+                </div>
+               
+            </ng-template>
             <!------------Memo--------------->
             <div class="form mb-2 col-sm-5 col-md-5 col-lg-5">
                 <label for="memo" class="label mb-2">{{literals.memo}}</label>
@@ -132,7 +150,7 @@
                     </div>
                     <div class="modal-body">
                         <p>{{literals.modalRecipient}} <span class="modal-mobile">{{recipient}}</span></p>
-                        <p><span class="modal-mobile">{{mobile}}</span>&nbsp; {{literals.enrolledAs}}</p>
+                        <p *ngIf="paymentMode!=='biller';"><span class="modal-mobile">{{mobile}}</span>&nbsp; {{literals.enrolledAs}}</p>
                         <p>{{literals.continue}}</p>
                     </div>
                     <div class="modal-footer">

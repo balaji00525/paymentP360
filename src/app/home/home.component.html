@@ -4,3 +4,21 @@
     <button type="menu" class="menu" (click)="onPaymentClick('requester')">Request Payment</button>  
 </div>
 
+<!-- <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
+    <label for="amount" class="label form-label">literals.withdrawFrom</label>
+    <div class="col-auto ">
+        <div class="input-group mb-1">
+            <div class="form-control"   id="amount" (click)="isOpen = !isOpen" contenteditable="false" cdkOverlayOrigin #trigger="cdkOverlayOrigin">{{selectedDay}} {{ model.day }}-{{ model.month }}-{{ model.year }} 
+                <button id="calenderButton" class="calender-icon-button" title="calender"><i class="fa-regular fa-calendar" style="color:rgb(101, 101, 201)"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<h1 (click)="isOpen = false"></h1>
+        
+<ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen">
+    <div>
+        <ngb-datepicker #dp [(ngModel)]="model" ></ngb-datepicker>
+    </div>
+   
+</ng-template> -->
