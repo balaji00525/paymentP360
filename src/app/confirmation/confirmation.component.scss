@@ -1,155 +1,74 @@
 @import '../../styles.scss';
 
-// .container{
-//   padding: 8px;   
-// }
-.image{
+.image {
   display: block;
   margin-left: auto;
   margin-right: auto;
- 
 }
-.image-container{
-  
+
+h1 {
+  @include child-container;
+}
+
+.image-container {
   display: flex;
   justify-content: start;
   align-items: center;
   margin-bottom: 8px;
-
 }
-.image-width{
+
+.image-width {
   display: flex;
-    width: 10%;
-    align-items: center;
-    justify-content: center;
-    margin: 0px 8px;
-
+  width: 10%;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 8px;
 }
 
-.amount{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #d1dee6;
-  width:400px; height:200px;
- 
-}
-.dollar{
+.dollar {
   padding: 60px 30px 30px 30px;
-  font-weight:600px;
+  font-weight: 600px;
   color: #29479e;
   text-align: center;
   padding: 5px;
   margin-top: 50px;
   margin-bottom: 70px;
-  
-  
   font-size: 55px;
-  // padding-bottom: 70px;
 }
 
-.card{
-  padding: 10px 10px 10px 10px;
-  padding: 30px;
-}
-.confirm{
-  font-weight: 400;
-}
-.done{
-  width: 100%;
-  color: rgb(255, 255, 255);
-  background-color: #29479e;
-  margin-bottom: 15px;
-  border-radius: 1px;
-  cursor: pointer;
-  box-shadow: none;
-  transition: all 0.2s linear;
-  &:hover,
-  &.active{
-      background-color:#899cc9 ;
-  }box-shadow: none;
-  border: none;
-}
-.cancel{
-  width: 100%;
-  background-color:#d1dee6 ;
-  margin-bottom: 15px;
-  border-radius: 1px;
-  cursor: pointer;
-  box-shadow: none;
-  transition: all 0.2s linear;
-  &:hover,
-  &.active{
-      background-color:#edf2f5;
-  }
-  border: none;
-}
-.amountType{
+.amountType {
   font-size: smaller;
   color: black;
-  
-
 }
-.accountNumber{
+
+.accountNumber {
   font-size: smaller;
   color: grey;
-  // padding: 3px;
-  // margin-top:auto;
- 
-  
 }
 
-.name{
+.name {
   font-size: smaller;
   color: grey;
   padding: 3px;
-  margin:0px;
-  
+  margin: 0px;
 }
-h1{
-  @include child-container; 
-}
-.confirm{
 
-  text-align: left;
-}
-.text{
+.text {
   color: black;
 }
-.accounttype{
-  padding:8px 0px;
+
+.accounttype {
+  padding: 8px 0px;
   margin: 0;
   font-weight: bold;
 }
-.accountType{
-  font-weight: bold;
-}
 
-.btncontainer{
+// .accountType {
+//   font-weight: bold;
+// }
+
+.btncontainer {
   display: flex;
   flex-direction: column;
   text-align: center;
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

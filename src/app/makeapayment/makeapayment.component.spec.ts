@@ -8,18 +8,18 @@ describe('MakeapaymentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MakeapaymentComponent ]
+      declarations: [MakeapaymentComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
-  
-  beforeEach(()=>{
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(MakeapaymentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-    
-  
+
+
 
   it('should create', () => {
     expect(component).toBeTruthy();

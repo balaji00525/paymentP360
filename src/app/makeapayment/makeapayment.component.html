@@ -1,104 +1,153 @@
 <div class="logo">
+    <!-----------Header--------------->
     <app-header [data]="literals.makeaPayment"></app-header>
 
+    <!--------Account Details--------->
     <div class="title">
-        <img class="picture" src="{{data.imagePath}}" width="50">
-        <h6 class="text text-center">{{data.recipient}} {{data.account}}</h6>
-        <h5 class="text text-center">{{data.enrolledAs}}</h5>
-        <h6 class="mobile text">{{data.mobile}}</h6>
+        <img class="picture" src="{{imagePath}}" width="50">
+        <h6 class="text text-center">{{recipient}} {{accountNo}}</h6>
+        <h5 class="text text-center">{{enrolledAs}}</h5>
+        <h6 class="mobile text">{{mobile}}</h6>
     </div>
-    <hr>
+    <hr class="mb-1" />
 
-   <div class="text text-center">
-    <img   src="{{literals.imagePath}}" width="70">
-   </div>
+    <!------------Zelle--------------->
+    <div class="text text-center">
+        <img src="{{literals.imagePath}}" width="70">
+    </div>
 
+    <!------------Input-1--------------->
+    <form>
+        <div class="rows">
 
-    <div class="rows">
-        <!--amount-->
-
-        <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-            <label for="amount" class="label form-label">{{literals.amount}}</label>
-
-           
-            <div class="col-auto">
-                <div class="input-group mb-1">
-                    <div class="dollar input-group-text">$</div>
-                    <input type="text" class="form-control" id="amount" placeholder="Enter Amount" autocomplete="off"
-                        value="{{data.amount}}" />
+            <!------------Amount--------------->
+            <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
+                <label for="amount" class="label form-label">{{literals.amount}}</label>
+                <div class="col-auto ">
+                    <div class="input-group mb-1">
+                        <div class="dollar input-group-text">$</div>
+                        <input type="text" class="form-control" style="border-left: white; padding-left: 2px;"
+                            id="amount" placeholder="Enter Amount" autocomplete="off" value="{{amount}}" />
+                    </div>
                 </div>
+            </div>
+            <!------------Dropdown--------------->
+            <!-- <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
+                <label for="amount" class="label form-label">{{literals.withdrawFrom}}</label>
+                <form novalidate #form="ngForm">
+                    <select class="form-select" name="name" [(ngModel)]="accountlist">
+                        <option class="select" selected>{{literals.choose}}</option>
+                        <option *ngFor="let user of data.accountList" [ngValue]="{ Available:user.balance}">
+                            {{user.accountType}} {{user.balance}}</option>
+                    </select>
+                </form>
+                <a class="link" href="#"> ⚡ Faster Options Available</a>
+            </div> -->
+            <!-- This button triggers the overlay and is it's origin -->
+
+
+            <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
+                <label for="amount" class="label form-label">{{literals.withdrawFrom}}</label>
+                <div class="col-auto ">
+                    <div class="input-group mb-1">
+                        <input type="text" class="form-control" id="amount" (click)="isOpen = !isOpen" value="Choose how you'd like to pay"
+                            cdkOverlayOrigin #trigger="cdkOverlayOrigin" />
+                    </div>
+                </div>
+            </div>
+            <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen">
+                <div class="list-container list border-bottom">
+                    <div>Choose how you'd like to pay</div>
+                    <div>
+                        <button class="cross-button" (click)="isOpen = false">&#10005;</button>
+                    </div>
+                </div>
+                <ul class="list">
+                    <li>
+                        <div class="list-container margin-bottom ">
+                            <div><a class="link" href="#"> <small>⚡ Fastest option</small></a></div>
+                            <div><small>Arrives in minutes</small></div>
+                        </div>
+                        <div class="list-container">
+                            <div>
+                                <div>
+                                    <div>Credit Card(2.3% fee)</div> <small>Credit card *2246</small>
+                                </div>
+                            </div>
+                            <div> $365.27 available</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="list-container margin-bottom">
+                            <div><small>Currently selected</small></div>
+                            <div><small>Arrives in 1-3 days</small></div>
+                        </div>
+                        <div class="list-container">
+                            <div>
+                                <div>
+                                    <div>Main Checking</div> <small>checking *4738</small>
+                                </div>
+                            </div>
+                            <div> $4,164.98 available</div>
+                        </div>
+                    </li>
+
+                </ul>
+            </ng-template>
+        </div>
+
+        <!------------Input-2--------------->
+        <div class="rows1">
+            <!------------Date--------------->
+            <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
+                <label for="start" class="label mb-2">{{literals.deliveryBy}}</label>
+                <input type="date" class="form-control" [min]="todayDate" value="{{date | date:'fullDate'}}">
+                <a class="link" href="#">Withdraws Today</a>&nbsp;<a>Arrives in 1-3 days</a>
+            </div>
+            <!------------Memo--------------->
+            <div class="form mb-2 col-sm-5 col-md-5 col-lg-5">
+                <label for="memo" class="label mb-2">{{literals.memo}}</label>
+                <div class="form-control" contenteditable="true">Reason for...</div>
             </div>
         </div>
 
-        <!--account dropdown-->
-
-
-        <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-            <label for="amount" class="label form-label">{{literals.withdrawFrom}}</label>
-            <form novalidate #form="ngForm">
-                <select class="form-select" name="name" [(ngModel)]="accountlist">
-                    <option class="select" selected>{{literals.choose}}</option>
-                    <option *ngFor="let user of data.accountList" [ngValue]="{ Available:user.balance}">
-                        {{user.accountType}} {{user.balance}}</option>
-                </select>
-            </form>
-            <a class="link" href="#"> ⚡ Faster Options Available</a>
+        <!------------Radio--------------->
+        <div class="radio form-check form-switch mb-3">
+            <input class="form-check-input" type="checkbox" id="recurring">
+            <label class="label form-check-label" for="recurring">Make Recurring Payment</label>
         </div>
-    </div>
 
-
-    <div class="rows1">
-        <!--date-->
-        <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-            <label for="start" class="label mb-2">{{literals.deliveryBy}}</label>
-            <input type="date" id="start" name="trip-start" class="form-control w3-border w3-hover-border-cyan"
-                value="2023-02-17" min="2023-02-14" max="2023-05-14">
-            <a class="link" href="#">Withdraws Today</a>&nbsp;<a>Arrives in 1-3 days</a>
+        <!------------Pay Button--------------->
+        <div class="text text-center">
+            <app-btndone [data]="literals.makePayButton"  [recipient]="recipient" [amount]="amount"
+                (click)="openPopup()"></app-btndone>
         </div>
-        <!--memo-->
-        <div class="form mb-2 col-sm-5 col-md-5 col-lg-5">
-            <label for="memo" class="label mb-2">{{literals.memo}}</label>
-            <div class="form-control" contenteditable="true">Reason for...</div> 
-        </div>
-    </div>
-    
-    <!--radio-->
-    <div class="radio form-check form-switch mb-3">
-        <input class="form-check-input" type="checkbox" id="recurring">
-        <label class="label form-check-label" for="recurring">Make Recurring Payment</label>
-    </div>
 
-    <!------------Pay Button--------------->
-    <div class="text text-center">
-        <app-btndone [data]="literals.makePayButton  " [recipient]="data.recipient" [amount]="data.amount"
-            (click)="openPopup()"></app-btndone>
-    </div>
-
-
-
-    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <img class="header" src="{{data.imagePath}}" alt="">
-                </div>
-                <div class="modal-body">
-                    <!-- <p>You're Sending money to the recipient you added as Kat Simmons</p> -->
-                    <p>{{literals.modalRecipient}}</p>
-                    <p><span class="bold">{{data.mobile}}</span> {{literals.enrolledAs}}</p>
-                    <p>{{literals.continue}}</p>
-                </div>
-
-                <div class="modal-footer">
-                    <app-btncancel style="width: 50%;display:flex; justify-content: center;" [data]="'Cancel'"
-                        (click)="closePopup()"></app-btncancel>
-                    <app-btndone style="width: 50%; display:flex; justify-content: center;" [data]="'Continue'"
-                        [routerLink]="['/otpscreen']"></app-btndone>
+        <!------------Modal--------------->
+        <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}" >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <img class="header" src="{{imagePath}}" alt="">
+                    </div>
+                    <div class="modal-body">
+                        <p>{{literals.modalRecipient}} <span class="modal-mobile">{{recipient}}</span></p>
+                        <p><span class="modal-mobile">{{mobile}}</span>&nbsp; {{literals.enrolledAs}}</p>
+                        <p>{{literals.continue}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <app-btncancel style="width: 50%;display:flex; justify-content: center;" [data]="'Cancel'"
+                            (click)="closePopup()"></app-btncancel>
+                            
+                        <app-btndone style="width: 50%; display:flex; justify-content: center;" [data]="'Continue'"
+                        (click)="onButtonClick('/otpscreen')"></app-btndone>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="text text-center">
-        <app-btncancel [routerLink]="['/amounttopay']" [data]="'Back'"></app-btncancel>
-    </div>
+        <!------------Back Button--------------->
+        <div class="text text-center">
+            <app-btncancel [routerLink]="['/amounttopay']" [data]="'Back'"></app-btncancel>
+        </div>
+    </form>
 </div>

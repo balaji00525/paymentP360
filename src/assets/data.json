@@ -1,6 +1,6 @@
 {
   "biller": {
-    "account": "*890076",
+    "accountNo": "*890076",
     "amount": "50.00",
     "accountList": [
       {
@@ -12,19 +12,19 @@
         "balance": "$5,164.98 available"
       }
     ],
-    "deliveryby": "27-09-2023",
-    "accountType":"CREDITCARD.*2246(2.3%fee)",
-     "accountNumber":"Account Number:*890076",
-
+    "date":"",
+    "paymentType":"CREDIT CARD.",
+    "cardNo":2246,
+    "fee":"(2.3% fee)",
     "recipient":"AT&T",
     "name":"YOU",
-    "mobile": "718-555-1234",
-    "imagePath": "../../assets/images/logo2.png",
-    "number": "0123456789",
+    "mobile": 7185551234,
+    "confirmation":123456789,
+    "imagePath": "logo2.png",
     "enrolledAs":""
   },
   "sender": {
-    "account": "*890076",
+    "accountNo": "*890076",
     "amount": "16.00",
     "accountList": [
       {
@@ -36,18 +36,19 @@
         "balance": "$5,164.98 available"
       }
     ],
-    "deliveryby": "1-3-2023",
-    "accountType":"CREDITCARD.*2246(2.3%fee)","accountNumber":"Account Number:*890076",
+    "paymentType":"MAIN CHECKING.",
+    "cardNo":4738,
+    "fee":"(2.3% fee)",
     "recipient": "Kat Simmons  ",
-    "name":"YOU",
-    "mobile": "718-555-1234",
-    "imagePath": "../../assets/images/send image.jpeg",
+    "mobile": 7185551234,
+    "imagePath": "send image.jpeg",
     "date":"September 24th",
+    "confirmation": 123456789,
     "enrolledAs":"Enrolled as Katherine"
   },
   "requester": {
-    "account": "*890076",
-    "amount": "70.00",
+    "accountNo": "*890076",
+    "amount": 70.00,
     "accountList": [
       {
         "accountType": "Credit card(2.3% fee)",
@@ -58,14 +59,14 @@
         "balance": "$5,164.98 available"
       }
     ],
-    "deliveryby": "1-3-2023",
-    "accountType":"CREDITCARD.*2246(2.3%fee)",
-     "accountNumber":"Account Number:*890076",
+    "paymentType":"MAIN CHECKING.",
+    "cardNo":4738,
+    "fee":"(2.3% fee)",
     "recipient": "Kat Simmons  ",
-    "name":"YOU",
-    "mobile": "718-555-1234",
+    "mobile": 7185551234,
     "date":"September 24th",
-    "imagePath": "../../assets/images/send image.jpeg",
+    "imagePath": "send image.jpeg",
+    "confirmation": 1234567890 ,
     "enrolledAs":"Enrolled as Katherine"
   },
   
@@ -79,13 +80,13 @@
     "amountDue":"Amount Due ",
     "makeaPayment":"Make a Payment",
     "amountPayButton":"Make a Payment",
-    "amount":"Amount($)",
+    "amount":"Amount",
     "withdrawFrom":"Withdraw from",
     "deliveryBy":"Delivery by",
     "memo":"Memo(optional)",
     "choose":"Choose how you'd like to pay",
     "pay":"Pay",
-    "modalRecipient": "You are sending money to the recipient you assed as AT&T ",
+    "modalRecipient": "You are sending money to the recipient you assed as  ",
     "enrolledAs": "is enrolled with Zelle as AT&T",
     "continue": "If this looks right to you, select continue",
     "makePayButton":"Pay",
@@ -98,13 +99,13 @@
     "amountDue":"Amount to pay ",
     "makeaPayment":"Make a Payment",
     "amountPayButton":"Pay",
-    "amount":"Amount($)",
+    "amount":"Amount",
     "withdrawFrom":"Withdraw from",
     "deliveryBy":"Delivery by",
     "memo":"Memo(optional)",
     "choose":"Choose how you'd like to pay",
     "pay":"Pay",
-    "modalRecipient": "You are sending money to the recipient you assed as Kat Simmons ",
+    "modalRecipient": "You are sending money to the recipient you assed as ",
     "enrolledAs": "is enrolled with Zelle as Katherine",
     "continue": "If this looks right to you, select continue",
     "makePayButton":"Pay ",
@@ -117,13 +118,13 @@
     "amountDue":"Amount to Request",
     "makeaPayment":"Request a Payment",
     "amountPayButton":"Request",
-    "amount":"Amount($)",
+    "amount":"Amount",
     "withdrawFrom":"Deposit to",
     "deliveryBy":"Request on",
     "memo":"Memo(optional)",
     "choose":"Choose how you'd like to Receive",
     "makePayButton":"Request ",
-    "modalRecipient": "You are requesting money to the recipient you added as Kat Simmons ",
+    "modalRecipient": "You are requesting money to the recipient you added as ",
     "enrolledAs": "is enrolled with Zelle as Katherine",
     "continue": "If this looks right to you, select continue",
     "paymentSent":"Payment Requested",
