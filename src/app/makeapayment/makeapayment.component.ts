@@ -64,7 +64,7 @@ export class MakeapaymentComponent implements OnInit {
     this.selectToday();
     this.recipient = this.dService.recipientName;
     this.accountNo = this.dService.accountNumber;
-    this.mobile = this.dService.mobileNumber.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3')
+    this.mobile = this.dService.mobileNumber.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
     this.amount = '$'+ this.dService.payAmount;
     this.acountType = this.dService.accType;
     this.enrolledAs = this.dService.enroller;
