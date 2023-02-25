@@ -45,13 +45,12 @@
             </div> -->
             <!-- This button triggers the overlay and is it's origin -->
 
-
             <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
                 <label for="amount" class="label form-label">{{literals.withdrawFrom}}</label>
                 <div class="col-auto ">
                     <div class="input-group mb-1">
-                        <input type="text" class="form-control" id="amount" (click)="isOpen = !isOpen" value="Choose how you'd like to pay"
-                            cdkOverlayOrigin #trigger="cdkOverlayOrigin" />
+                        <input type="text" class="form-control" id="amount" (click)="isOpen = !isOpen"
+                            value="Choose how you'd like to pay" cdkOverlayOrigin #trigger="cdkOverlayOrigin" />
                     </div>
                 </div>
             </div>
@@ -99,28 +98,28 @@
         <!------------Input-2--------------->
         <div class="rows1">
             <!------------Date--------------->
-            <!-- <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-                <label for="start" class="label mb-2">{{literals.deliveryBy}}</label>
-                <input type="date" class="form-control" [min]="todayDate" value="{{todayDate}}">
-            </div> -->
             <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
                 <label for="dateTimePicker" class="label form-label">literals.withdrawFrom</label>
                 <div class="col-auto ">
                     <div class="input-group mb-1">
-                        <div class="form-control"   id="dateTimePicker" (click)="isOpenDateTime = !isOpenDateTime" contenteditable="false" cdkOverlayOrigin #dateTime="cdkOverlayOrigin">{{selectedDay}} {{ model.day }}-{{ model.month }}-{{ model.year }} 
-                            <button id="calenderButton" class="calender-icon-button" title="calender"><i class="fa-regular fa-calendar" style="color:rgb(101, 101, 201)"></i></button>
+                        <div class="form-control" id="dateTimePicker" contenteditable="false" cdkOverlayOrigin
+                            #dateTime="cdkOverlayOrigin">{{selectedDay}}, {{selectedMonth}} {{
+                            model.day }}, {{ model.year }}
+                            <button id="calenderButton" (click)="isOpenDateTime = !isOpenDateTime"
+                                class="calender-icon-button" title="calender"><i class="fa-regular fa-calendar"
+                                    style="color:rgb(101, 101, 201)"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <h1 (click)="isOpenDateTime = false"></h1> -->
-                    
-            <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="dateTime" [cdkConnectedOverlayOpen]="isOpenDateTime">
+            <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="dateTime"
+                [cdkConnectedOverlayOpen]="isOpenDateTime">
                 <div>
-                    <button class="cross-button" (click)="isOpenDateTime = false">&#10005;</button>
-                    <ngb-datepicker #dp [(ngModel)]="model"  ></ngb-datepicker>
+                    <!-- <button class="cross-button" (click)="isOpenDateTime = false">&#10005;</button> -->
+                    <ngb-datepicker #dp [(ngModel)]="model" [ngModelOptions]="{standalone: true}"
+                        [minDate]="minPickerDate"></ngb-datepicker>
                 </div>
-               
+
             </ng-template>
             <!------------Memo--------------->
             <div class="form mb-2 col-sm-5 col-md-5 col-lg-5">
@@ -137,12 +136,12 @@
 
         <!------------Pay Button--------------->
         <div class="text text-center">
-            <app-btndone [data]="literals.makePayButton"  [recipient]="recipient" [amount]="amount"
+            <app-btndone [data]="literals.makePayButton" [recipient]="recipient" [amount]="amount"
                 (click)="openPopup()"></app-btndone>
         </div>
 
         <!------------Modal--------------->
-        <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}" >
+        <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -150,15 +149,16 @@
                     </div>
                     <div class="modal-body">
                         <p>{{literals.modalRecipient}} <span class="modal-mobile">{{recipient}}</span></p>
-                        <p *ngIf="paymentMode!=='biller';"><span class="modal-mobile">{{mobile}}</span>&nbsp; {{literals.enrolledAs}}</p>
+                        <p *ngIf="paymentMode!=='biller';"><span class="modal-mobile">{{mobile}}</span>&nbsp;
+                            {{literals.enrolledAs}}</p>
                         <p>{{literals.continue}}</p>
                     </div>
                     <div class="modal-footer">
                         <app-btncancel style="width: 50%;display:flex; justify-content: center;" [data]="'Cancel'"
                             (click)="closePopup()"></app-btncancel>
-                            
+
                         <app-btndone style="width: 50%; display:flex; justify-content: center;" [data]="'Continue'"
-                        (click)="onButtonClick('/otpscreen')"></app-btndone>
+                            (click)="onButtonClick('/otpscreen')"></app-btndone>
                     </div>
                 </div>
             </div>

@@ -4,14 +4,17 @@ import { DataService } from '../service/data.service';
 import { Router, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { environment } from 'src/environments/environment';
-import {NgbDateStruct, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbDateStruct,
+  NgbCalendar,
+  NgbDate,
+} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-makeapayment',
   templateUrl: './makeapayment.component.html',
   styleUrls: ['./makeapayment.component.scss'],
-  providers: [DatePipe]
+  providers: [DatePipe],
 })
-
 export class MakeapaymentComponent implements OnInit {
   private _model: NgbDate;
   data: any = {};
@@ -25,37 +28,41 @@ export class MakeapaymentComponent implements OnInit {
   acountType: string;
   enrolledAs: string;
   imagePath: string = environment.imagePath;
-  date=new Date();
+  date = new Date();
   todayDate = this.datepipe.transform(new Date(), 'MMMM-dd-yy');
 
   isOpen = false;
-  isOpenDateTime=false;
+  isOpenDateTime = false;
+  minPickerDate = { year: 0, month: 0, day: 0 };
 
-  constructor(private service: ApiService,
+  constructor(
+    private service: ApiService,
     private dService: DataService,
     private router: Router,
     private datepipe: DatePipe,
-    private calender:NgbCalendar) {
-
+    private calender: NgbCalendar
+  ) {
     this.paymentMode = this.dService.user;
 
     switch (this.paymentMode) {
-      case "biller": {
-        this.service.getBillerLiteralData().subscribe(data => this.literals = data);
+      case 'biller': {
+        this.service
+          .getBillerLiteralData()
+          .subscribe((data) => (this.literals = data));
         break;
       }
 
-      case "sender": {
-
-        this.service.getSenderLiteralData().subscribe(data => this.literals = data);
+      case 'sender': {
+        this.service
+          .getSenderLiteralData()
+          .subscribe((data) => (this.literals = data));
 
         break;
       }
-      case "requester": {
-
-        
-        this.service.getRequesterLiteralData().subscribe(data => this.literals = data);
-
+      case 'requester': {
+        this.service
+          .getRequesterLiteralData()
+          .subscribe((data) => (this.literals = data));
       }
     }
   }
@@ -64,11 +71,18 @@ export class MakeapaymentComponent implements OnInit {
     this.selectToday();
     this.recipient = this.dService.recipientName;
     this.accountNo = this.dService.accountNumber;
-    this.mobile = this.dService.mobileNumber.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
-    this.amount = '$'+ this.dService.payAmount;
+    this.mobile = this.dService.mobileNumber
+      .toString()
+      .replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+    this.amount = '$' + this.dService.payAmount;
     this.acountType = this.dService.accType;
     this.enrolledAs = this.dService.enroller;
     this.imagePath += this.dService.imagePicture;
+    this.minPickerDate = {
+      year: new Date().getFullYear(),
+      month: new Date().getMonth() + 1,
+      day: new Date().getDate(),
+    };
   }
 
   onButtonClick(routerLink): void {
@@ -81,14 +95,29 @@ export class MakeapaymentComponent implements OnInit {
     3: 'Wednesday',
     4: 'Thursday',
     5: 'Friday',
-    6: 'Satarday',
-    7: 'Sunday'
-  }
-
+    6: 'Saturday',
+    7: 'Sunday',
+  };
+  months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
   selectedDay: string = '';
+  selectedMonth: string = '';
   set model(val) {
     this._model = val;
-    this.selectedDay = this.weekDays[this.calender.getWeekday(this.model)]
+    this.selectedDay = this.weekDays[this.calender.getWeekday(this.model)];
+    this.selectedMonth = this.months[this.model.month - 1];
   }
 
   get model() {
@@ -99,20 +128,19 @@ export class MakeapaymentComponent implements OnInit {
     this.model = this.calender.getToday();
   }
 
-
   accountlist = '';
   accounts = [
     { accountType: 'Credit card(2.3% fee)', balance: '$365.27' },
-    { accountType: 'main checking(*4738)', balance: '$5,164.98' }
-  ]
+    { accountType: 'main checking(*4738)', balance: '$5,164.98' },
+  ];
 
-  displayStyle = "none";
+  displayStyle = 'none';
 
   openPopup() {
-    this.displayStyle = "block";
+    this.displayStyle = 'block';
   }
 
   closePopup() {
-    this.displayStyle = "none";
+    this.displayStyle = 'none';
   }
 }
