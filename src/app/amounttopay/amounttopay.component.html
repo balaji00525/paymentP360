@@ -51,13 +51,13 @@
         <div class="text text-center">
             <div class="text text-center">
                 <p360-buttonDone *ngIf="paymentMode==='biller'" [type]="'submit'" [data]="literals.makeaPayment"
-                    (click)="onSubmit('/makeapayment')"></p360-buttonDone>
+                    (click)="onSubmit(route.MAKEAPAYMENT)"></p360-buttonDone>
                 <p360-buttonDone *ngIf="paymentMode !== 'biller'" [type]="'submit'" [data]="literals.makePayButton"
-                    (click)="onSubmit('/makeapayment')"></p360-buttonDone>
+                    (click)="onSubmit(route.MAKEAPAYMENT)"></p360-buttonDone>
             </div>
         </div>
         <div class="text text-center">
-            <p360-buttonDone [data]="'Back'" [type]="'cancel'" (click)="onSubmit('/home')"></p360-buttonDone>
+            <p360-buttonDone [data]="'Back'" [type]="'cancel'" (click)="onSubmit(route.HOME)"></p360-buttonDone>
         </div>
     </div>
 </div>

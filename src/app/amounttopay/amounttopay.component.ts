@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 import { BillType } from '../common/constant';
 import util from '../utilities/util';
 import { billType } from '../interface';
-import { RoutingPage } from '../routing';
+import { RoutingLinks } from '../routing';
 @Component({
   selector: 'app-amounttopay',
   templateUrl: './amounttopay.component.html',
@@ -30,6 +30,7 @@ export class AmounttopayComponent {
   literals: any = {};
   imagePath: string;
   image: string;
+  route = RoutingLinks;
 
   constructor(
     private services: ApiService,
