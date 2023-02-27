@@ -22,7 +22,7 @@ export class AmounttopayComponent implements DoCheck {
   selectedPaymentMode: string;
   literals: any = {};
   imagePath: string;
-  Image: string;
+  image: string;
 
 
   constructor(
@@ -68,7 +68,7 @@ export class AmounttopayComponent implements DoCheck {
     this.dataService.accType = this.bill.accountList;
     this.dataService.enroller = this.bill.enrolledAs;
     this.dataService.imagePicture = this.bill.imagePath;
-    this.dataService.tick=this.bill.Image;
+    this.dataService.tick=this.bill.image;
     this.dataService.paymentMode = this.bill.paymentType;
     this.dataService.cardNumber = this.bill.cardNo;
     this.dataService.feeDetail = this.bill.fee;
@@ -82,7 +82,7 @@ export class AmounttopayComponent implements DoCheck {
       this.changeDetector.detectChanges();
     }
     if (this.bill){
-      this.Image = environment.Image+this.bill.Image;
+      this.image = environment.image+this.bill.image;
       this.changeDetector.detectChanges();
     }
   }
