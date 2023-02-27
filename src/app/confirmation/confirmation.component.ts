@@ -47,10 +47,10 @@ export class ConfirmationComponent implements OnInit {
             break;
         }  
         
-        case "requester": 
+        case "Requestor": 
         {
           this.service
-          .getRequesterLiteralData()
+          .getRequestorLiteralData()
           .subscribe(data=> this.literals=data);
         }
        

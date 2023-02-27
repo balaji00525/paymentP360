@@ -6,7 +6,8 @@ import { DatePipe } from '@angular/common';
 import { environment } from 'src/environments/environment';
 import { BillType } from '../common/constant'; 
 import   util from '../utilities/util';
-import {billType} from '../interface'
+import {billType} from '../interface';
+import { RoutingPage } from '../routing';
 @Component({
   selector: 'app-amounttopay',
   templateUrl: './amounttopay.component.html',
@@ -26,11 +27,10 @@ export class AmounttopayComponent implements DoCheck {
 
   constructor(
     private services: ApiService,
+    private changeDetector: ChangeDetectorRef,
     private dataService: DataService,
-    private router: Router,
     private datepipe: DatePipe,
-    private changeDetector: ChangeDetectorRef
-  ) {
+    private router: Router,) {
     this.myDate = datepipe.transform(this.myDate, 'MMMM d');
     util.getDate(this.myDate);
     this.paymentMode = this.dataService.user;
@@ -41,31 +41,24 @@ export class AmounttopayComponent implements DoCheck {
   switch (payMode) {
     case  BillType.BILLER: {
       this.services.getBillerData().subscribe((data) => (this.bill = data));
-      this.services
-        .getBillerLiteralData()
-        .subscribe((data) => (this.literals = data));
+      this.services.getBillerLiteralData().subscribe((data) => (this.literals = data));
       break;
     }
     case BillType.SENDER: {
       this.services.getSenderData().subscribe((data) => (this.bill = data));
-      this.services
-        .getSenderLiteralData()
-        .subscribe((data) => (this.literals = data));
+      this.services.getSenderLiteralData().subscribe((data) => (this.literals = data));
       this.selectedPaymentMode = 'Pay';
 
       break;
     }
     case BillType.REQUESTOR: {
-      this.services
-        .getRequesterData()
-        .subscribe((data) => (this.bill = data));
-      this.services
-        .getRequesterLiteralData()
-        .subscribe((data) => (this.literals = data));
+      this.services.getRequestorData().subscribe((data) => (this.bill = data));
+      this.services.getRequestorLiteralData().subscribe((data) => (this.literals = data));
       this.selectedPaymentMode = 'Request';
     }
   }
  }
+ 
 
   onSubmit(routeLink):void {
     this.dataService.recipientName = this.bill.recipient;
