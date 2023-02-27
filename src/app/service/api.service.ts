@@ -10,8 +10,8 @@ export class ApiService {
 
   getBillerData() { return this.http.get("http://localhost:3000/biller") }
   getSenderData() { return this.http.get("http://localhost:3000/sender") }
-  getRequesterData() { return this.http.get("http://localhost:3000/requester") }
+  getRequestorData() { return this.http.get("http://localhost:3000/Requestor") }
   getBillerLiteralData() { return this.http.get("http://localhost:3000/billerliterals") }
   getSenderLiteralData() { return this.http.get("http://localhost:3000/senderliterals") }
-  getRequesterLiteralData() { return this.http.get("http://localhost:3000/requesterliterals") }
+  getRequestorLiteralData() { return this.http.get("http://localhost:3000/Requestorliterals") }
 }

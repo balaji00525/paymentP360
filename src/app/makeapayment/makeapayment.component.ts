@@ -64,9 +64,9 @@ export class MakeapaymentComponent implements OnInit {
         .subscribe((data) => (this.literals = data));
       break;
     }
-    case 'requester': {
+    case 'Requestor': {
       this.service
-        .getRequesterLiteralData()
+        .getRequestorLiteralData()
         .subscribe((data) => (this.literals = data));
     }
   }

@@ -57,10 +57,10 @@ export class AmounttopayComponent implements DoCheck {
     }
     case BillType.REQUESTOR: {
       this.services
-        .getRequesterData()
+        .getRequestorData()
         .subscribe((data) => (this.bill = data));
       this.services
-        .getRequesterLiteralData()
+        .getRequestorLiteralData()
         .subscribe((data) => (this.literals = data));
       this.selectedPaymentMode = 'Request';
     }
