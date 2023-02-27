@@ -1,0 +1,1 @@
+export const BillType = { BILLER: 'biller', SENDER: 'sender', REQUESTOR: 'requestor' };

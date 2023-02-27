@@ -4,13 +4,14 @@ import { DataService } from '../service/data.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { environment } from 'src/environments/environment';
+import { BillType } from '../common/constant'; 
 @Component({
   selector: 'app-amounttopay',
   templateUrl: './amounttopay.component.html',
   styleUrls: ['./amounttopay.component.scss'],
   providers: [DatePipe],
 })
-export class AmounttopayComponent implements OnInit, DoCheck {
+export class AmounttopayComponent implements DoCheck {
   data: any = {};
   myDate: any = new Date();
   amount: number;
@@ -18,6 +19,8 @@ export class AmounttopayComponent implements OnInit, DoCheck {
   selectedPaymentMode: string;
   literals: any = {};
   imagePath: string;
+  Image: string;
+
 
   constructor(
     private services: ApiService,
@@ -30,14 +33,14 @@ export class AmounttopayComponent implements OnInit, DoCheck {
     this.paymentMode = this.dService.user;
 
     switch (this.paymentMode) {
-      case 'biller': {
+      case  BillType.BILLER: {
         this.services.getBillerData().subscribe((data) => (this.data = data));
         this.services
           .getBillerLiteralData()
           .subscribe((data) => (this.literals = data));
         break;
       }
-      case 'sender': {
+      case BillType.SENDER: {
         this.services.getSenderData().subscribe((data) => (this.data = data));
         this.services
           .getSenderLiteralData()
@@ -46,7 +49,7 @@ export class AmounttopayComponent implements OnInit, DoCheck {
 
         break;
       }
-      case 'requester': {
+      case BillType.REQUESTOR: {
         this.services
           .getRequesterData()
           .subscribe((data) => (this.data = data));
@@ -68,16 +71,21 @@ export class AmounttopayComponent implements OnInit, DoCheck {
     this.dService.accType = this.data.accountType;
     this.dService.enroller = this.data.enrolledAs;
     this.dService.imagePicture = this.data.imagePath;
+    this.dService.tick=this.data.Image;
     this.dService.paymentMode = this.data.paymentType;
     this.dService.cardNumber = this.data.cardNo;
     this.dService.feeDetail = this.data.fee;
     this.dService.confirm = this.data.confirmation;
     this.router.navigate([routeLink]);
   }
-  ngOnInit(): void {}
+ 
   ngDoCheck() {
     if (this.data) {
-      this.imagePath = environment.imagePath + this.data?.imagePath;
+      this.imagePath = environment.imagePath + this.data.imagePath;
+      this.changeDetector.detectChanges();
+    }
+    if (this.data){
+      this.Image = environment.Image+this.data.Image;
       this.changeDetector.detectChanges();
     }
   }

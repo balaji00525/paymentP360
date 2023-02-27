@@ -28,6 +28,7 @@ export class MakeapaymentComponent implements OnInit {
   acountType: string;
   enrolledAs: string;
   imagePath: string = environment.imagePath;
+  Image:string=environment.Image;
   date = new Date();
   todayDate = this.datepipe.transform(new Date(), 'MMMM-dd-yy');
 
@@ -67,6 +68,9 @@ export class MakeapaymentComponent implements OnInit {
     }
   }
 
+ 
+
+
   ngOnInit(): void {
     this.selectToday();
     this.recipient = this.dService.recipientName;
@@ -78,6 +82,7 @@ export class MakeapaymentComponent implements OnInit {
     this.acountType = this.dService.accType;
     this.enrolledAs = this.dService.enroller;
     this.imagePath += this.dService.imagePicture;
+    this.Image+= this.dService.tick;
     this.minPickerDate = {
       year: new Date().getFullYear(),
       month: new Date().getMonth() + 1,
@@ -143,4 +148,5 @@ export class MakeapaymentComponent implements OnInit {
   closePopup() {
     this.displayStyle = 'none';
   }
+  
 }

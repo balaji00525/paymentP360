@@ -17,7 +17,7 @@
     </div>
 
     <!------------Input-1--------------->
-    <form>
+   
         <div class="rows">
 
             <!------------Amount--------------->
@@ -26,25 +26,13 @@
                 <div class="col-auto ">
                     <div class="input-group mb-1">
                         <div class="dollar input-group-text">$</div>
-                        <input type="text" class="form-control" style="border-left: white; padding-left: 2px;"
+                        <div  *ngIf="paymentMode=='biller';" class="form-control" style="border-left: white; padding-left: 2px;" contenteditable="false">{{amount}}</div>
+                        <input *ngIf="paymentMode!=='biller';" type="text" class="form-control" style="border-left: white; padding-left: 2px;"
                             id="amount" placeholder="Enter Amount" autocomplete="off" value="{{amount}}" />
                     </div>
                 </div>
             </div>
             <!------------Dropdown--------------->
-            <!-- <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-                <label for="amount" class="label form-label">{{literals.withdrawFrom}}</label>
-                <form novalidate #form="ngForm">
-                    <select class="form-select" name="name" [(ngModel)]="accountlist">
-                        <option class="select" selected>{{literals.choose}}</option>
-                        <option *ngFor="let user of data.accountList" [ngValue]="{ Available:user.balance}">
-                            {{user.accountType}} {{user.balance}}</option>
-                    </select>
-                </form>
-                <a class="link" href="#"> ⚡ Faster Options Available</a>
-            </div> -->
-            <!-- This button triggers the overlay and is it's origin -->
-
             <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
                 <label for="amount" class="label form-label">{{literals.withdrawFrom}}</label>
                 <div class="col-auto ">
@@ -55,6 +43,9 @@
                 </div>
             </div>
             <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen">
+                <div>
+
+                
                 <div class="list-container list border-bottom">
                     <div>Choose how you'd like to pay</div>
                     <div>
@@ -92,6 +83,7 @@
                     </li>
 
                 </ul>
+            </div>
             </ng-template>
         </div>
 
@@ -102,7 +94,7 @@
                 <label for="dateTimePicker" class="label form-label">literals.withdrawFrom</label>
                 <div class="col-auto ">
                     <div class="input-group mb-1">
-                        <div class="form-control" id="dateTimePicker" contenteditable="false" cdkOverlayOrigin
+                        <div class="form-control" id="dateTimePicker" mindate="0" maxdate="+90" contenteditable="false" cdkOverlayOrigin
                             #dateTime="cdkOverlayOrigin">{{selectedDay}}, {{selectedMonth}} {{
                             model.day }}, {{ model.year }}
                             <button id="calenderButton" (click)="isOpenDateTime = !isOpenDateTime"
@@ -136,8 +128,8 @@
 
         <!------------Pay Button--------------->
         <div class="text text-center">
-            <app-btndone [data]="literals.makePayButton" [recipient]="recipient" [amount]="amount"
-                (click)="openPopup()"></app-btndone>
+            <p360-buttonDone [data]="literals.makePayButton" [recipient]="recipient" [amount]="amount"
+                (click)="openPopup()"></p360-buttonDone>
         </div>
 
         <!------------Modal--------------->
@@ -157,8 +149,8 @@
                         <app-btncancel style="width: 50%;display:flex; justify-content: center;" [data]="'Cancel'"
                             (click)="closePopup()"></app-btncancel>
 
-                        <app-btndone style="width: 50%; display:flex; justify-content: center;" [data]="'Continue'"
-                            (click)="onButtonClick('/otpscreen')"></app-btndone>
+                        <p360-buttonDone style="width: 50%; display:flex; justify-content: center;" [data]="'Continue'"
+                            (click)="onButtonClick('/otpscreen')"></p360-buttonDone>
                     </div>
                 </div>
             </div>
@@ -167,5 +159,5 @@
         <div class="text text-center">
             <app-btncancel [routerLink]="['/amounttopay']" [data]="'Back'"></app-btncancel>
         </div>
-    </form>
+    
 </div>

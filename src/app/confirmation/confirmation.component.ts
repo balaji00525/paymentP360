@@ -3,6 +3,7 @@ import { DataService } from '../service/data.service';
 import { ApiService } from '../service/api.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-confirmation',
   templateUrl: './confirmation.component.html',
@@ -14,6 +15,9 @@ export class ConfirmationComponent implements OnInit {
   myDate: any = new Date();
   literals:any={};
   accountDetails: DataService;
+  imagePath: string = environment.imagePath;
+  Image: string = environment.Image;
+  
 
 
   constructor(private service:ApiService, 
@@ -43,6 +47,8 @@ export class ConfirmationComponent implements OnInit {
   
 
   ngOnInit(): void {
+    this.imagePath += this.dService.imagePicture;
+    this.Image +=this.dService.tick;
     this.accountDetails=this.dService;
     }
 
