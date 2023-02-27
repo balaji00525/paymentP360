@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  imagePath:"../assets/images/"
+  imagePath:"../assets/images/",
+  Image:"../assets/images/"
 };
 
 /*

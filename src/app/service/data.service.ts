@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { accountType } from '../interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,14 +9,15 @@ export class DataService {
   private accountNo:number;
   private mobile:number;
   private amount:number;
-  private accountType:string;
+  private accountType:accountType[];
   private enrolledAs:string;
   private imagePath:string;
   private paymentType:string;
   private cardNo:number;
   private fee:string;
   private confirmation:number;
-
+  private Image:string;
+  accountList: any;
   constructor() { }
 
   get user():string{
@@ -55,10 +56,10 @@ export class DataService {
   set payAmount(val:number){
     this.amount=val;
   }
-  get accType():string{
+  get accType():accountType[]{
     return this.accountType;
   }
-  set accType(val:string){
+  set accType(val:accountType[]){
     this.accountType=val;
   }
   get enroller():string{
@@ -90,5 +91,11 @@ export class DataService {
   }
   set confirm(val:number){
     this.confirmation=val;
+  }
+  get tick():string{
+    return this.Image;
+  }
+  set tick( val:string){
+    this.Image=val;
   }
 }

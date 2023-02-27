@@ -1,7 +1,7 @@
 <app-header [data]="'Confirmation'"></app-header>
 
 <div>
-    <img class="image" src="https://cdn3.iconfinder.com/data/icons/social-messaging-ui-color-line/254000/39-512.png"
+    <img class="image" src="{{Image}}"
         width="50" height="50">
     <h1 class="text text-center ">{{literals.paymentSent}}</h1>
     <h1 class="dollar">${{accountDetails.payAmount}}</h1>
@@ -18,12 +18,12 @@
     </div>
     <div class="bg-light image-container">
         <div class="image-width">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFvNAnXOYNE1JQ9trMZDjCmRO9RR7OQoomKlDhsnr0_bkXir1FO707_WfFf1LdijHCGPc&usqp=CAU"
+            <img src="{{imagePath}}"
                 alt="" width="45px" height=" 45px">
         </div>
         <div>
             <h6 class="accounttype"><b>{{accountDetails.recipientName}}</b></h6>
-            <h6 class="accountNumber">Account Number:{{accountDetails.accountNumber}}</h6>
+            <h6 class="accountNumber">{{literals.account}}:{{accountDetails.accountNumber}}</h6>
         </div>
     </div>
     <hr>
@@ -42,7 +42,7 @@
     </nav>
 
     <div class="btncontainer">
-        <app-btndone [data]="'Done'" [routerLink]="['/home']"></app-btndone>
+        <p360-buttonDone [data]="'Done'" [routerLink]="['/home']"></p360-buttonDone>
         <app-btncancel [data]="'Cancel'" [routerLink]="['/otpscreen']"></app-btncancel>
     </div>
 </div>

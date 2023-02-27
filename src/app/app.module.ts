@@ -10,7 +10,7 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './common/header/header.component';
 import { HomeComponent } from './home/home.component';
-import { BtndoneComponent } from './common/btndone/btndone.component';
+import { ButtonComponent } from './common/button/button.component';
 import { BtncancelComponent } from './common/btncancel/btncancel.component';
 import { DatePipe } from '@angular/common';
 import { OverlayModule } from "@angular/cdk/overlay";
@@ -24,7 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ConfirmationComponent,
     HeaderComponent,
     HomeComponent,
-    BtndoneComponent,
+    ButtonComponent,
     BtncancelComponent
   ],
   imports: [
