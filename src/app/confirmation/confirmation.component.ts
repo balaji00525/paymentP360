@@ -8,66 +8,60 @@ import { environment } from 'src/environments/environment';
   selector: 'app-confirmation',
   templateUrl: './confirmation.component.html',
   styleUrls: ['./confirmation.component.scss'],
-  providers: [DatePipe]
+  providers: [DatePipe],
 })
 export class ConfirmationComponent implements OnInit {
-  data: any={};
+  data: any = {};
   myDate: any = new Date();
-  literals:any={};
+  literals: any = {};
   accountDetails: DataService;
   imagePath: string = environment.imagePath;
   image: string = environment.image;
-  paymentMode:string;
-  
+  paymentMode: string;
 
-
-  constructor(private service:ApiService, 
+  constructor(
+    private service: ApiService,
     private dataService: DataService,
-     private router: Router,
-     private datepipe: DatePipe) { 
+    private router: Router,
+    private datepipe: DatePipe
+  ) {
+    this.myDate = this.datepipe.transform(this.myDate, 'MMMM d');
+    let paymentMode = this.dataService.user;
+    this.paymentDetails(this.paymentMode);
+  }
 
-      this.myDate = this.datepipe.transform(this.myDate, 'MMMM d');
-      let paymentMode = this.dataService.user;
-      this.paymentDetails(this.paymentMode); 
-     }
-
-     paymentDetails(payMode){
-      switch (payMode) {
-        case "biller": {
-          this.service
-        .getBillerLiteralData()
-        .subscribe(data=> this.literals=data);
-          break;
-        } 
-        
-        case "sender": {
-          this.service
-          .getSenderLiteralData()
-          .subscribe(data=> this.literals=data);
-            break;
-        }  
-        
-        case "Requestor": 
-        {
-          this.service
-          .getRequestorLiteralData()
-          .subscribe(data=> this.literals=data);
-        }
-       
+  paymentDetails(payMode) {
+    switch (payMode) {
+      case 'biller': {
+        this.service
+          .getBillerLiteralData()
+          .subscribe((data) => (this.literals = data));
+        break;
       }
-     }
+
+      case 'sender': {
+        this.service
+          .getSenderLiteralData()
+          .subscribe((data) => (this.literals = data));
+        break;
+      }
+
+      case 'requestor': {
+        this.service
+          .getRequestorLiteralData()
+          .subscribe((data) => (this.literals = data));
+      }
+    }
+  }
 
   onsubmit() {
     this.router.navigate(['/home']);
     this.router.navigate(['/otpscreen']);
   }
-  
 
   ngOnInit(): void {
     this.imagePath += this.dataService.imagePicture;
-    this.image +=this.dataService.tick;
-    this.accountDetails=this.dataService;
-    }
-
-
+    this.image += this.dataService.tick;
+    this.accountDetails = this.dataService;
   }
+}
