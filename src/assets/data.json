@@ -15,11 +15,11 @@
     "paymentType":"CREDIT CARD.",
     "cardNo":2246,
     "fee":"(2.3% fee)",
-    "recipient":"AT&T",
+    "recipient":"AT&T ",
     "mobile": 7185551234,
     "confirmation":123456789,
     "imagePath": "billerlogo.png",
-    "Image":"confirm.png"
+    "image":"confirm.png"
   },
   "sender": {
     "accountNo": 890076,
@@ -42,7 +42,7 @@
     "imagePath": "sendPayment.jpeg",
     "confirmation": 123456789,
     "enrolledAs":"Enrolled as Katherine",
-    "Image":"confirm.png"
+    "image":"confirm.png"
   },
   "Requestor": {
     "accountNo": 890076,
@@ -65,7 +65,7 @@
     "imagePath": "sendPayment.jpeg",
     "confirmation": 1234567890 ,
     "enrolledAs":"Enrolled as Katherine",
-    "Image":"confirm.png"
+    "image":"confirm.png"
   },
   
 

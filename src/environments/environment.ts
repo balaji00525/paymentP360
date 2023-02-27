@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   imagePath:"../assets/images/",
-  Image:"../assets/images/"
+  image:"../assets/images/"
 };
 
 /*

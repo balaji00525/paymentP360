@@ -29,7 +29,7 @@ export class MakeapaymentComponent implements OnInit {
   acountType: accountType[];
   enrolledAs: string;
   imagePath: string = environment.imagePath;
-  Image:string=environment.Image;
+  image:string=environment.image;
   date = new Date();
   todayDate = this.datepipe.transform(new Date(), 'MMMM-dd-yy');
 
@@ -84,7 +84,7 @@ export class MakeapaymentComponent implements OnInit {
     this.acountType = this.dataService.accType;
     this.enrolledAs = this.dataService.enroller;
     this.imagePath += this.dataService.imagePicture;
-    this.Image+= this.dataService.tick;
+    this.image+= this.dataService.tick;
     this.minPickerDate = {
       year: new Date().getFullYear(),
       month: new Date().getMonth() + 1,

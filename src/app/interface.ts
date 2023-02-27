@@ -9,7 +9,7 @@ export interface billType{
     mobile: number;
     confirmation:number;
     imagePath: string;
-    Image:string;
+    image:string;
     enrolledAs:string;
 }
 export interface accountType {

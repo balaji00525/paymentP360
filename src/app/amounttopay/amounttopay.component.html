@@ -49,8 +49,10 @@
         
 
         <div class="text text-center">
-            <p360-buttonDone [data]="paymentMode==='biller' ? 'Make a Payment' : paymentMode==='sender'? 'Pay':'Request' "
-            (click)="onSubmit('/makeapayment')"></p360-buttonDone>
+            <div class="text text-center" >
+                <p360-buttonDone *ngIf="paymentMode==='biller'" [data]="literals.makeaPayment" (click)="onSubmit('/makeapayment')" ></p360-buttonDone>
+                <p360-buttonDone  *ngIf="paymentMode !== 'biller'" [data]="literals.makePayButton" (click)="onSubmit('/makeapayment')" ></p360-buttonDone>
+            </div>
         </div>
         <div class="text text-center">
             <app-btncancel [data]="'Back'" (click)="onSubmit('/home')" ></app-btncancel>
