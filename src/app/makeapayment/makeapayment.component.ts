@@ -29,7 +29,7 @@ export class MakeapaymentComponent implements OnInit {
   acountType: accountType[];
   enrolledAs: string;
   imagePath: string = environment.imagePath;
-  Image:string=environment.Image;
+  Image: string = environment.Image;
   date = new Date();
   todayDate = this.datepipe.transform(new Date(), 'MMMM-dd-yy');
 
@@ -44,34 +44,32 @@ export class MakeapaymentComponent implements OnInit {
     private datepipe: DatePipe,
     private calender: NgbCalendar
   ) {
-
     this.paymentMode = this.dataService.user;
     this.paymentDetails(this.paymentMode);
   }
 
- paymentDetails(payMode){
-  switch (payMode) {
-    case 'biller': {
-      this.service
-        .getBillerLiteralData()
-        .subscribe((data) => (this.literals = data));
-      break;
-    }
+  paymentDetails(payMode) {
+    switch (payMode) {
+      case 'biller': {
+        this.service
+          .getBillerLiteralData()
+          .subscribe((data) => (this.literals = data));
+        break;
+      }
 
-    case 'sender': {
-      this.service
-        .getSenderLiteralData()
-        .subscribe((data) => (this.literals = data));
-      break;
-    }
-    case 'requester': {
-      this.service
-        .getRequesterLiteralData()
-        .subscribe((data) => (this.literals = data));
+      case 'sender': {
+        this.service
+          .getSenderLiteralData()
+          .subscribe((data) => (this.literals = data));
+        break;
+      }
+      case 'requester': {
+        this.service
+          .getRequesterLiteralData()
+          .subscribe((data) => (this.literals = data));
+      }
     }
   }
- }
-
 
   ngOnInit(): void {
     this.selectToday();
@@ -84,7 +82,7 @@ export class MakeapaymentComponent implements OnInit {
     this.acountType = this.dataService.accType;
     this.enrolledAs = this.dataService.enroller;
     this.imagePath += this.dataService.imagePicture;
-    this.Image+= this.dataService.tick;
+    this.Image += this.dataService.tick;
     this.minPickerDate = {
       year: new Date().getFullYear(),
       month: new Date().getMonth() + 1,
@@ -150,5 +148,4 @@ export class MakeapaymentComponent implements OnInit {
   closePopup() {
     this.displayStyle = 'none';
   }
-  
 }

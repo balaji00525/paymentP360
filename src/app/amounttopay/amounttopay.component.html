@@ -2,7 +2,7 @@
 <div class="navbar">
     <div class="logo">
         <img class="image" src="{{imagePath}}" alt="" height="50">
-        <h4>{{bill.recipient}} {{bill.accountNo}}</h4>
+        <h4>{{bill.recipient}} *{{bill.accountNo}}</h4>
         <h5 class="text text-center">{{bill.enrolledAs}}</h5>
         <h5 class="mobile">{{bill.mobile}}</h5>
     </div>
@@ -10,10 +10,10 @@
     <h6 class="amount" [ngClass]="paymentMode==='biller'  ? '' : 'amount-padding'">
 
         <ng-container *ngIf="paymentMode==='biller'">
-            <span >{{literals.amountDue}}</span> <br>
-            <p >{{literals.importing}}</p>
+            <span>{{literals.amountDue}}</span> <br>
+            <p>{{literals.importing}}</p>
         </ng-container>
-       
+
         <h4 *ngIf="paymentMode !== 'biller'">{{literals.amountPayButton}}</h4>
         <h1 class="dollar"><span>$</span>
             <input *ngIf="paymentMode !== 'biller'" class="input-outline" type="number" [(ngModel)]="bill.amount"
@@ -34,26 +34,27 @@
             <hr class="width">
             <div class="account">
                 <ng-container *ngIf="paymentMode==='biller'">
-                    <h6  class="accountno">{{literals.account}}</h6>
-                    <h6  class="accountnum">{{bill.accountNo}}</h6>
+                    <h6 class="accountno">{{literals.account}}</h6>
+                    <h6 class="accountnum">{{bill.accountNo}}</h6>
                 </ng-container>
-                
+
             </div>
         </div>
 
         <ng-container *ngIf="paymentMode==='biller'">
-            <hr >
+            <hr>
             <p class="view">{{literals.viewStatement}}</p>
             <p class="click">{{literals.selectionMethod}}</p>
         </ng-container>
-        
+
 
         <div class="text text-center">
-            <p360-buttonDone [data]="paymentMode==='biller' ? 'Make a Payment' : paymentMode==='sender'? 'Pay':'Request' "
-            (click)="onSubmit('/makeapayment')"></p360-buttonDone>
+            <p360-buttonDone [type]="'submit'"
+                [data]="paymentMode==='biller' ? 'Make a Payment' : paymentMode==='sender'? 'Pay':'Request' "
+                (click)="onSubmit('/makeapayment')"></p360-buttonDone>
         </div>
         <div class="text text-center">
-            <app-btncancel [data]="'Back'" (click)="onSubmit('/home')" ></app-btncancel>
+            <p360-buttonDone [data]="'Back'" [type]="'cancel'" (click)="onSubmit('/home')"></p360-buttonDone>
         </div>
     </div>
 </div>

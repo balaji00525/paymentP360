@@ -1,8 +1,7 @@
 <app-header [data]="'Confirmation'"></app-header>
 
 <div>
-    <img class="image" src="{{Image}}"
-        width="50" height="50">
+    <img class="image" src="{{Image}}" width="50" height="50">
     <h1 class="text text-center ">{{literals.paymentSent}}</h1>
     <h1 class="dollar">${{accountDetails.payAmount}}</h1>
 
@@ -13,13 +12,14 @@
         </div>
         <div>
             <h6 class="name">{{literals.you}}</h6>
-            <h6 class="accountType"><b>{{accountDetails.paymentMode}}</b>{{accountDetails.cardNumber}}{{accountDetails.feeDetail}}</h6>
+            <h6 class="accountType">
+                <b>{{accountDetails.paymentMode}}</b>{{accountDetails.cardNumber}}{{accountDetails.feeDetail}}
+            </h6>
         </div>
     </div>
     <div class="bg-light image-container">
         <div class="image-width">
-            <img src="{{imagePath}}"
-                alt="" width="45px" height=" 45px">
+            <img src="{{imagePath}}" alt="" width="45px" height=" 45px">
         </div>
         <div>
             <h6 class="accounttype"><b>{{accountDetails.recipientName}}</b></h6>
@@ -42,7 +42,7 @@
     </nav>
 
     <div class="btncontainer">
-        <p360-buttonDone [data]="'Done'" [routerLink]="['/home']"></p360-buttonDone>
-        <app-btncancel [data]="'Cancel'" [routerLink]="['/otpscreen']"></app-btncancel>
+        <p360-buttonDone [data]="'Done'" [type]="'submit'" [routerLink]="['/home']"></p360-buttonDone>
+        <p360-buttonDone [data]="'Cancel'" [type]="'cancel'" [routerLink]="['/otpscreen']"></p360-buttonDone>
     </div>
 </div>

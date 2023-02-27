@@ -1,2 +1,1 @@
-<button class="btndone btn">{{data}}  {{recipient}}  {{amount}}</button>
-
+<button class="btn" [ngClass]="type ==='submit'  ? 'btndone' : 'btncancel'">{{data}} {{recipient}} {{amount}}</button>

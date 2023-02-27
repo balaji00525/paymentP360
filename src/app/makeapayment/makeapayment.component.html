@@ -17,35 +17,35 @@
     </div>
 
     <!------------Input-1--------------->
-   
-        <div class="rows">
 
-            <!------------Amount--------------->
-            <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-                <label for="amount" class="label form-label">{{literals.amount}}</label>
-                <div class="col-auto ">
-                    <div class="input-group mb-1">
-                       
-                        <div  *ngIf="paymentMode=='biller';" class="form-control"  contenteditable="false">{{amount}}</div>
-                        <input *ngIf="paymentMode!=='biller';" type="text" class="form-control" 
-                            id="amount" placeholder="Enter Amount" autocomplete="off" value="{{amount}}" />
-                    </div>
+    <div class="rows">
+
+        <!------------Amount--------------->
+        <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
+            <label for="amount" class="label form-label">{{literals.amount}}</label>
+            <div class="col-auto ">
+                <div class="input-group mb-1">
+
+                    <div *ngIf="paymentMode=='biller';" class="form-control" contenteditable="false">{{amount}}</div>
+                    <input *ngIf="paymentMode!=='biller';" type="text" class="form-control" id="amount"
+                        placeholder="Enter Amount" autocomplete="off" value="{{amount}}" />
                 </div>
             </div>
-            <!------------Dropdown--------------->
-            <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-                <label for="amount" class="label form-label">{{literals.withdrawFrom}}</label>
-                <div class="col-auto ">
-                    <div class="input-group mb-1">
-                        <input type="text" class="form-control" id="amount" (click)="isOpen = !isOpen"
-                            value="Choose how you'd like to pay" cdkOverlayOrigin #trigger="cdkOverlayOrigin" />
-                    </div>
+        </div>
+        <!------------Dropdown--------------->
+        <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
+            <label for="amount" class="label form-label">{{literals.withdrawFrom}}</label>
+            <div class="col-auto ">
+                <div class="input-group mb-1">
+                    <input type="text" class="form-control" id="amount" (click)="isOpen = !isOpen"
+                        value="Choose how you'd like to pay" cdkOverlayOrigin #trigger="cdkOverlayOrigin" />
                 </div>
             </div>
-            <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen">
-                <div>
+        </div>
+        <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen">
+            <div>
 
-                
+
                 <div class="list-container list border-bottom">
                     <div>Choose how you'd like to pay</div>
                     <div>
@@ -84,80 +84,80 @@
 
                 </ul>
             </div>
-            </ng-template>
-        </div>
+        </ng-template>
+    </div>
 
-        <!------------Input-2--------------->
-        <div class="rows1">
-            <!------------Date--------------->
-            <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-                <label for="dateTimePicker" class="label form-label">literals.withdrawFrom</label>
-                <div class="col-auto ">
-                    <div class="input-group mb-1">
-                        <div class="form-control" id="dateTimePicker" mindate="0" maxdate="+90" contenteditable="false" cdkOverlayOrigin
-                            #dateTime="cdkOverlayOrigin">{{selectedDay}}, {{selectedMonth}} {{
-                            model.day }}, {{ model.year }}
-                            <button id="calenderButton" (click)="isOpenDateTime = !isOpenDateTime"
-                                class="calender-icon-button" title="calender"><i class="fa-regular fa-calendar"
-                                    style="color:rgb(101, 101, 201)"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="dateTime"
-                [cdkConnectedOverlayOpen]="isOpenDateTime">
-                <div>
-                    <!-- <button class="cross-button" (click)="isOpenDateTime = false">&#10005;</button> -->
-                    <ngb-datepicker #dp [(ngModel)]="model" [ngModelOptions]="{standalone: true}"
-                        [minDate]="minPickerDate"></ngb-datepicker>
-                </div>
-
-            </ng-template>
-            <!------------Memo--------------->
-            <div class="form mb-2 col-sm-5 col-md-5 col-lg-5">
-                <label for="memo" class="label mb-2">{{literals.memo}}</label>
-                <div class="form-control" contenteditable="true">Reason for...</div>
-            </div>
-        </div>
-
-        <!------------Radio--------------->
-        <div class="radio form-check form-switch mb-3">
-            <input class="form-check-input" type="checkbox" id="recurring">
-            <label class="label form-check-label" for="recurring">Make Recurring Payment</label>
-        </div>
-
-        <!------------Pay Button--------------->
-        <div class="text text-center">
-            <p360-buttonDone [data]="literals.makePayButton" [recipient]="recipient" [amount]="amount"
-                (click)="openPopup()"></p360-buttonDone>
-        </div>
-
-        <!------------Modal--------------->
-        <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <img class="header" src="{{imagePath}}" alt="">
-                    </div>
-                    <div class="modal-body">
-                        <p>{{literals.modalRecipient}} <span class="modal-mobile">{{recipient}}</span></p>
-                        <p *ngIf="paymentMode!=='biller';"><span class="modal-mobile">{{mobile}}</span>&nbsp;
-                            {{literals.enrolledAs}}</p>
-                        <p>{{literals.continue}}</p>
-                    </div>
-                    <div class="modal-footer">
-                        <app-btncancel style="width: 50%;display:flex; justify-content: center;" [data]="'Cancel'"
-                            (click)="closePopup()"></app-btncancel>
-
-                        <p360-buttonDone style="width: 50%; display:flex; justify-content: center;" [data]="'Continue'"
-                            (click)="onButtonClick('/otpscreen')"></p360-buttonDone>
+    <!------------Input-2--------------->
+    <div class="rows1">
+        <!------------Date--------------->
+        <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
+            <label for="dateTimePicker" class="label form-label">literals.withdrawFrom</label>
+            <div class="col-auto ">
+                <div class="input-group mb-1">
+                    <div class="form-control" id="dateTimePicker" mindate="0" maxdate="+90" contenteditable="false"
+                        cdkOverlayOrigin #dateTime="cdkOverlayOrigin">{{selectedDay}}, {{selectedMonth}} {{
+                        model.day }}, {{ model.year }}
+                        <button id="calenderButton" (click)="isOpenDateTime = !isOpenDateTime"
+                            class="calender-icon-button" title="calender"><i class="fa-regular fa-calendar"
+                                style="color:rgb(101, 101, 201)"></i></button>
                     </div>
                 </div>
             </div>
         </div>
-        <!------------Back Button--------------->
-        <div class="text text-center">
-            <app-btncancel [routerLink]="['/amounttopay']" [data]="'Back'"></app-btncancel>
+        <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="dateTime"
+            [cdkConnectedOverlayOpen]="isOpenDateTime">
+            <div>
+                <!-- <button class="cross-button" (click)="isOpenDateTime = false">&#10005;</button> -->
+                <ngb-datepicker #dp [(ngModel)]="model" [ngModelOptions]="{standalone: true}" [minDate]="minPickerDate">
+                </ngb-datepicker>
+            </div>
+
+        </ng-template>
+        <!------------Memo--------------->
+        <div class="form mb-2 col-sm-5 col-md-5 col-lg-5">
+            <label for="memo" class="label mb-2">{{literals.memo}}</label>
+            <div class="form-control" contenteditable="true">Reason for...</div>
         </div>
-    
+    </div>
+
+    <!------------Radio--------------->
+    <div class="radio form-check form-switch mb-3">
+        <input class="form-check-input" type="checkbox" id="recurring">
+        <label class="label form-check-label" for="recurring">Make Recurring Payment</label>
+    </div>
+
+    <!------------Pay Button--------------->
+    <div class="text text-center">
+        <p360-buttonDone [type]="'submit'" [data]="literals.makePayButton" [recipient]="recipient" [amount]="amount"
+            (click)="openPopup()"></p360-buttonDone>
+    </div>
+
+    <!------------Modal--------------->
+    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img class="header" src="{{imagePath}}" alt="">
+                </div>
+                <div class="modal-body">
+                    <p>{{literals.modalRecipient}} <span class="modal-mobile">{{recipient}}</span></p>
+                    <p *ngIf="paymentMode!=='biller';"><span class="modal-mobile">{{mobile}}</span>&nbsp;
+                        {{literals.enrolledAs}}</p>
+                    <p>{{literals.continue}}</p>
+                </div>
+                <div class="modal-footer">
+                    <p360-buttonDone style="width: 50%;display:flex; justify-content: center;" [data]="'Cancel'"
+                        [type]="'cancel'" (click)="closePopup()"></p360-buttonDone>
+
+                    <p360-buttonDone style="width: 50%; display:flex; justify-content: center;" [data]="'Continue'"
+                        [type]="'submit'" (click)="onButtonClick('/otpscreen')"></p360-buttonDone>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------Back Button--------------->
+    <div class="text text-center">
+        <p360-buttonDone [type]="'cancel'" [routerLink]="['/amounttopay']" [data]="'Back'"></p360-buttonDone>
+    </div>
+
 </div>
