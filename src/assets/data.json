@@ -1,7 +1,7 @@
 {
   "biller": {
-    "accountNo": "*890076",
-    "amount": "50.00",
+    "accountNo": 890076,
+    "amount": 50.00,
     "accountList": [
       {
         "accountType": "Credit card **4009 (2.3% fee)",
@@ -16,15 +16,14 @@
     "cardNo":2246,
     "fee":"(2.3% fee)",
     "recipient":"AT&T",
-    "name":"YOU",
     "mobile": 7185551234,
     "confirmation":123456789,
     "imagePath": "billerlogo.png",
     "Image":"confirm.png"
   },
   "sender": {
-    "accountNo": "*890076",
-    "amount": "",
+    "accountNo": 890076,
+    "amount": 88,
     "accountList": [
       {
         "accountType": "Credit card(2.3% fee)",
@@ -41,14 +40,13 @@
     "recipient": "Kat Simmons  ",
     "mobile": 7185551234,
     "imagePath": "sendPayment.jpeg",
-    "date":"September 24th",
     "confirmation": 123456789,
     "enrolledAs":"Enrolled as Katherine",
     "Image":"confirm.png"
   },
   "requester": {
-    "accountNo": "*890076",
-    "amount": "",
+    "accountNo": 890076,
+    "amount": 99,
     "accountList": [
       {
         "accountType": "Credit card(2.3% fee)",
@@ -64,7 +62,6 @@
     "fee":"(2.3% fee)",
     "recipient": "Kat Simmons  ",
     "mobile": 7185551234,
-    "date":"September 24th",
     "imagePath": "sendPayment.jpeg",
     "confirmation": 1234567890 ,
     "enrolledAs":"Enrolled as Katherine",
@@ -78,6 +75,10 @@
 
 
   "billerliterals": {
+    "due":"Due date",
+    "importing": "Imported from Statement",
+    "viewStatement":"View current statement",
+    "selectionMethod":"Click to start selection for Payment method",
     "amountDue":"Amount Due ",
     "makeaPayment":"Make a Payment",
     "account":"Account Number",

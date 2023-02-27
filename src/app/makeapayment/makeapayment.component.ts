@@ -4,6 +4,7 @@ import { DataService } from '../service/data.service';
 import { Router, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { environment } from 'src/environments/environment';
+import { accountType } from '../interface';
 import {
   NgbDateStruct,
   NgbCalendar,
@@ -25,7 +26,7 @@ export class MakeapaymentComponent implements OnInit {
   accountNo: number;
   mobile: string;
   amount: string;
-  acountType: string;
+  acountType: accountType[];
   enrolledAs: string;
   imagePath: string = environment.imagePath;
   Image:string=environment.Image;
@@ -38,51 +39,52 @@ export class MakeapaymentComponent implements OnInit {
 
   constructor(
     private service: ApiService,
-    private dService: DataService,
+    private dataService: DataService,
     private router: Router,
     private datepipe: DatePipe,
     private calender: NgbCalendar
   ) {
-    this.paymentMode = this.dService.user;
 
-    switch (this.paymentMode) {
-      case 'biller': {
-        this.service
-          .getBillerLiteralData()
-          .subscribe((data) => (this.literals = data));
-        break;
-      }
-
-      case 'sender': {
-        this.service
-          .getSenderLiteralData()
-          .subscribe((data) => (this.literals = data));
-
-        break;
-      }
-      case 'requester': {
-        this.service
-          .getRequesterLiteralData()
-          .subscribe((data) => (this.literals = data));
-      }
-    }
+    this.paymentMode = this.dataService.user;
+    this.paymentDetails(this.paymentMode);
   }
 
- 
+ paymentDetails(payMode){
+  switch (payMode) {
+    case 'biller': {
+      this.service
+        .getBillerLiteralData()
+        .subscribe((data) => (this.literals = data));
+      break;
+    }
+
+    case 'sender': {
+      this.service
+        .getSenderLiteralData()
+        .subscribe((data) => (this.literals = data));
+      break;
+    }
+    case 'requester': {
+      this.service
+        .getRequesterLiteralData()
+        .subscribe((data) => (this.literals = data));
+    }
+  }
+ }
 
 
   ngOnInit(): void {
     this.selectToday();
-    this.recipient = this.dService.recipientName;
-    this.accountNo = this.dService.accountNumber;
-    this.mobile = this.dService.mobileNumber
+    this.recipient = this.dataService.recipientName;
+    this.accountNo = this.dataService.accountNumber;
+    this.mobile = this.dataService.mobileNumber
       .toString()
       .replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
-    this.amount = '$' + this.dService.payAmount;
-    this.acountType = this.dService.accType;
-    this.enrolledAs = this.dService.enroller;
-    this.imagePath += this.dService.imagePicture;
-    this.Image+= this.dService.tick;
+    this.amount = '$' + this.dataService.payAmount;
+    this.acountType = this.dataService.accType;
+    this.enrolledAs = this.dataService.enroller;
+    this.imagePath += this.dataService.imagePicture;
+    this.Image+= this.dataService.tick;
     this.minPickerDate = {
       year: new Date().getFullYear(),
       month: new Date().getMonth() + 1,

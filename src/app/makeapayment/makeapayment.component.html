@@ -25,9 +25,9 @@
                 <label for="amount" class="label form-label">{{literals.amount}}</label>
                 <div class="col-auto ">
                     <div class="input-group mb-1">
-                        <div class="dollar input-group-text">$</div>
-                        <div  *ngIf="paymentMode=='biller';" class="form-control" style="border-left: white; padding-left: 2px;" contenteditable="false">{{amount}}</div>
-                        <input *ngIf="paymentMode!=='biller';" type="text" class="form-control" style="border-left: white; padding-left: 2px;"
+                       
+                        <div  *ngIf="paymentMode=='biller';" class="form-control"  contenteditable="false">{{amount}}</div>
+                        <input *ngIf="paymentMode!=='biller';" type="text" class="form-control" 
                             id="amount" placeholder="Enter Amount" autocomplete="off" value="{{amount}}" />
                     </div>
                 </div>

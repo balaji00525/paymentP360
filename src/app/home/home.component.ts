@@ -13,6 +13,7 @@ export class HomeComponent {
   constructor(
     private service: DataService,
     private router: Router) { }
+    
     onPaymentClick(val: string) {
       this.service.user = val;
       this.router.navigate(['/amounttopay']);
