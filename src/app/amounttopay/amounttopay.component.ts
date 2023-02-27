@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment';
 import { BillType } from '../common/constant';
 import util from '../utilities/util';
 import { billType } from '../interface';
+import { RoutingPage } from '../routing';
 @Component({
   selector: 'app-amounttopay',
   templateUrl: './amounttopay.component.html',
@@ -28,22 +29,22 @@ export class AmounttopayComponent {
   selectedPaymentMode: string;
   literals: any = {};
   imagePath: string;
-  Image: string;
+  image: string;
 
   constructor(
     private services: ApiService,
+    private changeDetector: ChangeDetectorRef,
     private dataService: DataService,
-    private router: Router,
     private datepipe: DatePipe,
-    private changeDetector: ChangeDetectorRef
+    private router: Router
   ) {
-    this.myDate = this.datepipe.transform(this.myDate, 'MMMM d');
-    this.myDate = util.getDate(this.myDate);
+    this.myDate = datepipe.transform(this.myDate, 'MMMM d');
+    util.getDate(this.myDate);
     this.paymentMode = this.dataService.user;
     this.paymentDetails(this.paymentMode);
     if (this.bill) {
       this.imagePath = environment.imagePath + this.bill.imagePath;
-      this.Image = environment.Image + this.bill.Image;
+      this.image = environment.image + this.bill.image;
     }
   }
 
@@ -71,10 +72,10 @@ export class AmounttopayComponent {
       }
       case BillType.REQUESTOR: {
         this.services
-          .getRequesterData()
+          .getRequestorData()
           .subscribe((data: billType) => (this.bill = data));
         this.services
-          .getRequesterLiteralData()
+          .getRequestorLiteralData()
           .subscribe((data) => (this.literals = data));
         this.selectedPaymentMode = 'Request';
       }
@@ -89,7 +90,7 @@ export class AmounttopayComponent {
     this.dataService.accType = this.bill.accountList;
     this.dataService.enroller = this.bill.enrolledAs;
     this.dataService.imagePicture = this.bill.imagePath;
-    this.dataService.tick = this.bill.Image;
+    this.dataService.tick = this.bill.image;
     this.dataService.paymentMode = this.bill.paymentType;
     this.dataService.cardNumber = this.bill.cardNo;
     this.dataService.feeDetail = this.bill.fee;
@@ -100,7 +101,7 @@ export class AmounttopayComponent {
   ngDoCheck() {
     if (this.bill) {
       this.imagePath = environment.imagePath + this.bill.imagePath;
-      this.Image = environment.Image + this.bill.Image;
+      this.image = environment.image + this.bill.image;
       this.changeDetector.detectChanges();
     }
   }

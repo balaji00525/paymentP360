@@ -16,7 +16,7 @@ export class DataService {
   private cardNo:number;
   private fee:string;
   private confirmation:number;
-  private Image:string;
+  private image:string;
   accountList: any;
   constructor() { }
 
@@ -93,9 +93,9 @@ export class DataService {
     this.confirmation=val;
   }
   get tick():string{
-    return this.Image;
+    return this.image;
   }
   set tick( val:string){
-    this.Image=val;
+    this.image=val;
   }
 }

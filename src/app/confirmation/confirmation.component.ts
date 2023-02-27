@@ -16,7 +16,7 @@ export class ConfirmationComponent implements OnInit {
   literals:any={};
   accountDetails: DataService;
   imagePath: string = environment.imagePath;
-  Image: string = environment.Image;
+  image: string = environment.image;
   paymentMode:string;
   
 
@@ -47,10 +47,10 @@ export class ConfirmationComponent implements OnInit {
             break;
         }  
         
-        case "requester": 
+        case "Requestor": 
         {
           this.service
-          .getRequesterLiteralData()
+          .getRequestorLiteralData()
           .subscribe(data=> this.literals=data);
         }
        
@@ -65,7 +65,7 @@ export class ConfirmationComponent implements OnInit {
 
   ngOnInit(): void {
     this.imagePath += this.dataService.imagePicture;
-    this.Image +=this.dataService.tick;
+    this.image +=this.dataService.tick;
     this.accountDetails=this.dataService;
     }
 
