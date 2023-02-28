@@ -1,10 +1,4 @@
-.done{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.btndone{
+.btndone {
     width: 50%;
     color: rgb(255, 255, 255);
     background-color: #29479e;
@@ -13,14 +7,30 @@
     cursor: pointer;
     box-shadow: none;
     transition: all 0.2s linear;
+
     &:hover,
-    &.active{
-        background-color:#899cc9 ;
+    &.active {
+        background-color: #899cc9;
+    }
+}
+
+.btncancel {
+    @extend .btndone;
+    background-color: #d1dee6;
+    color: black;
+
+    &:hover,
+    &.active {
+        background-color: #edf2f5;
     }
 }
 
 @media (min-width:150px) and (max-width:575px) {
-    .btndone{
+    .btndone {
+        width: 100%;
+    }
+
+    .btncancel {
         width: 100%;
     }
 }

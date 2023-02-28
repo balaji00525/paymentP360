@@ -1,7 +1,7 @@
 {
   "biller": {
-    "accountNo": "*890076",
-    "amount": "50.00",
+    "accountNo": 890076,
+    "amount": 50.00,
     "accountList": [
       {
         "accountType": "Credit card **4009 (2.3% fee)",
@@ -12,20 +12,18 @@
         "balance": "$5,164.98 available"
       }
     ],
-    "date":"",
     "paymentType":"CREDIT CARD.",
     "cardNo":2246,
     "fee":"(2.3% fee)",
-    "recipient":"AT&T",
-    "name":"YOU",
+    "recipient":"AT&T ",
     "mobile": 7185551234,
     "confirmation":123456789,
-    "imagePath": "logo2.png",
-    "enrolledAs":""
+    "imagePath": "billerlogo.png",
+    "image":"confirm.png"
   },
   "sender": {
-    "accountNo": "*890076",
-    "amount": 16.00,
+    "accountNo": 890076,
+    "amount": 88,
     "accountList": [
       {
         "accountType": "Credit card(2.3% fee)",
@@ -41,14 +39,14 @@
     "fee":"(2.3% fee)",
     "recipient": "Kat Simmons  ",
     "mobile": 7185551234,
-    "imagePath": "send image.jpeg",
-    "date":"September 24th",
+    "imagePath": "sendPayment.jpeg",
     "confirmation": 123456789,
-    "enrolledAs":"Enrolled as Katherine"
+    "enrolledAs":"Enrolled as Katherine",
+    "image":"confirm.png"
   },
-  "requester": {
-    "accountNo": "*890076",
-    "amount": 70.00,
+  "Requestor": {
+    "accountNo": 890076,
+    "amount": 99,
     "accountList": [
       {
         "accountType": "Credit card(2.3% fee)",
@@ -64,10 +62,10 @@
     "fee":"(2.3% fee)",
     "recipient": "Kat Simmons  ",
     "mobile": 7185551234,
-    "date":"September 24th",
-    "imagePath": "send image.jpeg",
+    "imagePath": "sendPayment.jpeg",
     "confirmation": 1234567890 ,
-    "enrolledAs":"Enrolled as Katherine"
+    "enrolledAs":"Enrolled as Katherine",
+    "image":"confirm.png"
   },
   
 
@@ -77,8 +75,13 @@
 
 
   "billerliterals": {
+    "due":"Due date",
+    "importing": "Imported from Statement",
+    "viewStatement":"View current statement",
+    "selectionMethod":"Click to start selection for Payment method",
     "amountDue":"Amount Due ",
     "makeaPayment":"Make a Payment",
+    "account":"Account Number",
     "amountPayButton":"Make a Payment",
     "amount":"Amount",
     "withdrawFrom":"Withdraw from",
@@ -93,12 +96,14 @@
     "paymentSent":"Payment sent",
     "arrives":"Arrive",
     "you":"You",
-    "imagePath":""
+    "imagePath":"",
+    "confirm":"confirmation"
   },
   "senderliterals": {
     "amountDue":"Amount to pay ",
     "makeaPayment":"Make a Payment",
-    "amountPayButton":"Pay",
+    "account":"Account Number",
+    "amountPayButton":"Amount to Pay",
     "amount":"Amount",
     "withdrawFrom":"Withdraw from",
     "deliveryBy":"Delivery by",
@@ -112,12 +117,14 @@
     "paymentSent":"Payment sent",
     "arrives":"Arrive",
     "you":"You",
-    "imagePath":"../../assets/images/zelle.png"
+    "imagePath":"../../assets/images/zelle.png",
+    "confirm":"confirmation"
   },
-  "requesterliterals": {
+  "Requestorliterals": {
     "amountDue":"Amount to Request",
     "makeaPayment":"Request a Payment",
-    "amountPayButton":"Request",
+    "account":"Account Number",
+    "amountPayButton":"Amount to Request",
     "amount":"Amount",
     "withdrawFrom":"Deposit to",
     "deliveryBy":"Request on",
@@ -130,7 +137,8 @@
     "paymentSent":"Payment Requested",
     "arrives":"Requested",
     "you":"You",
-    "imagePath":"../../assets/images/zelle.png"
+    "imagePath":"../../assets/images/zelle.png",
+    "confirm":"confirmation"
   }
   
 

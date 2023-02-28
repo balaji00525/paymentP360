@@ -3,7 +3,6 @@
 <div class="container">
     <h3 class="text text-center mb-3 ">Verify number</h3>
     <h6 class="text text-center">We sent a one-time security code to <span class="number">{{mobile}}</span></h6>
-    <h6 class="number-1 text text-center mb-3">{{mobile}}</h6>
     <h6 class="text text-center">Please Enter the code below</h6>
     <div class="otp text text-center mb-3">
         <input class="otp-input mb-2" type="text" autocomplete="off" value="{{data.otp}}" />
@@ -14,10 +13,10 @@
         <h6 class="text text-center"><a class="otp-resend" href="#">Re-send via phone call</a></h6>
     </div>
     <div class="text text-center">
-        <app-btndone (click)="onButtonClick('/confirmation')" [data]="'Verify'"></app-btndone>
+        <p360-buttonDone (click)="onButtonClick('/confirmation')" [data]="'Verify'" [type]="'submit'"></p360-buttonDone>
     </div>
 
     <div class="text text-center">
-        <app-btncancel [routerLink]="['/home']" [data]="'Cancel'"></app-btncancel>
+        <p360-buttonDone [routerLink]="['/home']" [data]="'Cancel'" [type]="'cancel'"></p360-buttonDone>
     </div>
 </div>
