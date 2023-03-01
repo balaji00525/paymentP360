@@ -47,7 +47,7 @@ export class AmounttopayComponent {
 
 
 
-   paymentDetails(payMode):void {
+   private paymentDetails(payMode):void {
     switch (payMode) {
       case BillType.BILLER: {
         this.services.getBillerData().subscribe((data: billType) => (this.bill = data));
