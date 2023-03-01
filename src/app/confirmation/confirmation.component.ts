@@ -3,7 +3,10 @@ import { DataService } from '../service/data.service';
 import { ApiService } from '../service/api.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import util from '../utilities/util';
 import { environment } from 'src/environments/environment';
+import { billType } from '../interface';
+import { BillType } from '../common/constant';
 @Component({
   selector: 'app-confirmation',
   templateUrl: './confirmation.component.html',
@@ -12,12 +15,14 @@ import { environment } from 'src/environments/environment';
 })
 export class ConfirmationComponent implements OnInit {
   data: any = {};
+  bill: billType;
   myDate: any = new Date();
   literals: any = {};
   accountDetails: DataService;
   imagePath: string = environment.imagePath;
   image: string = environment.image;
   paymentMode: string;
+  selectedPaymentMode: string;
 
   constructor(
     private service: ApiService,
@@ -26,30 +31,36 @@ export class ConfirmationComponent implements OnInit {
     private datepipe: DatePipe
   ) {
     this.myDate = this.datepipe.transform(this.myDate, 'MMMM d');
+    this.myDate = util.getDate(this.myDate);
     let paymentMode = this.dataService.user;
     this.paymentDetails(this.paymentMode);
   }
 
+  
   paymentDetails(payMode) {
     switch (payMode) {
-      case 'biller': {
+      case BillType.BILLER: {
+        
         this.service
           .getBillerLiteralData()
           .subscribe((data) => (this.literals = data));
         break;
       }
-
-      case 'sender': {
+      case BillType.SENDER: {
+        
         this.service
           .getSenderLiteralData()
           .subscribe((data) => (this.literals = data));
+        this.selectedPaymentMode = 'Pay';
+
         break;
       }
-
-      case 'requestor': {
+      case BillType.REQUESTOR: {
+        
         this.service
           .getRequestorLiteralData()
           .subscribe((data) => (this.literals = data));
+        this.selectedPaymentMode = 'Request';
       }
     }
   }

@@ -30,6 +30,7 @@ export class AmounttopayComponent {
   literals: any = {};
   imagePath: string;
   image: string;
+  mobile: string;
   route = RoutingLinks;
 
   constructor(
@@ -40,7 +41,7 @@ export class AmounttopayComponent {
     private router: Router
   ) {
     this.myDate = datepipe.transform(this.myDate, 'MMMM d');
-    util.getDate(this.myDate);
+    this.myDate = util.getDate(this.myDate);
     this.paymentMode = this.dataService.user;
     this.paymentDetails(this.paymentMode);
     if (this.bill) {
@@ -106,4 +107,5 @@ export class AmounttopayComponent {
       this.changeDetector.detectChanges();
     }
   }
+  
 }
