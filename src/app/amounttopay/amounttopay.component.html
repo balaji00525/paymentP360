@@ -1,8 +1,10 @@
 <app-header [data]="literals.amountDue"></app-header>
-<div class="navbar">
+<div class="navbar" *ngIf="literals">
     <div class="logo">
-        <img class="image" src="{{imagePath}}" alt="" height="50">
-        <h4>{{bill.recipient}} *{{bill.accountNo}}</h4>
+       
+        <img  class="image" [src]="getImage()" alt="" height="50">
+       
+        <h4>{{bill?.recipient}} {{bill?.accountNo}}</h4>
         <h5 class="text text-center">{{bill.enrolledAs}}</h5>
         <h5 class="mobile">{{bill.mobile}}</h5>
     </div>
@@ -15,16 +17,17 @@
         </ng-container>
 
         <h4 *ngIf="paymentMode !== 'biller'">{{literals.amountPayButton}}</h4>
-        <h1 class="dollar"><span>$</span>
-            <input *ngIf="paymentMode !== 'biller'" class="input-outline" type="number" [(ngModel)]="bill.amount"
-                placeholder="Enter an amount to pay" />
-            <span *ngIf="paymentMode === 'biller'">{{bill.amount}}</span>
-        </h1>
+        <div class="box">
+            <h1 class="dollar"><span>$</span>
+                <input *ngIf="paymentMode !== 'biller'" class="input-outline" type="number" [(ngModel)]="bill.amount"
+                    placeholder="Enter an amount to pay" />
+                <span *ngIf="paymentMode === 'biller'">{{bill.amount}}</span>
+            </h1>
+        </div>
     </h6>
 </div>
 <hr *ngIf="paymentMode==='biller'">
-
-<div>
+<div >
     <div>
         <div *ngIf="paymentMode==='biller'" class="due navbar">
             <div>
@@ -47,17 +50,16 @@
             <p class="click">{{literals.selectionMethod}}</p>
         </ng-container>
 
-
         <div class="text text-center">
             <div class="text text-center">
-                <p360-buttonDone *ngIf="paymentMode==='biller'" [type]="'submit'" [data]="literals.makeaPayment"
-                    (click)="onSubmit(route.MAKEAPAYMENT)"></p360-buttonDone>
-                <p360-buttonDone *ngIf="paymentMode !== 'biller'" [type]="'submit'" [data]="literals.makePayButton"
-                    (click)="onSubmit(route.MAKEAPAYMENT)"></p360-buttonDone>
+                <p360-button [type]="'submit'" *ngIf="paymentMode==='biller'" [data]="literals.makeaPayment"
+                    (click)="onSubmit(route.MAKEAPAYMENT)"></p360-button>
+                <p360-button [type]="'submit'" *ngIf="paymentMode !== 'biller'" [data]="literals.makePayButton"
+                    (click)="onSubmit(route.MAKEAPAYMENT)"></p360-button>
             </div>
         </div>
         <div class="text text-center">
-            <p360-buttonDone [data]="'Back'" [type]="'cancel'" (click)="onSubmit(route.HOME)"></p360-buttonDone>
+            <p360-button [type]="'cancel'" [data]="literals.back"  (click)="onSubmit(route.HOME)"></p360-button>
         </div>
     </div>
 </div>

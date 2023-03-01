@@ -17,6 +17,7 @@ export class DataService {
   private fee:string;
   private confirmation:number;
   private image:string;
+  private imageLogo:string;
   accountList: any;
   constructor() { }
 
@@ -97,5 +98,11 @@ export class DataService {
   }
   set tick( val:string){
     this.image=val;
+  }
+  get bank():string{
+    return this.imageLogo;
+  }
+  set bank(val:string){
+    this.imageLogo=val;
   }
 }

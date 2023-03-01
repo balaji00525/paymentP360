@@ -4,7 +4,7 @@
     "amount": 50.00,
     "accountList": [
       {
-        "accountType": "Credit card **4009 (2.3% fee)",
+        "accountType": "Credit card (2.3% fee)",
         "balance": "$365.27 available"
       },
       {
@@ -19,7 +19,8 @@
     "mobile": 7185551234,
     "confirmation":123456789,
     "imagePath": "billerlogo.png",
-    "image":"confirm.png"
+    "image":"confirm.png",
+    "imageLogo":"Banklogo.jpg"
   },
   "sender": {
     "accountNo": 890076,
@@ -42,7 +43,8 @@
     "imagePath": "sendPayment.jpeg",
     "confirmation": 123456789,
     "enrolledAs":"Enrolled as Katherine",
-    "image":"confirm.png"
+    "image":"confirm.png",
+    "imageLogo":"Banklogo.jpg"
   },
   "Requestor": {
     "accountNo": 890076,
@@ -65,7 +67,8 @@
     "imagePath": "sendPayment.jpeg",
     "confirmation": 1234567890 ,
     "enrolledAs":"Enrolled as Katherine",
-    "image":"confirm.png"
+    "image":"confirm.png",
+    "imageLogo":"Banklogo.jpg"
   },
   
 
@@ -97,8 +100,21 @@
     "arrives":"Arrive",
     "you":"You",
     "imagePath":"",
-    
-    "confirm":"confirmation"
+    "confirm":"confirmation",
+    "back":"Back",
+    "faster":"⚡ Fastest option",
+    "arrivesIn":"Arrives in minutes",
+    "selected":"Currently selected",
+    "arrivesMinutes":"Arrives in 1-3 days",
+    "verify":"Verify number",
+    "securityCode":"We sent a one-time security code to",
+    "enterMobile": "Please Enter the code below",
+    "sms":"Re-send via text",
+    "phoneCall":"Re-send via phone call",
+    "otp":"OTP",
+    "verifyBtn":"Verify",
+    "cancelBtn":"Cancel"
+
   },
   "senderliterals": {
     "amountDue":"Amount to pay ",
@@ -119,7 +135,20 @@
     "arrives":"Arrive",
     "you":"You",
     "imagePath":"../../assets/images/zelle.png",
-    "confirm":"confirmation"
+    "confirm":"confirmation",
+    "back":"Back",
+    "faster":"⚡ Fastest option",
+    "arrivesIn":"Arrives in minutes",
+    "selected":"Currently selected",
+    "arrivesMinutes":"Arrives in 1-3 days",
+    "verify":"Verify number",
+    "securityCode":"We sent a one-time security code to",
+    "enterMobile": "Please Enter the code below",
+    "sms":"Re-send via text",
+    "phoneCall":"Re-send via phone call",
+    "otp":"OTP",
+    "verifyBtn":"Verify",
+    "cancelBtn":"Cancel"
   },
   "Requestorliterals": {
     "amountDue":"Amount to Request",
@@ -139,7 +168,20 @@
     "arrives":"Requested",
     "you":"You",
     "imagePath":"../../assets/images/zelle.png",
-    "confirm":"confirmation"
+    "confirm":"confirmation",
+    "back":"Back",
+    "faster":"⚡ Fastest option",
+    "arrivesIn":"Arrives in minutes",
+    "selected":"Currently selected",
+    "arrivesMinutes":"Arrives in 1-3 days",
+    "verify":"Verify number",
+    "securityCode":"We sent a one-time security code to",
+    "enterMobile": "Please Enter the code below",
+    "sms":"Re-send via text",
+    "phoneCall":"Re-send via phone call",
+    "otp":"OTP",
+    "verifyBtn":"Verify",
+    "cancelBtn":"Cancel"
   }
   
 

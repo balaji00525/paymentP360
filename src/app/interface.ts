@@ -10,6 +10,7 @@ export interface billType {
   confirmation: number;
   imagePath: string;
   image: string;
+  imageLogo: string;
   enrolledAs?: string;
 }
 export interface accountType {

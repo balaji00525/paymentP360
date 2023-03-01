@@ -7,7 +7,7 @@
 
     <div class="bg-light image-container">
         <div class="image-width">
-            <img src="https://media.istockphoto.com/id/934869826/vector/bank-building-circle-icon-with-long-shadow-flat-design-style.jpg?s=1024x1024&w=is&k=20&c=KmFEztS-dWG60zKP4UhNC_m5UhNk4VqQReB_KPKxl9Y="
+            <img src="{{imageLogo}}"
                 width="55px" height="55px">
         </div>
         <div>
@@ -42,7 +42,7 @@
     </nav>
 
     <div class="btncontainer">
-        <p360-buttonDone [data]="'Done'" [type]="'submit'" [routerLink]="['/home']"></p360-buttonDone>
-        <p360-buttonDone [data]="'Cancel'" [type]="'cancel'" [routerLink]="['/otpscreen']"></p360-buttonDone>
+        <p360-button [data]="'Done'" [type]="'submit'" (click)="onSubmit(route.HOME)"></p360-button>
+        <p360-button [data]="'Cancel'" [type]="'cancel'" (click)="onSubmit(route.OTPSCREEN)"></p360-button>
     </div>
 </div>
