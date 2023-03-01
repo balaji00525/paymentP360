@@ -1,39 +1,57 @@
-import { Component,Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from '../service/api.service';
 import { Router } from '@angular/router';
 import { DataService } from '../service/data.service';
 import { accountType } from '../interface';
+import { BillType } from '../common/constant';
+import { billType } from '../interface';
+import { RoutingLinks } from '../routing';
+
 @Component({
   selector: 'app-otpscreen',
   templateUrl: './otpscreen.component.html',
   styleUrls: ['./otpscreen.component.scss']
 })
+
 export class OtpscreenComponent implements OnInit {
 
-  recipient:string;
-  accountNo:number;
-  mobile:number;
-  amount:number;
-  acountType:accountType[];
-  enrolledAs:string;
-  data:any={};
+  mobile: number;
+  paymentMode: string;
+  literals: any = {};
+  bill: billType;
+  selectedPaymentMode: string;
+  route = RoutingLinks;
 
-  constructor(private service:ApiService,
-    private router:Router,
-    private dataService: DataService) { }
+  constructor(
+    private service: ApiService,
+    private dataService: DataService,
+    private router: Router) {
+    this.paymentMode = this.dataService.user;
+    this.paymentDetails(this.paymentMode);
+  }
 
   ngOnInit(): void {
-    this.recipient= this.dataService.recipientName;
-    this.accountNo=this.dataService.accountNumber;
-    this.mobile=this.dataService.mobileNumber;
-    this.amount=this.dataService.payAmount;
-    this.acountType=this.dataService.accType;
-    this.enrolledAs=this.dataService.enroller;
-     }
-     onButtonClick(routerLink): void {
-      this.router.navigate([routerLink]);
+
+    this.mobile = this.dataService.mobileNumber;
+
+  }
+  onSubmit(routerLink): void {
+    this.router.navigate([routerLink]);
+  }
+
+  paymentDetails(payMode): void {
+    switch (payMode) {
+      case BillType.BILLER: {
+        this.service.getBillerLiteralData().subscribe((data) => (this.literals = data));
+        break;
+      }
+      case BillType.SENDER: {
+        this.service.getSenderLiteralData().subscribe((data) => (this.literals = data));
+        break;
+      }
+      case BillType.REQUESTOR: {
+        this.service.getRequestorLiteralData().subscribe((data) => (this.literals = data));
+      }
     }
- 
+  }
 }
-
-

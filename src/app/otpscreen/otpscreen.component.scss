@@ -1,27 +1,31 @@
 @import '../../styles.scss';
 
-.container{
+.container {
     padding-top: 50px;
 }
-.number{
-   color: #000;
-   font-weight: 600;
-}
-.number-1{
+
+.number {
     color: #000;
     font-weight: 600;
- }
-a{
+}
+
+.number-1 {
+    color: #000;
+    font-weight: 600;
+}
+
+a {
     text-decoration: none;
-    color:#29479e;
+    color: #29479e;
+
     &:hover,
-    &.active{
+    &.active {
         color: #899cc9;
     }
 }
 
-.otp{
-    .otp-input{
+.otp {
+    .otp-input {
         width: 35%;
         font-size: 50px;
         font-weight: 100;
@@ -34,19 +38,26 @@ a{
         border-top: #544b4b;
     }
 }
-.hyperlink{
-    display: contents;
-    justify-content: space-evenly;   
+
+input,
+input::placeholder {
+    font-size: large;
 }
 
-@media (min-width:320px) and (max-width:700px){
-    .hyperlink{
+.hyperlink {
+    display: contents;
+    justify-content: space-evenly;
+}
+
+@media (min-width:320px) and (max-width:700px) {
+    .hyperlink {
         display: contents;
         margin-bottom: 20%;
     }
-    .otp{
-        .otp-input{
-            width: 70%;      
+
+    .otp {
+        .otp-input {
+            width: 70%;
         }
     }
 }

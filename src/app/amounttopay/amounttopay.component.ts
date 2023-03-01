@@ -1,7 +1,5 @@
 import {
   Component,
-  OnInit,
-  DoCheck,
   ChangeDetectorRef,
   ChangeDetectionStrategy,
 } from '@angular/core';
@@ -14,12 +12,13 @@ import { BillType } from '../common/constant';
 import util from '../utilities/util';
 import { billType } from '../interface';
 import { RoutingLinks } from '../routing';
+
 @Component({
   selector: 'app-amounttopay',
   templateUrl: './amounttopay.component.html',
   styleUrls: ['./amounttopay.component.scss'],
   providers: [DatePipe],
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AmounttopayComponent {
   bill: billType;
@@ -28,8 +27,9 @@ export class AmounttopayComponent {
   paymentMode: string;
   selectedPaymentMode: string;
   literals: any = {};
-  imagePath: string;
+  imagePath="";
   image: string;
+  imageLogo: string;
   route = RoutingLinks;
 
   constructor(
@@ -37,50 +37,39 @@ export class AmounttopayComponent {
     private changeDetector: ChangeDetectorRef,
     private dataService: DataService,
     private datepipe: DatePipe,
-    private router: Router
-  ) {
+    private router: Router ) {
     this.myDate = datepipe.transform(this.myDate, 'MMMM d');
-    util.getDate(this.myDate);
+    this.myDate=(this.myDate.split(" ") [0]) + ' ' + util.getDate(this.myDate.split(" ")[1]);
     this.paymentMode = this.dataService.user;
     this.paymentDetails(this.paymentMode);
-    if (this.bill) {
-      this.imagePath = environment.imagePath + this.bill.imagePath;
-      this.image = environment.image + this.bill.image;
-    }
   }
 
-  paymentDetails(payMode) {
+
+
+
+   paymentDetails(payMode):void {
     switch (payMode) {
       case BillType.BILLER: {
-        this.services
-          .getBillerData()
-          .subscribe((data: billType) => (this.bill = data));
-        this.services
-          .getBillerLiteralData()
-          .subscribe((data) => (this.literals = data));
+        this.services.getBillerData().subscribe((data: billType) => (this.bill = data));
+        
+        this.services.getBillerLiteralData().subscribe((data) => (this.literals = data));
+        console.log(JSON.stringify(this.literals))
         break;
       }
       case BillType.SENDER: {
-        this.services
-          .getSenderData()
-          .subscribe((data: billType) => (this.bill = data));
-        this.services
-          .getSenderLiteralData()
-          .subscribe((data) => (this.literals = data));
+        this.services.getSenderData().subscribe((data: billType) => (this.bill = data));
+        this.services.getSenderLiteralData().subscribe((data) => (this.literals = data));
         this.selectedPaymentMode = 'Pay';
-
         break;
       }
       case BillType.REQUESTOR: {
-        this.services
-          .getRequestorData()
-          .subscribe((data: billType) => (this.bill = data));
-        this.services
-          .getRequestorLiteralData()
-          .subscribe((data) => (this.literals = data));
+        this.services.getRequestorData().subscribe((data: billType) => (this.bill = data));
+        this.services.getRequestorLiteralData().subscribe((data) => (this.literals = data));
         this.selectedPaymentMode = 'Request';
       }
+      
     }
+    
   }
 
   onSubmit(routeLink): void {
@@ -92,6 +81,7 @@ export class AmounttopayComponent {
     this.dataService.enroller = this.bill.enrolledAs;
     this.dataService.imagePicture = this.bill.imagePath;
     this.dataService.tick = this.bill.image;
+    this.dataService.bank = this.bill.imageLogo;
     this.dataService.paymentMode = this.bill.paymentType;
     this.dataService.cardNumber = this.bill.cardNo;
     this.dataService.feeDetail = this.bill.fee;
@@ -99,11 +89,15 @@ export class AmounttopayComponent {
     this.router.navigate([routeLink]);
   }
 
-  ngDoCheck() {
+  
+
+  getImage():string{  
     if (this.bill) {
-      this.imagePath = environment.imagePath + this.bill.imagePath;
-      this.image = environment.image + this.bill.image;
-      this.changeDetector.detectChanges();
-    }
+      // console.log(environment,this.bill)
+      this.imagePath = environment.imagePath + this.bill.imagePath;     
+     }
+    this.changeDetector.markForCheck();
+    // console.log("imagePath",this.imagePath)
+    return this.imagePath;
   }
 }

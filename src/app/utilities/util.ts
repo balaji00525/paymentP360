@@ -1,11 +1,12 @@
 export default class Utils {
   static getDate(date) {
+    console.log(date)
     date =
-      date === 2 || date === 22
+      date === "2" || date === "22"
         ? date + 'nd'
-        : date === 3 || date === 23
+        : date === "3" || date === "23"
         ? date + 'rd'
-        : date == 21 || date == 1 || date == 31
+        : date === "21" || date === "1" || date === "31"
         ? date + 'st'
         : date + 'th';
     return date;
