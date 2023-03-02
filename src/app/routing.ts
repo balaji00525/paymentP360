@@ -1,6 +1,6 @@
 export const RoutingLinks = {
   HOME: 'home',
-  AMOUNTTOPAY: 'amounttopay',
+  AMOUNTTOPAY: 'amountToPay',
   MAKEAPAYMENT: 'makeapayment',
   OTPSCREEN: 'otpscreen',
   CONFIRMATION: 'confirmation',

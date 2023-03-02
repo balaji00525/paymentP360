@@ -60,7 +60,8 @@ input[type=number] {
 .input-outline:focus {
   outline: none;
 }
-.box{
+
+.box {
   padding-left: 70px;
 }
 
@@ -127,7 +128,7 @@ p {
   }
 
   .width {
-    width: 100% !important;
+    width: 100% ;
   }
 
   .accountnum {
@@ -148,3 +149,4 @@ p {
     flex-direction: column;
   }
 }
+
