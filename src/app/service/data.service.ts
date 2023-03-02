@@ -11,13 +11,14 @@ export class DataService {
   private amount:number;
   private accountType:accountType[];
   private enrolledAs:string;
-  private imagePath:string;
+  private userLogo:string;
   private paymentType:string;
   private cardNo:number;
   private fee:string;
   private confirmation:number;
-  private image:string;
-  private imageLogo:string;
+  private tickImage:string;
+  private bankLogo:string;
+  private dueDate:string;
   accountList: any;
   constructor() { }
 
@@ -28,10 +29,10 @@ export class DataService {
     this.header = val;
   }
   get imagePicture():string{
-    return this.imagePath;
+    return this.userLogo;
   }
   set imagePicture(val:string){
-    this.imagePath=val;
+    this.userLogo=val;
   }
   get recipientName():string{
     return this.recipient;
@@ -94,15 +95,21 @@ export class DataService {
     this.confirmation=val;
   }
   get tick():string{
-    return this.image;
+    return this.tickImage;
   }
   set tick( val:string){
-    this.image=val;
+    this.tickImage=val;
   }
   get bank():string{
-    return this.imageLogo;
+    return this.bankLogo;
   }
   set bank(val:string){
-    this.imageLogo=val;
+    this.bankLogo=val;
+  }
+  get Date():string{
+    return this.dueDate;
+  }
+  set Date(val:string){
+    this.dueDate;
   }
 }

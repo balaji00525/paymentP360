@@ -18,9 +18,10 @@
     "recipient":"AT&T ",
     "mobile": 7185551234,
     "confirmation":123456789,
-    "imagePath": "billerlogo.png",
-    "image":"confirm.png",
-    "imageLogo":"Banklogo.jpg"
+    "userLogo": "billerlogo.png",
+    "tickImage":"confirm.png",
+    "bankLogo":"Banklogo.jpg",
+    "dueDate":"Thu Mar 10 2023 12:59:32 GMT+0530 (India Standard Time)"
   },
   "sender": {
     "accountNo": 890076,
@@ -40,11 +41,11 @@
     "fee":"(2.3% fee)",
     "recipient": "Kat Simmons  ",
     "mobile": 7185551234,
-    "imagePath": "sendPayment.jpeg",
+    "userLogo": "sendPayment.jpeg",
     "confirmation": 123456789,
     "enrolledAs":"Enrolled as Katherine",
-    "image":"confirm.png",
-    "imageLogo":"Banklogo.jpg"
+    "tickImage":"confirm.png",
+    "bankLogo":"Banklogo.jpg"
   },
   "Requestor": {
     "accountNo": 890076,
@@ -64,11 +65,11 @@
     "fee":"(2.3% fee)",
     "recipient": "Kat Simmons  ",
     "mobile": 7185551234,
-    "imagePath": "sendPayment.jpeg",
+    "userLogo": "sendPayment.jpeg",
     "confirmation": 1234567890 ,
     "enrolledAs":"Enrolled as Katherine",
-    "image":"confirm.png",
-    "imageLogo":"Banklogo.jpg"
+    "tickImage":"confirm.png",
+    "bankLogo":"Banklogo.jpg"
   },
   
 
@@ -100,7 +101,7 @@
     "arrives":"Arrive",
     "you":"You",
     "imagePath":"",
-    "confirm":"confirmation",
+    "confirm":"Confirmation",
     "back":"Back",
     "faster":"⚡ Fastest option",
     "arrivesIn":"Arrives in minutes",
@@ -113,7 +114,9 @@
     "phoneCall":"Re-send via phone call",
     "otp":"OTP",
     "verifyBtn":"Verify",
-    "cancelBtn":"Cancel"
+    "cancelBtn":"Cancel",
+    "done":"Done",
+    "cancel":"Cancel"
 
   },
   "senderliterals": {
@@ -135,7 +138,7 @@
     "arrives":"Arrive",
     "you":"You",
     "imagePath":"../../assets/images/zelle.png",
-    "confirm":"confirmation",
+    "confirm":"Confirmation",
     "back":"Back",
     "faster":"⚡ Fastest option",
     "arrivesIn":"Arrives in minutes",
@@ -148,7 +151,9 @@
     "phoneCall":"Re-send via phone call",
     "otp":"OTP",
     "verifyBtn":"Verify",
-    "cancelBtn":"Cancel"
+    "cancelBtn":"Cancel",
+    "done":"Done",
+    "cancel":"Cancel"
   },
   "Requestorliterals": {
     "amountDue":"Amount to Request",
@@ -168,7 +173,7 @@
     "arrives":"Requested",
     "you":"You",
     "imagePath":"../../assets/images/zelle.png",
-    "confirm":"confirmation",
+    "confirm":"Confirmation",
     "back":"Back",
     "faster":"⚡ Fastest option",
     "arrivesIn":"Arrives in minutes",
@@ -181,7 +186,9 @@
     "phoneCall":"Re-send via phone call",
     "otp":"OTP",
     "verifyBtn":"Verify",
-    "cancelBtn":"Cancel"
+    "cancelBtn":"Cancel",
+    "done":"Done",
+    "cancel":"Cancel"
   }
   
   

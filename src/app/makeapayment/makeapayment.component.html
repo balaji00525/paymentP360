@@ -4,7 +4,7 @@
 
     <!--------Account Details--------->
     <div class="title">
-        <img class="picture" src="{{imagePath}}" width="50">
+        <img class="picture" src="{{userLogo}}" width="50">
         <h6 class="text text-center">{{accountDetails.recipientName}} {{accountDetails.accountNumber}}</h6>
         <h5 class="text text-center">{{accountDetails.enroller}}</h5>
         <h6 class="mobile text">{{mobile}}</h6>
@@ -89,12 +89,11 @@
     <div class="rows1">
         <!------------Date--------------->
         <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-            <label for="dateTimePicker" class="label form-label">literals.withdrawFrom</label>
+            <label for="dateTimePicker" class="label form-label">{{literals.deliveryBy}}</label>
             <div class="col-auto ">
                 <div class="input-group mb-1">
-                    <div class="form-control" id="dateTimePicker" mindate="0" maxdate="+90" contenteditable="false"
-                        cdkOverlayOrigin #dateTime="cdkOverlayOrigin">{{selectedDay}}, {{selectedMonth}} {{
-                        model.day }}, {{ model.year }}
+                    <div class="form-control" id="dateTimePicker" contenteditable="false"
+                        cdkOverlayOrigin #dateTime="cdkOverlayOrigin">{{selectedDay}}, {{selectedMonth}} {{model.day }}, {{ model.year }}
                         <button id="calenderButton" (click)="isOpenDateTime = !isOpenDateTime"
                             class="calender-icon-button" title="calender"><i class="fa-regular fa-calendar"
                                 style="color:rgb(101, 101, 201)"></i></button>
@@ -106,7 +105,7 @@
             [cdkConnectedOverlayOpen]="isOpenDateTime">
             <div>
                 <!-- <button class="cross-button" (click)="isOpenDateTime = false">&#10005;</button> -->
-                <ngb-datepicker #dp [(ngModel)]="model" [ngModelOptions]="{standalone: true}" [minDate]="minPickerDate">
+                <ngb-datepicker #dp [(ngModel)]="model" [ngModelOptions]="{standalone: true}" [minDate]="minPickerDate" [maxDate]="maxPickerDate">
                 </ngb-datepicker>
             </div>
 
@@ -135,7 +134,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <img class="header" src="{{imagePath}}" alt="">
+                    <img class="header" src="{{userLogo}}" alt="">
                 </div>
                 <div class="modal-body">
                     <p>{{literals.modalRecipient}} <span class="modal-mobile">{{recipient}}</span></p>

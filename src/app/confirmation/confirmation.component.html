@@ -1,14 +1,13 @@
-<app-header [data]="'Confirmation'"></app-header>
+<app-header [data]="literals.confirm"></app-header>
 
 <div>
-    <img class="image" src="{{image}}" width="50" height="50">
+    <img class="image" src="{{tickImage}}" width="50" height="50">
     <h1 class="text text-center ">{{literals.paymentSent}}</h1>
-    <h1 class="dollar">${{accountDetails.payAmount}}</h1>
+    <h1 class="dollar">{{amount}}</h1>
 
     <div class="bg-light image-container">
         <div class="image-width">
-            <img src="{{imageLogo}}"
-                width="55px" height="55px">
+            <img src="{{bankLogo}}" width="55px" height="55px">
         </div>
         <div>
             <h6 class="name">{{literals.you}}</h6>
@@ -19,11 +18,13 @@
     </div>
     <div class="bg-light image-container">
         <div class="image-width">
-            <img src="{{imagePath}}" alt="" width="45px" height=" 45px">
+            <img src="{{userLogo}}" alt="" width="45px" height=" 45px">
         </div>
         <div>
             <h6 class="accounttype"><b>{{accountDetails.recipientName}}</b></h6>
-            <h6 class="accountNumber">{{literals.account}}:{{accountDetails.accountNumber}}</h6>
+            <h6 *ngIf="paymentMode=='biller';" class="accountNumber">
+                {{literals.account}}:{{accountDetails.accountNumber}}</h6>
+            <h6 *ngIf="paymentMode!=='biller';" class="accountNumber">{{mobile}}</h6>
         </div>
     </div>
     <hr>
@@ -32,17 +33,17 @@
         <div class="container sticky-top">
             <div>
                 <h5 class="text">{{literals.arrives}}</h5>
-                <h6><span>{{myDate}}</span></h6>
+                <h6><span>{{myDate}} </span></h6>
             </div>
             <div class="text-end">
-                <h5 class="text">Confirmation</h5>
+                <h5 class="text">{{literals.confirm}}</h5>
                 <h6>{{accountDetails.confirm}}</h6>
             </div>
         </div>
     </nav>
 
     <div class="btncontainer">
-        <p360-button [data]="'Done'" [type]="'submit'" (click)="onSubmit(route.HOME)"></p360-button>
-        <p360-button [data]="'Cancel'" [type]="'cancel'" (click)="onSubmit(route.OTPSCREEN)"></p360-button>
+        <p360-button [type]="'submit'" (click)="onSubmit(route.HOME)" [data]="literals.done"></p360-button>
+        <p360-button [type]="'cancel'" (click)="onSubmit(route.OTPSCREEN)" [data]="literals.cancel"></p360-button>
     </div>
 </div>

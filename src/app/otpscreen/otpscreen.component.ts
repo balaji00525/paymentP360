@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../service/api.service';
 import { Router } from '@angular/router';
 import { DataService } from '../service/data.service';
-import { accountType } from '../interface';
 import { BillType } from '../common/constant';
 import { billType } from '../interface';
 import { RoutingLinks } from '../routing';
@@ -19,7 +18,6 @@ export class OtpscreenComponent implements OnInit {
   paymentMode: string;
   literals: any = {};
   bill: billType;
-  selectedPaymentMode: string;
   route = RoutingLinks;
 
   constructor(
@@ -31,15 +29,10 @@ export class OtpscreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.mobile = this.dataService.mobileNumber;
-
-  }
-  onSubmit(routerLink): void {
-    this.router.navigate([routerLink]);
   }
 
-  paymentDetails(payMode): void {
+  private paymentDetails(payMode): void {
     switch (payMode) {
       case BillType.BILLER: {
         this.service.getBillerLiteralData().subscribe((data) => (this.literals = data));
@@ -53,5 +46,9 @@ export class OtpscreenComponent implements OnInit {
         this.service.getRequestorLiteralData().subscribe((data) => (this.literals = data));
       }
     }
+  }
+
+  onSubmit(routerLink): void {
+    this.router.navigate([routerLink]);
   }
 }

@@ -1,6 +1,5 @@
 export default class Utils {
   static getDate(date) {
-    console.log(date)
     date =
       date === "2" || date === "22"
         ? date + 'nd'
