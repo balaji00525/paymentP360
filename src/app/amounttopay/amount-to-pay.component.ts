@@ -5,7 +5,7 @@ import { DatePipe } from '@angular/common';
 import { environment } from 'src/environments/environment';
 import { ApiService } from '../service/api.service';
 import { DataService } from '../service/data.service';
-import { BillType,ButtonType } from '../common/constant';
+import { BillType, ButtonType } from '../common/constant';
 import util from '../utilities/util';
 
 import { billType } from '../interface';
@@ -17,12 +17,11 @@ import { RoutingLinks } from '../routing';
   styleUrls: ['./amount-to-pay.component.scss'],
   providers: [DatePipe],
 })
-
 export class AmountToPayComponent {
   bill: billType;
   paymentMode: string;
   literals: any = {};
-  imagePath = "";
+  imagePath = '';
   route = RoutingLinks;
   mobile: string;
   accountNo: string;
@@ -34,8 +33,8 @@ export class AmountToPayComponent {
     private _data: DataService,
     private _datepipe: DatePipe,
     private _router: Router,
-    private _api: ApiService) {
-    
+    private _api: ApiService
+  ) {
     this.paymentMode = this._data.user;
     this._paymentDetails(this.paymentMode);
   }
@@ -43,18 +42,30 @@ export class AmountToPayComponent {
   private _paymentDetails(payMode): void {
     switch (payMode) {
       case BillType.BILLER: {
-        this._api.getBillerData().subscribe((data: billType) => (this.bill = data));
-        this._api.getBillerLiteralData().subscribe((data) => (this.literals = data));
+        this._api
+          .getBillerData()
+          .subscribe((data: billType) => (this.bill = data));
+        this._api
+          .getBillerLiteralData()
+          .subscribe((data) => (this.literals = data));
         break;
       }
       case BillType.SENDER: {
-        this._api.getSenderData().subscribe((data: billType) => (this.bill = data));
-        this._api.getSenderLiteralData().subscribe((data) => (this.literals = data));
+        this._api
+          .getSenderData()
+          .subscribe((data: billType) => (this.bill = data));
+        this._api
+          .getSenderLiteralData()
+          .subscribe((data) => (this.literals = data));
         break;
       }
       case BillType.REQUESTOR: {
-        this._api.getRequestorData().subscribe((data: billType) => (this.bill = data));
-        this._api.getRequestorLiteralData().subscribe((data) => (this.literals = data));
+        this._api
+          .getRequestorData()
+          .subscribe((data: billType) => (this.bill = data));
+        this._api
+          .getRequestorLiteralData()
+          .subscribe((data) => (this.literals = data));
       }
     }
   }
@@ -72,8 +83,8 @@ export class AmountToPayComponent {
     this._data.paymentMode = this.bill.paymentType;
     this._data.cardNumber = this.bill.cardNo;
     this._data.feeDetail = this.bill.fee;
-    this._data.confirm = this.bill.confirmation; 
-    this._data.Date=this.bill.dueDate;
+    this._data.confirm = this.bill.confirmation;
+    this._data.Date = this.bill.dueDate;
     this._router.navigate([routeLink]);
   }
 
@@ -84,14 +95,12 @@ export class AmountToPayComponent {
     this._changeDetector.markForCheck();
     return this.imagePath;
   }
-  public getMobile():string{
-    return this.bill.mobile.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+  public getMobile(): string {
+    return this.bill?.mobile
+      .toString()
+      .replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
   }
-  public getAccountNo():string{
-   return '*' + this.bill.accountNo;
-  }
-  public getDueDate():string{
-    this.myDate =this._datepipe.transform(this.bill.dueDate, 'MMMM d');
-    return (this.myDate?.split(" ")[0]) + ' ' + util.getDate(this.myDate?.split(" ")[1]);
+  public getAccountNo(): string {
+    return '*' + this.bill?.accountNo;
   }
 }

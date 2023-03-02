@@ -1,15 +1,13 @@
-import { DatePipe } from '@angular/common';
 import { Pipe, PipeTransform } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import util from '../utilities/util';
 
 @Pipe({
-  name: 'datePipe',
-
+  name: 'dateFormat',
 })
-export class DateFormatPipe implements PipeTransform {
-datepipe=DatePipe;
-  transform(value: unknown, ...args: unknown[]): void {
-    // this.myDate= this.datepipe.transform(value, 'MMMM d');
-    // return (this.myDate?.split(" ")[0]) + ' ' + util.getDate(this.myDate?.split(" ")[1]);
+export class DateFormatPipe extends DatePipe implements PipeTransform {
+  override transform(value: any, args?: any): any {
+    let myDate = super.transform(value, 'MMMM d');
+    return myDate?.split(' ')[0] + ' ' + util.getDate(myDate?.split(' ')[1]);
   }
-
 }
