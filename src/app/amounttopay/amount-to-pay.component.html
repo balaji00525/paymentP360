@@ -7,21 +7,21 @@
         <h5 class="mobile">{{getMobile()}}</h5>
     </div>
     <hr class="width">
-    <h6 [ngClass]="paymentMode==='biller'  ? 'amount' : 'amount amount-padding'">
+    <h6 [ngClass]="paymentMode=== paymentType.BILLER  ? 'amount' : 'amount amount-padding'">
         <ng-container *ngIf="paymentMode==='biller'">
             <span>{{literals.amountDue}}</span> <br>
             <p>{{literals.importing}}</p>
         </ng-container>
-        <h4 *ngIf="paymentMode !== 'biller'">{{literals.amountPayButton}}</h4>
+        <h4 *ngIf="paymentMode !== paymentType.BILLER">{{literals.amountPayButton}}</h4>
         <h1 class="dollar">
             <span>$</span>
             <input *ngIf="paymentMode !== paymentType.BILLER" class="input-outline" type="number"
-                [(ngModel)]="bill.amount" placeholder="Enter an amount to pay" />
-            <span *ngIf="paymentMode === 'biller'">{{bill?.amount}}</span>
+                [(ngModel)]="bill.amount" placeholder="{{literals.placeHolder}}" />
+            <span *ngIf="paymentMode === paymentType.BILLER">{{bill?.amount}}</span>
         </h1>
     </h6>
 </div>
-<ng-container *ngIf="paymentMode==='biller'">
+<ng-container *ngIf="paymentMode===paymentType.BILLER">
     <hr>
     <div class="due navbar">
         <div>
@@ -39,9 +39,9 @@
     <p class="click">{{literals.selectionMethod}}</p>
 </ng-container>
 <div class="text text-center">
-    <p360-button [type]="buttonType.SUBMIT" *ngIf="paymentMode==='biller'" [data]="literals.makeaPayment"
+    <p360-button [type]="buttonType.SUBMIT" *ngIf="paymentMode === paymentType.BILLER" [data]="literals.makeaPayment"
         (click)="onSubmit(route.MAKEAPAYMENT)"></p360-button>
-    <p360-button [type]="buttonType.SUBMIT" *ngIf="paymentMode !== 'biller'" [data]="literals.makePayButton"
+    <p360-button [type]="buttonType.SUBMIT" *ngIf="paymentMode !== paymentType.BILLER" [data]="literals.makePayButton"
         (click)="onSubmit(route.MAKEAPAYMENT)"></p360-button>
 </div>
 <div class="text text-center">
