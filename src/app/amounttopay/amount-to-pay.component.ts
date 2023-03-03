@@ -1,5 +1,9 @@
+//all screen sholud be under screenfloder
+//interface pipe sholud be under common folder
+//routing .ts  sholud be renamed to screen-names.ts
+//create folder constants
+
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 
 import { ApiService } from '../service/api.service';
@@ -14,7 +18,6 @@ import { RoutingLinks } from '../routing';
   selector: 'app-amount-to-pay',
   templateUrl: './amount-to-pay.component.html',
   styleUrls: ['./amount-to-pay.component.scss'],
-  providers: [DatePipe],
 })
 export class AmountToPayComponent {
   accountNo: string;
@@ -25,11 +28,11 @@ export class AmountToPayComponent {
   paymentMode: string;
   paymentType = BillType;
   route = RoutingLinks;
-constructor(
+  constructor(
+    private _api: ApiService,
     private _changeDetector: ChangeDetectorRef,
     private _data: DataService,
     private _router: Router,
-    private _api: ApiService
   ) {
     this.paymentMode = this._data.user;
     this._paymentDetails(this.paymentMode);
@@ -68,7 +71,7 @@ constructor(
 
   public onSubmit(routeLink): void {
     this._data.recipientName = this.bill.recipient;
-    this._data.accountNumber = this.bill.accountNo;
+    this._data.accountNumber = this.bill.accountNo;//name should be same
     this._data.mobileNumber = this.bill.mobile;
     this._data.payAmount = this.bill.amount;
     this._data.accType = this.bill.accountList;
@@ -91,12 +94,14 @@ constructor(
     this._changeDetector.markForCheck();
     return this.imagePath;
   }
-  public getMobile(): string {
+
+  public getMobile(): string { //move this to util
     return this.bill?.mobile
       .toString()
       .replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
   }
+
   public getAccountNo(): string {
-    return '*' + this.bill?.accountNo;
+    return '*' + this.bill?.accountNo; //catch data from data.json
   }
 }
