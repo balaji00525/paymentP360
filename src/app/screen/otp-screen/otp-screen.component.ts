@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../service/api.service';
+import { ApiService } from '../../service/api.service';
 import { Router } from '@angular/router';
-import { DataService } from '../service/data.service';
-import { BillType } from '../common/constant';
-import { RoutingLinks } from '../routing';
+import { DataService } from '../../service/data.service';
+import { BillType } from '../../common/constant/constant';
+import { RoutingLinks } from '../../screenName';
 
 @Component({
-  selector: 'app-otpscreen',
-  templateUrl: './otpscreen.component.html',
-  styleUrls: ['./otpscreen.component.scss']
+  selector: 'app-otp-screen',
+  templateUrl: './otp-screen.component.html',
+  styleUrls: ['./otp-screen.component.scss']
 })
 
-export class OtpscreenComponent implements OnInit {
+export class OtpScreenComponent implements OnInit {
 
   mobile: number;
   paymentMode: string;

@@ -6,13 +6,13 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ApiService } from '../service/api.service';
-import { BillType, ButtonType } from '../common/constant';
-import { DataService } from '../service/data.service';
+import { ApiService } from '../../service/api.service';
+import { BillType, ButtonType } from '../../common/constant/constant';
+import { DataService } from '../../service/data.service';
 import { environment } from 'src/environments/environment';
 
-import { IBillType } from '../interface';
-import { RoutingLinks } from '../routing';
+import { IBillType } from '../../common/interface/interface';
+import { RoutingLinks } from '../../screenName';
 
 @Component({
   selector: 'app-amount-to-pay',
