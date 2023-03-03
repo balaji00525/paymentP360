@@ -84,7 +84,7 @@ export class AmountToPayComponent {
     this._data.cardNumber = this.bill.cardNo;
     this._data.feeDetail = this.bill.fee;
     this._data.confirm = this.bill.confirmation;
-    this._data.Date = this.bill.dueDate;
+    this._data.date = this.bill.dueDate;
     this._router.navigate([routeLink]);
   }
 

@@ -20,6 +20,7 @@ export class DataService {
   private bankLogo:string;
   private dueDate:string;
   accountList: any;
+  date: string;
   constructor() { }
 
   get user():string{
