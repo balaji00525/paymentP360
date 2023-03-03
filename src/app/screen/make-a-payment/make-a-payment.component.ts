@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../service/api.service';
-import { DataService } from '../service/data.service';
+import { ApiService } from '../../service/api.service';
+import { DataService } from '../../service/data.service';
 import { Router, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { environment } from 'src/environments/environment';
-import { IAccountType } from '../interface';
+import { IAccountType } from '../../common/interface/interface';
 import { NgbCalendar, NgbDate, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
-import { RoutingLinks } from '../routing';
-import { BillType, Month, WeekDays } from '../common/constant';
+import { RoutingLinks } from '../../screenName';
+import { BillType, Month, WeekDays } from '../../common/constant/constant';
 
 @Component({
-  selector: 'app-makeapayment',
-  templateUrl: './makeapayment.component.html',
-  styleUrls: ['./makeapayment.component.scss'],
+  selector: 'app-make-a-payment',
+  templateUrl: './make-a-payment.component.html',
+  styleUrls: ['./make-a-payment.component.scss'],
   providers: [DatePipe],
 })
-export class MakeapaymentComponent implements OnInit {
+export class MakeAPaymentComponent implements OnInit {
   private _model: NgbDate;
   data: any = {};
   SelectedAmount: number;

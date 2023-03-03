@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OtpscreenComponent } from './otpscreen.component';
+import { OtpScreenComponent } from './otp-screen.component';
 
-describe('OtpscreenComponent', () => {
-  let component: OtpscreenComponent;
-  let fixture: ComponentFixture<OtpscreenComponent>;
+describe('OtpScreenComponent', () => {
+  let component: OtpScreenComponent;
+  let fixture: ComponentFixture<OtpScreenComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OtpscreenComponent ]
+      declarations: [ OtpScreenComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OtpscreenComponent);
+    fixture = TestBed.createComponent(OtpScreenComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
