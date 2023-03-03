@@ -1,37 +1,37 @@
-<app-header [data]="literals.amountDue"></app-header>
+<app-header [data]="literals.headerAmountTitle"></app-header>
 <div class="navbar" *ngIf="literals">
-    <div class="logo">
-        <img class="image" [src]="getImage()" alt="" height="50">
+    <div class="user-details">
+        <img class="user-profile" [src]="getImage()" alt="" height="50">
         <h4>{{bill?.recipient}} {{getAccountNo()}}</h4>
         <h5 class="text text-center">{{bill?.enrolledAs}}</h5>
-        <h5 class="mobile">{{getMobile()}}</h5>
+        <h5 class="user-number">{{getMobile()}}</h5>
     </div>
-    <hr class="width">
+    <hr class="line-break">
     <h6 [ngClass]="paymentMode=== paymentType.BILLER  ? 'amount' : 'amount amount-padding'">
-        <ng-container *ngIf="paymentMode==='biller'">
-            <span>{{literals.amountDue}}</span> <br>
-            <p>{{literals.importing}}</p>
+        <ng-container *ngIf="paymentMode===paymentType.BILLER ">
+            <h6 class="title">{{literals.headerAmountTitle}}</h6> 
+            <p>{{literals.amountSubTitle}}</p>
         </ng-container>
-        <h4 *ngIf="paymentMode !== paymentType.BILLER">{{literals.amountPayButton}}</h4>
-        <h1 class="dollar">
+        <h4  *ngIf="paymentMode !== paymentType.BILLER">{{literals.amountPayButton}}</h4>
+        <h1 class="amount-input">
             <span>$</span>
             <input *ngIf="paymentMode !== paymentType.BILLER" class="input-outline" type="number"
-                [(ngModel)]="bill.amount" placeholder="{{literals.placeHolder}}" />
+                [(ngModel)]="bill.amount" placeholder="{{literals.inputPlaceHolder}}" />
             <span *ngIf="paymentMode === paymentType.BILLER">{{bill?.amount}}</span>
         </h1>
     </h6>
 </div>
 <ng-container *ngIf="paymentMode===paymentType.BILLER">
-    <hr>
+    <hr class="line-break">
     <div class="due navbar">
         <div>
-            <h6 class="accountno">{{literals.due}} </h6>
+            <h6 class="account-type">{{literals.due}} </h6>
             <h6 class="date">{{bill?.dueDate | dateFormat}}</h6>
         </div>
-        <hr class="width">
+        <hr class="line-break">
         <div class="account">
-            <h6 class="accountno">{{literals.account}}</h6>
-            <h6 class="accountnum">{{getAccountNo()}}</h6>
+            <h6 class="account-type">{{literals.account}}</h6>
+            <h6 class="account-number">{{getAccountNo()}}</h6>
         </div>
     </div>
     <hr>

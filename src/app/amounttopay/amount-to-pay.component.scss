@@ -1,6 +1,6 @@
 @import '../../styles.scss';
 
-.logo {
+.user-details {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,10 +9,10 @@
 
 .picture {
   @include important-part;
-  height: "40";
+  height: "40px";
 }
 
-.mobile {
+.user-number{
   align-items: center;
   justify-content: center;
   display: flex;
@@ -27,7 +27,7 @@
   padding: 48px 0px;
 }
 
-.dollar {
+.amount-input {
   padding-bottom: 70px;
   font-size: 55px;
   display: flex;
@@ -70,14 +70,14 @@ input[type=number] {
   align-items: flex-start;
 }
 
-.accountno {
+.account-type {
   text-align: left;
   padding: 5px;
   color: grey;
   margin-bottom: 0px;
 }
 
-.accountnum {
+.account-number{
   padding: 4px;
 }
 
@@ -107,7 +107,7 @@ h4 {
   text-align: center;
 }
 
-h6 {
+.title {
   text-align: center;
 }
 
@@ -128,24 +128,21 @@ p {
     align-items: flex-start;
   }
 
-<<<<<<< HEAD:src/app/amounttopay/amounttopay.component.scss
-  .line {
+  .line-break{
     width: 100%;
-=======
-  .width {
-    width: 100% ;
->>>>>>> 6e37d79dd6a1d2473d27e8b828ccf26602b6642b:src/app/amounttopay/amount-to-pay.component.scss
   }
 
   .accountnum {
     text-align: left;
   }
 }
+.user-profile {
+  border-radius: 100px;
+}
 
 @media (min-width:769px) and (max-width:2500px) {
-  .image {
+  .user-profile {
     width: 50px;
-    border-radius: 100px;
     display: flex;
   }
 

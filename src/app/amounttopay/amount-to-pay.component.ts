@@ -1,14 +1,13 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
-import { environment } from 'src/environments/environment';
 import { ApiService } from '../service/api.service';
-import { DataService } from '../service/data.service';
 import { BillType, ButtonType } from '../common/constant';
-import util from '../utilities/util';
+import { DataService } from '../service/data.service';
+import { environment } from 'src/environments/environment';
 
-import { billType } from '../interface';
+import { IBillType } from '../interface';
 import { RoutingLinks } from '../routing';
 
 @Component({
@@ -18,20 +17,17 @@ import { RoutingLinks } from '../routing';
   providers: [DatePipe],
 })
 export class AmountToPayComponent {
-  bill: billType;
-  paymentMode: string;
-  literals: any = {};
-  imagePath = '';
-  route = RoutingLinks;
-  mobile: string;
   accountNo: string;
-  paymentType = BillType;
+  bill: IBillType;
   buttonType = ButtonType;
-  myDate: string;
-  constructor(
+  imagePath = '';
+  literals: any = {};
+  paymentMode: string;
+  paymentType = BillType;
+  route = RoutingLinks;
+constructor(
     private _changeDetector: ChangeDetectorRef,
     private _data: DataService,
-    private _datepipe: DatePipe,
     private _router: Router,
     private _api: ApiService
   ) {
@@ -44,7 +40,7 @@ export class AmountToPayComponent {
       case BillType.BILLER: {
         this._api
           .getBillerData()
-          .subscribe((data: billType) => (this.bill = data));
+          .subscribe((data: IBillType) => (this.bill = data));
         this._api
           .getBillerLiteralData()
           .subscribe((data) => (this.literals = data));
@@ -53,7 +49,7 @@ export class AmountToPayComponent {
       case BillType.SENDER: {
         this._api
           .getSenderData()
-          .subscribe((data: billType) => (this.bill = data));
+          .subscribe((data: IBillType) => (this.bill = data));
         this._api
           .getSenderLiteralData()
           .subscribe((data) => (this.literals = data));
@@ -62,7 +58,7 @@ export class AmountToPayComponent {
       case BillType.REQUESTOR: {
         this._api
           .getRequestorData()
-          .subscribe((data: billType) => (this.bill = data));
+          .subscribe((data: IBillType) => (this.bill = data));
         this._api
           .getRequestorLiteralData()
           .subscribe((data) => (this.literals = data));
