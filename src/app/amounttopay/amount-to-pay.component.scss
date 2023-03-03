@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.image {
+.picture {
   @include important-part;
   height: "40";
 }
@@ -39,6 +39,7 @@
     height: 70px;
     border: none;
     background-color: #d1dee6;
+    text-align: center;
   }
 
   input::placeholder {
@@ -127,8 +128,13 @@ p {
     align-items: flex-start;
   }
 
+<<<<<<< HEAD:src/app/amounttopay/amounttopay.component.scss
+  .line {
+    width: 100%;
+=======
   .width {
     width: 100% ;
+>>>>>>> 6e37d79dd6a1d2473d27e8b828ccf26602b6642b:src/app/amounttopay/amount-to-pay.component.scss
   }
 
   .accountnum {
