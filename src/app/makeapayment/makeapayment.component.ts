@@ -4,10 +4,9 @@ import { DataService } from '../service/data.service';
 import { Router, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { environment } from 'src/environments/environment';
-import { accountType } from '../interface';
+import { IAccountType } from '../interface';
 import { NgbCalendar, NgbDate, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { RoutingLinks } from '../routing';
-import { billType } from '../interface';
 import { BillType, Month, WeekDays } from '../common/constant';
 
 @Component({
@@ -18,8 +17,6 @@ import { BillType, Month, WeekDays } from '../common/constant';
 })
 export class MakeapaymentComponent implements OnInit {
   private _model: NgbDate;
-  bill: billType;
- 
   data: any = {};
   SelectedAmount: number;
   literals: any = {};
@@ -27,7 +24,7 @@ export class MakeapaymentComponent implements OnInit {
   recipient: string;
   mobile: string;
   amount: string;
-  acountType: accountType[];
+  acountType: IAccountType[];
   paymentType: string;
   userLogo: string = environment.imagePath;
   accountDetails: DataService;
@@ -55,7 +52,7 @@ export class MakeapaymentComponent implements OnInit {
     this.selectToday();
     this.mobile = this.dataService.mobileNumber.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
     this.amount = '$  ' + this.dataService.payAmount;
-    this.dueDate=this.dataService.Date;
+    this.dueDate=this.dataService.date;
     this.userLogo += this.dataService.imagePicture;
     this.minPickerDate = {
       year: new Date().getFullYear(),

@@ -1,7 +1,7 @@
-export interface billType {
+export interface IBillType {
   accountNo: number;
   amount: number;
-  accountList: accountType[];
+  accountList: IAccountType[];
   paymentType: string;
   cardNo: number;
   fee: string;
@@ -14,7 +14,7 @@ export interface billType {
   enrolledAs?: string;
   dueDate?:string;
 }
-export interface accountType {
+export interface IAccountType {
   accountType: string;
   balance: string;
 }

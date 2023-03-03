@@ -3,10 +3,8 @@ import { ApiService } from '../service/api.service';
 import { DataService } from '../service/data.service';
 import { Router, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
-import util from '../utilities/util';
 import { environment } from 'src/environments/environment';
 import { BillType } from '../common/constant';
-import { billType } from '../interface';
 import { RoutingLinks } from '../routing';
 
 @Component({
@@ -17,7 +15,7 @@ import { RoutingLinks } from '../routing';
 })
 
 export class ConfirmationComponent implements OnInit {
-  bill: billType;
+
   myDate: any = new Date();
   data: any = {};
   literals: any = {};
@@ -36,14 +34,8 @@ export class ConfirmationComponent implements OnInit {
     private dataService: DataService,
     private datepipe: DatePipe,
     private router: Router) {
-<<<<<<< HEAD
-    this.myDate = this.datepipe.transform(this.myDate, 'MMMM d');
-    this.myDate = util.getDate(this.myDate);
-    let paymentMode = this.dataService.user;
-=======
     this.myDate = this.datepipe.transform(this.myDate, 'EEEE, MMM d, y');
     this.paymentMode = this.dataService.user;
->>>>>>> 6e37d79dd6a1d2473d27e8b828ccf26602b6642b
     this.paymentDetails(this.paymentMode);
   }
 
@@ -54,7 +46,7 @@ export class ConfirmationComponent implements OnInit {
     this.tickImage += this.dataService.tick;
     this.bankLogo += this.dataService.bank;
     this.accountDetails = this.dataService;
-    this.dueDate=this.dataService.Date;
+    this.dueDate=this.dataService.date;
   }
 
   private paymentDetails(payMode) {

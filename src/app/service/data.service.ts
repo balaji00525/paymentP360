@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { accountType } from '../interface';
+import { IAccountType } from '../interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,7 +9,7 @@ export class DataService {
   private accountNo:number;
   private mobile:number;
   private amount:number;
-  private accountType:accountType[];
+  private accountType:IAccountType[];
   private enrolledAs:string;
   private userLogo:string;
   private paymentType:string;
@@ -20,7 +20,7 @@ export class DataService {
   private bankLogo:string;
   private dueDate:string;
   accountList: any;
-  date: string;
+  // date: string;
   constructor() { }
 
   get user():string{
@@ -59,10 +59,10 @@ export class DataService {
   set payAmount(val:number){
     this.amount=val;
   }
-  get accType():accountType[]{
+  get accType():IAccountType[]{
     return this.accountType;
   }
-  set accType(val:accountType[]){
+  set accType(val:IAccountType[]){
     this.accountType=val;
   }
   get enroller():string{
@@ -107,10 +107,10 @@ export class DataService {
   set bank(val:string){
     this.bankLogo=val;
   }
-  get Date():string{
+  get date():string{
     return this.dueDate;
   }
-  set Date(val:string){
+  set date(val:string){
     this.dueDate;
   }
 }

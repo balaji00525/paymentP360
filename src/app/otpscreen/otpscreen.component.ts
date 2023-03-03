@@ -3,7 +3,6 @@ import { ApiService } from '../service/api.service';
 import { Router } from '@angular/router';
 import { DataService } from '../service/data.service';
 import { BillType } from '../common/constant';
-import { billType } from '../interface';
 import { RoutingLinks } from '../routing';
 
 @Component({
@@ -17,7 +16,6 @@ export class OtpscreenComponent implements OnInit {
   mobile: number;
   paymentMode: string;
   literals: any = {};
-  bill: billType;
   route = RoutingLinks;
 
   constructor(
