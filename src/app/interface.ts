@@ -8,10 +8,11 @@ export interface billType {
   recipient: string;
   mobile: number;
   confirmation: number;
-  imagePath: string;
-  image: string;
-  imageLogo: string;
+  userLogo: string;
+  tickImage: string;
+  bankLogo: string;
   enrolledAs?: string;
+  dueDate?:string;
 }
 export interface accountType {
   accountType: string;

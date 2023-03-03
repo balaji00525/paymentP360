@@ -1,0 +1,49 @@
+<app-header [data]="literals.amountDue"></app-header>
+<div class="navbar" *ngIf="literals">
+    <div class="logo">
+        <img class="image" [src]="getImage()" alt="" height="50">
+        <h4>{{bill?.recipient}} {{getAccountNo()}}</h4>
+        <h5 class="text text-center">{{bill?.enrolledAs}}</h5>
+        <h5 class="mobile">{{getMobile()}}</h5>
+    </div>
+    <hr class="width">
+    <h6 [ngClass]="paymentMode==='biller'  ? 'amount' : 'amount amount-padding'">
+        <ng-container *ngIf="paymentMode==='biller'">
+            <span>{{literals.amountDue}}</span> <br>
+            <p>{{literals.importing}}</p>
+        </ng-container>
+        <h4 *ngIf="paymentMode !== 'biller'">{{literals.amountPayButton}}</h4>
+        <h1 class="dollar">
+            <span>$</span>
+            <input *ngIf="paymentMode !== paymentType.BILLER" class="input-outline" type="number"
+                [(ngModel)]="bill.amount" placeholder="Enter an amount to pay" />
+            <span *ngIf="paymentMode === 'biller'">{{bill?.amount}}</span>
+        </h1>
+    </h6>
+</div>
+<ng-container *ngIf="paymentMode==='biller'">
+    <hr>
+    <div class="due navbar">
+        <div>
+            <h6 class="accountno">{{literals.due}} </h6>
+            <h6 class="date">{{bill?.dueDate | dateFormat}}</h6>
+        </div>
+        <hr class="width">
+        <div class="account">
+            <h6 class="accountno">{{literals.account}}</h6>
+            <h6 class="accountnum">{{getAccountNo()}}</h6>
+        </div>
+    </div>
+    <hr>
+    <p class="view">{{literals.viewStatement}}</p>
+    <p class="click">{{literals.selectionMethod}}</p>
+</ng-container>
+<div class="text text-center">
+    <p360-button [type]="buttonType.SUBMIT" *ngIf="paymentMode==='biller'" [data]="literals.makeaPayment"
+        (click)="onSubmit(route.MAKEAPAYMENT)"></p360-button>
+    <p360-button [type]="buttonType.SUBMIT" *ngIf="paymentMode !== 'biller'" [data]="literals.makePayButton"
+        (click)="onSubmit(route.MAKEAPAYMENT)"></p360-button>
+</div>
+<div class="text text-center">
+    <p360-button [type]="buttonType.CANCEL" [data]="literals.back" (click)="onSubmit(route.HOME)"></p360-button>
+</div>

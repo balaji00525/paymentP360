@@ -61,7 +61,8 @@ input[type=number] {
 .input-outline:focus {
   outline: none;
 }
-.box{
+
+.box {
   padding-left: 70px;
 }
 
@@ -127,8 +128,13 @@ p {
     align-items: flex-start;
   }
 
+<<<<<<< HEAD:src/app/amounttopay/amounttopay.component.scss
   .line {
     width: 100%;
+=======
+  .width {
+    width: 100% ;
+>>>>>>> 6e37d79dd6a1d2473d27e8b828ccf26602b6642b:src/app/amounttopay/amount-to-pay.component.scss
   }
 
   .accountnum {
@@ -149,3 +155,4 @@ p {
     flex-direction: column;
   }
 }
+

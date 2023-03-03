@@ -16,6 +16,6 @@ export class HomeComponent {
     
     onPaymentClick(val: string) {
       this.service.user = val;
-      this.router.navigate(['/amounttopay']);
+      this.router.navigate(['/amountToPay']);
 }
 }

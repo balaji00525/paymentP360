@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AmounttopayComponent } from './amounttopay/amounttopay.component';
+import { AmountToPayComponent } from './amounttopay/amount-to-pay.component';
 import { MakeapaymentComponent } from './makeapayment/makeapayment.component';
 import { OtpscreenComponent } from './otpscreen/otpscreen.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
@@ -14,16 +14,18 @@ import { ButtonComponent } from './common/button/button.component';
 import { DatePipe } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DateFormatPipe } from './date-pipe/date-pipe.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    AmounttopayComponent,
+    AmountToPayComponent,
     MakeapaymentComponent,
     OtpscreenComponent,
     ConfirmationComponent,
     HeaderComponent,
     HomeComponent,
     ButtonComponent,
+    DateFormatPipe,
   ],
   imports: [
     BrowserModule,
