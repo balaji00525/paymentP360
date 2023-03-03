@@ -53,7 +53,7 @@ export class AmounttopayComponent {
         this.services.getBillerData().subscribe((data: billType) => (this.bill = data));
         
         this.services.getBillerLiteralData().subscribe((data) => (this.literals = data));
-        console.log(JSON.stringify(this.literals))
+        // console.log(JSON.stringify(this.literals))
         break;
       }
       case BillType.SENDER: {
@@ -93,11 +93,12 @@ export class AmounttopayComponent {
 
   getImage():string{  
     if (this.bill) {
-      // console.log(environment,this.bill)
-      this.imagePath = environment.imagePath + this.bill.imagePath;     
+      console.log(environment,this.bill)
+      this.imagePath = environment.imagePath + this.bill.imagePath;
+           
      }
     this.changeDetector.markForCheck();
-    // console.log("imagePath",this.imagePath)
+    console.log("imagePath",this.imagePath)
     return this.imagePath;
   }
 }

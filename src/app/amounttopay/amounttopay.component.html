@@ -1,26 +1,29 @@
-<app-header [data]="literals.amountDue"></app-header>
+<app-header [data]="literals.title"></app-header>
 <div class="navbar" *ngIf="literals">
     <div class="logo">
        
-        <img  class="image" [src]="getImage()" alt="" height="50">
+        <img  class="picture" [src]="getImage()" alt="" height="50">
        
         <h4>{{bill?.recipient}} {{bill?.accountNo}}</h4>
         <h5 class="text text-center">{{bill.enrolledAs}}</h5>
         <h5 class="mobile">{{bill.mobile}}</h5>
     </div>
-    <hr class="width">
+    <hr class="line">
     <h6 class="amount" [ngClass]="paymentMode==='biller'  ? '' : 'amount-padding'">
 
         <ng-container *ngIf="paymentMode==='biller'">
-            <span>{{literals.amountDue}}</span> <br>
-            <p>{{literals.importing}}</p>
+           <h4> {{literals.amountDue}}</h4>
+         <div>
+            <p>{{literals.statement}}</p>
+         </div>
+        
         </ng-container>
 
         <h4 *ngIf="paymentMode !== 'biller'">{{literals.amountPayButton}}</h4>
         <div class="box">
             <h1 class="dollar"><span>$</span>
                 <input *ngIf="paymentMode !== 'biller'" class="input-outline" type="number" [(ngModel)]="bill.amount"
-                    placeholder="Enter an amount to pay" />
+                    placeholder={{literals.number}} />
                 <span *ngIf="paymentMode === 'biller'">{{bill.amount}}</span>
             </h1>
         </div>
@@ -34,7 +37,7 @@
                 <h6 class="accountno">{{literals.due}} </h6>
                 <h6 class="date">{{myDate}}</h6>
             </div>
-            <hr class="width">
+            <hr class="line">
             <div class="account">
                 <ng-container *ngIf="paymentMode==='biller'">
                     <h6 class="accountno">{{literals.account}}</h6>

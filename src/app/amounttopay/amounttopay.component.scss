@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.image {
+.picture {
   @include important-part;
   height: "40";
 }
@@ -127,8 +127,8 @@ p {
     align-items: flex-start;
   }
 
-  .width {
-    width: 100% !important;
+  .line {
+    width: 100%;
   }
 
   .accountnum {

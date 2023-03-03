@@ -79,7 +79,7 @@
 
   "billerliterals": {
     "due":"Due date",
-    "importing": "Imported from Statement",
+    "statement": "Imported from Statement",
     "viewStatement":"View current statement",
     "selectionMethod":"Click to start selection for Payment method",
     "amountDue":"Amount Due ",
@@ -117,13 +117,14 @@
 
   },
   "senderliterals": {
-    "amountDue":"Amount to pay ",
+    "title":"Amount to pay ",
     "makeaPayment":"Make a Payment",
     "account":"Account Number",
     "amountPayButton":"Amount to Pay",
     "amount":"Amount",
     "withdrawFrom":"Withdraw from",
     "deliveryBy":"Delivery by",
+     "number":"Enter an amount to pay",
     "memo":"Memo(optional)",
     "choose":"Choose how you'd like to pay",
     "pay":"Pay",
