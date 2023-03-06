@@ -5,8 +5,8 @@
     <!--------Account Details--------->
     <div class="title">
         <img class="picture" src="{{userLogo}}" width="50">
-        <h6 class="text text-center">{{accountDetails.recipient}} {{accountDetails.accountNumber}}</h6>
-        <h5 class="text text-center">{{accountDetails.enroller}}</h5>
+        <h6 class="text text-center">{{accountDetails.recipient}} {{accountDetails.accountNo}}</h6>
+        <h5 class="text text-center">{{accountDetails.enrolledAs}}</h5>
         <h6 class="mobile text">{{mobile}}</h6>
     </div>
     <hr class="mb-1"/>
@@ -59,7 +59,7 @@
                         <div class="list-container">
                             <div>
                                 <div>
-                                    <div>{{accountDetails.paymentMode}} {{accountDetails.feeDetail}}</div> <small>{{paymentType}} {{accountDetails.cardNumber}}</small>
+                                    <div>{{accountDetails.paymentType}} {{accountDetails.fee}}</div> <small>{{accountDetails.paymentType}} {{accountDetails.cardNo}}</small>
                                 </div>
                             </div>
                             <div> $365.27 available</div>
@@ -73,7 +73,7 @@
                         <div class="list-container">
                             <div>
                                 <div>
-                                    <div>{{accountDetails.paymentMode}} {{accountDetails.feeDetail}}</div> <small>{{accountDetails.paymentMode}} {{accountDetails.cardNumber}}</small>
+                                    <div>{{accountDetails.paymentType}} {{accountDetails.fee}}</div> <small>{{accountDetails.paymentType}} {{accountDetails.cardNo}}</small>
                                 </div>
                             </div>
                             <div> $4,164.98 available</div>

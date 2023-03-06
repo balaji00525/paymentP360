@@ -1,12 +1,4 @@
 {
-  "headerTitle": {
-    "title1":"Amount To Pay",
-    "title2":"Make a Payment",
-    "title3":"OTP Screen",
-    "title4":"Confirmation"
-  
-  },
-
   "biller": {
     "accountNo": "*890076",
     "amount": 50.00,

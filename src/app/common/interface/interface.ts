@@ -18,3 +18,10 @@ export interface IAccountType {
   accountType: string;
   balance: string;
 }
+
+export interface IHeaderType{
+  screen1:string,
+  screen2:string,
+  screen3:string,
+  screen4:string
+}

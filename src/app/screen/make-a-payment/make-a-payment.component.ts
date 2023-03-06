@@ -50,10 +50,10 @@ export class MakeAPaymentComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectToday();
-    this.mobile = this.dataService.mobileNumber.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
-    this.amount = '$  ' + this.dataService.payAmount;
-    this.dueDate=this.dataService.date;
-    this.userLogo += this.dataService.imagePicture;
+    this.mobile = this.dataService.mobile.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+    this.amount = '$  ' + this.dataService.amount;
+    this.dueDate=this.dataService.dueDate;
+    this.userLogo += this.dataService.userLogo;
     this.minPickerDate = {
       year: new Date().getFullYear(),
       month: new Date().getMonth() + 1,
