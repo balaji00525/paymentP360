@@ -14,7 +14,7 @@ import { ButtonComponent } from './common/button/button.component';
 import { DatePipe } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DateFormatPipe } from './common/date-pipe/date-pipe.pipe';
+import { DateFormatPipe } from './common/pipe/date-pipe/date-pipe.pipe';
 @NgModule({
   declarations: [
     AppComponent,

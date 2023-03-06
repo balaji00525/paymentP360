@@ -6,7 +6,7 @@ import { DatePipe } from '@angular/common';
 import { environment } from 'src/environments/environment';
 import { IAccountType } from '../../common/interface/interface';
 import { NgbCalendar, NgbDate, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
-import { RoutingLinks } from '../../screenName';
+import { RoutingLinks } from '../../screen-name';
 import { BillType, Month, WeekDays } from '../../common/constant/constant';
 
 @Component({

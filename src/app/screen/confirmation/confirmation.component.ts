@@ -5,7 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { environment } from 'src/environments/environment';
 import { BillType } from '../../common/constant/constant';
-import { RoutingLinks } from '../../screenName';
+import { RoutingLinks } from '../../screen-name';
 
 @Component({
   selector: 'app-confirmation',
