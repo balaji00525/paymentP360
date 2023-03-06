@@ -27,7 +27,7 @@ export class OtpScreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.mobile = this.dataService.mobileNumber;
+    this.mobile = this.dataService.mobile;
   }
 
   private paymentDetails(payMode): void {

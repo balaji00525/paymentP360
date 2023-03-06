@@ -40,13 +40,13 @@ export class ConfirmationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.mobile = this.dataService.mobileNumber.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
-    this.userLogo += this.dataService.imagePicture;
-    this.amount = '$  ' + this.dataService.payAmount;
-    this.tickImage += this.dataService.tick;
-    this.bankLogo += this.dataService.bank;
+    this.mobile = this.dataService.mobile.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+    this.userLogo += this.dataService.userLogo;
+    this.amount = '$  ' + this.dataService.amount;
+    this.tickImage += this.dataService.tickImage;
+    this.bankLogo += this.dataService.bankLogo;
     this.accountDetails = this.dataService;
-    this.dueDate=this.dataService.date;
+    this.dueDate=this.dataService.dueDate;
   }
 
   private paymentDetails(payMode) {

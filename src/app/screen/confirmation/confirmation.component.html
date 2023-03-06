@@ -12,7 +12,7 @@
         <div>
            <h6 class="name">{{literals.you}}</h6>
             <h6 class="accountType">
-                <b>{{accountDetails.paymentMode}}</b>{{accountDetails.cardNumber}}{{accountDetails.feeDetail}}
+                <b>{{accountDetails.paymentType}}</b>{{accountDetails.cardNo}}{{accountDetails.fee}}
             </h6>
         </div>
     </div>
@@ -23,7 +23,7 @@
         <div>
             <h6 class="accounttype"><b>{{accountDetails.recipient}}</b></h6>
             <h6 *ngIf="paymentMode=='biller';" class="accountNumber">
-                {{literals.account}}:{{accountDetails.accountNumber}}</h6>
+                {{literals.account}}:{{accountDetails.accountNo}}</h6>
             <h6 *ngIf="paymentMode!=='biller';" class="accountNumber">{{mobile}}</h6>
         </div>
     </div>
@@ -37,7 +37,7 @@
             </div>
             <div class="text-end">
                 <h5 class="text">{{literals.confirm}}</h5>
-                <h6>{{accountDetails.confirm}}</h6>
+                <h6>{{accountDetails.confirmation}}</h6>
             </div>
         </div>
     </nav>

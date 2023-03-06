@@ -6,19 +6,19 @@ import { IAccountType } from '../common/interface/interface';
 export class DataService {
   private header: string;
   private recipientName:string;
-  private accountNo:number;
-  private mobile:number;
-  private amount:number;
+  private accountNumber:number;
+  private mobileNumber:number;
+  private payAmount:number;
   private accountType:IAccountType[];
-  private enrolledAs:string;
-  private userLogo:string;
-  private paymentType:string;
-  private cardNo:number;
-  private fee:string;
-  private confirmation:number;
-  private tickImage:string;
-  private bankLogo:string;
-  private dueDate:string;
+  private enroller:string;
+  private imagePicture:string;
+  private paymentMode:string;
+  private cardNumber:number;
+  private feeDetail:string;
+  private confirm:number;
+  private tick:string;
+  private bank:string;
+  private due:string;
   accountList: any;
 
   constructor() { }
@@ -29,11 +29,11 @@ export class DataService {
   set user(val: string){
     this.header = val;
   }
-  get imagePicture():string{
-    return this.userLogo;
+  get userLogo():string{
+    return this.imagePicture;
   }
-  set imagePicture(val:string){
-    this.userLogo=val;
+  set userLogo(val:string){
+    this.imagePicture=val;
   }
   get recipient():string{
     return this.recipientName;
@@ -41,23 +41,23 @@ export class DataService {
   set recipient(val: string){
     this.recipientName=val;
   }
-  get accountNumber():number{
-    return this.accountNo;
+  get accountNo():number{
+    return this.accountNumber;
   }
-  set accountNumber(val:number){
-    this.accountNo=val;
+  set accountNo(val:number){
+    this.accountNumber=val;
   }
-  get mobileNumber():number{
-    return this.mobile;
+  get mobile():number{
+    return this.mobileNumber;
   }
-  set mobileNumber(val:number){
-    this.mobile=val;
+  set mobile(val:number){
+    this.mobileNumber=val;
   }
-  get payAmount():number{
-    return this.amount;
+  get amount():number{
+    return this.payAmount;
   }
-  set payAmount(val:number){
-    this.amount=val;
+  set amount(val:number){
+    this.payAmount=val;
   }
   get accType():IAccountType[]{
     return this.accountType;
@@ -65,52 +65,52 @@ export class DataService {
   set accType(val:IAccountType[]){
     this.accountType=val;
   }
-  get enroller():string{
-    return this.enrolledAs;
+  get enrolledAs():string{
+    return this.enroller;
   }
-  set enroller(val:string){
-    this.enrolledAs=val;
+  set enrolledAs(val:string){
+    this.enroller=val;
   }
-  get paymentMode():string{
-    return this.paymentType;
+  get paymentType():string{
+    return this.paymentMode;
   }
-  set paymentMode(val:string){
-    this.paymentType=val;
+  set paymentType(val:string){
+    this.paymentMode=val;
   }
-  get cardNumber():number{
-    return this.cardNo;
+  get cardNo():number{
+    return this.cardNumber;
   }
-  set cardNumber(val:number){
-    this.cardNo=val;
+  set cardNo(val:number){
+    this.cardNumber=val;
   }
-  get feeDetail():string{
-    return this.fee;
+  get fee():string{
+    return this.feeDetail;
   }
-  set feeDetail(val:string){
-    this.fee=val;
+  set fee(val:string){
+    this.feeDetail=val;
   }
-  get confirm():number{
-    return this.confirmation;
+  get confirmation():number{
+    return this.confirm;
   }
-  set confirm(val:number){
-    this.confirmation=val;
+  set confirmation(val:number){
+    this.confirm=val;
   }
-  get tick():string{
-    return this.tickImage;
+  get tickImage():string{
+    return this.tick;
   }
-  set tick( val:string){
-    this.tickImage=val;
+  set tickImage( val:string){
+    this.tick=val;
   }
-  get bank():string{
-    return this.bankLogo;
+  get bankLogo():string{
+    return this.bank;
   }
-  set bank(val:string){
-    this.bankLogo=val;
+  set bankLogo(val:string){
+    this.bank=val;
   }
-  get date():string{
-    return this.dueDate;
+  get dueDate():string{
+    return this.due;
   }
-  set date(val:string){
-    this.dueDate;
+  set dueDate(val:string){
+    this.due;
   }
 }
