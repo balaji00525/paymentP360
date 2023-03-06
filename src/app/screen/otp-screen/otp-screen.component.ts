@@ -3,7 +3,7 @@ import { ApiService } from '../../service/api.service';
 import { Router } from '@angular/router';
 import { DataService } from '../../service/data.service';
 import { BillType } from '../../common/constant/constant';
-import { RoutingLinks } from '../../screenName';
+import { RoutingLinks } from '../../screen-name';
 
 @Component({
   selector: 'app-otp-screen',

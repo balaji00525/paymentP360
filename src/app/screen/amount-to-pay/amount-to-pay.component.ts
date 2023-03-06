@@ -12,7 +12,7 @@ import { DataService } from '../../service/data.service';
 import { environment } from 'src/environments/environment';
 
 import { IBillType } from '../../common/interface/interface';
-import { RoutingLinks } from '../../screenName';
+import { RoutingLinks } from '../../screen-name';
 
 @Component({
   selector: 'app-amount-to-pay',
