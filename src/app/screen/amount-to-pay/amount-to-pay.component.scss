@@ -16,7 +16,8 @@
   align-items: center;
   justify-content: center;
   display: flex;
-  color: gray;
+  @include color-container;
+
 }
 
 .amount {
@@ -28,23 +29,32 @@
 }
 
 .amount-input {
-  padding-bottom: 70px;
-  font-size: 55px;
+  padding-bottom: 68px;
+  font-size: 54px;
   display: flex;
   justify-content: center;
   text-align: center;
 
   input {
-    width: 130px;
-    height: 70px;
+    width: 132px;
+    height: 68px;
     border: none;
-    background-color: #d1dee6;
     text-align: center;
+    @include color;
   }
 
   input::placeholder {
     font-size: 12px;
   }
+  input::before{
+    content: "$";
+    position: absolute;
+    top: 0;
+    left: 40px;
+    z-index: 1;
+
+  }
+  
 }
 
 input::-webkit-outer-spin-button,
@@ -53,17 +63,14 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-/* Firefox */
-input[type=number] {
-  appearance: textfield;
-}
 
 .input-outline:focus {
   outline: none;
+
 }
 
 .box {
-  padding-left: 70px;
+  padding-left: 68px;
 }
 
 .due {
@@ -72,9 +79,9 @@ input[type=number] {
 
 .account-type {
   text-align: left;
-  padding: 5px;
-  color: grey;
+  padding: 4px;
   margin-bottom: 0px;
+  @include color-container;
 }
 
 .account-number{
@@ -83,8 +90,13 @@ input[type=number] {
 
 .click {
   text-align: center;
-  color: grey;
+  padding: 24px;
+  @include color-container;
 }
+.subtitle{
+  @include special-text;
+}
+
 
 .view {
   padding: 20px;
@@ -111,9 +123,9 @@ h4 {
   text-align: center;
 }
 
-p {
+.view {
   text-align: center;
-  color: blue;
+  @include special-text;
 }
 
 @media (min-width:320px) and (max-width:570px) {
@@ -138,6 +150,7 @@ p {
 }
 .user-profile {
   border-radius: 100px;
+  height:50px;
 }
 
 @media (min-width:769px) and (max-width:2500px) {

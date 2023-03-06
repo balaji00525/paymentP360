@@ -5,7 +5,7 @@ import { IAccountType } from '../common/interface/interface';
 })
 export class DataService {
   private header: string;
-  private recipient:string;
+  private recipientName:string;
   private accountNo:number;
   private mobile:number;
   private amount:number;
@@ -20,7 +20,7 @@ export class DataService {
   private bankLogo:string;
   private dueDate:string;
   accountList: any;
-  // date: string;
+
   constructor() { }
 
   get user():string{
@@ -35,11 +35,11 @@ export class DataService {
   set imagePicture(val:string){
     this.userLogo=val;
   }
-  get recipientName():string{
-    return this.recipient;
+  get recipient():string{
+    return this.recipientName;
   }
-  set recipientName(val: string){
-    this.recipient=val;
+  set recipient(val: string){
+    this.recipientName=val;
   }
   get accountNumber():number{
     return this.accountNo;

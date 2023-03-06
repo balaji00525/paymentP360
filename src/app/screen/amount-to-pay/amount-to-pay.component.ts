@@ -1,7 +1,7 @@
-//all screen sholud be under screenfloder
-//interface pipe sholud be under common folder
-//routing .ts  sholud be renamed to screen-names.ts
-//create folder constants
+//all screen sholud be under screenfloder////done
+//interface pipe sholud be under common folder////done
+//routing .ts  sholud be renamed to screen-names.ts///done
+//create folder constants//done
 
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment';
 
 import { IBillType } from '../../common/interface/interface';
 import { RoutingLinks } from '../../screen-name';
+import Utils from 'src/assets/utilities/util';
 
 @Component({
   selector: 'app-amount-to-pay',
@@ -28,6 +29,8 @@ export class AmountToPayComponent {
   paymentMode: string;
   paymentType = BillType;
   route = RoutingLinks;
+  amount: string;
+  util:Utils;
   constructor(
     private _api: ApiService,
     private _changeDetector: ChangeDetectorRef,
@@ -36,6 +39,7 @@ export class AmountToPayComponent {
   ) {
     this.paymentMode = this._data.user;
     this._paymentDetails(this.paymentMode);
+    this.util=Utils;
   }
 
   private _paymentDetails(payMode): void {
@@ -70,7 +74,7 @@ export class AmountToPayComponent {
   }
 
   public onSubmit(routeLink): void {
-    this._data.recipientName = this.bill.recipient;
+    this._data.recipient = this.bill.recipient;
     this._data.accountNumber = this.bill.accountNo;//name should be same
     this._data.mobileNumber = this.bill.mobile;
     this._data.payAmount = this.bill.amount;
@@ -96,12 +100,8 @@ export class AmountToPayComponent {
   }
 
   public getMobile(): string { //move this to util
-    return this.bill?.mobile
-      .toString()
-      .replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+   return Utils.getMobile(this.bill?.mobile);
   }
 
-  public getAccountNo(): string {
-    return '*' + this.bill?.accountNo; //catch data from data.json
-  }
+ 
 }
