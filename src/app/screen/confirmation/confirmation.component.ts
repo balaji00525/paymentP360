@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../service/api.service';
-import { DataService } from '../service/data.service';
+import { ApiService } from '../../service/api.service';
+import { DataService } from '../../service/data.service';
 import { Router, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { environment } from 'src/environments/environment';
-import { BillType } from '../common/constant';
-import { RoutingLinks } from '../routing';
+import { BillType } from '../../common/constant/constant';
+import { RoutingLinks } from '../../screen-name';
 
 @Component({
   selector: 'app-confirmation',

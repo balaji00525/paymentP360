@@ -6,14 +6,14 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ApiService } from '../service/api.service';
-import { BillType, ButtonType } from '../common/constant';
-import { DataService } from '../service/data.service';
+import { ApiService } from '../../service/api.service';
+import { BillType, ButtonType } from '../../common/constant/constant';
+import { DataService } from '../../service/data.service';
 import { environment } from 'src/environments/environment';
 
-import { IBillType } from '../interface';
-import { RoutingLinks } from '../routing';
-import Utils from '../utilities/util';
+import { IBillType } from '../../common/interface/interface';
+import { RoutingLinks } from '../../screen-name';
+import Utils from 'src/assets/utilities/util';
 
 @Component({
   selector: 'app-amount-to-pay',
@@ -75,7 +75,7 @@ export class AmountToPayComponent {
 
   public onSubmit(routeLink): void {
     this._data.recipient = this.bill.recipient;
-    this._data.accountNo = this.bill.accountNo;//name should be same
+    this._data.accountNumber = this.bill.accountNo;//name should be same
     this._data.mobileNumber = this.bill.mobile;
     this._data.payAmount = this.bill.amount;
     this._data.accType = this.bill.accountList;
