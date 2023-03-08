@@ -13,11 +13,10 @@
  -->
 
 <app-header [data]="header.screen1"></app-header>
-<!-- <app-header [data]="headerTitle.title1"></app-header> -->
-<div class="navbar" *ngIf="literals">
+
+<div class="navbar" *ngIf="literal">
     <div class="user-details">
-        <img class="user-profile" [src]="getImage()" alt="" > 
-        <!-- <h4>{{bill?.recipient}} {{getAccountNo()}}</h4> -->
+        <img class="user-profile" [src]="getImage()" alt="Image not Available" > 
          <h4>{{bill?.recipient}} {{bill.accountNo}}</h4>
         <h5 class="text text-center">{{bill?.enrolledAs}}</h5>
         <h5 class="user-number">{{getMobile()}}</h5>
@@ -25,14 +24,14 @@
     <hr class="line-break">
     <h6 [ngClass]="paymentMode=== paymentType.BILLER  ? 'amount' : 'amount amount-padding'">
         <ng-container *ngIf="paymentMode===paymentType.BILLER ">
-            <h6 class="title">{{literals.headerAmountTitle}}</h6> 
-            <div class="subtitle">{{literals.amountSubTitle}}</div>
+            <h6 class="title">{{literal.amountTitle}}</h6> 
+            <div class="subtitle">{{literal.amountSubTitle}}</div>
         </ng-container>
-        <h4  *ngIf="paymentMode !== paymentType.BILLER">{{literals.amountPayButton}}</h4>
+        <h4  *ngIf="paymentMode !== paymentType.BILLER">{{literal.amountTitle}}</h4>
         <h1 class="amount-input">
             <!-- <span>$</span> -->
             <input class="input-outline" type="number"
-                [(ngModel)]="bill.amount" placeholder="{{literals.inputPlaceHolder}}" readonly />
+                [(ngModel)]="bill.amount" placeholder="{{literal.inputPlaceHolder}}" readonly />
             <!-- <span *ngIf="paymentMode === paymentType.BILLER">{{bill?.amount}}</span> -->
         </h1>
     </h6>
@@ -41,26 +40,26 @@
     <hr class="line-break">
     <div class="due navbar">
         <div class="user-date">
-            <h6 class="account-type">{{literals.due}} </h6>
+            <h6 class="account-type">{{literal.due}} </h6>
             <h6 class="date">{{bill?.dueDate | dateFormat}}</h6>
         </div>
         <hr class="line-break">
         <div class="account">
-            <h6 class="account-type">{{literals.account}}</h6>
+            <h6 class="account-type">{{literal.account}}</h6>
             <!-- <h6 class="account-number">{{getAccountNo()}}</h6> -->
             <h6 class="account-number">{{bill.accountNo}}</h6>
         </div>
     </div>
     <hr>
-    <div class="view">{{literals.viewStatement}}</div>
-    <div class="click">{{literals.selectionMethod}}</div>
+    <div class="view">{{literal.viewStatement}}</div>
+    <div class="click">{{literal.selectionMethod}}</div>
 </ng-container>
 <div class="text text-center">
-    <p360-button [type]="buttonType.SUBMIT" *ngIf="paymentMode === paymentType.BILLER" [data]="literals.makeaPayment"
+    <p360-button [type]="buttonType.SUBMIT" *ngIf="paymentMode === paymentType.BILLER" [data]="literal.amountPayButton"
         (click)="onSubmit(route.MAKEAPAYMENT)"></p360-button>
-    <p360-button [type]="buttonType.SUBMIT" *ngIf="paymentMode !== paymentType.BILLER" [data]="literals.makePayButton"
+    <p360-button [type]="buttonType.SUBMIT" *ngIf="paymentMode !== paymentType.BILLER" [data]="literal.payButton"
         (click)="onSubmit(route.MAKEAPAYMENT)"></p360-button>
 </div>
 <div class="text text-center">
-    <p360-button [type]="buttonType.CANCEL" [data]="literals.back" (click)="onSubmit(route.HOME)"></p360-button>
+    <p360-button [type]="buttonType.CANCEL" [data]="literal.backButton" (click)="onSubmit(route.HOME)"></p360-button>
 </div>

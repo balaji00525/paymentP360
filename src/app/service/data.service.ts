@@ -17,6 +17,7 @@ export class DataService {
   private feeDetail:string;
   private confirm:number;
   private tick:string;
+  private zelle:string;
   private bank:string;
   private due:string;
   accountList: any;
@@ -106,6 +107,12 @@ export class DataService {
   }
   set bankLogo(val:string){
     this.bank=val;
+  }
+  get zelleImage():string{
+    return this.zelle;
+  }
+  set zelleImage(val:string){
+    this.zelle=val;
   }
   get dueDate():string{
     return this.due;

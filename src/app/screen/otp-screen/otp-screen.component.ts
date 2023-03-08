@@ -13,11 +13,11 @@ import { RoutingLinks } from '../../screen-name';
 
 export class OtpScreenComponent implements OnInit {
 
-  mobile: number;
+  mobile: string;
   paymentMode: string;
-  literals: any = {};
+  literal: any = {};
   route = RoutingLinks;
-
+  header: any = {};
   constructor(
     private service: ApiService,
     private dataService: DataService,
@@ -27,21 +27,24 @@ export class OtpScreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.mobile = this.dataService.mobile;
+    this.mobile = this.dataService.mobile.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
   }
 
   private paymentDetails(payMode): void {
     switch (payMode) {
       case BillType.BILLER: {
-        this.service.getBillerLiteralData().subscribe((data) => (this.literals = data));
+        this.service.getBillerHeaderData().subscribe((data) => (this.header = data));
+        this.service.getBillerLiteralData().subscribe((data) => (this.literal = data));
         break;
       }
       case BillType.SENDER: {
-        this.service.getSenderLiteralData().subscribe((data) => (this.literals = data));
+        this.service.getSenderHeaderData().subscribe((data) => (this.header = data));
+        this.service.getSenderLiteralData().subscribe((data) => (this.literal = data));
         break;
       }
       case BillType.REQUESTOR: {
-        this.service.getRequestorLiteralData().subscribe((data) => (this.literals = data));
+        this.service.getRequestorHeaderData().subscribe((data) => (this.header = data));
+        this.service.getRequestorLiteralData().subscribe((data) => (this.literal = data));
       }
     }
   }

@@ -18,7 +18,8 @@ export class ConfirmationComponent implements OnInit {
 
   myDate: any = new Date();
   data: any = {};
-  literals: any = {};
+  literal: any = {};
+  header:any={};
   accountDetails: DataService;
   paymentMode: string;
   route = RoutingLinks;
@@ -52,15 +53,18 @@ export class ConfirmationComponent implements OnInit {
   private paymentDetails(payMode) {
     switch (payMode) {
       case BillType.BILLER: {
-        this.services.getBillerLiteralData().subscribe((data) => this.literals = data);
+        this.services.getBillerHeaderData().subscribe((data)=>(this.header=data));
+        this.services.getBillerLiteralData().subscribe((data) => this.literal = data);
         break;
       }
       case BillType.SENDER: {
-        this.services.getSenderLiteralData().subscribe((data) => (this.literals = data));
+        this.services.getRequestorHeaderData().subscribe((data)=>(this.header=data));
+        this.services.getSenderLiteralData().subscribe((data) => (this.literal = data));
         break;
       }
       case BillType.REQUESTOR: {
-        this.services.getRequestorLiteralData().subscribe((data) => (this.literals = data));
+        this.services.getRequestorHeaderData().subscribe((data)=>(this.header=data));
+        this.services.getRequestorLiteralData().subscribe((data) => (this.literal = data));
       }
     }
   }
