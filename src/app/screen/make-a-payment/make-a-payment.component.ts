@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../service/api.service';
-import { DataService } from '../../service/data.service';
-import { Router, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
-import { environment } from 'src/environments/environment';
-import { IAccountType } from '../../common/interface/interface';
+import { Router } from '@angular/router';
 import { NgbCalendar, NgbDate, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
-import { RoutingLinks } from '../../screen-name';
+
+import { ApiService } from '../../service/api.service';
 import { BillType, Month, WeekDays } from '../../common/constant/constant';
+import { DataService } from '../../service/data.service';
+import { environment } from 'src/environments/environment';
+
+import { IAccountType } from '../../common/interface/interface';
+import { RoutingLinks } from '../../screen-name';
+
 
 @Component({
   selector: 'app-make-a-payment',
@@ -16,100 +19,107 @@ import { BillType, Month, WeekDays } from '../../common/constant/constant';
   providers: [DatePipe],
 })
 export class MakeAPaymentComponent implements OnInit {
-  private _model: NgbDate;
-  data: any = {};
-  SelectedAmount: number;
-  literals: any = {};
-  paymentMode: string;
-  recipient: string;
-  mobile: string;
-  amount: string;
-  acountType: IAccountType[];
-  paymentType: string;
-  userLogo: string = environment.imagePath;
   accountDetails: DataService;
-  route = RoutingLinks;
-
-
-  todayDate = this.datepipe.transform(new Date(), 'MMMM-dd-yy');
+  acountType: IAccountType[];
+  amount: string;
+  data: any = {};
+  dueDate: string;
+  header: any={};
   isOpen = false;
   isOpenDateTime = false;
-  minPickerDate = { year: 0, month: 0, day: 0 };
+  literal: any = {};
   maxPickerDate: { year: number; month: number; day: number; };
-  dueDate: string;
-
+  minPickerDate = { year: 0, month: 0, day: 0 };
+  mobile: string;
+  paymentMode: string;
+  paymentType: string;
+  private _model: NgbDate;
+  recipient: string;
+  route = RoutingLinks;
+  SelectedAmount: number;
+  todayDate = this._datepipe.transform(new Date(), 'MMMM-dd-yy');
+  userLogo: string = environment.imagePath;
+  zelleImage: string = environment.imagePath;
+  
   constructor(
-    private service: ApiService,
-    private dataService: DataService,
-    private datepipe: DatePipe,
-    private calender: NgbCalendar,
-    private router: Router,) {
-    this.paymentMode = this.dataService.user;
-    this.paymentDetails(this.paymentMode);
+    private _data: DataService,
+    private _datepipe: DatePipe,
+    private _calender: NgbCalendar,
+    private _router: Router,
+    private _api: ApiService
+    ) {
+    this.paymentMode = this._data.user;
+    this._paymentDetails(this.paymentMode);
   }
 
   ngOnInit(): void {
     this.selectToday();
-    this.mobile = this.dataService.mobile.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
-    this.amount = '$  ' + this.dataService.amount;
-    this.dueDate=this.dataService.dueDate;
-    this.userLogo += this.dataService.userLogo;
-    this.minPickerDate = {
-      year: new Date().getFullYear(),
-      month: new Date().getMonth() + 1,
-      day: new Date().getDate(),
-    };  
+    this.accountDetails = this._data;
+    this.amount = '$  ' + this._data.amount;
+    this.dueDate=this._data.dueDate;
     const futureDate=(new Date().setDate(new Date().getDate() + 90));
-    this.maxPickerDate={
+    this.maxPickerDate =
+    {
       year: new Date(futureDate).getFullYear(),
       month: new Date(futureDate).getMonth() + 1,
       day: new Date(futureDate).getDate(),
     };
-    this.accountDetails = this.dataService;
+    this.minPickerDate = 
+    {
+      year: new Date().getFullYear(),
+      month: new Date().getMonth() + 1,
+      day: new Date().getDate(),
+    };  
+    this.mobile = this._data.mobile.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+    this.userLogo += this._data.userLogo;
+    this.zelleImage += this._data.zelleImage;  
   }
 
-  paymentDetails(payMode):void {
+  private _paymentDetails(payMode):void {
     switch (payMode) {
       case BillType.BILLER: {
-        this.service.getBillerLiteralData().subscribe((data) => (this.literals = data));
+        this._api.getBillerHeaderData().subscribe((data)=>(this.header=data));
+        this._api.getBillerLiteralData().subscribe((data)=>(this.literal=data));
         break;
       }
       case  BillType.SENDER: {
-        this.service.getSenderLiteralData().subscribe((data) => (this.literals = data));
+        this._api.getSenderHeaderData().subscribe((data)=>(this.header=data));
+        this._api.getSenderLiteralData().subscribe((data) => (this.literal = data));
         break;
       }
       case BillType.REQUESTOR: {
-        this.service.getRequestorLiteralData().subscribe((data) => (this.literals = data));
+        this._api.getRequestorHeaderData().subscribe((data)=>(this.header=data));
+        this._api.getRequestorLiteralData().subscribe((data) => (this.literal = data));
       }
     }
   }
   
-  onSubmit(routerLink): void {
-    this.router.navigate([routerLink]);
+  public onSubmit(routerLink): void {
+    this._router.navigate([routerLink]);
   }
  
   selectedDay: string = '';
   selectedMonth: string = '';
   set model(val) {
     this._model = val;
-    this.selectedDay = WeekDays[this.calender.getWeekday(this.model)];
+    this.selectedDay = WeekDays[this._calender.getWeekday(this.model)];
     this.selectedMonth = Month[this.model.month];
   }
 
-  get model() {
+  public get model() {
     return this._model;
   }
 
-  selectToday():void {
-    this.model = this.calender.getToday();
+  public selectToday():void {
+    this.model = this._calender.getToday();
   }
   displayStyle = 'none';
 
-  openPopup() {
+  public openPopup() {
     this.displayStyle = 'block';
   }
 
-  closePopup() {
+  public closePopup() {
     this.displayStyle = 'none';
   }
   accountlist = '';

@@ -1,0 +1,114 @@
+{
+  "billerliterals": {
+    "amountTitle":"Amount due",
+    "amountSubTitle": "Imported from Statement",
+    "due":"Due date",
+    "account":"Account Number",
+    "viewStatement":"View current statement",
+    "selectionMethod":"Click to start selection for Payment method",
+    "amountPayButton":"Make a Payment",
+    "payButton":"Pay",
+    "backButton":"Back",
+
+    "amount":"Amount",
+    "withdrawFrom":"Withdraw from",
+    "choose":"Choose how you'd like to pay",
+    "faster":"⚡ Fastest option Available",
+    "arrivesIn":"Arrives in minutes",
+    "selected":"Currently selected",
+    "arrivesMinutes":"Arrives in 1-3 days",
+    "deliveryBy":"Delivery by",
+    "memo":"Memo(optional)",
+    "recurringPayment":"Make Recurring Payment",
+    "modalRecipient": "You are sending money to the recipient you assed as  ",
+    "enrolledAs": "is enrolled with Zelle* as AT&T",
+    "continue": "If this looks right to you, select continue",
+    "btnCancel":"Cancel",
+    "btnContinue":"continue",
+
+    "securityCode":"We sent a one-time security code to",
+    "enterMobile": "Please Enter the code below",
+    "sms":"Re-send via text",
+    "phoneCall":"Re-send via phone call",
+    "verifyBtn":"Verify",
+
+    "paymentSent":"Payment sent",
+    "you":"You",
+    "arrives":"Arrives",
+    "confirm":"Confirmation",
+    "btnDone":"Done"
+},
+"senderliterals": {
+  "amountTitle":"Amount due",
+  "amountSubTitle": "Imported from Statement",
+  "payButton":"Pay",
+  "backButton":"Back",
+
+  "amount":"Amount",
+  "withdrawFrom":"Withdraw from",
+  "choose":"Choose how you'd like to pay",
+  "faster":"⚡ Fastest option Available",
+  "arrivesIn":"Arrives in minutes",
+  "selected":"Currently selected",
+  "arrivesMinutes":"Arrives in 1-3 days",
+  "deliveryBy":"Delivery by",
+  "memo":"Memo(optional)",
+  "recurringPayment":"Make Recurring Payment",
+  "modalRecipient": "You are sending money to the recipient you assed as  ",
+  "enrolledAs": "is enrolled with Zelle* as Kat Simmons",
+  "continue": "If this looks right to you, select continue",
+  "btnCancel":"Cancel",
+  "btnContinue":"continue",
+
+  "securityCode":"We sent a one-time security code to",
+  "enterMobile": "Please Enter the code below",
+  "sms":"Re-send via text",
+  "phoneCall":"Re-send via phone call",
+  "verifyBtn":"Verify",
+
+  "paymentSent":"Payment sent",
+  "you":"You",
+  "arrives":"Arrives",
+  "confirm":"Confirmation",
+  "btnDone":"Done"
+},
+"requestorliterals": {
+  "amountTitle":"Amount due",
+  "amountSubTitle": "Imported from Statement",
+  "payButton":"Pay",
+  "backButton":"Back",
+
+  "amount":"Amount",
+  "withdrawFrom":"Withdraw from",
+  "choose":"Choose how you'd like to pay",
+  "faster":"⚡ Fastest option Available",
+  "arrivesIn":"Arrives in minutes",
+  "selected":"Currently selected",
+  "arrivesMinutes":"Arrives in 1-3 days",
+  "deliveryBy":"Delivery by",
+  "memo":"Memo(optional)",
+  "recurringPayment":"Make Recurring Payment",
+  "modalRecipient": "You are sending money to the recipient you assed as  ",
+  "enrolledAs": "is enrolled with Zelle* as Kat Simmons",
+  "continue": "If this looks right to you, select continue",
+  "btnCancel":"Cancel",
+  "btnContinue":"continue",
+
+  "securityCode":"We sent a one-time security code to",
+  "enterMobile": "Please Enter the code below",
+  "sms":"Re-send via text",
+  "phoneCall":"Re-send via phone call",
+  "verifyBtn":"Verify",
+
+  "paymentSent":"Payment sent",
+  "you":"You",
+  "arrives":"Arrives",
+  "confirm":"Confirmation",
+  "btnDone":"Done"
+}
+
+
+
+
+
+}
