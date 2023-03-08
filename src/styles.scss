@@ -48,3 +48,22 @@ body {
  @mixin special-text{
      color: blue;
  }
+ @mixin syntax-color{
+    color: white;
+ }
+ @mixin  text-decoration{
+    color: black;
+ }
+ @mixin  margin-bottom{
+    color:  #29479e;
+ }
+ @mixin otp-input{
+    background-color: #d1dee6;
+    border: 2px solid #cbcbcc;
+    border-right: #544b4b;
+    border-left: #544b4b;
+    border-top: #544b4b;
+ }
+ @mixin hyper-line{
+    color: #899cc9;
+ }

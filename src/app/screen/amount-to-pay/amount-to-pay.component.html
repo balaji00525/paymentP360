@@ -1,6 +1,6 @@
 <!-- in img tag  remove height////////done
     
-    create a object for headertitle in json
+    create a object for headertitle in json//////done
     AMOUNTFILED Should be use input for biller and sender as read only
     use dollar symbol $ prefix
 
@@ -13,11 +13,9 @@
  -->
 
 <app-header [data]="header.screen1"></app-header>
-<!-- <app-header [data]="headerTitle.title1"></app-header> -->
 <div class="navbar" *ngIf="literals">
     <div class="user-details">
         <img class="user-profile" [src]="getImage()" alt="" > 
-        <!-- <h4>{{bill?.recipient}} {{getAccountNo()}}</h4> -->
          <h4>{{bill?.recipient}} {{bill.accountNo}}</h4>
         <h5 class="text text-center">{{bill?.enrolledAs}}</h5>
         <h5 class="user-number">{{getMobile()}}</h5>
@@ -47,7 +45,6 @@
         <hr class="line-break">
         <div class="account">
             <h6 class="account-type">{{literals.account}}</h6>
-            <!-- <h6 class="account-number">{{getAccountNo()}}</h6> -->
             <h6 class="account-number">{{bill.accountNo}}</h6>
         </div>
     </div>

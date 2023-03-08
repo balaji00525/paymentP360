@@ -5,37 +5,38 @@
 }
 
 .number {
-    color: #000;
     font-weight: 600;
+    @include text-decoration;
 }
 
 .number-1 {
-    color: #000;
     font-weight: 600;
+    @include text-decoration;
 }
 
 a {
     text-decoration: none;
-    color: #29479e;
+   @include margin-bottom;
 
     &:hover,
     &.active {
-        color: #899cc9;
+        @include hyper-line;
     }
 }
 
 .otp {
     .otp-input {
-        width: 35%;
+        width: 36%;
         font-size: 50px;
         font-weight: 100;
         text-align: center;
         outline: none;
-        background-color: #d1dee6;
-        border: 2px solid #cbcbcc;
-        border-right: #544b4b;
-        border-left: #544b4b;
-        border-top: #544b4b;
+        // background-color: #d1dee6;
+        // border: 2px solid #cbcbcc;
+        // border-right: #544b4b;
+        // border-left: #544b4b;
+        // border-top: #544b4b;
+        @include  otp-input;
     }
 }
 

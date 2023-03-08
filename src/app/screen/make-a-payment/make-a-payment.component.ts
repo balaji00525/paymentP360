@@ -20,6 +20,7 @@ export class MakeAPaymentComponent implements OnInit {
   data: any = {};
   SelectedAmount: number;
   literals: any = {};
+  header:any={};
   paymentMode: string;
   recipient: string;
   mobile: string;

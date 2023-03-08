@@ -26,35 +26,35 @@ h1 {
 }
 
 .dollar {
+  @include margin-bottom;
   padding: 60px 30px 30px 30px;
   font-weight: 600px;
-  color: #29479e;
   text-align: center;
-  padding: 5px;
-  margin-top: 50px;
-  margin-bottom: 70px;
-  font-size: 55px;
+  padding: 4px;
+  margin-top: 48px;
+  margin-bottom: 68px;
+  font-size: 54px;
 }
 
 .amountType {
   font-size: smaller;
-  color: black;
+  @include text-decoration;
 }
 
 .accountNumber {
   font-size: smaller;
-  color: grey;
+  @include color-container;
 }
 
 .name {
+  @include color-container;
   font-size: smaller;
-  color: grey;
-  padding: 3px;
+  padding: 4px;
   margin: 0px;
 }
 
 .text {
-  color: black;
+  @include text-decoration;
 }
 
 .accounttype {
@@ -62,10 +62,6 @@ h1 {
   margin: 0;
   font-weight: bold;
 }
-
-// .accountType {
-//   font-weight: bold;
-// }
 
 .btncontainer {
   display: flex;

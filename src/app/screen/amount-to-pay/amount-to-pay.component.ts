@@ -32,7 +32,7 @@ export class AmountToPayComponent {
   route = RoutingLinks;
   amount: string;
   util:Utils;
-  headerType=Headertype;
+
   constructor(
     private _api: ApiService,
     private _changeDetector: ChangeDetectorRef,
@@ -75,7 +75,7 @@ export class AmountToPayComponent {
         this._api
           .getRequestorLiteralData()
           .subscribe((data) => (this.literals = data));
-          this._api.getBillerHeaderData()
+        this._api.getRequestorHeaderData()
           .subscribe((data)=>(this.header =data));
       }
     }
@@ -83,7 +83,7 @@ export class AmountToPayComponent {
 
   public onSubmit(routeLink): void {
     this._data.recipient = this.bill.recipient;
-    this._data.accountNo = this.bill.accountNo;//name should be same
+    this._data.accountNo = this.bill.accountNo;//name should be same/////done
     this._data.mobile = this.bill.mobile;
     this._data.amount = this.bill.amount;
     this._data.accountList = this.bill.accountList;
@@ -106,12 +106,6 @@ export class AmountToPayComponent {
     this._changeDetector.markForCheck();
     return this.imagePath;
   }
-
-  // public getMobile(mobile): string { //move this to util
-  //   return mobile
-  //     .toString()
-  //     .replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
-  // }
   public getMobile(): string {
    return Utils.getMobile(this.bill?.mobile);
   }
