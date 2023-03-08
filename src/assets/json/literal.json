@@ -31,6 +31,7 @@
     "sms":"Re-send via text",
     "phoneCall":"Re-send via phone call",
     "verifyBtn":"Verify",
+    "enterOtp":"Enter OTP Here",
 
     "paymentSent":"Payment sent",
     "you":"You",
@@ -65,6 +66,7 @@
   "sms":"Re-send via text",
   "phoneCall":"Re-send via phone call",
   "verifyBtn":"Verify",
+  "enterOtp":"Enter OTP Here",
 
   "paymentSent":"Payment sent",
   "you":"You",
@@ -99,6 +101,7 @@
   "sms":"Re-send via text",
   "phoneCall":"Re-send via phone call",
   "verifyBtn":"Verify",
+  "enterOtp":"Enter OTP Here",
 
   "paymentSent":"Payment sent",
   "you":"You",
