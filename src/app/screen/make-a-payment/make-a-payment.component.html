@@ -12,8 +12,8 @@
     <hr class="mb-1"/>
 
     <!------------Zelle--------------->
-    <div class="text text-center">
-        <img src="{{zelleImage}}" alt="image not available" width="70">
+    <div  class="text text-center" >
+        <img  src="{{zelleImage}}" alt="image not available" width="70">
     </div>
 
     <!------------Input-1--------------->
@@ -42,12 +42,10 @@
             </div>
         </div>
         <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen">
-            <div>
+         
                 <div class="list-container list border-bottom">
                     <div>Choose how you'd like to pay</div>
-                    <div>
                         <button class="cross-button" (click)="isOpen = false">&#10005;</button>
-                    </div>
                 </div>
                 <ul class="list">
                     <li>
@@ -55,12 +53,10 @@
                             <div><a class="link" href="#"> <small>{{literal.faster}}</small></a></div>
                             <div><small>{{literal.arrivesIn}}</small></div>
                         </div>
-                        <div class="list-container">
-                            <div>
+                        <div class="list-container">                        
                                 <div>
                                     <div>{{accountDetails.paymentType}} {{accountDetails.fee}}</div> <small>{{accountDetails.paymentType}} {{accountDetails.cardNo}}</small>
-                                </div>
-                            </div>
+                                </div>                          
                             <div> $365.27 available</div>
                         </div>
                     </li>
@@ -69,18 +65,16 @@
                             <div><small>{{literal.selected}}</small></div>
                             <div><small>{{literal.arrivesMinutes}}</small></div>
                         </div>
-                        <div class="list-container">
-                            <div>
+                        <div class="list-container">                   
                                 <div>
                                     <div>{{accountDetails.paymentType}} {{accountDetails.fee}}</div> <small>{{accountDetails.paymentType}} {{accountDetails.cardNo}}</small>
                                 </div>
-                            </div>
                             <div> $4.98 available</div>
                         </div>
                     </li>
 
                 </ul>
-            </div>
+            
         </ng-template>
     </div>
 
@@ -124,7 +118,7 @@
 
     <!------------Pay Button--------------->
     <div class="text text-center">
-        <p360-button [type]="'submit'" [data]="literal.payButton" [recipient]="accountDetails.recipient" [amount]="amount "
+        <p360-button [type]="buttonType.SUBMIT" [data]="literal.payButton" [recipient]="accountDetails.recipient" [amount]="amount "
             (click)="openPopup()"></p360-button>
     </div>
 
@@ -143,17 +137,17 @@
                 </div>
                 <div class="modal-footer">
                     <p360-button style="width: 50%;display:flex; justify-content: center;" [data]="'Cancel'"
-                        [type]="'cancel'" (click)="closePopup()"></p360-button>
+                        [type]="buttonType.CANCEL" (click)="closePopup()"></p360-button>
 
                     <p360-button style="width: 50%; display:flex; justify-content: center;" [data]="'Continue'"
-                        [type]="'submit'" (click)="onSubmit(route.OTPSCREEN)"></p360-button>
+                        [type]="buttonType.SUBMIT" (click)="onSubmit(route.OTPSCREEN)"></p360-button>
                 </div>
             </div>
         </div>
     </div>
     <!------------Back Button--------------->
     <div class="text text-center">
-        <p360-button [type]="'cancel'" (click)="onSubmit(route.AMOUNTTOPAY)" [data]="'Back'"></p360-button>
+        <p360-button [type]="buttonType.CANCEL" (click)="onSubmit(route.AMOUNTTOPAY)" [data]="'Back'"></p360-button>
     </div>
 
 </div>

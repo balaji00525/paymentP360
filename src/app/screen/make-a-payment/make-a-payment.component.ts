@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { NgbCalendar, NgbDate, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 import { ApiService } from '../../service/api.service';
-import { BillType, Month, WeekDays } from '../../common/constant/constant';
+import { BillType, Month, WeekDays, ButtonType } from '../../common/constant/constant';
 import { DataService } from '../../service/data.service';
 import { environment } from 'src/environments/environment';
 
@@ -22,6 +22,7 @@ export class MakeAPaymentComponent implements OnInit {
   accountDetails: DataService;
   acountType: IAccountType[];
   amount: string;
+  buttonType = ButtonType;
   data: any = {};
   dueDate: string;
   header: any={};
@@ -97,6 +98,7 @@ export class MakeAPaymentComponent implements OnInit {
   public onSubmit(routerLink): void {
     this._router.navigate([routerLink]);
   }
+ 
  
   selectedDay: string = '';
   selectedMonth: string = '';

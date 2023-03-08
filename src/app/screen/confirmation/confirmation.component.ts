@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { ApiService } from '../../service/api.service';
+import { BillType,ButtonType } from '../../common/constant/constant';
 import { DataService } from '../../service/data.service';
-import { Router, RouterLink } from '@angular/router';
-import { DatePipe } from '@angular/common';
 import { environment } from 'src/environments/environment';
-import { BillType } from '../../common/constant/constant';
+
+import { DatePipe } from '@angular/common';
 import { RoutingLinks } from '../../screen-name';
 
 @Component({
@@ -16,60 +18,62 @@ import { RoutingLinks } from '../../screen-name';
 
 export class ConfirmationComponent implements OnInit {
 
-  myDate: any = new Date();
-  data: any = {};
-  literal: any = {};
-  header:any={};
   accountDetails: DataService;
+  amount: string;
+  bankLogo: string = environment.imagePath;
+  buttonType = ButtonType;
+  data: any = {};
+  dueDate: string;
+  header:any={};
+  literal: any = {};
+  mobile: string;
+  myDate: any = new Date();
   paymentMode: string;
   route = RoutingLinks;
-  amount: string;
-  mobile: string;
-  userLogo: string = environment.imagePath;
   tickImage: string = environment.imagePath;
-  bankLogo: string = environment.imagePath;
-  dueDate: string;
-
+  userLogo: string = environment.imagePath;
+  
   constructor(
-    private services: ApiService,
-    private dataService: DataService,
+    private _api: ApiService,
+    private _data: DataService,
     private datepipe: DatePipe,
-    private router: Router) {
+    private _router: Router,  
+    ) {
     this.myDate = this.datepipe.transform(this.myDate, 'EEEE, MMM d, y');
-    this.paymentMode = this.dataService.user;
+    this.paymentMode = this._data.user;
     this.paymentDetails(this.paymentMode);
   }
 
   ngOnInit(): void {
-    this.mobile = this.dataService.mobile.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
-    this.userLogo += this.dataService.userLogo;
-    this.amount = '$  ' + this.dataService.amount;
-    this.tickImage += this.dataService.tickImage;
-    this.bankLogo += this.dataService.bankLogo;
-    this.accountDetails = this.dataService;
-    this.dueDate=this.dataService.dueDate;
+    this.accountDetails = this._data;
+    this.amount = '$  ' + this._data.amount;
+    this.bankLogo += this._data.bankLogo;
+    this.dueDate=this._data.dueDate;
+    this.mobile = this._data.mobile.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+    this.tickImage += this._data.tickImage;
+    this.userLogo += this._data.userLogo;   
   }
 
   private paymentDetails(payMode) {
     switch (payMode) {
       case BillType.BILLER: {
-        this.services.getBillerHeaderData().subscribe((data)=>(this.header=data));
-        this.services.getBillerLiteralData().subscribe((data) => this.literal = data);
+        this._api.getBillerHeaderData().subscribe((data)=>(this.header=data));
+        this._api.getBillerLiteralData().subscribe((data) => this.literal = data);
         break;
       }
       case BillType.SENDER: {
-        this.services.getRequestorHeaderData().subscribe((data)=>(this.header=data));
-        this.services.getSenderLiteralData().subscribe((data) => (this.literal = data));
+        this._api.getRequestorHeaderData().subscribe((data)=>(this.header=data));
+        this._api.getSenderLiteralData().subscribe((data) => (this.literal = data));
         break;
       }
       case BillType.REQUESTOR: {
-        this.services.getRequestorHeaderData().subscribe((data)=>(this.header=data));
-        this.services.getRequestorLiteralData().subscribe((data) => (this.literal = data));
+        this._api.getRequestorHeaderData().subscribe((data)=>(this.header=data));
+        this._api.getRequestorLiteralData().subscribe((data) => (this.literal = data));
       }
     }
   }
 
-  onSubmit(routerLink): void {
-    this.router.navigate([routerLink]);
+  public onSubmit(routerLink): void {
+    this._router.navigate([routerLink]);
   }
 }

@@ -43,7 +43,7 @@
     </nav>
 
     <div class="btncontainer">
-        <p360-button [type]="'submit'" (click)="onSubmit(route.HOME)" [data]="literal.btnDone"></p360-button>
-        <p360-button [type]="'cancel'" (click)="onSubmit(route.OTPSCREEN)" [data]="literal.btnCancel"></p360-button>
+        <p360-button [type]="buttonType.SUBMIT" (click)="onSubmit(route.HOME)" [data]="literal.btnDone"></p360-button>
+        <p360-button [type]="buttonType.CANCEL" (click)="onSubmit(route.OTPSCREEN)" [data]="literal.btnCancel"></p360-button>
     </div>
 </div>
