@@ -1,8 +1,8 @@
-<app-header [data]="literals.confirm"></app-header>
+<app-header [data]="header.screen4"></app-header>
 
 <div>
     <img class="image" src="{{tickImage}}" width="50" height="50">
-    <h1 class="text text-center ">{{literals.paymentSent}}</h1>
+    <h1 class="text text-center ">{{literal.paymentSent}}</h1>
     <h1 class="dollar">{{amount}}</h1>
 
     <div class="bg-light image-container">
@@ -10,7 +10,7 @@
             <img src="{{bankLogo}}" width="55px" height="55px">
         </div>
         <div>
-           <h6 class="name">{{literals.you}}</h6>
+           <h6 class="name">{{literal.you}}</h6>
             <h6 class="accountType">
                 <b>{{accountDetails.paymentType}}</b>{{accountDetails.cardNo}}{{accountDetails.fee}}
             </h6>
@@ -23,7 +23,7 @@
         <div>
             <h6 class="accounttype"><b>{{accountDetails.recipient}}</b></h6>
             <h6 *ngIf="paymentMode=='biller';" class="accountNumber">
-                {{literals.account}}:{{accountDetails.accountNo}}</h6>
+                {{literal.account}}:{{accountDetails.accountNo}}</h6>
             <h6 *ngIf="paymentMode!=='biller';" class="accountNumber">{{mobile}}</h6>
         </div>
     </div>
@@ -32,18 +32,18 @@
     <nav class="navbar ">
         <div class="container sticky-top">
             <div>
-                <h5 class="text">{{literals.arrives}}</h5>
+                <h5 class="text">{{literal.arrives}}</h5>
                 <h6><span>{{myDate}} </span></h6>
             </div>
             <div class="text-end">
-                <h5 class="text">{{literals.confirm}}</h5>
+                <h5 class="text">{{literal.confirm}}</h5>
                 <h6>{{accountDetails.confirmation}}</h6>
             </div>
         </div>
     </nav>
 
     <div class="btncontainer">
-        <p360-button [type]="'submit'" (click)="onSubmit(route.HOME)" [data]="literals.done"></p360-button>
-        <p360-button [type]="'cancel'" (click)="onSubmit(route.OTPSCREEN)" [data]="literals.cancel"></p360-button>
+        <p360-button [type]="buttonType.SUBMIT" (click)="onSubmit(route.HOME)" [data]="literal.btnDone"></p360-button>
+        <p360-button [type]="buttonType.CANCEL" (click)="onSubmit(route.OTPSCREEN)" [data]="literal.btnCancel"></p360-button>
     </div>
 </div>

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../service/api.service';
 import { Router } from '@angular/router';
+
+import { ApiService } from '../../service/api.service';
+import { BillType,ButtonType } from '../../common/constant/constant';
 import { DataService } from '../../service/data.service';
-import { BillType } from '../../common/constant/constant';
+
 import { RoutingLinks } from '../../screen-name';
 
 @Component({
@@ -12,41 +14,45 @@ import { RoutingLinks } from '../../screen-name';
 })
 
 export class OtpScreenComponent implements OnInit {
-
-  mobile: number;
+  buttonType = ButtonType;
+  header: any = {};
+  literal: any = {};
+  mobile: string;
   paymentMode: string;
-  literals: any = {};
   route = RoutingLinks;
-
+  
   constructor(
-    private service: ApiService,
-    private dataService: DataService,
-    private router: Router) {
-    this.paymentMode = this.dataService.user;
-    this.paymentDetails(this.paymentMode);
+    private _data: DataService,
+    private _api: ApiService,  
+    private _router: Router) {
+    this.paymentMode = this._data.user;
+    this._paymentDetails(this.paymentMode);
   }
 
   ngOnInit(): void {
-    this.mobile = this.dataService.mobile;
+    this.mobile = this._data.mobile.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
   }
 
-  private paymentDetails(payMode): void {
+  private _paymentDetails(payMode): void {
     switch (payMode) {
       case BillType.BILLER: {
-        this.service.getBillerLiteralData().subscribe((data) => (this.literals = data));
+        this._api.getBillerHeaderData().subscribe((data) => (this.header = data));
+        this._api.getBillerLiteralData().subscribe((data) => (this.literal = data));
         break;
       }
       case BillType.SENDER: {
-        this.service.getSenderLiteralData().subscribe((data) => (this.literals = data));
+        this._api.getSenderHeaderData().subscribe((data) => (this.header = data));
+        this._api.getSenderLiteralData().subscribe((data) => (this.literal = data));
         break;
       }
       case BillType.REQUESTOR: {
-        this.service.getRequestorLiteralData().subscribe((data) => (this.literals = data));
+        this._api.getRequestorHeaderData().subscribe((data) => (this.header = data));
+        this._api.getRequestorLiteralData().subscribe((data) => (this.literal = data));
       }
     }
   }
 
-  onSubmit(routerLink): void {
-    this.router.navigate([routerLink]);
+  public onSubmit(routerLink): void {
+    this._router.navigate([routerLink]);
   }
 }

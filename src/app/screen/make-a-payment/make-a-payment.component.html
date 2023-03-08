@@ -1,6 +1,6 @@
 <div>
     <!-----------Header--------------->
-    <app-header [data]="literals.makeaPayment"></app-header>
+    <app-header [data]="header.screen2"></app-header>
 
     <!--------Account Details--------->
     <div class="title">
@@ -12,8 +12,8 @@
     <hr class="mb-1"/>
 
     <!------------Zelle--------------->
-    <div class="text text-center">
-        <img src="{{literals.imagePath}}" width="70">
+    <div  class="text text-center" >
+        <img  src="{{zelleImage}}" alt="image not available" width="70">
     </div>
 
     <!------------Input-1--------------->
@@ -22,10 +22,9 @@
 
         <!------------Amount--------------->
         <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-            <label for="amount" class="label form-label">{{literals.amount}}</label>
+            <label for="amount" class="label form-label">{{literal.amount}}</label>
             <div class="col-auto ">
                 <div class="input-group mb-1">
-
                     <div *ngIf="paymentMode=='biller';" class="form-control" contenteditable="false">{{amount}}</div>
                     <input *ngIf="paymentMode!=='biller';" type="text" class="form-control" id="amount"
                         placeholder="Enter Amount" autocomplete="off" value="{{amount}}" />
@@ -34,7 +33,7 @@
         </div>
         <!------------Dropdown--------------->
         <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-            <label for="amount" class="label form-label">{{literals.withdrawFrom}}</label>
+            <label for="amount" class="label form-label">{{literal.withdrawFrom}}</label>
             <div class="col-auto ">
                 <div class="input-group mb-1">
                     <input type="text" class="form-control" id="amount" (click)="isOpen = !isOpen"
@@ -43,45 +42,39 @@
             </div>
         </div>
         <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen">
-            <div>
+         
                 <div class="list-container list border-bottom">
                     <div>Choose how you'd like to pay</div>
-                    <div>
                         <button class="cross-button" (click)="isOpen = false">&#10005;</button>
-                    </div>
                 </div>
                 <ul class="list">
                     <li>
                         <div class="list-container margin-bottom ">
-                            <div><a class="link" href="#"> <small>{{literals.faster}}</small></a></div>
-                            <div><small>{{literals.arrivesIn}}</small></div>
+                            <div><a class="link" href="#"> <small>{{literal.faster}}</small></a></div>
+                            <div><small>{{literal.arrivesIn}}</small></div>
                         </div>
-                        <div class="list-container">
-                            <div>
+                        <div class="list-container">                        
                                 <div>
                                     <div>{{accountDetails.paymentType}} {{accountDetails.fee}}</div> <small>{{accountDetails.paymentType}} {{accountDetails.cardNo}}</small>
-                                </div>
-                            </div>
+                                </div>                          
                             <div> $365.27 available</div>
                         </div>
                     </li>
                     <li>
                         <div class="list-container margin-bottom">
-                            <div><small>{{literals.selected}}</small></div>
-                            <div><small>{{literals.arrivesMinutes}}</small></div>
+                            <div><small>{{literal.selected}}</small></div>
+                            <div><small>{{literal.arrivesMinutes}}</small></div>
                         </div>
-                        <div class="list-container">
-                            <div>
+                        <div class="list-container">                   
                                 <div>
                                     <div>{{accountDetails.paymentType}} {{accountDetails.fee}}</div> <small>{{accountDetails.paymentType}} {{accountDetails.cardNo}}</small>
                                 </div>
-                            </div>
-                            <div> $4,164.98 available</div>
+                            <div> $4.98 available</div>
                         </div>
                     </li>
 
                 </ul>
-            </div>
+            
         </ng-template>
     </div>
 
@@ -89,7 +82,7 @@
     <div class="rows1">
         <!------------Date--------------->
         <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-            <label for="dateTimePicker" class="label form-label">{{literals.deliveryBy}}</label>
+            <label for="dateTimePicker" class="label form-label">{{literal.deliveryBy}}</label>
             <div class="col-auto ">
                 <div class="input-group mb-1">
                     <div class="form-control" id="dateTimePicker" contenteditable="false"
@@ -112,20 +105,20 @@
         </ng-template>
         <!------------Memo--------------->
         <div class="form mb-2 col-sm-5 col-md-5 col-lg-5">
-            <label for="memo" class="label mb-2">{{literals.memo}}</label>
-            <div class="form-control" contenteditable="true">Reason for...</div>
+            <label for="memo" class="label mb-2">{{literal.memo}}</label>
+            <div class="form-control" contenteditable="true" readonly>Reason for...</div>
         </div>
     </div>
 
     <!------------Radio--------------->
     <div class="radio form-check form-switch mb-3">
         <input class="form-check-input" type="checkbox" id="recurring">
-        <label class="label form-check-label" for="recurring">Make Recurring Payment</label>
+        <label class="label form-check-label" for="recurring">{{literal.recurringPayment}}</label>
     </div>
 
     <!------------Pay Button--------------->
     <div class="text text-center">
-        <p360-button [type]="'submit'" [data]="literals.makePayButton" [recipient]="accountDetails.recipient" [amount]="amount "
+        <p360-button [type]="buttonType.SUBMIT" [data]="literal.payButton" [recipient]="accountDetails.recipient" [amount]="amount "
             (click)="openPopup()"></p360-button>
     </div>
 
@@ -137,24 +130,24 @@
                     <img class="header" src="{{userLogo}}" alt="">
                 </div>
                 <div class="modal-body">
-                    <p>{{literals.modalRecipient}} <span class="modal-mobile">{{recipient}}</span></p>
+                    <p>{{literal.modalRecipient}} <span class="modal-mobile">{{recipient}}</span></p>
                     <p *ngIf="paymentMode!=='biller';"><span class="modal-mobile">{{mobile}}</span>&nbsp;
-                        {{literals.enrolledAs}}</p>
-                    <p>{{literals.continue}}</p>
+                        {{literal.enrolledAs}}</p>
+                    <p>{{literal.continue}}</p>
                 </div>
                 <div class="modal-footer">
                     <p360-button style="width: 50%;display:flex; justify-content: center;" [data]="'Cancel'"
-                        [type]="'cancel'" (click)="closePopup()"></p360-button>
+                        [type]="buttonType.CANCEL" (click)="closePopup()"></p360-button>
 
                     <p360-button style="width: 50%; display:flex; justify-content: center;" [data]="'Continue'"
-                        [type]="'submit'" (click)="onSubmit(route.OTPSCREEN)"></p360-button>
+                        [type]="buttonType.SUBMIT" (click)="onSubmit(route.OTPSCREEN)"></p360-button>
                 </div>
             </div>
         </div>
     </div>
     <!------------Back Button--------------->
     <div class="text text-center">
-        <p360-button [type]="'cancel'" (click)="onSubmit(route.AMOUNTTOPAY)" [data]="'Back'"></p360-button>
+        <p360-button [type]="buttonType.CANCEL" (click)="onSubmit(route.AMOUNTTOPAY)" [data]="'Back'"></p360-button>
     </div>
 
 </div>

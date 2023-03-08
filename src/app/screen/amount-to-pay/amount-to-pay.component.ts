@@ -22,17 +22,23 @@ import Utils from 'src/assets/utilities/util';
 })
 export class AmountToPayComponent {
   accountNo: string;
+  amount: string;
   bill: IBillType;
   buttonType = ButtonType;
+  header: any = {};
   imagePath = '';
-  literals: any = {};
-  header:any={};
+  literal: any = {};
   paymentMode: string;
   paymentType = BillType;
   route = RoutingLinks;
+<<<<<<< HEAD
   amount: string;
   util:Utils;
 
+=======
+  util: Utils;
+  
+>>>>>>> a285816dae181f8cc800e7259000fcf906fafec0
   constructor(
     private _api: ApiService,
     private _changeDetector: ChangeDetectorRef,
@@ -41,34 +47,25 @@ export class AmountToPayComponent {
   ) {
     this.paymentMode = this._data.user;
     this._paymentDetails(this.paymentMode);
-    this.util=Utils;
+    this.util = Utils;
   }
 
   private _paymentDetails(payMode): void {
     switch (payMode) {
       case BillType.BILLER: {
-        this._api
-          .getBillerData()
-          .subscribe((data: IBillType) => (this.bill = data));
-        this._api
-          .getBillerLiteralData()
-          .subscribe((data) => (this.literals = data));
-        this._api.getBillerHeaderData()
-          .subscribe((data)=>(this.header =data));
+        this._api.getBillerData().subscribe((data: IBillType) => (this.bill = data));
+        this._api.getBillerHeaderData().subscribe((data) => (this.header = data));
+        this._api.getBillerLiteralData().subscribe((data) => (this.literal = data));
         break;
       }
       case BillType.SENDER: {
-        this._api
-          .getSenderData()
-          .subscribe((data: IBillType) => (this.bill = data));
-        this._api
-          .getSenderLiteralData()
-          .subscribe((data) => (this.literals = data));
-        this._api.getSenderHeaderData()
-          .subscribe((data)=>(this.header =data));
+        this._api.getSenderData().subscribe((data: IBillType) => (this.bill = data));
+        this._api.getSenderHeaderData().subscribe((data) => (this.header = data));
+        this._api.getSenderLiteralData().subscribe((data) => (this.literal = data));
         break;
       }
       case BillType.REQUESTOR: {
+<<<<<<< HEAD
         this._api
           .getRequestorData()
           .subscribe((data: IBillType) => (this.bill = data));
@@ -77,25 +74,38 @@ export class AmountToPayComponent {
           .subscribe((data) => (this.literals = data));
         this._api.getRequestorHeaderData()
           .subscribe((data)=>(this.header =data));
+=======
+        this._api.getRequestorData().subscribe((data: IBillType) => (this.bill = data));
+        this._api.getRequestorHeaderData().subscribe((data) => (this.header = data));
+        this._api.getRequestorLiteralData().subscribe((data) => (this.literal = data));
+>>>>>>> a285816dae181f8cc800e7259000fcf906fafec0
       }
     }
   }
 
   public onSubmit(routeLink): void {
+<<<<<<< HEAD
     this._data.recipient = this.bill.recipient;
     this._data.accountNo = this.bill.accountNo;//name should be same/////done
     this._data.mobile = this.bill.mobile;
     this._data.amount = this.bill.amount;
+=======
+    this._data.accountNo = this.bill.accountNo;//name should be same
+>>>>>>> a285816dae181f8cc800e7259000fcf906fafec0
     this._data.accountList = this.bill.accountList;
-    this._data.enrolledAs = this.bill.enrolledAs;
-    this._data.userLogo = this.bill.userLogo;
-    this._data.tickImage = this.bill.tickImage;
+    this._data.amount = this.bill.amount;
     this._data.bankLogo = this.bill.bankLogo;
-    this._data.paymentType = this.bill.paymentType;
     this._data.cardNo = this.bill.cardNo;
-    this._data.fee = this.bill.fee;
     this._data.confirmation = this.bill.confirmation;
     this._data.dueDate = this.bill.dueDate;
+    this._data.enrolledAs = this.bill.enrolledAs;
+    this._data.fee = this.bill.fee;
+    this._data.mobile = this.bill.mobile;
+    this._data.paymentType = this.bill.paymentType;
+    this._data.recipient = this.bill.recipient;    
+    this._data.tickImage = this.bill.tickImage;  
+    this._data.userLogo = this.bill.userLogo;  
+    this._data.zelleImage=this.bill.zelleImage; 
     this._router.navigate([routeLink]);
   }
 
@@ -106,9 +116,18 @@ export class AmountToPayComponent {
     this._changeDetector.markForCheck();
     return this.imagePath;
   }
+<<<<<<< HEAD
+=======
+
+  // public getMobile(mobile): string {               //move this to util
+  //   return mobile
+  //     .toString()
+  //     .replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+  // }
+>>>>>>> a285816dae181f8cc800e7259000fcf906fafec0
   public getMobile(): string {
-   return Utils.getMobile(this.bill?.mobile);
+    return Utils.getMobile(this.bill?.mobile);
   }
 
- 
+
 }

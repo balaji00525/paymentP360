@@ -45,6 +45,18 @@
   justify-content: space-between;
 }
 
+.calender-icon-button {
+  background:none;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  height: 100%;  
+  position: absolute;
+  right: 9px;;
+  bottom: 0px;
+  width: 30px;
+}
+
 .radio {
   display: flex;
   justify-content: center;
@@ -90,6 +102,10 @@ input[type=date] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.modal-mobile{
+  font-weight: bolder;
 }
 
 .bold {
@@ -159,18 +175,6 @@ input[type=date] {
     }
 }
 
-.modal-mobile{
-  font-weight: bolder;
-}
-.calender-icon-button {
-  background:none;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  height: 100%;  
-  position: absolute;
-  right: 8px;;
-  bottom: 0px;
-  width: 30px;
-}
+
+
 
