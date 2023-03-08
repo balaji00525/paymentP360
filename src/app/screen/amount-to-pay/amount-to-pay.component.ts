@@ -31,8 +31,14 @@ export class AmountToPayComponent {
   paymentMode: string;
   paymentType = BillType;
   route = RoutingLinks;
+<<<<<<< HEAD
+  amount: string;
+  util:Utils;
+
+=======
   util: Utils;
   
+>>>>>>> a285816dae181f8cc800e7259000fcf906fafec0
   constructor(
     private _api: ApiService,
     private _changeDetector: ChangeDetectorRef,
@@ -59,15 +65,33 @@ export class AmountToPayComponent {
         break;
       }
       case BillType.REQUESTOR: {
+<<<<<<< HEAD
+        this._api
+          .getRequestorData()
+          .subscribe((data: IBillType) => (this.bill = data));
+        this._api
+          .getRequestorLiteralData()
+          .subscribe((data) => (this.literals = data));
+        this._api.getRequestorHeaderData()
+          .subscribe((data)=>(this.header =data));
+=======
         this._api.getRequestorData().subscribe((data: IBillType) => (this.bill = data));
         this._api.getRequestorHeaderData().subscribe((data) => (this.header = data));
         this._api.getRequestorLiteralData().subscribe((data) => (this.literal = data));
+>>>>>>> a285816dae181f8cc800e7259000fcf906fafec0
       }
     }
   }
 
   public onSubmit(routeLink): void {
+<<<<<<< HEAD
+    this._data.recipient = this.bill.recipient;
+    this._data.accountNo = this.bill.accountNo;//name should be same/////done
+    this._data.mobile = this.bill.mobile;
+    this._data.amount = this.bill.amount;
+=======
     this._data.accountNo = this.bill.accountNo;//name should be same
+>>>>>>> a285816dae181f8cc800e7259000fcf906fafec0
     this._data.accountList = this.bill.accountList;
     this._data.amount = this.bill.amount;
     this._data.bankLogo = this.bill.bankLogo;
@@ -92,12 +116,15 @@ export class AmountToPayComponent {
     this._changeDetector.markForCheck();
     return this.imagePath;
   }
+<<<<<<< HEAD
+=======
 
   // public getMobile(mobile): string {               //move this to util
   //   return mobile
   //     .toString()
   //     .replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
   // }
+>>>>>>> a285816dae181f8cc800e7259000fcf906fafec0
   public getMobile(): string {
     return Utils.getMobile(this.bill?.mobile);
   }

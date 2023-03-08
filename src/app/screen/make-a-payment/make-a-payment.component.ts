@@ -19,6 +19,21 @@ import { RoutingLinks } from '../../screen-name';
   providers: [DatePipe],
 })
 export class MakeAPaymentComponent implements OnInit {
+<<<<<<< HEAD
+  private _model: NgbDate;
+  data: any = {};
+  SelectedAmount: number;
+  literals: any = {};
+  header:any={};
+  paymentMode: string;
+  recipient: string;
+  mobile: string;
+  amount: string;
+  acountType: IAccountType[];
+  paymentType: string;
+  userLogo: string = environment.imagePath;
+=======
+>>>>>>> a285816dae181f8cc800e7259000fcf906fafec0
   accountDetails: DataService;
   acountType: IAccountType[];
   amount: string;

@@ -11,8 +11,8 @@
   align-items: center;
   justify-content: center;
   display: flex;
-  color: gray;
   font-size: smaller;
+  @include color-container;
 }
 
 .rows {
@@ -25,18 +25,18 @@
 }
 
 .dollar {
-  background-color: white;
-  border: 1px solid grey;
-  border-radius: 1px;
+  border-radius: 2px;
   border-right: none;
   padding-right: 2px;
+  @include color-container;
+  @include syntax-color;
 }
 
 .link {
   text-decoration: none;
 
   a {
-    color: #29479e;
+    @include  margin-bottom;
   }
 }
 
@@ -71,17 +71,18 @@ select,
 textarea,
 .form-control,
 .form-select {
-  border: 1px solid grey;
+  border: 2px solid ;
+  @include color-container;
   box-shadow: none;
-  border-radius: 1px;
+  border-radius: 2px;
 }
 
 input[type=date] {
-  border: 1px solid grey;
-  border-radius: 4px;
+  border: 2px solid;
+  @include color-container;
   cursor: pointer;
   box-shadow: none;
-  border-radius: 1px;
+  border-radius: 2px;
 }
 
 .modal-header {
@@ -91,8 +92,8 @@ input[type=date] {
 }
 
 .header {
-  height: 70px;
-  width: 70px;
+  height: 68px;
+  width: 68px;
   border-radius: 100%;
 }
 
@@ -108,8 +109,8 @@ input[type=date] {
 }
 
 .bold {
-  text-decoration: black;
   font-weight: bold;
+  @include  text-decoration;
 }
 
 .modal-footer {
@@ -139,9 +140,9 @@ input[type=date] {
     height: 40px;
 }
 ::ng-deep .cdk-overlay-pane {
-  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
+  @include syntax-color;
 }
 ::ng-deep .cdk-overlay-container {
   width: 100%;
@@ -151,7 +152,8 @@ input[type=date] {
   justify-content: space-between;
 }
 .border-bottom{
-  border-bottom: 1px solid gray;
+  border-bottom: 2px solid ;
+  @include color-container;
 }
 .cross-button {
   font-size:16px;
@@ -159,19 +161,12 @@ input[type=date] {
 }
 .list {
   li {
-    border-bottom: 1px solid gray;
-    padding: 8px;    
-  }
-  li:hover{
-    color: aliceblue;
-    background-color: #29479e;
-    cursor: pointer;
+    border-bottom: 2px solid;
+    padding: 8px;
+    @include color-container;
   }
 
   li:last-child { border-bottom: none; }
-  li.selected {
-    background-color:red;
-   }
   list-style-type:none;
   width: 100%;
     padding: 8px;   
