@@ -4,7 +4,11 @@
 
     <!--------Account Details--------->
     <div class="title">
-        <img class="picture" src="{{userLogo}}" width="50">
+        <div>
+            <img class="image1" src="{{userLogo}}">
+            <img *ngIf="paymentMode !=='biller'" class="image2" src="../../../assets/images/al.jfif" >
+        </div>
+       
         <h6 class="text text-center">{{accountDetails.recipient}} {{accountDetails.accountNo}}</h6>
         <h5 class="text text-center">{{accountDetails.enrolledAs}}</h5>
         <h6 class="mobile text">{{mobile}}</h6>
@@ -13,7 +17,7 @@
 
     <!------------Zelle--------------->
     <div  class="text text-center" >
-        <img  src="{{zelleImage}}" alt="image not available" width="70">
+        <img *ngIf="paymentMode!=='biller'" src="{{zelleImage}}" alt="image not available" width="70">    
     </div>
 
     <!------------Input-1--------------->
