@@ -1,6 +1,7 @@
 {
   "billerliterals": {
     "amountTitle": "Amount due",
+    "inputPlaceHolder":"Enter an amount to pay",
     "amountSubTitle": "Imported from Statement",
     "due": "Due date",
     "account": "Account Number",
@@ -43,6 +44,7 @@
   },
   "senderliterals": {
     "amountTitle": "Amount due",
+    "inputPlaceHolder":"Enter an amount to pay",
     "amountSubTitle": "Imported from Statement",
     "payButton": "Pay",
     "backButton": "Back",
@@ -80,6 +82,7 @@
   },
   "requestorliterals": {
     "amountTitle": "Amount due",
+    "inputPlaceHolder":"Enter an amount to pay",
     "amountSubTitle": "Imported from Statement",
     "payButton": "Pay",
     "backButton": "Back",
