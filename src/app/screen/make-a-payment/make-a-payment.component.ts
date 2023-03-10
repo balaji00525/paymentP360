@@ -32,6 +32,7 @@ export class MakeAPaymentComponent implements OnInit {
   minPickerDate = { year: 0, month: 0, day: 0 };
   mobile: string;
   paymentMode: string;
+  paymentType = BillType;
   private _model: NgbDate;
   route = RoutingLinks;
   selectedDay: string = '';
@@ -42,10 +43,11 @@ export class MakeAPaymentComponent implements OnInit {
  
 
   constructor(
-    private _data: DataService,//sort this
+    private _api: ApiService,
     private _calender: NgbCalendar,
-    private _router: Router,
-    private _api: ApiService
+    private _data: DataService, 
+    private _router: Router
+    
     ) {
     this.paymentMode = this._data.user;
     this._paymentDetails(this.paymentMode);

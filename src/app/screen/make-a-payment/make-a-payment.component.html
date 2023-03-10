@@ -5,7 +5,8 @@
     <!--------Account Details--------->
     <div class="user-details">
         <img class="user-profile" src="{{userLogo}}">
-        <!-- <img *ngIf="paymentMode !=='biller'" class="user-subprofile" src="../../../assets/images/al.jfif"> -->
+        <!-- get image from json -->
+        <img *ngIf="paymentMode !=='biller'" class="user-subprofile" src="../../../assets/images/al.jfif">
         <h6 class="text text-center">{{accountDetails.recipient}} {{accountDetails.accountNo}}</h6>
         <h5 class="text text-center">{{accountDetails.enrolledAs}}</h5>
         <h6 class="user-number"> {{getMobile()}}</h6>
@@ -14,9 +15,8 @@
 
     <!------------Zelle--------------->
     <div class="user-profile">
-        <!-- biller will be from constant.ts 
-        width change to scss-->
-        <img *ngIf="paymentMode!=='biller'" src="{{zelleImage}}"  alt="image not available" width="70">
+        <!-- biller will be from constant.ts -->
+        <img *ngIf="paymentMode!=='biller'" class="zelle-profile" src="{{zelleImage}}"  alt="image not available" >
     </div>
 
     <!------------Input-1--------------->
@@ -135,28 +135,23 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <img class="header" src="{{userLogo}}" alt="">
-                    <!-- <img class="user-profile" src="{{userLogo}}"> -->
-                    <!-- <img *ngIf="paymentMode !=='biller'" class="user-subprofile" src="../../../assets/images/al.jfif"> -->
                 </div>
                 <div class="modal-body">
                     <p>{{literal.modalRecipient}} <span class="modal-mobile">{{accountDetails.recipient}}</span></p>
-                    <p *ngIf="paymentMode!=='biller';"><span class="modal-mobile">{{mobile}}</span>&nbsp;{{literal.enrolledAs}}</p>
+                    <p *ngIf="paymentMode!== paymentType.BILLER"><span class="modal-mobile">{{mobile}}</span>&nbsp;{{literal.enrolledAs}}</p>
                     <p>{{literal.continue}}</p>
                 </div>
                 <div class="modal-footer">
                     <!-- literal will come from json for cancel and continue -->
-                    <p360-button  class="button" [data]="'Cancel'"
-                        [type]="buttonType.CANCEL" (click)="closePopup()"></p360-button>
-
-                    <p360-button  class="button"  [data]="'Continue'"
-                        [type]="buttonType.SUBMIT" (click)="onSubmit(route.OTPSCREEN)"></p360-button>
+                    <p360-button  class="button" [data]="literal.btnCancel"[type]="buttonType.CANCEL" (click)="closePopup()"></p360-button>
+                    <p360-button  class="button"  [data]="literal.btnContinue" [type]="buttonType.SUBMIT" (click)="onSubmit(route.OTPSCREEN)"></p360-button>
                 </div>
             </div>
         </div>
     </div>
     <!------------Back Button--------------->
     <div class="text text-center">
-        <p360-button [type]="buttonType.CANCEL" (click)="onSubmit(route.AMOUNTTOPAY)" [data]="'Back'"></p360-button>
+        <p360-button [type]="buttonType.CANCEL" (click)="onSubmit(route.AMOUNTTOPAY)" [data]="literal.backButton"></p360-button>
     </div>
 
 </div>
