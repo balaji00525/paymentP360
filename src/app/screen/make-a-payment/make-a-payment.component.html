@@ -5,15 +5,17 @@
     <!--------Account Details--------->
     <div class="user-details">
         <img class="user-profile" src="{{userLogo}}">
-        <img *ngIf="paymentMode !=='biller'" class="user-subprofile" src="../../../assets/images/al.jfif">
+        <!-- <img *ngIf="paymentMode !=='biller'" class="user-subprofile" src="../../../assets/images/al.jfif"> -->
         <h6 class="text text-center">{{accountDetails.recipient}} {{accountDetails.accountNo}}</h6>
         <h5 class="text text-center">{{accountDetails.enrolledAs}}</h5>
-        <h6 class="user-number"> {{mobile}}</h6>
+        <h6 class="user-number"> {{getMobile()}}</h6>
     </div>
     <hr class="mb-1" />
 
     <!------------Zelle--------------->
     <div class="user-profile">
+        <!-- biller will be from constant.ts 
+        width change to scss-->
         <img *ngIf="paymentMode!=='biller'" src="{{zelleImage}}"  alt="image not available" width="70">
     </div>
 
@@ -25,7 +27,7 @@
         <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
             <label for="amount" class="label form-label">{{literal.amount}}</label>      
                 <div class="input-group mb-1">
-                    <!-- <div *ngIf="paymentMode=='biller';" class="form-control" contenteditable="false">{{amount}}</div> -->
+                   <!-- one input field should be removed check amount to pay page -->
                     <input *ngIf="paymentMode=='biller';" type="text" class="form-control" id="amount" placeholder="{{literal.placeholder}}" autocomplete="off" value="{{amount}}" readonly>
                     <input *ngIf="paymentMode!=='biller';" type="text" class="form-control" id="amount"
                         placeholder="Enter Amount" autocomplete="off" value="{{amount}}" />
@@ -36,6 +38,7 @@
             <label for="amount" class="label form-label">{{literal.withdrawFrom}}</label>
             <div class="col-auto ">
                 <div class="input-group mb-1">
+                    <!-- value should come from ts -->
                     <input type="text" class="form-control" id="amount" (click)="isOpen = !isOpen"
                         value="Choose how you'd like to pay" cdkOverlayOrigin #trigger="cdkOverlayOrigin" />
                 </div>
@@ -58,6 +61,7 @@
                             <div>{{accountDetails.paymentType}} {{accountDetails.fee}}</div>
                             <small>{{accountDetails.paymentType}} {{accountDetails.cardNo}}</small>
                         </div>
+                        <!-- value come from ts -->
                         <div> $365.27 available</div>
                     </div>
                 </li>
@@ -71,6 +75,7 @@
                             <div>{{accountDetails.paymentType}} {{accountDetails.fee}}</div>
                             <small>{{accountDetails.paymentType}} {{accountDetails.cardNo}}</small>
                         </div>
+                        <!-- value come from ts -->
                         <div> $4.98 available</div>
                     </div>
                 </li>
@@ -107,6 +112,7 @@
         <!------------Memo--------------->
         <div class="form mb-2 col-sm-5 col-md-5 col-lg-5">
             <label for="memo" class="label mb-2">{{literal.memo}}</label>
+            <!-- reason get from literal -->
             <div class="form-control" contenteditable="true" readonly>Reason for...</div>
         </div>
     </div>
@@ -133,11 +139,12 @@
                     <!-- <img *ngIf="paymentMode !=='biller'" class="user-subprofile" src="../../../assets/images/al.jfif"> -->
                 </div>
                 <div class="modal-body">
-                    <p>{{literal.modalRecipient}} <span class="modal-mobile">{{recipient}}</span></p>
+                    <p>{{literal.modalRecipient}} <span class="modal-mobile">{{accountDetails.recipient}}</span></p>
                     <p *ngIf="paymentMode!=='biller';"><span class="modal-mobile">{{mobile}}</span>&nbsp;{{literal.enrolledAs}}</p>
                     <p>{{literal.continue}}</p>
                 </div>
                 <div class="modal-footer">
+                    <!-- literal will come from json for cancel and continue -->
                     <p360-button  class="button" [data]="'Cancel'"
                         [type]="buttonType.CANCEL" (click)="closePopup()"></p360-button>
 
