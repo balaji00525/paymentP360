@@ -1,30 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { DatePipe } from '@angular/common';
+import { NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
-import { NgbCalendar, NgbDate, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 import { ApiService } from '../../service/api.service';
 import { BillType, Month, WeekDays, ButtonType } from '../../common/constant/constant';
 import { DataService } from '../../service/data.service';
 import { environment } from 'src/environments/environment';
 
-import { IAccountType } from '../../common/interface/interface';
+import { IAccountType, IBillType } from '../../common/interface/interface';
 import { RoutingLinks } from '../../screen-name';
-
+import Utils from 'src/assets/utilities/util';
 
 @Component({
   selector: 'app-make-a-payment',
   templateUrl: './make-a-payment.component.html',
   styleUrls: ['./make-a-payment.component.scss'],
-  providers: [DatePipe],
 })
 export class MakeAPaymentComponent implements OnInit {
   accountDetails: DataService;
   acountType: IAccountType[];
   amount: string;
   buttonType = ButtonType;
-  data: any = {};
   dueDate: string;
+  bill: IBillType;
+  displayStyle = 'none';
   header: any={};
   isOpen = false;
   isOpenDateTime = false;
@@ -33,21 +32,22 @@ export class MakeAPaymentComponent implements OnInit {
   minPickerDate = { year: 0, month: 0, day: 0 };
   mobile: string;
   paymentMode: string;
-  paymentType: string;
+  paymentType = BillType;
   private _model: NgbDate;
-  recipient: string;
   route = RoutingLinks;
-  SelectedAmount: number;
-  todayDate = this._datepipe.transform(new Date(), 'MMMM-dd-yy');
+  selectedDay: string = '';
+  selectedMonth: string = '';
   userLogo: string = environment.imagePath;
+  util: Utils;
   zelleImage: string = environment.imagePath;
-  
+ 
+
   constructor(
-    private _data: DataService,
-    private _datepipe: DatePipe,
+    private _api: ApiService,
     private _calender: NgbCalendar,
-    private _router: Router,
-    private _api: ApiService
+    private _data: DataService, 
+    private _router: Router
+    
     ) {
     this.paymentMode = this._data.user;
     this._paymentDetails(this.paymentMode);
@@ -71,7 +71,6 @@ export class MakeAPaymentComponent implements OnInit {
       month: new Date().getMonth() + 1,
       day: new Date().getDate(),
     };  
-    this.mobile = this._data.mobile.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
     this.userLogo += this._data.userLogo;
     this.zelleImage += this._data.zelleImage;  
   }
@@ -99,10 +98,8 @@ export class MakeAPaymentComponent implements OnInit {
     this._router.navigate([routerLink]);
   }
  
- 
-  selectedDay: string = '';
-  selectedMonth: string = '';
-  set model(val) {
+
+  public set model(val) {
     this._model = val;
     this.selectedDay = WeekDays[this._calender.getWeekday(this.model)];
     this.selectedMonth = Month[this.model.month];
@@ -115,15 +112,20 @@ export class MakeAPaymentComponent implements OnInit {
   public selectToday():void {
     this.model = this._calender.getToday();
   }
-  displayStyle = 'none';
+  
 
-  public openPopup() {
+  public openPopup():void {
     this.displayStyle = 'block';
   }
 
-  public closePopup() {
+  public closePopup():void {
     this.displayStyle = 'none';
   }
+
+  public getMobile(): string {
+    return Utils.getMobile(this._data.mobile);
+  }
+
   accountlist = '';
   accounts = [
     { accountType: 'Credit card(2.3% fee)', balance: '$365.27' },
