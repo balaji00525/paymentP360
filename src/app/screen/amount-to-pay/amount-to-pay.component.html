@@ -2,7 +2,7 @@
     
     create a object for headertitle in json//////done
     AMOUNTFILED Should be use input for biller and sender as read only
-    use dollar symbol $ prefix
+    use dollar symbol $ prefix///done
 
     use mixin colour in style.scss//done
     2,4,8 mutlipe num /////////////done
@@ -16,7 +16,7 @@
 
 <div class="navbar" *ngIf="literal">
     <div class="user-details">
-        <img class="user-profile" [src]="getImage()" alt="Image not Available" > 
+        <img class="user-profile" [src]="getImage()" alt="" > 
          <h4>{{bill?.recipient}} {{bill.accountNo}}</h4>
         <h5 class="text text-center">{{bill?.enrolledAs}}</h5>
         <h5 class="user-number">{{getMobile()}}</h5>
@@ -29,11 +29,10 @@
         </ng-container>
         <h4  *ngIf="paymentMode !== paymentType.BILLER">{{literal.amountTitle}}</h4>
         <h1 class="amount-input">
-            <!-- <span>$</span> -->
-            <input class="input-outline" type="number"
-                [(ngModel)]="bill.amount" placeholder="{{literal.inputPlaceHolder}}" readonly />
-            <!-- <span *ngIf="paymentMode === paymentType.BILLER">{{bill?.amount}}</span> -->
-        </h1>
+            <span class="input-group-addon" *ngIf="bill.amount">$</span>
+            <input type="number" [ngClass]="bill.amount? 'input-outline': 'input-outline no-amount'"
+                [(ngModel)]="bill.amount" placeholder="{{literal.inputPlaceHolder}}" [readonly]="paymentMode !== paymentType.REQUESTOR" />
+         </h1>
     </h6>
 </div>
 <ng-container *ngIf="paymentMode===paymentType.BILLER">
@@ -46,7 +45,6 @@
         <hr class="line-break">
         <div class="account">
             <h6 class="account-type">{{literal.account}}</h6>
-            <!-- <h6 class="account-number">{{getAccountNo()}}</h6> -->
             <h6 class="account-number">{{bill.accountNo}}</h6>
         </div>
     </div>

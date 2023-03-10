@@ -92,12 +92,6 @@ export class AmountToPayComponent {
     this._changeDetector.markForCheck();
     return this.imagePath;
   }
-
-  // public getMobile(mobile): string {               //move this to util
-  //   return mobile
-  //     .toString()
-  //     .replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
-  // }
   public getMobile(): string {
     return Utils.getMobile(this.bill?.mobile);
   }

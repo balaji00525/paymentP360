@@ -9,10 +9,10 @@
 
 .picture {
   @include important-part;
-  height: "40px";
+  height: "42px";
 }
 
-.user-number{
+.user-number {
   align-items: center;
   justify-content: center;
   display: flex;
@@ -36,25 +36,17 @@
   text-align: center;
 
   input {
-    width: 132px;
-    height: 68px;
+    width: 72px;
+    height: 76px;
     border: none;
     text-align: center;
     @include color;
   }
 
-  input::placeholder {
-    font-size: 12px;
+  .no-amount {
+    width: 168px;
+    font-size: 16px;
   }
-  input::before{
-    content: "$";
-    position: absolute;
-    top: 0;
-    left: 40px;
-    z-index: 1;
-
-  }
-  
 }
 
 input::-webkit-outer-spin-button,
@@ -66,7 +58,11 @@ input::-webkit-inner-spin-button {
 
 .input-outline:focus {
   outline: none;
+}
 
+.input-group-addon {
+  padding: 4px 0px 4px 4px;
+  font-size: 54px;
 }
 
 .box {
@@ -84,7 +80,7 @@ input::-webkit-inner-spin-button {
   @include color-container;
 }
 
-.account-number{
+.account-number {
   padding: 4px;
 }
 
@@ -93,7 +89,8 @@ input::-webkit-inner-spin-button {
   padding: 24px;
   @include color-container;
 }
-.subtitle{
+
+.subtitle {
   @include special-text;
 }
 
@@ -141,7 +138,7 @@ h4 {
     align-items: flex-start;
   }
 
-  .line-break{
+  .line-break {
     width: 100%;
   }
 
@@ -149,14 +146,15 @@ h4 {
     text-align: left;
   }
 }
+
 .user-profile {
   border-radius: 100px;
-  height:50px;
+  height: 48px;
 }
 
 @media (min-width:769px) and (max-width:2500px) {
   .user-profile {
-    width: 50px;
+    width: 48px;
     display: flex;
   }
 
@@ -166,4 +164,3 @@ h4 {
     flex-direction: column;
   }
 }
-
