@@ -1,37 +1,37 @@
 <app-header [data]="header.screen4"></app-header>
 
-<div>
-    <img class="image" src="{{tickImage}}" width="50" height="50">
+<div class="container">
+    <img class="image" src="{{tickImage}}" alt="">
     <h1 class="text text-center ">{{literal.paymentSent}}</h1>
     <h1 class="dollar">{{amount}}</h1>
 
     <div class="bg-light image-container">
-        <div class="image-width">
-            <img src="{{bankLogo}}" width="55px" height="55px">
+        <div class="logo">
+            <img class="bank-logo" src="{{bankLogo}}" alt="">
         </div>
         <div>
            <h6 class="name">{{literal.you}}</h6>
-            <h6 class="accountType">
+            <h6 class="account-Type">
                 <b>{{accountDetails.paymentType}}</b>{{accountDetails.cardNo}}{{accountDetails.fee}}
             </h6>
         </div>
     </div>
     <div class="bg-light image-container">
-        <div class="image-width">
-            <img src="{{userLogo}}" alt="" width="45px" height=" 45px">
+        <div class="logo">
+            <img  class="user-logo" src="{{userLogo}}" alt="">
         </div>
-        <div>
-            <h6 class="accounttype"><b>{{accountDetails.recipient}}</b></h6>
-            <h6 *ngIf="paymentMode=='biller';" class="accountNumber">
+        <div class="account-details">
+            <h6 class="account-type"><b>{{accountDetails.recipient}}</b></h6>
+            <h6 *ngIf="paymentMode=='biller';" class="account-Number">
                 {{literal.account}}:{{accountDetails.accountNo}}</h6>
-            <h6 *ngIf="paymentMode!=='biller';" class="accountNumber">{{mobile}}</h6>
+            <h6 *ngIf="paymentMode!=='biller';" class="account-Number">{{mobile}}</h6>
         </div>
     </div>
     <hr>
 
     <nav class="navbar ">
         <div class="container sticky-top">
-            <div>
+            <div class="user-date">
                 <h5 class="text">{{literal.arrives}}</h5>
                 <h6><span>{{myDate}} </span></h6>
             </div>

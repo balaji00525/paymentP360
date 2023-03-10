@@ -31,6 +31,7 @@
     "sms":"Re-send via text",
     "phoneCall":"Re-send via phone call",
     "verifyBtn":"Verify",
+    "number":"Verify Number",
     "enterOtp":"Enter OTP Here",
 
     "paymentSent":"Payment sent",
@@ -40,7 +41,7 @@
     "btnDone":"Done"
 },
 "senderliterals": {
-  "amountTitle":"Amount due",
+  "amountTitle":"Amount to Pay",
   "amountSubTitle": "Imported from Statement",
   "payButton":"Pay",
   "backButton":"Back",
@@ -66,6 +67,7 @@
   "sms":"Re-send via text",
   "phoneCall":"Re-send via phone call",
   "verifyBtn":"Verify",
+  "number":"Verify Number",
   "enterOtp":"Enter OTP Here",
 
   "paymentSent":"Payment sent",
@@ -75,8 +77,9 @@
   "btnDone":"Done"
 },
 "requestorliterals": {
-  "amountTitle":"Amount due",
+  "amountTitle":"Amount to Request",
   "amountSubTitle": "Imported from Statement",
+  "inputPlaceHolder": "Enter an amount to Pay",
   "payButton":"Pay",
   "backButton":"Back",
 
@@ -101,6 +104,7 @@
   "sms":"Re-send via text",
   "phoneCall":"Re-send via phone call",
   "verifyBtn":"Verify",
+  "number":"Verify Number",
   "enterOtp":"Enter OTP Here",
 
   "paymentSent":"Payment sent",
