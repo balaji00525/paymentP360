@@ -11,6 +11,7 @@
     "backButton": "Back",
 
     "amount": "Amount",
+    "placeholder":"Enter Amount",
     "withdrawFrom": "Withdraw from",
     "choose": "Choose how you'd like to pay",
     "faster": "⚡ Fastest option Available",
@@ -47,6 +48,7 @@
     "backButton": "Back",
 
     "amount": "Amount",
+    "placeholder":"Enter Amount",
     "withdrawFrom": "Withdraw from",
     "choose": "Choose how you'd like to pay",
     "faster": "⚡ Fastest option Available",
@@ -83,6 +85,7 @@
     "backButton": "Back",
 
     "amount": "Amount",
+    "placeholder":"Enter Amount",
     "withdrawFrom": "Withdraw from",
     "choose": "Choose how you'd like to pay",
     "faster": "⚡ Fastest option Available",
