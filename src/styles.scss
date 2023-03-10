@@ -46,7 +46,7 @@ body {
     background-color: #d1dee6;
  }
  @mixin special-text{
-    background-color: #29479e; 
+    color: #29479e;
  }
  @mixin syntax-color{
     background-color: white;
@@ -55,7 +55,7 @@ body {
     color: black;
  }
  @mixin  margin-bottom{
-    background-color: #29479e;
+    color: #29479e;
  }
  @mixin otp-input{
     background-color: #d1dee6;
