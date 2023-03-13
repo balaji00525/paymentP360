@@ -2,6 +2,7 @@ export interface IBillType {
   accountNo: number;
   amount: number;
   accountList: IAccountType[];
+  balance?:string;
   paymentType: string;
   cardNo: number;
   fee: string;
@@ -15,6 +16,7 @@ export interface IBillType {
   dueDate?:string;
   zelleImage?:string;
   subUserLogo?:string;
+  
 }
 export interface IAccountType {
   accountType: string;

@@ -21,6 +21,7 @@ export class DataService {
   private bank:string;
   private due:string;
   private subUser:string;
+  private availableBal:string;
   accountList: any;
 
   constructor() { }
@@ -126,5 +127,11 @@ export class DataService {
   }
   set dueDate(val:string){
     this.due;
+  }
+  get balance():string{
+    return this.availableBal;
+  }
+  set balance(val:string){
+    this.availableBal=val;
   }
 }

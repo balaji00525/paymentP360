@@ -5,7 +5,6 @@
     <!--------Account Details--------->
     <div class="user-details">
         <img class="user-profile" src="{{userLogo}}">
-        <!-- get image from json -->
         <img *ngIf="paymentMode !=='biller'" class="user-subprofile" src="{{subUserLogo}}">
         <h6 class="text text-center">{{accountDetails.recipient}} {{accountDetails.accountNo}}</h6>
         <h5 class="text text-center">{{accountDetails.enrolledAs}}</h5>
@@ -62,7 +61,7 @@
                             <small>{{accountDetails.paymentType}} {{accountDetails.cardNo}}</small>
                         </div>
                         <!-- value come from ts -->
-                        <div> $365.27 available</div>
+                        <div>{{accountDetails.balance}}</div>
                     </div>
                 </li>
                 <li>
@@ -76,7 +75,7 @@
                             <small>{{accountDetails.paymentType}} {{accountDetails.cardNo}}</small>
                         </div>
                         <!-- value come from ts -->
-                        <div> $4.98 available</div>
+                        <div>{{accountDetails.balance}}</div>
                     </div>
                 </li>
 
