@@ -1,7 +1,7 @@
 @import '../../../styles.scss';
 
 .container {
-    padding-top: 50px;
+    padding-top: 48px;
 }
 
 .number {
@@ -26,8 +26,8 @@ a {
 
 .otp {
     .otp-input {
-        width: 36%;
-        font-size: 50px;
+        width: 32%;
+        font-size: 48px;
         font-weight: 100;
         text-align: center;
         outline: none;
@@ -48,12 +48,12 @@ input::placeholder {
 @media (min-width:320px) and (max-width:700px) {
     .hyperlink {
         display: contents;
-        margin-bottom: 20%;
+        margin-bottom: 24%;
     }
 
     .otp {
         .otp-input {
-            width: 70%;
+            width: 72%;
         }
     }
 }

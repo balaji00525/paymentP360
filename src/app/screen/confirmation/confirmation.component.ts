@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ApiService } from '../../service/api.service';
-import { BillType,ButtonType } from '../../common/constant/constant';
+import { BillType, ButtonType } from '../../common/constant/constant';
 import { DataService } from '../../service/data.service';
 import { environment } from 'src/environments/environment';
 
 import { DatePipe } from '@angular/common';
 import { RoutingLinks } from '../../screen-name';
+import { IBillType } from 'src/app/common/interface/interface';
 
 @Component({
   selector: 'app-confirmation',
@@ -29,6 +30,7 @@ export class ConfirmationComponent implements OnInit {
   mobile: string;
   myDate: any = new Date();
   paymentMode: string;
+  paymentType = BillType;
   route = RoutingLinks;
   tickImage: string = environment.imagePath;
   userLogo: string = environment.imagePath;
