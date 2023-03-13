@@ -30,6 +30,7 @@ export class ConfirmationComponent implements OnInit {
   mobile: string;
   myDate: any = new Date();
   paymentMode: string;
+  paymentType = BillType;
   route = RoutingLinks;
   tickImage: string = environment.imagePath;
   userLogo: string = environment.imagePath;

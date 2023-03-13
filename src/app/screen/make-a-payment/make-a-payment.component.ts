@@ -20,6 +20,7 @@ export class MakeAPaymentComponent implements OnInit {
   accountDetails: DataService;
   acountType: IAccountType[];
   amount: string;
+  available: number;
   buttonType = ButtonType;
   dueDate: string;
   bill: IBillType;
@@ -40,6 +41,8 @@ export class MakeAPaymentComponent implements OnInit {
   userLogo: string = environment.imagePath;
   util: Utils;
   zelleImage: string = environment.imagePath;
+  zelle: string= environment.imagePath;
+  number: DataService;
  
 
   constructor(
@@ -56,6 +59,7 @@ export class MakeAPaymentComponent implements OnInit {
   ngOnInit(): void {
     this.selectToday();
     this.accountDetails = this._data;
+    this.number = this._data;
     this.amount = '$  ' + this._data.amount;
     this.dueDate=this._data.dueDate;
     const futureDate=(new Date().setDate(new Date().getDate() + 90));
@@ -73,6 +77,7 @@ export class MakeAPaymentComponent implements OnInit {
     };  
     this.userLogo += this._data.userLogo;
     this.zelleImage += this._data.zelleImage;  
+    // this.zelle += this._data.zelle;
   }
 
   private _paymentDetails(payMode):void {

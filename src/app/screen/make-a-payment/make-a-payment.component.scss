@@ -38,7 +38,7 @@
   position: absolute;
   right: 8px;;
   bottom: 0px;
-  width: 30px;//2,4,8
+  width: 32px;
 }
 
 .checkbox {
@@ -76,8 +76,8 @@ input[type=date] {
 }
 
 .header {
-  height: 68px;//2,4,8
-  width: 68px;//2,4,8
+  height: 64px;
+  width: 64px;
   border-radius: 100%;
 }
 
@@ -136,7 +136,7 @@ input[type=date] {
 }
 .list {
   li {
-    border-bottom: 2px solid;//check if it is in  use
+    border-bottom: 2px solid;
     padding: 8px;
   }
 
@@ -152,20 +152,20 @@ input[type=date] {
 
 .user-profile {
   @include important-style;
-  width: 60px;//2,4,8
-  height: 60px;//2,4,8
-  border-radius: 50px;//2,4,8
+  width: 64px;
+  height: 64px;
+  border-radius: 48px;
 }
 
 .user-subprofile {
-  left: 20px;//2,4,8
-  border-radius: 100px;//2,4,8
+  left: 24px;
+  border-radius: 96px;
   position: relative;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  top: -20px;//2,4,8
-  width: 20px;//2,4,8
+  top: -24px;
+  width: 24px;
 }
 
 .fa-regular{
