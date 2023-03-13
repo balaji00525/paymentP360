@@ -83,6 +83,7 @@ export class AmountToPayComponent {
     this._data.userLogo = this.bill.userLogo;  
     this._data.zelleImage=this.bill.zelleImage;
     this._data.subUserLogo=this.bill.subUserLogo; 
+    this._data.balance=this.bill.balance;
     this._router.navigate([routeLink]);
   }
 

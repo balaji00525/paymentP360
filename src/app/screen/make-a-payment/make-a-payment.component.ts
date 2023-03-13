@@ -37,11 +37,11 @@ export class MakeAPaymentComponent implements OnInit {
   route = RoutingLinks;
   selectedDay: string = '';
   selectedMonth: string = '';
+  subUserLogo:string = environment.imagePath;
   userLogo: string = environment.imagePath;
   util: Utils;
   zelleImage: string = environment.imagePath;
-  subUserLogo:string = environment.imagePath;
-
+  
   constructor(
     private _api: ApiService,
     private _calender: NgbCalendar,
@@ -54,7 +54,6 @@ export class MakeAPaymentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    debugger
     this.selectToday();
     this.accountDetails = this._data;
     this.amount = '$  ' + this._data.amount;
