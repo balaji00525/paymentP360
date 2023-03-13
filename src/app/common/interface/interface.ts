@@ -14,6 +14,7 @@ export interface IBillType {
   enrolledAs?: string;
   dueDate?:string;
   zelleImage?:string;
+  subUserLogo?:string;
 }
 export interface IAccountType {
   accountType: string;

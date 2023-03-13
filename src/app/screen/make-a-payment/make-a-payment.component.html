@@ -6,7 +6,7 @@
     <div class="user-details">
         <img class="user-profile" src="{{userLogo}}">
         <!-- get image from json -->
-        <img *ngIf="paymentMode !=='biller'" class="user-subprofile" src="../../../assets/images/al.jfif">
+        <img *ngIf="paymentMode !=='biller'" class="user-subprofile" src="{{subUserLogo}}">
         <h6 class="text text-center">{{accountDetails.recipient}} {{accountDetails.accountNo}}</h6>
         <h5 class="text text-center">{{accountDetails.enrolledAs}}</h5>
         <h6 class="user-number"> {{getMobile()}}</h6>
