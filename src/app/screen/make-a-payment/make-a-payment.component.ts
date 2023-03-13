@@ -40,7 +40,7 @@ export class MakeAPaymentComponent implements OnInit {
   userLogo: string = environment.imagePath;
   util: Utils;
   zelleImage: string = environment.imagePath;
- 
+  subUserLogo:string = environment.imagePath;
 
   constructor(
     private _api: ApiService,
@@ -54,6 +54,7 @@ export class MakeAPaymentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    debugger
     this.selectToday();
     this.accountDetails = this._data;
     this.amount = '$  ' + this._data.amount;
@@ -73,6 +74,7 @@ export class MakeAPaymentComponent implements OnInit {
     };  
     this.userLogo += this._data.userLogo;
     this.zelleImage += this._data.zelleImage;  
+    this.subUserLogo+=this._data.subUserLogo;
   }
 
   private _paymentDetails(payMode):void {
