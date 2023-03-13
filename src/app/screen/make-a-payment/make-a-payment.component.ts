@@ -42,14 +42,7 @@ export class MakeAPaymentComponent implements OnInit {
   userLogo: string = environment.imagePath;
   util: Utils;
   zelleImage: string = environment.imagePath;
-<<<<<<< HEAD
-  zelle: string= environment.imagePath;
-  number: DataService;
- 
-
-=======
   
->>>>>>> 75d0624f082e6c907afdd4146fa80a35972cb295
   constructor(
     private _api: ApiService,
     private _calender: NgbCalendar,
@@ -64,7 +57,7 @@ export class MakeAPaymentComponent implements OnInit {
   ngOnInit(): void {
     this.selectToday();
     this.accountDetails = this._data;
-    this.number = this._data;
+    // this.number = this._data;
     this.amount = '$  ' + this._data.amount;
     this.dueDate=this._data.dueDate;
     const futureDate=(new Date().setDate(new Date().getDate() + 90));
@@ -82,11 +75,7 @@ export class MakeAPaymentComponent implements OnInit {
     };  
     this.userLogo += this._data.userLogo;
     this.zelleImage += this._data.zelleImage;  
-<<<<<<< HEAD
-    // this.zelle += this._data.zelle;
-=======
     this.subUserLogo+=this._data.subUserLogo;
->>>>>>> 75d0624f082e6c907afdd4146fa80a35972cb295
   }
 
   private _paymentDetails(payMode):void {
