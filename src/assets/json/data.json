@@ -17,12 +17,14 @@
     "fee":"(2.3% fee)",
     "available":"$365.27 available",
     "recipient":"AT&T ",
+    "balance": "$365.27 available",
     "mobile": 7185551234,
     "confirmation":123456789,
     "userLogo": "billerlogo.png",
     "tickImage":"confirm.png",
     "bankLogo":"Banklogo.jpg",
-    "dueDate":"Thu Mar 25 2023 12:59:32 GMT+0530 (India Standard Time)"
+    "dueDate":"Thu Mar 10 2023 12:59:32 GMT+0530 (India Standard Time)",
+    "subUserLogo":"al.jpg"
   },
   "sender": {
     "accountNo":"*890076",
@@ -41,6 +43,7 @@
     "cardNo":4738,
     "fee":"(2.3% fee)",
     "recipient": "Kat Simmons  ",
+    "balance": "$5,164.98 available",
     "mobile": 7185551234,
     "userLogo": "sendPayment.jpeg",
     "confirmation": 123456789,
@@ -48,7 +51,8 @@
     "zelle":"z.png",
     "tickImage":"confirm.png",
     "bankLogo":"Banklogo.jpg",
-    "zelleImage":"zelle.png"
+    "zelleImage":"zelle.png",
+    "subUserLogo":"al.jpg"
   },
   "Requestor": {
     "accountNo": "*890076",
@@ -66,6 +70,7 @@
     "paymentType":"MAIN CHECKING.",
     "cardNo":4738,
     "fee":"(2.3% fee)",
+    "balance":"$365.27 available",
     "recipient": "Kat Simmons  ",
     "mobile": 7185551234,
     "userLogo": "sendPayment.jpeg",
@@ -74,6 +79,7 @@
     "zelle":"z.png",
     "tickImage":"confirm.png",
     "bankLogo":"Banklogo.jpg",
-    "zelleImage":"zelle.png"
+    "zelleImage":"zelle.png",
+    "subUserLogo":"al.jpg"
   }
 }

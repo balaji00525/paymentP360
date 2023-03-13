@@ -5,17 +5,8 @@
     <!--------Account Details--------->
     <div class="user-details">
         <img class="user-profile" src="{{userLogo}}">
-        <!-- get image from json -->
-        <img *ngIf="paymentMode !=='biller'" class="user-subprofile" src="../../../assets/images/al.jfif">
-       
-       <h6 class="text text-center">{{accountDetails.recipient}} {{accountDetails.accountNo}}</h6>
-        <h5 class="text text-center">{{accountDetails.enrolledAs}}</h5>
-        <h6 class="user-number"> {{getMobile()}}</h6>
-    </div>
-    <hr class="mb-1" />
 
     <!------------Zelle--------------->
-    <div class="user-profile">
         <img *ngIf="paymentMode!==paymentType.BILLER" class="zelle-profile" src="{{zelleImage}}"  alt="image not available" >
     </div>
 
@@ -57,9 +48,14 @@
                             <div>{{accountDetails.paymentType}} {{accountDetails.fee}}</div>
                             <small>{{accountDetails.paymentType}} {{accountDetails.cardNo}}</small>
                         </div>
+<<<<<<< HEAD
                         <!-- value come from json -->
                         <div> $365.27 available</div>
 
+=======
+                        <!-- value come from ts -->
+                        <div>{{accountDetails.balance}}</div>
+>>>>>>> 75d0624f082e6c907afdd4146fa80a35972cb295
                     </div>
                 </li>
                 <li>
@@ -72,8 +68,13 @@
                             <div>{{accountDetails.paymentType}} {{accountDetails.fee}}</div>
                             <small>{{accountDetails.paymentType}} {{accountDetails.cardNo}}</small>
                         </div>
+<<<<<<< HEAD
                         <!-- value come from json -->
                         <div> $4.98 available </div>
+=======
+                        <!-- value come from ts -->
+                        <div>{{accountDetails.balance}}</div>
+>>>>>>> 75d0624f082e6c907afdd4146fa80a35972cb295
                     </div>
                 </li>
 

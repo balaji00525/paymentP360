@@ -20,6 +20,8 @@ export class DataService {
   private zelle:string;
   private bank:string;
   private due:string;
+  private subUser:string;
+  private availableBal:string;
   accountList: any;
 
   constructor() { }
@@ -102,6 +104,12 @@ export class DataService {
   set tickImage( val:string){
     this.tick=val;
   }
+  get subUserLogo():string{
+    return this.subUser;
+  }
+  set subUserLogo(val:string){
+    this.subUser=val;
+  }
   get bankLogo():string{
     return this.bank;
   }
@@ -119,5 +127,11 @@ export class DataService {
   }
   set dueDate(val:string){
     this.due;
+  }
+  get balance():string{
+    return this.availableBal;
+  }
+  set balance(val:string){
+    this.availableBal=val;
   }
 }

@@ -38,13 +38,18 @@ export class MakeAPaymentComponent implements OnInit {
   route = RoutingLinks;
   selectedDay: string = '';
   selectedMonth: string = '';
+  subUserLogo:string = environment.imagePath;
   userLogo: string = environment.imagePath;
   util: Utils;
   zelleImage: string = environment.imagePath;
+<<<<<<< HEAD
   zelle: string= environment.imagePath;
   number: DataService;
  
 
+=======
+  
+>>>>>>> 75d0624f082e6c907afdd4146fa80a35972cb295
   constructor(
     private _api: ApiService,
     private _calender: NgbCalendar,
@@ -77,7 +82,11 @@ export class MakeAPaymentComponent implements OnInit {
     };  
     this.userLogo += this._data.userLogo;
     this.zelleImage += this._data.zelleImage;  
+<<<<<<< HEAD
     // this.zelle += this._data.zelle;
+=======
+    this.subUserLogo+=this._data.subUserLogo;
+>>>>>>> 75d0624f082e6c907afdd4146fa80a35972cb295
   }
 
   private _paymentDetails(payMode):void {
