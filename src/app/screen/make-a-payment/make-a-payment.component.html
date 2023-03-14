@@ -5,8 +5,17 @@
     <!--------Account Details--------->
     <div class="user-details">
         <img class="user-profile" src="{{userLogo}}">
+        <!-- get image from json -->
+        <img *ngIf="paymentMode !=='biller'" class="user-subprofile" src="../../../assets/images/al.jpg">
+       
+       <h6 class="text text-center">{{accountDetails.recipient}} {{accountDetails.accountNo}}</h6>
+        <h5 class="text text-center">{{accountDetails.enrolledAs}}</h5>
+        <h6 class="user-number"> {{getMobile()}}</h6>
+    </div>
+    <hr class="mb-1" />
 
     <!------------Zelle--------------->
+    <div class="user-profile">
         <img *ngIf="paymentMode!==paymentType.BILLER" class="zelle-profile" src="{{zelleImage}}"  alt="image not available" >
     </div>
 
@@ -18,7 +27,9 @@
         <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
             <label for="amount" class="label form-label">{{literal.amount}}</label>      
                 <div class="input-group mb-1">
-                   <input  type="text" class="form-control" id="amount" placeholder="{{literal.placeholder}}" autocomplete="off" value="{{amount}}" [readonly]="paymentMode !== paymentType.REQUESTOR">
+            
+                    <input  type="text" class="form-control" id="amount" placeholder="{{literal.placeholder}}" autocomplete="off" value="{{amount}}" [readonly]="paymentMode !== paymentType.REQUESTOR">
+                    
                 </div>
         </div>
         <!------------Dropdown--------------->
