@@ -138,9 +138,10 @@ input[type=date] {
   li {
     border-bottom: 2px solid;
     padding: 8px;
+    cursor: pointer;
   }
 
-  li:last-child { border-bottom: none; }
+  li:last-child { border-bottom: none; margin-top: 2px;  }
   list-style-type:none;
   width: 100%;
     padding: 8px;   
@@ -179,4 +180,7 @@ input[type=date] {
 }
 .zelle-profile{
   width: 72px;
+}
+.selected-list {
+  @include dropdown;
 }

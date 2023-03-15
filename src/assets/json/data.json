@@ -18,14 +18,18 @@
         "cardNo":2246,
         "fee":"(2.3% fee)",
         "balance": "$365.27 available",
-        "arrives":"Arrives in minutes"
+        "arrives":"Arrives in minutes",
+        "faster": "⚡ Fastest option Available",
+        "selected":false
       },
       {
         "paymentType":"MAIN CHECKING.",
         "cardNo":"*4738",
         "fee":"",
         "balance": "$4,164.98 available",
-        "arrives":"Arrives in 1-3 days"
+        "arrives":"Arrives in 1-3 days",
+        "faster": "",
+        "selected":true
       }
     ],
    
