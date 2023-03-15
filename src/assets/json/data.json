@@ -9,14 +9,27 @@
       },
       {
         "accountType": "main checking(*4738)",
-        "balance": "$5,164.98 available"
+        "balance": "$4,164.98 available"
       }
     ],
-    "paymentType":"CREDIT CARD.",
-    "cardNo":2246,
-    "fee":"(2.3% fee)",
-    "recipient":"AT&T ",
-    "balance": "$365.27 available",
+    "dropDownDetails":[
+      {
+        "paymentType":"CREDIT CARD.",
+        "cardNo":2246,
+        "fee":"(2.3% fee)",
+        "balance": "$365.27 available",
+        "arrives":"Arrives in minutes"
+      },
+      {
+        "paymentType":"MAIN CHECKING.",
+        "cardNo":"*4738",
+        "fee":"",
+        "balance": "$4,164.98 available",
+        "arrives":"Arrives in 1-3 days"
+      }
+    ],
+   
+    "recipient":"AT&T ",  
     "mobile": 7185551234,
     "confirmation":123456789,
     "userLogo": "billerlogo.png",

@@ -151,7 +151,7 @@ input[type=date] {
 
 
 .user-profile {
-  @include important-style;
+  @include important-style;//change class in styles.scss
   width: 64px;
   height: 64px;
   border-radius: 48px;
@@ -178,5 +178,5 @@ input[type=date] {
   justify-content: center;
 }
 .zelle-profile{
-  width: 70px;
+  width: 72px;
 }

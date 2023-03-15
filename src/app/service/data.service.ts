@@ -22,6 +22,7 @@ export class DataService {
   private due:string;
   private subUser:string;
   private availableBal:string;
+  private dropDown=[];
   accountList: any;
 
   constructor() { }
@@ -126,7 +127,7 @@ export class DataService {
     return this.due;
   }
   set dueDate(val:string){
-    this.due;
+    this.due=val;
   }
   get balance():string{
     return this.availableBal;
@@ -134,4 +135,11 @@ export class DataService {
   set balance(val:string){
     this.availableBal=val;
   }
+  get dropDownDetails():any[]{
+    return this.dropDown;
+  }
+  // set dropDownDetails(val:any[]){
+  //   this.dropDown=[...val];
+  //   console.log(this.dropDown)
+  // }
 }

@@ -20,7 +20,6 @@ export class MakeAPaymentComponent implements OnInit {
   accountDetails: DataService;
   acountType: IAccountType[];
   amount: string;
-  available: number;
   buttonType = ButtonType;
   dueDate: string;
   bill: IBillType;
@@ -31,7 +30,6 @@ export class MakeAPaymentComponent implements OnInit {
   literal: any = {};
   maxPickerDate: { year: number; month: number; day: number; };
   minPickerDate = { year: 0, month: 0, day: 0 };
-  mobile: string;
   paymentMode: string;
   paymentType = BillType;
   private _model: NgbDate;
@@ -42,6 +40,7 @@ export class MakeAPaymentComponent implements OnInit {
   userLogo: string = environment.imagePath;
   util: Utils;
   zelleImage: string = environment.imagePath;
+  dropDownDetails: any[];
   
   constructor(
     private _api: ApiService,
@@ -57,7 +56,8 @@ export class MakeAPaymentComponent implements OnInit {
   ngOnInit(): void {
     this.selectToday();
     this.accountDetails = this._data;
-    // this.number = this._data;
+    this.dropDownDetails=this._data.dropDownDetails;
+    console.log(this.dropDownDetails)
     this.amount = '$  ' + this._data.amount;
     this.dueDate=this._data.dueDate;
     const futureDate=(new Date().setDate(new Date().getDate() + 90));
@@ -75,7 +75,7 @@ export class MakeAPaymentComponent implements OnInit {
     };  
     this.userLogo += this._data.userLogo;
     this.zelleImage += this._data.zelleImage;  
-    this.subUserLogo+=this._data.subUserLogo;
+    this.subUserLogo +=this._data.subUserLogo;
   }
 
   private _paymentDetails(payMode):void {
@@ -129,6 +129,9 @@ export class MakeAPaymentComponent implements OnInit {
     return Utils.getMobile(this._data.mobile);
   }
 
+  public onDropDownClick():void{
+
+  }
   accountlist = '';
   accounts = [
     { accountType: 'Credit card(2.3% fee)', balance: '$365.27' },

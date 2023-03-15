@@ -24,7 +24,7 @@
             <h6 class="account-type"><b>{{accountDetails.recipient}}</b></h6>
             <h6 *ngIf="paymentMode==paymentType.BILLER" class="account-Number">
                 {{literal.account}}:{{accountDetails.accountNo}}</h6>
-            <h6 *ngIf="paymentMode!==paymentType.BILLER" class="account-Number">{{mobile}}</h6>
+            <h6 *ngIf="paymentMode!==paymentType.BILLER" class="account-Number">{{getMobile()}}</h6>
         </div>
     </div>
     <hr>
