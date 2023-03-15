@@ -14,6 +14,6 @@ export default class Utils {
     return mobile
       .toString()
       .replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
-  }
+    }
 }
 

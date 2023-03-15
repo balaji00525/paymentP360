@@ -16,6 +16,7 @@ export interface IBillType {
   dueDate?:string;
   zelleImage?:string;
   subUserLogo?:string;
+  dropDownDetails:any[],
   
 }
 export interface IAccountType {
