@@ -46,6 +46,7 @@ export class MakeAPaymentComponent implements OnInit {
   util: Utils;
   zelleImage: string = environment.imagePath;
   dropDownDetails: any[];
+  selectedData: any;
 
   constructor(
     private _api: ApiService,
@@ -77,6 +78,11 @@ export class MakeAPaymentComponent implements OnInit {
     this.userLogo += this._data.userLogo;
     this.zelleImage += this._data.zelleImage;
     this.subUserLogo += this._data.subUserLogo;
+    this.dropDownDetails.map((data) => {
+      if (data.selected === true) {
+        this.selectedData = data.paymentType + data.balance;
+      }
+    });
   }
 
   private _paymentDetails(payMode): void {
@@ -142,12 +148,12 @@ export class MakeAPaymentComponent implements OnInit {
 
   public onDropDownClick(item): void {
     item.selected = true;
-    this.dropDownDetails.map(data => {
-      if(data.paymentType !== item.paymentType) {
+    this.dropDownDetails.map((data) => {
+      if (data.paymentType !== item.paymentType) {
         data.selected = false;
       }
     });
-    // console.log(item);
+    this.selectedData = item.paymentType + item.balance;
   }
   accountlist = '';
   accounts = [
