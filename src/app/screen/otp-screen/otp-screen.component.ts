@@ -26,8 +26,10 @@ export class OtpScreenComponent implements OnInit {
     private _api: ApiService, 
     private _data: DataService,    
     private _router: Router) {
+
     this.paymentMode = this._data.user;
     this._paymentDetails(this.paymentMode);
+    
   }
 
   ngOnInit(): void {

@@ -1,6 +1,6 @@
 @import '../../../styles.scss';
 
-.image {
+.tick-image {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -19,20 +19,19 @@ h1 {
   margin-bottom: 8px;
 }
 
-.logo {
+.logo-container {
   display: flex;
-  width: 10%;
+  width: 10%;//check it
   align-items: center;
   justify-content: center;
   margin: 0px 8px;
 }
-.bank-logo{
+.bank-logo {
   width: 48px;
   height: 48px;
 }
-.user-logo{
-  width: 48px;
-  height: 48px;
+.user-logo {
+  @extend .bank-logo;
   padding-left: 8px;
 }
 .dollar {
