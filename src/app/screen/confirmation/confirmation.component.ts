@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 
 import { DatePipe } from '@angular/common';
 import { RoutingLinks } from '../../screen-name';
-// import Utils from 'src/assets/utilities/util';
+import Utils from 'src/assets/utilities/util';
 
 @Component({
   selector: 'app-confirmation',
@@ -34,7 +34,7 @@ export class ConfirmationComponent implements OnInit {
   route = RoutingLinks;
   tickImage: string = environment.imagePath;
   userLogo: string = environment.imagePath;
-  // util: Utils;
+  util: Utils;
   
   constructor(
     private _api: ApiService,
@@ -56,7 +56,7 @@ export class ConfirmationComponent implements OnInit {
     this.amount = '$  ' + this._data.amount;
     this.bankLogo += this._data.bankLogo;
     this.dueDate=this._data.dueDate;
-    this.mobile = this._data.mobile.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');///use util method
+    // this.mobile = this._data.mobile.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
     this.tickImage += this._data.tickImage;
     this.userLogo += this._data.userLogo;   
 
@@ -86,7 +86,7 @@ export class ConfirmationComponent implements OnInit {
   public onSubmit(routerLink): void {
     this._router.navigate([routerLink]);
   }
-  // public getMobile(): string {
-  //   return Utils.getMobile(this.mobile);
-  // }
+   public getMobile(): string {
+    return Utils.getMobile(this._data.mobile);
+  }
 }

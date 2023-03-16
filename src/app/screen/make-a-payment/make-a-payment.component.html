@@ -5,16 +5,18 @@
     <!--------Account Details--------->
     <div class="user-details">
         <img class="user-profile" src="{{userLogo}}">
-        <img *ngIf="paymentMode !=='biller'" class="user-subprofile" src="{{subUserLogo}}">
+        <img *ngIf="paymentMode !==paymentType.BILLER" class="user-subprofile" src="{{subUserLogo}}">
+
+
         <h6 class="text text-center">{{accountDetails.recipient}} {{accountDetails.accountNo}}</h6>
         <h5 class="text text-center">{{accountDetails.enrolledAs}}</h5>
-        <h6 class="user-number"> {{mobile}}</h6>
+        <h6 class="user-number"> {{getMobile()}}</h6>
     </div>
     <hr class="mb-1" />
 
     <!------------Zelle--------------->
     <div class="user-profile">
-        <img *ngIf="paymentMode!==paymentType.BILLER" class="zelle-profile" src="{{zelleImage}}"  alt="image not available" >
+        <img *ngIf="paymentMode!==paymentType.BILLER" class="zelle-profile" src="{{zelleImage}}" alt="">
     </div>
 
     <!------------Input-1--------------->
@@ -23,12 +25,11 @@
 
         <!------------Amount--------------->
         <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
-            <label for="amount" class="label form-label">{{literal.amount}}</label>      
-                <div class="input-group mb-1">
-            
-                    <input  type="text" class="form-control" id="amount" placeholder="{{literal.placeholder}}" autocomplete="off" value="{{amount}}" [readonly]="paymentMode !== paymentType.REQUESTOR">
-                    
-                </div>
+            <label for="amount" class="label form-label">{{literal.amount}}</label>
+            <div class="input-group mb-1">
+                <input type="text" class="form-control" id="amount" placeholder="{{literal.placeholder}}"
+                    autocomplete="off" value="{{amount}}" [readonly]="paymentMode !== paymentType.REQUESTOR">
+            </div>
         </div>
         <!------------Dropdown--------------->
         <div class="form mb-3 col-sm-5 col-md-5 col-lg-5">
@@ -36,7 +37,7 @@
             <div class="col-auto ">
                 <div class="input-group mb-1">
                     <input type="text" class="form-control" id="amount" (click)="isOpen = !isOpen"
-                        value={{literal.choose}} cdkOverlayOrigin #trigger="cdkOverlayOrigin" />
+                        value={{selectedData}} cdkOverlayOrigin #trigger="cdkOverlayOrigin" /><span class="arrow-down"> </span>
                 </div>
             </div>
         </div>
@@ -47,33 +48,23 @@
                 <button class="cross-button" (click)="isOpen = false">&#10005;</button>
             </div>
             <ul class="list">
-                <li>
+                <li (click)="onDropDownClick(item)" *ngFor="let item of dropDownDetails"
+                    [ngClass]="item.selected  ? 'selected-list' : ''">
                     <div class="list-container margin-bottom ">
-                        <div><a class="link" href="#"> <small>{{literal.faster}}</small></a></div>
-                        <div><small>{{literal.arrivesIn}}</small></div>
+                        <div>
+                            <div><a class="link" href="#"> <small>{{item.faster}}</small></a></div>
+                            <div *ngIf="item.selected"><small>{{literal.selected}}</small></div>
+                        </div>
+                        <div><small>{{item.arrives}}</small></div>
                     </div>
                     <div class="list-container">
                         <div>
-                            <div>{{accountDetails.paymentType}} {{accountDetails.fee}}</div>
-                            <small>{{accountDetails.paymentType}} {{accountDetails.cardNo}}</small>
+                            <div>{{item.paymentType}} {{item.fee}}</div>
+                            <small>{{item.paymentType}} {{item.cardNo}}</small>
                         </div>
-                        <div>{{accountDetails.balance}}</div>
+                        <div>{{item.balance}}</div>
                     </div>
                 </li>
-                <li>
-                    <div class="list-container margin-bottom">
-                        <div><small>{{literal.selected}}</small></div>
-                        <div><small>{{literal.arrivesMinutes}}</small></div>
-                    </div>
-                    <div class="list-container">
-                        <div>
-                            <div>{{accountDetails.paymentType}} {{accountDetails.fee}}</div>
-                            <small>{{accountDetails.paymentType}} {{accountDetails.cardNo}}</small>
-                        </div>
-                        <div>{{accountDetails.balance}}</div>
-                    </div>
-                </li>
-
             </ul>
 
         </ng-template>
@@ -89,7 +80,8 @@
                     <div class="form-control" id="dateTimePicker" contenteditable="false" cdkOverlayOrigin
                         #dateTime="cdkOverlayOrigin">{{selectedDay}}, {{selectedMonth}} {{model.day }}, {{ model.year }}
                         <button id="calenderButton" (click)="isOpenDateTime = !isOpenDateTime"
-                            class="calender-icon-button" title="calender"><i class="fa-regular fa-calendar"></i></button>
+                            class="calender-icon-button" title="calender"><i
+                                class="fa-regular fa-calendar"></i></button>
                     </div>
                 </div>
             </div>
@@ -131,19 +123,23 @@
                 </div>
                 <div class="modal-body">
                     <p>{{literal.modalRecipient}} <span class="modal-mobile">{{accountDetails.recipient}}</span></p>
-                    <p *ngIf="paymentMode!== paymentType.BILLER"><span class="modal-mobile"> {{mobile}}</span>&nbsp;{{literal.enrolledAs}}</p>
+                    <p *ngIf="paymentMode!== paymentType.BILLER"><span
+                            class="modal-mobile">{{getMobile()}}</span>&nbsp;{{literal.enrolledAs}}</p>
                     <p>{{literal.continue}}</p>
                 </div>
                 <div class="modal-footer">
-                    <p360-button  class="button" [data]="literal.btnCancel"[type]="buttonType.CANCEL" (click)="closePopup()"></p360-button>
-                    <p360-button  class="button"  [data]="literal.btnContinue" [type]="buttonType.SUBMIT" (click)="onSubmit(route.OTPSCREEN)"></p360-button>
+                    <p360-button class="button" [data]="literal.btnCancel" [type]="buttonType.CANCEL"
+                        (click)="closePopup()"></p360-button>
+                    <p360-button class="button" [data]="literal.btnContinue" [type]="buttonType.SUBMIT"
+                        (click)="onSubmit(route.OTPSCREEN)"></p360-button>
                 </div>
             </div>
         </div>
     </div>
     <!------------Back Button--------------->
     <div class="text text-center">
-        <p360-button [type]="buttonType.CANCEL" (click)="onSubmit(route.AMOUNTTOPAY)" [data]="literal.backButton"></p360-button>
+        <p360-button [type]="buttonType.CANCEL" (click)="onSubmit(route.AMOUNTTOPAY)" [data]="literal.backButton">
+        </p360-button>
     </div>
 
 </div>

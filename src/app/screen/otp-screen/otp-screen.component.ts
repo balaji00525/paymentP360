@@ -6,6 +6,7 @@ import { BillType,ButtonType } from '../../common/constant/constant';
 import { DataService } from '../../service/data.service';
 
 import { RoutingLinks } from '../../screen-name';
+import Utils from 'src/assets/utilities/util';
 
 @Component({
   selector: 'app-otp-screen',
@@ -22,8 +23,8 @@ export class OtpScreenComponent implements OnInit {
   route = RoutingLinks;
   
   constructor(
-    private _api: ApiService,  
-    private _data: DataService,
+    private _api: ApiService, 
+    private _data: DataService,    
     private _router: Router) {
 
     this.paymentMode = this._data.user;
@@ -32,7 +33,7 @@ export class OtpScreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.mobile = this._data.mobile.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');///use util method
+    // this.mobile = this._data.mobile.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
   }
 
   private _paymentDetails(payMode): void {
@@ -53,7 +54,9 @@ export class OtpScreenComponent implements OnInit {
       }
     }
   }
-
+  public getMobile(): string {
+    return Utils.getMobile(this._data.mobile);
+  }
   public onSubmit(routerLink): void {
     this._router.navigate([routerLink]);
   }

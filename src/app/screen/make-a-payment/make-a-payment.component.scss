@@ -138,9 +138,10 @@ input[type=date] {
   li {
     border-bottom: 2px solid;
     padding: 8px;
+    cursor: pointer;
   }
 
-  li:last-child { border-bottom: none; }
+  li:last-child { border-bottom: none; margin-top: 2px;  }
   list-style-type:none;
   width: 100%;
     padding: 8px;   
@@ -151,7 +152,7 @@ input[type=date] {
 
 
 .user-profile {
-  @include important-style;
+  @include important-style;//change class in styles.scss
   width: 64px;
   height: 64px;
   border-radius: 48px;
@@ -178,5 +179,19 @@ input[type=date] {
   justify-content: center;
 }
 .zelle-profile{
-  width: 70px;
+  width: 72px;
+}
+.selected-list {
+  @include dropdown;
+}
+.arrow-down {
+  height: 0px;
+  width: 0px;
+  border: none;
+  border-top: 5px solid #000000;
+  border-left: 5px solid rgba(0,0,0,0);
+  border-right: 5px solid rgba(0,0,0,0);
+  position: relative;
+  left: -18px;
+  top: 15px;
 }
