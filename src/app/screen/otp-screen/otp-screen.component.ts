@@ -22,15 +22,17 @@ export class OtpScreenComponent implements OnInit {
   route = RoutingLinks;
   
   constructor(
-    private _data: DataService,
     private _api: ApiService,  
+    private _data: DataService,
     private _router: Router) {
+
     this.paymentMode = this._data.user;
     this._paymentDetails(this.paymentMode);
+    
   }
 
   ngOnInit(): void {
-    this.mobile = this._data.mobile.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+    this.mobile = this._data.mobile.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');///use util method
   }
 
   private _paymentDetails(payMode): void {

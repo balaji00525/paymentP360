@@ -57,7 +57,6 @@ export class MakeAPaymentComponent implements OnInit {
   ngOnInit(): void {
     this.selectToday();
     this.accountDetails = this._data;
-    // this.number = this._data;
     this.amount = '$  ' + this._data.amount;
     this.dueDate=this._data.dueDate;
     const futureDate=(new Date().setDate(new Date().getDate() + 90));
