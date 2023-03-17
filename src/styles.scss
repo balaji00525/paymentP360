@@ -49,13 +49,13 @@ body {
     color: #29479e;
  }
  @mixin syntax-color{
-    background-color: white;
+    background-color: #eef1f3;;
  }
  @mixin  text-decoration{
     color: black;
  }
  @mixin  margin-bottom{
-    color: #29479e;
+    color: #8b9bc9;
  }
  @mixin otp-input{
     background-color: #d1dee6;
@@ -68,5 +68,6 @@ body {
     color: #899cc9;
  }
  @mixin dropdown {
-   background-color: #92a3d3;
+   background-color: #29479e;
+   color: white;
  }
