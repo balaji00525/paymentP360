@@ -2,6 +2,7 @@
 
 <div class="container">
     <img class="tick-image" src="{{tickImage}}" alt="">
+    <img *ngIf="paymentMode !==paymentType.BILLER" class="user-subprofile" src="{{subUserLogo}}">
     <h1 class="text text-center ">{{literal.paymentSent}}</h1>
     <h1 class="dollar">{{amount}}</h1>
 
@@ -22,12 +23,10 @@
         </div>
         <div class="account-details">
             <h6 class="account-type"><b>{{accountDetails.recipient}}</b></h6>
-<<<<<<< HEAD
             <h6 class="account-Number">
                 <span *ngIf="paymentMode==paymentType.BILLER">{{literal.account}}:{{accountDetails.accountNo}}</span>
                 <span *ngIf="paymentMode!==paymentType.BILLER">{{mobile}}</span>
             </h6>
-=======
            
         </div>
     </div>

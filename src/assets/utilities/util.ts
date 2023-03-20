@@ -11,7 +11,6 @@ export default class Utils {
     return date;
   }
   static getMobile(mobile: number): string {
-    //move this to util
     return mobile?.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
   }
 }
