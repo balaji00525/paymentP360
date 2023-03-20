@@ -16,6 +16,7 @@
 
 <div class="navbar" *ngIf="literal">
     <div class="user-details">
+        <img *ngIf="paymentMode !==paymentType.BILLER" class="user-subprofile" src="{{subUserLogo}}">
         <img class="user-profile" [src]="getImage()" alt="">
         <h4>{{bill?.recipient}} {{bill?.accountNo}}</h4>
         <h5 class="text text-center">{{bill?.enrolledAs}}</h5>

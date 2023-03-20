@@ -32,9 +32,12 @@ export class ConfirmationComponent implements OnInit {
   paymentMode: string;
   paymentType = BillType;
   route = RoutingLinks;
+  subUserLogo: string = environment.imagePath;
   tickImage: string = environment.imagePath;
   userLogo: string = environment.imagePath;
   util: Utils;
+  // dropDownDetails: any;
+  item: any;
   
   constructor(
     private _api: ApiService,
@@ -43,10 +46,10 @@ export class ConfirmationComponent implements OnInit {
     private _router: Router,  
     ) {
 
-    this.myDate = this._datepipe.transform(this.myDate, 'EEEE, MMM d, y');//we have to use util method
+    this.myDate = this._datepipe.transform(this.myDate, 'EEEE, MMM d, y');// use util method
     this.paymentMode = this._data.user;
     this._paymentDetails(this.paymentMode);
-    // this.util = Utils;
+    this.subUserLogo += this._data.subUserLogo;
 
   }
 
@@ -56,9 +59,9 @@ export class ConfirmationComponent implements OnInit {
     this.amount = '$  ' + this._data.amount;
     this.bankLogo += this._data.bankLogo;
     this.dueDate=this._data.dueDate;
-    // this.mobile = this._data.mobile.toString().replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
     this.tickImage += this._data.tickImage;
     this.userLogo += this._data.userLogo;   
+    this.subUserLogo += this.subUserLogo;
 
   }
 

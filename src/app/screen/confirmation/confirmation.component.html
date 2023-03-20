@@ -2,6 +2,7 @@
 
 <div class="container">
     <img class="tick-image" src="{{tickImage}}" alt="">
+    <img *ngIf="paymentMode !==paymentType.BILLER" class="user-subprofile" src="{{subUserLogo}}">
     <h1 class="text text-center ">{{literal.paymentSent}}</h1>
     <h1 class="dollar">{{amount}}</h1>
 

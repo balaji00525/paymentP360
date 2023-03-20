@@ -31,6 +31,7 @@ export class AmountToPayComponent {
   paymentMode: string;
   paymentType = BillType;
   route = RoutingLinks;
+  subUserLogo: string = environment.imagePath;
   util: Utils;
 
   constructor(
@@ -41,6 +42,7 @@ export class AmountToPayComponent {
   ) {
     this.paymentMode = this._data.user;
     this._paymentDetails(this.paymentMode);
+    this.subUserLogo += this._data.subUserLogo;
     this.util = Utils;
   }
 
@@ -89,20 +91,20 @@ export class AmountToPayComponent {
     this._data.accountList = this.bill.accountList;
     this._data.amount = this.bill.amount;
     this._data.bankLogo = this.bill.bankLogo;
+    this._data.balance = this.bill.balance;
     this._data.cardNo = this.bill.cardNo;
     this._data.confirmation = this.bill.confirmation;
+    this._data.dropDownDetails = this.bill.dropDownDetails;
     this._data.dueDate = this.bill.dueDate;
     this._data.enrolledAs = this.bill.enrolledAs;
     this._data.fee = this.bill.fee;
     this._data.mobile = this.bill.mobile;
     this._data.paymentType = this.bill.paymentType;
     this._data.recipient = this.bill.recipient;
+    this._data.subUserLogo = this.bill.subUserLogo;
     this._data.tickImage = this.bill.tickImage;
     this._data.userLogo = this.bill.userLogo;
     this._data.zelleImage = this.bill.zelleImage;
-    this._data.subUserLogo = this.bill.subUserLogo;
-    this._data.balance = this.bill.balance;
-    this._data.dropDownDetails = this.bill.dropDownDetails;
     this._router.navigate([routeLink]);
   }
 
