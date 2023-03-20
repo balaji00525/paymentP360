@@ -155,9 +155,4 @@ export class MakeAPaymentComponent implements OnInit {
     });
     this.selectedData = item.paymentType + item.balance;
   }
-  accountlist = '';
-  accounts = [
-    { accountType: 'Credit card(2.3% fee)', balance: '$365.27' },
-    { accountType: 'main checking(*4738)', balance: '$5,164.98' },
-  ];
 }
